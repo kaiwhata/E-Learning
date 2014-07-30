@@ -15,11 +15,9 @@ if(!pg_num_rows($result)) {
 } else {
 	while($row = pg_fetch_row($result)){
 		print("- $row[0]\t");
-		print("$row[1]\t");
-		print("$row[2]\t");
-		print("$row[3]\t");	
+		print("$row[1]\n");
 	}
 }
-print("\n"));
+print("\n");
 
 ?>

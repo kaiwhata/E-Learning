@@ -17,9 +17,9 @@ if(!pg_num_rows($result)) {
 		print("- $row[0]\t");
 		print("$row[1]\t");
 		print("$row[2]\t");
-		print("$row[3]\t");	
+		print("$row[3]\t");
 	}
 }
-print("\n"));
+print("\n");
 
 ?>
