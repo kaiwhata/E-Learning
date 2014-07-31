@@ -1,5 +1,4 @@
-<?php
-header('Access-Control-Allow-Origin: *');
+<?php header('Access-Control-Allow-Origin: *');
 
 
 
@@ -12,7 +11,8 @@ function func2(){
 }
 
 function checkPassWord($username,$password){
-	return $username==$password;
+	//return $username==$password;
+	return "chekcLogin";
 }
 	
 }
