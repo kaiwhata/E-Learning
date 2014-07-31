@@ -57,9 +57,10 @@ if(isset($_POST['funcName'])){
 			break;
 			
 		case 'tryLogin':
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			echo checkPassWord($username,$password);
+			echo "checkPassword";			
+			//$username = $_POST['username'];
+			//$password = $_POST['password'];
+			//echo checkPassWord($username,$password);
 			break;
 	}		
 }
