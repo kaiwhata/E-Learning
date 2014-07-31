@@ -1,14 +1,14 @@
 <?php
 header('Access-Control-Allow-Origin: *');
-//echo "Hello People!";
+echo "Hello People!";
 
-post('/toggle', function()
-{
-	$word = from($_POST, 'word');
+//post('/toggle', function()
+//{
+	//$word = from($_POST, 'word');
 	//$success = toggleTodo($id);
 
-	echo json(compact('success'));
-});
+	//echo json(compact('success'));
+//});
 
 
 //$conn_string = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
