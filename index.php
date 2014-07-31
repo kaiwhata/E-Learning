@@ -18,8 +18,6 @@ function checkPassWord($username,$password){
 }
 
 if(isset($_POST['funcName'])){
-	echo {{"hey":"ho"}};
-	return;
 	$fn = $_POST['funcName'];
 	switch($fn){
 		case 'func1':
@@ -37,6 +35,7 @@ if(isset($_POST['funcName'])){
 			break;
 	}		
 }
+echo "hey hey hey";
 //echo "Hello People!";
 
 //post('/toggle', function()

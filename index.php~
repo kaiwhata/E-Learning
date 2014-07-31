@@ -37,6 +37,7 @@ if(isset($_POST['funcName'])){
 			break;
 	}		
 }
+echo "hey hey hey";
 //echo "Hello People!";
 
 //post('/toggle', function()
