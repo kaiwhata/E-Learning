@@ -5,6 +5,7 @@
 echo "hello world";
 
 function func1(){
+	//comment
 	return "this is function1";
 }
 
