@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div id="outputDiv">
+</div>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script>
+
+	$.ajax({
+		url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
+		type: 'post',
+		data: {"funcName":"checkPassword","username":"dave","password":"dave"},
+		success: function(response){
+			alert(response);
+			$("#outputDiv").text(response);
+		}
+
+	});
+	</script>
+
+	
+	<form id="form1" name="form1" method="post" action="register()">
+    <table width="510" border="0" align="center">
+    <tr>
+    <td colspan="2">Login Form</td>
+    </tr>
+    <tr>
+    <td>Username:</td>
+    <td><input type="text" name="username" id="username" /></td>
+    </tr>
+    <tr>
+    <td>Password</td>
+    <td><input type="password" name="password" id="password" /></td>
+    </tr>
+    <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+    </table>
+    </form>
+      
+</body>
+</html>
