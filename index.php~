@@ -12,7 +12,7 @@ function func2(){
 	return "this is function2";
 }
 
-function checkPassWord($username,$password){
+function checkPassword($username,$password){
 	return $username==$password;
 	return "chekcLogin";
 }
@@ -24,6 +24,9 @@ if(isset($_POST['funcName'])){
 			break;	
 		case 'func2':
 			echo(func2());
+			break;
+		case 'checkPassword':
+			echo(checkPassword($_POST['username'],$_POST['password']));
 			break;
 	}
   echo $_POST['funcName'];
