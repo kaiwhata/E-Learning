@@ -25,8 +25,8 @@ echo "hello world";
 			//echo checkPassWord($username,$password);
 			//break;
 			
-}
-}
+//}
+//}
 ?>
 </body>
 </html>
