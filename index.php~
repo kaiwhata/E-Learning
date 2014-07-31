@@ -1,7 +1,6 @@
 <?php header('Access-Control-Allow-Origin: *');
 
 function func1(){
-	//comment
 	return "this is function1";
 }
 
@@ -15,7 +14,7 @@ function checkPassword($username,$password){
 	$result = pg_query($dbconnection,"SELECT * FROM users");
 	return $result;
 	
-//	return $username==$password;
+
 }
 	
 if(isset($_POST['funcName'])){
