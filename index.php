@@ -8,7 +8,7 @@ function func1(){
 }
 
 function func2(){
-	return "this is function1";
+	return "this is function2";
 }
 
 if(isset($_POST['funcName'])){
