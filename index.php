@@ -1,5 +1,4 @@
 <?php header('Access-Control-Allow-Origin: *');
-echo "hello world";
 
 function func1(){
 	return "this is function1";
@@ -10,8 +9,12 @@ function func2(){
 }
 
 function checkPassword($username,$password){
-	return $username==$password;
-	return "chekcLogin";
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$dbconnection = pg_connect($connectionString);
+	$result = pg_query($dbconnection,"SELECT * FROM users");
+	return $result;
+	
+
 }
 	
 if(isset($_POST['funcName'])){
@@ -26,6 +29,5 @@ if(isset($_POST['funcName'])){
 			echo(checkPassword($_POST['username'],$_POST['password']));
 			break;
 	}
-  echo $_POST['funcName'];
 }
 ?>
