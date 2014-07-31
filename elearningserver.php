@@ -14,7 +14,8 @@ function checkPassword($username,$password){
 	$result = pg_query($dbconnection,"SELECT password FROM users WHERE username='".$username."'");
 	$row = pg_fetch_row($result);
 	$realPassword = $row[0];
-	return $realPassword==$password;
+	return ($realPassword==$password) ? 'true' : 'false';
+ 
 	return $row[0];
 	
 
