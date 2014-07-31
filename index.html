@@ -11,9 +11,9 @@
 	<script>
 
 	$.ajax({
-		url:'http://shrouded-earth-7234.herokuapp.com',
+		url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
 		type: 'post',
-		data: {"funcName":"checkPassword","username":"dave","password":"dave"},
+		data: {"funcName":"checkPassword","username":"eman123","password":"dave"},
 		success: function(response){
 			alert(response);
 			$("#outputDiv").text(response);
