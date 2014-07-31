@@ -1,5 +1,19 @@
 <?php
 header('Access-Control-Allow-Origin: *');
+
+
+
+function func1($data){
+	return "this is function1";
+}
+
+function func2($data){
+	return "this is function1";
+}
+
+if(isset($_POST['callFunc1'])){
+	echo func1($_POST['callFunc1']);
+}
 //echo "Hello People!";
 
 //post('/toggle', function()
@@ -21,21 +35,21 @@ header('Access-Control-Allow-Origin: *');
 //THIS IS THE GOOD STUFF
 //THIS IS THE GOOD STUFF
 
-$conn_string = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+//$conn_string = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 
-$dbconn4 = pg_connect($conn_string);
+//$dbconn4 = pg_connect($conn_string);
 
-$result = pg_query("SELECT * FROM users");
+//$result = pg_query("SELECT * FROM users");
 
-print "<pre>\n";
-if(!pg_num_rows($result)) {
-	print("connect good, db empty");
-} else {
-	while($row = pg_fetch_row($result)){
-	print("- $row[0]\t");
-	print("$row[1]\n");
-	}
-}
+//print "<pre>\n";
+//if(!pg_num_rows($result)) {
+	//print("connect good, db empty");
+//} else {
+	//while($row = pg_fetch_row($result)){
+	//print("- $row[0]\t");
+	//print("$row[1]\n");
+	//}
+//}
 
 
 
