@@ -1,3 +1,6 @@
+<html>
+<head><title>I am afish</title></head>
+<body>
 <?php 
 echo "hello world";
 
@@ -25,3 +28,5 @@ echo "hello world";
 }
 }
 ?>
+</body>
+</html>
