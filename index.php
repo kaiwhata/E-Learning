@@ -1,7 +1,7 @@
 <html>
 <head><title>I am afish</title></head>
 <body>
-<?php 
+<?php header('Access-Control-Allow-Origin: *');
 echo "hello world";
 
 function func1(){
