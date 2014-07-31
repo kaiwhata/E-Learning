@@ -1,6 +1,6 @@
 <?php header('Access-Control-Allow-Origin: *');
 
-
+echo "grrr";
 
 function func1(){
 	return "this is function1";
