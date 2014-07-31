@@ -13,6 +13,7 @@ function checkPassword($username,$password){
 	$dbconnection = pg_connect($connectionString);
 	$result = pg_query($dbconnection,"SELECT password FROM users");
 	$row = pg_fetch_row($result);
+	return "farts";
 	return $result[0];
 	
 
