@@ -1,6 +1,3 @@
-<html>
-<head><title>I am afish</title></head>
-<body>
 <?php header('Access-Control-Allow-Origin: *');
 echo "hello world";
 
@@ -32,5 +29,3 @@ if(isset($_POST['funcName'])){
   echo $_POST['funcName'];
 }
 ?>
-</body>
-</html>
