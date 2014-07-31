@@ -9,27 +9,11 @@
 </div>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script>
-	//	alert("hey");
-	//	jQuery.ajax({
-	//		type : "POST",
-	//		url : 'http://shrouded-earth-7234.herokuapp.com',
-	//		dataType : 'json',
-	//		data : {
-	//			word : 'this is a word'
-	//		},
-	//		success : function(response) {
-	//			if (response.success) {
-	//				alert("hi");
-	//			}else{
-	//				alert(":(")
-	//			}
-	//		}
-	//	});
-	//header('Access-Control-Allow-Origin: *');
+
 	$.ajax({
 		url:'http://shrouded-earth-7234.herokuapp.com',
 		type: 'post',
-		data: {"funcName":"func1"},
+		data: {"funcName":"checkPassword","username":"dave","password":"dave"},
 		success: function(response){
 			alert(response);
 			$("#outputDiv").text(response);
