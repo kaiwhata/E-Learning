@@ -1,13 +1,13 @@
-<?php header('Access-Control-Allow-Origin: *'); 
+<?php 
 echo "hello world";
 
-function func1(){
-	return "this is function1";
-}
+//function func1(){
+//	return "this is function1";
+//}
 
-function func2(){
-	return "this is function2";
-}
+//function func2(){
+//	return "this is function2";
+//}
 
 //function checkPassWord($username,$password){
 	//return $username==$password;
