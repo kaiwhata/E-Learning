@@ -55,13 +55,19 @@
 		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
 		success: function(response){
 			alert(response);
-			$("#outputDiv").text(response);
+
+			if(response=="true"){
+			//remember my deets
+				sessionStorage.setItem('username',login.username.value);
+				sessionStorage.setItem('password',login.password.value);
+			}
+			console.log(response);
+			console.log("username from session"+sessionStorage.getItem('username'));
+			console.log("password from session"+sessionStorage.getItem('password'));
+
 		}
 
 	});
-    	console.log("username: "+ login.username.value);
-    	console.log("password : "+ login.password.value);
-		    alert("Successful");
     }
 </script>
 </form>
