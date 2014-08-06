@@ -78,7 +78,7 @@
 	$.ajax({
 		url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
 		type: 'post',
-		data{"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
+		data: {"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
 		success: function(response){
 
 			if(response=="true"){
