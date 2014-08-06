@@ -73,8 +73,8 @@
 
 	});
 
-	document.getElementById("submitAdmin").onclick = confirm;
-	    function confirm() {
+	document.getElementById("submitAdmin").onclick = confirmAdmin;
+	    function confirmAdmin() {
 	$.ajax({
 		url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
 		type: 'post',
