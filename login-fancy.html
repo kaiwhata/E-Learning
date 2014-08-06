@@ -49,6 +49,16 @@
 	<script type="text/javascript">
     document.getElementById("submit").onclick = confirm;
     function confirm() {
+	$.ajax({
+		url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
+		type: 'post',
+		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
+		success: function(response){
+			alert(response);
+			$("#outputDiv").text(response);
+		}
+
+	});
     	console.log("username: "+ login.username.value);
     	console.log("password : "+ login.password.value);
 		    alert("Successful");
