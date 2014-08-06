@@ -44,8 +44,9 @@
 	<input type="password" name="password" ng-model="password" required
 	ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
 
-
-	<input type="button" id="submit" value="Submit">
+	<br>
+	<input type="button" id="submit" value="login">
+	<input type = "button' id="submitAdmin" value = "login admin">
 	<script type="text/javascript">
     document.getElementById("submit").onclick = confirm;
     function confirm() {
@@ -60,6 +61,32 @@
 				sessionStorage.setItem('username',login.username.value);
 				sessionStorage.setItem('password',login.password.value);
  				window.location = "http://shrouded-earth-7234.herokuapp.com/loggedInPage.html"; 
+			}
+			else{
+			alert("Incorrect username or password");
+			}
+			console.log(response);
+			console.log("username from session"+sessionStorage.getItem('username'));
+			console.log("password from session"+sessionStorage.getItem('password'));
+
+		}
+
+	});
+
+	document.getElementById("submitAdmin").onclick = confirm;
+	    function confirm() {
+	$.ajax({
+		url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
+		type: 'post',
+		data{"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
+		success: function(response){
+
+			if(response=="true"){
+			//remember my deets
+				alert("welcome alf!");
+				sessionStorage.setItem('username',login.username.value);
+				sessionStorage.setItem('password',login.password.value);
+ 				window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html"; 
 			}
 			else{
 			alert("Incorrect username or password");
