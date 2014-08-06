@@ -11,9 +11,14 @@
   </head>
   <body>
 	Hi, thanks for logging in
-	<script>
-		console.log("username from session"+sessionStorage.getItem('username'));
-		console.log("password from session"+sessionStorage.getItem('password'));
-	</script>
+	<input type="button" id="logout" value="logout">
+	<script type="text/javascript">
+    document.getElementById("logout").onclick = logout;
+    function logout() {
+	sessionStorage.removeItem("username");
+	sessionStorage.removeItem("password");
+	window.location = "http://shrouded-earth-7234.herokuapp.com/fancy-login.html"; 
+    }
+</script>
 </body>
 </html>
