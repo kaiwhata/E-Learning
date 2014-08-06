@@ -72,33 +72,35 @@
 		}
 
 	});
+    }
+
 
 	document.getElementById("submitAdmin").onclick = confirmAdmin;
 	    function confirmAdmin() {
-	$.ajax({
-		url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
-		type: 'post',
-		data: {"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
-		success: function(response){
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
+			type: 'post',
+			data: {"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
+			success: function(response){
 
-			if(response=="true"){
-			//remember my deets
-				alert("welcome alf!");
-				sessionStorage.setItem('username',login.username.value);
-				sessionStorage.setItem('password',login.password.value);
- 				window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html"; 
+				if(response=="true"){
+				//remember my deets
+					alert("welcome alf!");
+					sessionStorage.setItem('username',login.username.value);
+					sessionStorage.setItem('password',login.password.value);
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html"; 
+				}
+				else{
+				alert("Incorrect username or password");
+				}
+				console.log(response);
+				console.log("username from session"+sessionStorage.getItem('username'));
+				console.log("password from session"+sessionStorage.getItem('password'));
+	
 			}
-			else{
-			alert("Incorrect username or password");
-			}
-			console.log(response);
-			console.log("username from session"+sessionStorage.getItem('username'));
-			console.log("password from session"+sessionStorage.getItem('password'));
-
-		}
-
-	});
-    }
+	
+		});
+	}
 </script>
 </form>
 </html>
