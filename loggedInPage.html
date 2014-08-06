@@ -10,6 +10,15 @@
 	<script type="text/javascript" src="js/services.js"></script>
   </head>
   <body>
+	<script>
+	function load(){
+		if(sessionStorage.getItem('username')==null){
+		alert("You're not logged in, redirecting to home");
+		window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
+		}
+	}
+	</script>
+
 	Hi, thanks for logging in
 	<input type="button" id="logout" value="logout">
 	<script type="text/javascript">
@@ -19,6 +28,7 @@
 	sessionStorage.removeItem("password");
 	window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
     }
+
 </script>
 </body>
 </html>

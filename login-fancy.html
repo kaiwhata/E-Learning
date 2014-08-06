@@ -54,13 +54,15 @@
 		type: 'post',
 		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
 		success: function(response){
-			alert(response);
 
 			if(response=="true"){
 			//remember my deets
 				sessionStorage.setItem('username',login.username.value);
 				sessionStorage.setItem('password',login.password.value);
  				window.location = "http://shrouded-earth-7234.herokuapp.com/loggedInPage.html"; 
+			}
+			else{
+			alert("Incorrect username or password");
 			}
 			console.log(response);
 			console.log("username from session"+sessionStorage.getItem('username'));
