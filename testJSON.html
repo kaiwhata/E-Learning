@@ -83,11 +83,8 @@
 			success: function(response){
 				console.log("aaa");
 				console.log(response);
-				array = response;
-				jobject = JSON.parse(response);
-				q1 = JSON.parse(jobject[0]);
-				q2 = JSON.parse(jobject[1]);
-				console.log(jobject);
+				jobject = JSON.parse(JSON.parse(array)[0])
+
 			}
 	
 		});
