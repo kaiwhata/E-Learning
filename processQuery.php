@@ -19,7 +19,7 @@ function getAllQuestions(){
 	$dbconnection = pg_connect($connectionString);
 	$result = pg_query($dbconnection,"SELECT * FROM question");
 	$row = pg_fetch_row($result);
-	return json_encode(array_values(pg_fetch_row($result)));
+	return json_encode(array_values($row));
 }
 	
 if(isset($_POST['funcName'])){
