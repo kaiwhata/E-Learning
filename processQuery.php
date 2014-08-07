@@ -22,7 +22,7 @@ function getAllQuestions(){
 from(select * from question INNER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
 	$str = "{";
-	for($i = 0:$i<2;$i++){
+	for($i = 0;$i<2;$i++){
 		$str.pg_fetch_row($result).",";
 	}
 
