@@ -22,8 +22,8 @@ function getAllQuestions(){
 from(select * from question INNER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
 
-	$row = pg_fetch_row($result);
-	return json_encode(array_values($result));
+//	$row = pg_fetch_row($result);
+	return json_encode(pg_fetch_all($result));
 }
 
 function getAllQuestionsWithoutOptions(){

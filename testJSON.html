@@ -81,6 +81,7 @@
 			type: 'post',
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
+				array = response;
 				console.log("aaa");
 				console.log(response);
 				jobject = JSON.parse(JSON.parse(array)[0])
