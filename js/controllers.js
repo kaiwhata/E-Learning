@@ -38,8 +38,10 @@ questionList.controller('questionCtrl', function questionCtrl($scope) {
 	 * Check all the answers of questions and alert the user if right or wrong
 	 */
 	$scope.checkAnswers = function() {
+	  int score =0;
+	  int total = 0;
 		for (var i = 0; i < $scope.questions.length; i++) {
-
+			total++;
 			var q = $scope.questions[i];
 
 
@@ -54,15 +56,17 @@ questionList.controller('questionCtrl', function questionCtrl($scope) {
 						break;
 					}
 				}
-				q.checkAnswer(chosenIndex);
+				if(q.checkAnswer(chosenIndex))score++;
 			}
 
 			else if (q instanceof TextEntryQuestion || q instanceof NumberEntryToleranceQuestion || q instanceof NumberEntryQuestion) {
 				var answer = document.getElementById("a"+i).value;
 				console.log(answer);
-				q.checkAnswer(answer);
+				if(q.checkAnswer(answer))score++;
 			}
-
+	      
 		}
+		var per = score/total;
+		console.log("MYSCORE: "+per);
 	}
 });
