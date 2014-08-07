@@ -81,11 +81,11 @@
 			type: 'post',
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
-				//console.log(response);
+				console.log(response);
 				jobject = JSON.parse(response);
 				q1 = JSON.parse(jobject[0]);
-				//console.log(jobject);
-				alert(q1);
+				console.log(jobject);
+				//alert(q1);
 			}
 	
 		});
