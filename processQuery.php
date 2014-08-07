@@ -33,8 +33,8 @@ from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswer
 
 //	return $str;
 	//$row = pg_fetch_row($result);
-	return (pg_fetch_all($result));
-	//return json_encode(pg_fetch_all($result));
+//	return (pg_fetch_all($result));
+	return json_encode(pg_fetch_all($result));
 }
 
 function getAllQuestionsWithoutOptions(){
