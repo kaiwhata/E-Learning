@@ -85,7 +85,7 @@
 				
 				questionArray =[];
 				for(var i=0;i<JSON.parse(array).length;i++){
-					var question = JSON.parse(JSON.parse(array)[0]["row_to_json"]);
+					var question = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
 					console.log(question);
 					questionArray.push(question);
 				}
