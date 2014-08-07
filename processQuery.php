@@ -21,9 +21,16 @@ function getAllQuestions(){
 	$result = pg_query($dbconnection,"select row_to_json(row)
 from(select * from question INNER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
+	$str = "{";
+	for(int i = 0){
+		$str.pg_fetch_row($result).",";
+	}
 
-//	$row = pg_fetch_row($result);
-	return (pg_fetch_all($result));
+	$str."}";
+
+	return $str;
+	//$row = pg_fetch_row($result);
+	//return (pg_fetch_all($result));
 	//return json_encode(pg_fetch_all($result));
 }
 
