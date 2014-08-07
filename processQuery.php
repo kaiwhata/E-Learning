@@ -23,7 +23,10 @@ from(select * from question INNER JOIN possibleanswers ON (question.panswerid = 
 
 	$str = "{";
 	for($i = 0;$i<2;$i++){
-		$str.=pg_fetch_row($result).",";
+		$str.=json_encode(pg_fetch_row($result));
+		if($i<1){
+			$str.=",";
+		}
 	}
 
 	$str.="}";
