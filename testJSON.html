@@ -73,7 +73,6 @@
 
 	});
     }
-ab;
 
 	document.getElementById("submitAdmin").onclick = confirmAdmin;
 	    function confirmAdmin() {
@@ -83,7 +82,7 @@ ab;
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
 				console.log(response);
-				ab = response;
+				var jobject = JSON.parse(response);
 			}
 	
 		});
