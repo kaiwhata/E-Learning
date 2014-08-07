@@ -82,6 +82,7 @@
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
 				console.log(response);
+				console.log("aaa");
 				jobject = JSON.parse(response);
 				q1 = JSON.parse(jobject[0]);
 				q2 = JSON.parse(jobject[1]);
