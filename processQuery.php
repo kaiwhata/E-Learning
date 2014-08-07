@@ -19,7 +19,7 @@ function getAllQuestions($username,$password){
 	$dbconnection = pg_connect($connectionString);
 	$result = pg_query($dbconnection,"SELECT * FROM questions");
 	$row = pg_fetch_row($result);
-	return $row;
+	return $row[0];
 	return json_encode(array_values(pg_fetch_row($result)));
 }
 	
