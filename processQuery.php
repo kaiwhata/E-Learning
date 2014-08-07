@@ -19,21 +19,21 @@ function getAllQuestions(){
 	$dbconnection = pg_connect($connectionString);
 
 	$result = pg_query($dbconnection,"select row_to_json(row)
-from(select * from question INNER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
+from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
-	$str = "{";
-	for($i = 0;$i<2;$i++){
-		$str.=json_encode(pg_fetch_row($result));
-		if($i<1){
-			$str.=",";
-		}
-	}
+//	$str = "{";
+//	for($i = 0;$i<2;$i++){
+//		$str.=json_encode(pg_fetch_row($result));
+//		if($i<1){
+//			$str.=",";
+//		}
+//	}
 
-	$str.="}";
+//	$str.="}";
 
-	return $str;
+//	return $str;
 	//$row = pg_fetch_row($result);
-	//return (pg_fetch_all($result));
+	return (pg_fetch_all($result));
 	//return json_encode(pg_fetch_all($result));
 }
 
