@@ -23,7 +23,8 @@ from(select * from question INNER JOIN possibleanswers ON (question.panswerid = 
 
 
 //	$row = pg_fetch_row($result);
-	return json_encode(pg_fetch_all($result));
+	return (pg_fetch_all($result));
+	//return json_encode(pg_fetch_all($result));
 }
 
 function getAllQuestionsWithoutOptions(){
