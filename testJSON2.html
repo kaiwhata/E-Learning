@@ -65,9 +65,9 @@
 			else{
 			alert("Incorrect username or password");
 			}
-			//console.log(response);
-			//console.log("username from session"+sessionStorage.getItem('username'));
-			//console.log("password from session"+sessionStorage.getItem('password'));
+			console.log(response);
+			console.log("username from session"+sessionStorage.getItem('username'));
+			console.log("password from session"+sessionStorage.getItem('password'));
 
 		}
 
@@ -85,6 +85,7 @@
 				jobject = JSON.parse(response);
 				q1 = JSON.parse(jobject[0]);
 				//console.log(jobject);
+				alert("rewrw");
 			}
 	
 		});
