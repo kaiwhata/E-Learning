@@ -55,6 +55,7 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText) {
 		jobject["optionsText"] = optionsText;
 		jobject["answerIndex"] = answerIndex;
 		return jobject;
+	
 	}
 
 };
