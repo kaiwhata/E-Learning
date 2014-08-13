@@ -48,8 +48,8 @@ questionList
 					 * right or wrong
 					 */
 					$scope.checkAnswers = function() {
-						score = 0;
-						total = 0;
+						var score = 0;
+						var total = 0;
 						for (var i = 0; i < $scope.questions.length; i++) {
 							total++;
 							var q = $scope.questions[i];
