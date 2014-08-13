@@ -134,8 +134,7 @@ questionList
 
 												var options = [p1,p2,p3,p4];
 												var question = new MultiChoiceQuestion(id,body,answerIdx,options)
-
-
+												$scope.questions.push(question);
 											}
 											//NUMBER TYPE
 											else if (questionJSON.type==1){
