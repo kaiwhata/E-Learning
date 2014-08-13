@@ -102,10 +102,30 @@ questionList
 
 										var questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {
-											var question = JSON
+											var questionJSON = JSON
 													.parse(JSON.parse(array)[i]["row_to_json"]);
-											console.log(question);
-											questionArray.push(question);
+											console.log(questionJSON);
+											questionArray.push(questionJSON);
+
+											//MULTI TYPE
+											if(questionJSON.type==0){
+
+
+
+											}
+											//NUMBER TYPE
+											else if (questionJSON.type==1){
+
+											}
+											//TEXT TYPE
+											else if (questionJSON.type==2){
+												var answer = jobject["canswer"];
+												var body = jobject["body"];
+												var id = jobject["id"];
+												var answerArray = [answer];
+												var question = new TextEntryQuestion(id,body,answerArray);
+												$scope.questions.push(question);
+											}
 										}
 
 									}
