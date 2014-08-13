@@ -65,7 +65,7 @@ if(isset($_POST['funcName'])){
 			echo(getAllQuestions());
 			break;
 		case 'getAllQuesitonsFromQuizname':
-			echo(checkPasswordAdmin($_POST['quizname']));
+			echo(getAllQuestionsFromQuiz($_POST['quizname']));
 			break;
 	}
 }
