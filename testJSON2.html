@@ -77,15 +77,35 @@
 	document.getElementById("submitAdmin").onclick = confirmAdmin;
 	    function confirmAdmin() {
 		$.ajax({
-			url:'http://shrouded-earth-7234.herokuapp.com/processQuery2.php',
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type: 'post',
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
-				console.log(response);
-				jobject = JSON.parse(response);
-				q1 = JSON.parse(jobject[0]);
-				console.log(jobject);
-				//alert(q1);
+				array = response;
+				answers = [];
+				var j = 1;
+
+				questionArray =[];
+				for(var i=0;i<JSON.parse(array).length;i++){
+					var question = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
+					console.log(question);
+					questionArray.push(question);
+					console.log(question.canswer);
+					answers.push(question.canswer);
+
+				}
+
+				for(var i=0;i<answers.length;i++){
+					answers[i] = "The answer for question " + j + " is "+ answers[i] + "   \n" ;
+					j++;
+
+				}
+
+					alert(answers + " Your score is: " + j);
+
+
+
+
 			}
 	
 		});
