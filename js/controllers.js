@@ -96,7 +96,7 @@ questionList
 									type : 'post',
 									data : {
 										"funcName" : "getAllQuestionsFromQuiz",
-										"quizname" : "Dummy Test"
+										"quizname" : sessionStorage.getItem('quizname')
 									},
 									success : function(response) {
 										console.log(response)
