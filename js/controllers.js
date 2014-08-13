@@ -95,7 +95,7 @@ questionList
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
 									data : {
-										"funcName" : "getAllQuesitons",
+										"funcName" : "getAllQuestionsFromQuiz",
 										"quizname" : "Dummy Test"
 									},
 									success : function(response) {

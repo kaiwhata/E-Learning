@@ -64,7 +64,7 @@ if(isset($_POST['funcName'])){
 		case 'getAllQuesitons':
 			echo(getAllQuestions());
 			break;
-		case 'getAllQuesitonsFromQuizname':
+		case 'getAllQuestionsFromQuiz':
 			echo(getAllQuestionsFromQuiz($_POST['quizname']));
 			break;
 	}
