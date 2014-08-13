@@ -93,7 +93,7 @@ questionList
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
 									data : {
-										"funcName" : "getAllQuesitonsFromQuiz", "quizname" : "Dummy Test"
+										"funcName" : "getAllQuesitons"
 									},
 									success : function(response) {
 										console.log(response)
@@ -156,7 +156,6 @@ questionList
 												var question = new TextEntryQuestion(id,body,answerArray);
 												$scope.questions.push(question);
 											}
-											$scope.loaded=true;
 											$scope.$apply();
 										}
 
