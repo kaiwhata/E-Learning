@@ -59,7 +59,7 @@ if (isset ( $_POST ['funcName'] )) {
 			echo(getAllQuestions());
 			break;
 		case 'getAllQuestionsFromQuiz':
-			var quizname =	$_POST ['quizname'];
+			$quizname =	$_POST ['quizname'];
 			echo (getAllQuestionsFromQuiz ( quizname ));
 			break;
 }
