@@ -119,9 +119,9 @@ questionList
 											}
 											//TEXT TYPE
 											else if (questionJSON.type==2){
-												var answer = jobject["canswer"];
-												var body = jobject["body"];
-												var id = jobject["id"];
+												var answer = questionJSON["canswer"];
+												var body = questionJSON["body"];
+												var id = questionJSON["id"];
 												var answerArray = [answer];
 												var question = new TextEntryQuestion(id,body,answerArray);
 												$scope.questions.push(question);
