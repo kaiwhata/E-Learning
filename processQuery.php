@@ -37,6 +37,15 @@ from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswer
 	return json_encode(pg_fetch_all($result));
 }
 
+
+function getAllQuestionsFromQuiz($quizname){
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$dbconnection = pg_connect ( $connectionString );
+	$result = pg_query ( $dbconnection, "select row_to_json(row)
+from(SELECT * FROM quiz INNER JOIN question ON  (quiz.name=question.quizname) LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id) WHERE(quiz.name='Dummy Test') ;" );
+	return json_encode ( pg_fetch_all ( $result ) );
+}
+
 function getAllQuestionsWithoutOptions(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
@@ -54,6 +63,9 @@ if(isset($_POST['funcName'])){
 			break;
 		case 'getAllQuesitons':
 			echo(getAllQuestions());
+			break;
+		case 'getAllQuesitonsFromQuizname':
+			echo(checkPasswordAdmin($_POST['quizname']));
 			break;
 	}
 }
