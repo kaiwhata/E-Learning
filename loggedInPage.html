@@ -23,10 +23,11 @@
 		type: 'post',
 		data: {"funcName":"getQuizes"},
 		success: function(response){
+			console.log(response);	
 
 			if(response=="true"){
 			//disp info
-			console.log(response);	
+			
 			}
 			else{
 			alert("Error");
