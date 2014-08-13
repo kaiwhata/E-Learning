@@ -5,6 +5,7 @@ questionList
 				'questionCtrl',
 				function questionCtrl($scope) {
 					$scope.questions = [];
+					$scope.loaded = false;
 //					$scope.answer = false;
 //					$scope.answer1;
 //					$scope.answer2;
@@ -155,6 +156,7 @@ questionList
 												var question = new TextEntryQuestion(id,body,answerArray);
 												$scope.questions.push(question);
 											}
+											$scope.loaded=true;
 											$scope.$apply();
 										}
 
