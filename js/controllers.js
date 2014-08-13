@@ -113,7 +113,12 @@ questionList
 											}
 											//NUMBER TYPE
 											else if (questionJSON.type==1){
-
+												var answer = questionJSON["canswer"];
+												var body = questionJSON["body"];
+												var id = questionJSON["id"];
+												var tol = questionJSON["tolerance"];
+												var question = new NumberEntryToleranceQuestion(id,body,answer,tol);
+												$scope.questions.push(question);
 											}
 											//TEXT TYPE
 											else if (questionJSON.type==2){
