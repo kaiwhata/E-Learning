@@ -96,7 +96,6 @@ questionList
 										"funcName" : "getAllQuesitons"
 									},
 									success : function(response) {
-										array = response;
 
 										questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {

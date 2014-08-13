@@ -19,7 +19,7 @@ function getAllQuestions(){
 	$dbconnection = pg_connect($connectionString);
 
 	$result = pg_query($dbconnection,"select row_to_json(row)
-from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
+from(SELECT * FROM question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
 //	$str = "{";
 //	for($i = 0;$i<2;$i++){
