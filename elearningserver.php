@@ -30,7 +30,7 @@ function getQuizes(){
 	
 	while($row = pg_fetch_array($result)){
 	$bigline .= "*";
-	$bigline .= $row['code']+":"+$row['name'];
+	$bigline .= $row['coursecode'] . ":" . $row['name'];
 	
 	}
 
