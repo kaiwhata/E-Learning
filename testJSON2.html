@@ -48,6 +48,7 @@
 	<input type="button" id="submit" value="login">
 	<input type = "button" id="submitAdmin" value = "login admin">
 	<script type="text/javascript">
+
     document.getElementById("submit").onclick = confirm;
     function confirm() {
 	$.ajax({
@@ -77,15 +78,30 @@
 	document.getElementById("submitAdmin").onclick = confirmAdmin;
 	    function confirmAdmin() {
 		$.ajax({
-			url:'http://shrouded-earth-7234.herokuapp.com/processQuery2.php',
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type: 'post',
 			data: {"funcName":"getAllQuesitons"},
 			success: function(response){
-				console.log(response);
-				jobject = JSON.parse(response);
-				q1 = JSON.parse(jobject[0]);
-				console.log(jobject);
-				//alert(q1);
+				array = response;
+				answers = [];
+				var j = 1;
+
+				questionArray =[];
+				for(var i=0;i<JSON.parse(array).length;i++){
+					var question = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
+					console.log(question);
+					questionArray.push(question);
+					answers.push(question.canswer);
+				}
+
+				for(var i=0;i<answers.length;i++){
+					answers[i] = "Question " +j+ " answer is " + answers[i] + "  \n";
+					j++;
+				}
+					 j--;
+					 alert(answers + "Your total score is: " +j);
+
+
 			}
 	
 		});
