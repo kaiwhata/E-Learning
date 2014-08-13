@@ -154,6 +154,8 @@ questionList
 												var question = new TextEntryQuestion(id,body,answerArray);
 												$scope.questions.push(question);
 											}
+
+											$route.reload();
 										}
 
 									}
