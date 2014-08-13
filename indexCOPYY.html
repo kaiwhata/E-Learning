@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="questionList">
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="main-one" ng-controller="questionCtrl">
+
+		<button>Back To Home Page</button>
+		<fieldset id={{
+			"question"+$index}} ng-repeat="question in questions track by $index">
+
+			<legend>Question {{question.id}}</legend>
+
+			<span ng-switch="question.questionType">
+				<div directive-one ng-switch-when="text">{{question.bodyText}}
+					<form id={{"question"+$index+"form"}}>
+						<label>
+							<input type="text" id={{"a"+$index}} name="fff">
+						</label>
+					</form>
+				</div>
+				<div directive-two ng-switch-when="number">{{question.bodyText}}
+					<form id={{"question"+$index+"form"}}>
+						<label>"/u/students/chungalex/shrouded-earth-7234/processQuery.php"
+							<input type="text" id={{"a"+$index}} name="fff">
+						</label>
+					</form>"/u/students/chungalex/shrouded-earth-7234/processQuery.php"
+				</div>
+				<div directive-three ng-switch-when="numTol">{{question.bodyText}}
+					<form id={{"question"+$index+"form"}}>
+						<label>
+							<input type="text" id={{"a"+$index}} name="fff">
+						</label>
+					</form>
+				</div>
+				<div directive-four ng-switch-when="multi">{{question.bodyText}}
+					<form id={{"question"+$index+"form"}}>
+						<label ng-repeat=" option in question.optionsText"> <input
+							type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
+							{{option}}
+						</label>
+					</form>
+				</div>
+			</span>
+		</fieldset>
+
+		<button ng-click="checkAnswers()">Check Answers</button>
+		<button ng-click="getQuestions()">Get Questions</button>
+	        <input type="button" id="submit" value="Answers">
+		<script type="text/javascript">
+   		 document.getElementById("submit").onclick = displayAnswers;
+    		function displayAnswers() {
+ 				window.location = "file:///am/phoenix/home1/calangiren/heroku/shrouded-earth-7234/Answers"; 
+
+  		 }
+		</script>
+
+	</div>
+	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="question.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+</body>
+</html>
