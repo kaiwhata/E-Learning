@@ -27,11 +27,11 @@ function getQuizes(){
 	$result = pg_query($dbconnection,"SELECT * FROM quiz;");
 //	$row = pg_fetch_all($result);
 	$bigline = "";
-	foreach($result as $row){
-	foreach($row as $line){
+	
+	while($row = pg_fetch_array($result)){
 	$bigline .= "*";
-	$bigline .= $line;
-	}
+	$bigline .= $row['code']+":"+$row['name'];
+	
 	}
 
 	return $bigline;
