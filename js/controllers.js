@@ -107,7 +107,33 @@ questionList
 
 											//MULTI TYPE
 											if(questionJSON.type==0){
+												var answer = questionJSON["canswer"];
+												var body = questionJSON["body"];
+												var id = questionJSON["id"];
 
+												var answerIdx =0;
+
+												var p1 = questionJSON["p1"];
+												if(p1==answer){
+													answerIdx =0;
+												}
+												var p2 = questionJSON["p2"];
+												if(p2==answer){
+													answerIdx =1;
+												}
+												var p3 = questionJSON["p3"];
+												if(p3==answer){
+													answerIdx =2;
+												}
+												var p4 = questionJSON["p4"];
+												if(p4==answer){
+													answerIdx =3;
+												}
+
+
+
+												var options = [p1,p2,p3,p4];
+												var question = new MultiChoiceQuesiton(id,body,answerIdx,options);
 
 
 											}
