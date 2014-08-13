@@ -6,44 +6,46 @@ questionList
 				function questionCtrl($scope) {
 					$scope.questions = [];
 					$scope.loaded = false;
-//					$scope.answer = false;
-//					$scope.answer1;
-//					$scope.answer2;
-//					$scope.answer3;
+					// $scope.answer = false;
+					// $scope.answer1;
+					// $scope.answer2;
+					// $scope.answer3;
 
-//					// Make dummy multiChoiceQuestions
-//					//
-//					var mcq = new MultiChoiceQuestion("1", "what is apples?",
-//							1, [ "banana", "multiple apple", "pear" ]);
-//					var mcq1 = new MultiChoiceQuestion("2", "what is banana?",
-//							0, [ "banana", "multiple apples", "pear" ]);
-//					var mcq2 = new MultiChoiceQuestion("3", "what is pear?", 2,
-//							[ "banana", "multiple apple", "pear" ]);
-//
-//					$scope.questions.push(mcq);
-//					$scope.questions.push(mcq1);
-//					$scope.questions.push(mcq2);
-//
-//					// Make Dummy Text Questions
-//					var teq1 = new TextEntryQuestion("4",
-//							"How do you greet people in French?", [ "salut",
-//									"bonjour" ])
-//					var teq2 = new TextEntryQuestion(
-//							"5",
-//							"Complete the sentnce: We have lots of _____ at the arcade",
-//							[ "games" ])
-//					//
-//					$scope.questions.push(teq1);
-//					$scope.questions.push(teq2);
-//
-//					// Make Dummy Number Question
-//					var neq1 = new NumberEntryQuestion("6", "What is 10+10?",
-//							20);
-//					var neq2 = new NumberEntryToleranceQuestion("7",
-//							"What is 1/3?", 0.333, 0.0015);
-//					$scope.questions.push(neq1);
-//					$scope.questions.push(neq2);
-
+					// // Make dummy multiChoiceQuestions
+					// //
+					// var mcq = new MultiChoiceQuestion("1", "what is apples?",
+					// 1, [ "banana", "multiple apple", "pear" ]);
+					// var mcq1 = new MultiChoiceQuestion("2", "what is
+					// banana?",
+					// 0, [ "banana", "multiple apples", "pear" ]);
+					// var mcq2 = new MultiChoiceQuestion("3", "what is pear?",
+					// 2,
+					// [ "banana", "multiple apple", "pear" ]);
+					//
+					// $scope.questions.push(mcq);
+					// $scope.questions.push(mcq1);
+					// $scope.questions.push(mcq2);
+					//
+					// // Make Dummy Text Questions
+					// var teq1 = new TextEntryQuestion("4",
+					// "How do you greet people in French?", [ "salut",
+					// "bonjour" ])
+					// var teq2 = new TextEntryQuestion(
+					// "5",
+					// "Complete the sentnce: We have lots of _____ at the
+					// arcade",
+					// [ "games" ])
+					// //
+					// $scope.questions.push(teq1);
+					// $scope.questions.push(teq2);
+					//
+					// // Make Dummy Number Question
+					// var neq1 = new NumberEntryQuestion("6", "What is 10+10?",
+					// 20);
+					// var neq2 = new NumberEntryToleranceQuestion("7",
+					// "What is 1/3?", 0.333, 0.0015);
+					// $scope.questions.push(neq1);
+					// $scope.questions.push(neq2);
 
 					/**
 					 * Check all the answers of questions and alert the user if
@@ -98,7 +100,7 @@ questionList
 									success : function(response) {
 										console.log(response)
 
-										var	array = response;
+										var array = response;
 
 										var questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {
@@ -107,57 +109,59 @@ questionList
 											console.log(questionJSON);
 											questionArray.push(questionJSON);
 
-											//MULTI TYPE
-											if(questionJSON.type==0){
+											// MULTI TYPE
+											if (questionJSON.type == 0) {
 												var answer = questionJSON["canswer"];
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
 
-												var answerIdx =0;
+												var answerIdx = 0;
 
 												var p1 = questionJSON["p1"];
-												if(p1==answer){
-													answerIdx =0;
+												if (p1 == answer) {
+													answerIdx = 0;
 												}
 												var p2 = questionJSON["p2"];
-												if(p2==answer){
-													answerIdx =1;
+												if (p2 == answer) {
+													answerIdx = 1;
 												}
 												var p3 = questionJSON["p3"];
-												if(p3==answer){
-													answerIdx =2;
+												if (p3 == answer) {
+													answerIdx = 2;
 												}
 												var p4 = questionJSON["p4"];
-												if(p4==answer){
-													answerIdx =3;
+												if (p4 == answer) {
+													answerIdx = 3;
 												}
 
-
-
-												var options = [p1,p2,p3,p4];
-												var question = new MultiChoiceQuestion(id,body,answerIdx,options)
+												var options = [ p1, p2, p3, p4 ];
+												var question = new MultiChoiceQuestion(
+														id, body, answerIdx,
+														options)
 												$scope.questions.push(question);
 											}
-											//NUMBER TYPE
-											else if (questionJSON.type==1){
+											// NUMBER TYPE
+											else if (questionJSON.type == 1) {
 												var answer = questionJSON["canswer"];
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
 												var tol = questionJSON["tolerance"];
-												var question = new NumberEntryToleranceQuestion(id,body,answer,tol);
+												var question = new NumberEntryToleranceQuestion(
+														id, body, answer, tol);
 												$scope.questions.push(question);
 											}
-											//TEXT TYPE
-											else if (questionJSON.type==2){
+											// TEXT TYPE
+											else if (questionJSON.type == 2) {
 												var answer = questionJSON["canswer"];
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
-												var answerArray = [answer];
-												var question = new TextEntryQuestion(id,body,answerArray);
+												var answerArray = [ answer ];
+												var question = new TextEntryQuestion(
+														id, body, answerArray);
 												$scope.questions.push(question);
 											}
 										}
-										//$scope.$apply();
+										 $scope.$apply();
 									}
 
 								});
