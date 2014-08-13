@@ -133,7 +133,7 @@ questionList
 
 
 												var options = [p1,p2,p3,p4];
-												var question = new MultiChoiceQuesiton(id,body,answerIdx,options);
+												var question = new MultiChoiceQuestion(id,body,answerIdx,options)
 
 
 											}
