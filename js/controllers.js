@@ -157,7 +157,7 @@ questionList
 												$scope.questions.push(question);
 											}
 										}
-										$scope.$apply();
+										//$scope.$apply();
 									}
 
 								});
