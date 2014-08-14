@@ -54,7 +54,7 @@ function sendResults($username,$password,$quizname,$score){
 	$dbconnection = pg_connect ( $connectionString );
 
 	//$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username=".$username.";");
-	pg_query ( $dbconnection,"INSERT INTO result (userid,quizname, score) VALUES (1,Dummy Test,0.5)");
+	pg_query ( $dbconnection,"INSERT INTO result (userid,quizname, score) VALUES (1,'Dummy Test',0.5)");
 
 	return "hi";
 
