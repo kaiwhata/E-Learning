@@ -8,13 +8,13 @@
 <body>
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
 
-		<button>Back To Home Page</button>
-		<button ng-click="checkAnswers()">Check Answers</button>
+		<button onclick = "window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
 
 			<legend>Question {{question.id}}</legend>
+
 			<span ng-switch="question.questionType">
 				<div directive-one ng-switch-when="text">{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
@@ -46,17 +46,15 @@
 					</form>
 				</div>
 			</span>
-
-			
 		</fieldset>
 
-
+	<button ng-click="getAnswers()">Check Answers</button>
 	</div>
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/controllers2.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
 </body>
 </html>
