@@ -180,7 +180,7 @@ questionList
 										"quizname" : sessionStorage.getItem('quizname')
 									},
 									success : function(response) {
-										console.log(response);
+										console.log("hi "+response);
 
 										var array = response;
 										var answers = [];
