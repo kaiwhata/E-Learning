@@ -19,7 +19,8 @@ function getAllQuestions(){
 	$dbconnection = pg_connect($connectionString);
 
 	$result = pg_query($dbconnection,"select row_to_json(row)
-from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
+
+			from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
 
 //	$str = "{";
 //	for($i = 0;$i<2;$i++){
@@ -48,6 +49,13 @@ from(SELECT * FROM quiz INNER JOIN question ON  (quiz.name=question.quizname) LE
 
 
 function sendResults($username,$password,$quizname,$score){
+//	get the user id
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$dbconnection = pg_connect ( $connectionString );
+
+	//$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username=".$username.";");
+	pg_query ( $dbconnection,"INSERT INTO RESULT (userid,quizname, score) VALUES (1,".$quizname.",".$score.")";
+
 
 
 }
@@ -72,6 +80,9 @@ if(isset($_POST['funcName'])){
 			break;
 		case 'getAllQuestionsFromQuiz':
 			echo(getAllQuestionsFromQuiz($_POST['quizname']));
+			break;
+		case 'sendResults':
+			echo(sendResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));
 			break;
 	}
 }
