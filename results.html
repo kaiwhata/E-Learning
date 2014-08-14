@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<<<<<<< HEAD
 <body>
 	<button ng-click="getResults()">Get Results</button>
 	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()" >
 		<button>Back To Home Page</button>"/u/students/chungalex/shrouded-earth-7234/js/results/controllers.js"
+=======
+<body onload="load()">
+	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()">
+		<button
+			onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
+>>>>>>> 116241d7294b8977cd9828c4545ba579ae676ca5
 		<fieldset id={{
 			"result"+$index}} ng-repeat="result in results track by $index">
 			<legend>title</legend>
@@ -16,7 +23,14 @@
 		</fieldset>
 
 	</div>
-
+	<script type="text/javascript">
+		function load() {
+			if (sessionStorage.getItem('username') == null) {
+				alert("You're not logged in, redirecting to home");
+				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			}
+		}
+	</script>
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
