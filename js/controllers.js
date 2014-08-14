@@ -99,6 +99,26 @@ questionList
 
 						}
 						var per = score / total;
+
+						$
+						.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "sendResults",
+								"username" : sessionStorage.getItem('username'),
+								"password" : sessionStorage.getItem('password'),
+								"quizname" : sessionStorage.getItem('quizname'),
+								"score" :per
+
+							},
+							success : function(response){
+
+							}
+
+						});
+
+
 						console.log("MYSCORE: " + per);
 					}
 
@@ -184,7 +204,7 @@ questionList
 
 					$scope.getAnswers = function() {
 
-						
+
 								$.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
@@ -204,10 +224,10 @@ questionList
 											var questionJSON = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
 											console.log(questionJSON.canswer);
 											questionArray.push(questionJSON);
-	
+
 											answers.push(questionJSON.canswer);
-											
-											
+
+
 										}
 										for(var i=0;i<answers.length;i++){
 											answers[i] = "The answer for question " + j + " is "+ answers[i] + "   \n" ;
