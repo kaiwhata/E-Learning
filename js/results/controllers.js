@@ -12,7 +12,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 				"username" : sessionStorage.getItem('username'),
 				"password" : sessionStorage.getItem('password'),
 				"quizname" : sessionStorage.getItem('quizname')
-				"score " : 0.75
+				"score" : 0.75
 			},
 			success : function(response) {
 				console.log(response)
