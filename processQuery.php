@@ -61,6 +61,24 @@ function sendResults($username,$password,$quizname,$score){
 	return $username.$password.$quizname.$score."   id:".$userid."    other thing:".$id;
 
 }
+function getResults($username,$password,$quizname,$score){
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$dbconnection = pg_connect($connectionString);
+
+	//get the users id number
+	$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username='$username'");
+	$userid = pg_fetch_row($id)[0];
+
+
+	$result = pg_query($dbconnection,"select row_to_json(row)
+
+			SELECT * FROM result WHERE userid=1 row;");
+
+	return json_encode(pg_fetch_all($result));
+
+}
+
+
 
 function getAllQuestionsWithoutOptions(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
@@ -85,6 +103,9 @@ if(isset($_POST['funcName'])){
 			break;
 		case 'sendResults':
 			echo(sendResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));
+			break;
+		case 'getResults':
+			echo(echo(getResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));($_POST['username'],$_POST['password']);
 			break;
 	}
 }
