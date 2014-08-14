@@ -73,6 +73,9 @@ if(isset($_POST['funcName'])){
 		case 'getAllQuestionsFromQuiz':
 			echo(getAllQuestionsFromQuiz($_POST['quizname']));
 			break;
+		case 'sendResults':
+			echo(getAllQuestionsFromQuiz($_POST['quizname']));
+			break;
 	}
 }
 ?>
