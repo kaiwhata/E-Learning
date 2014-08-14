@@ -105,7 +105,7 @@ if(isset($_POST['funcName'])){
 			echo(sendResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));
 			break;
 		case 'getResults':
-			echo(echo(getResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));($_POST['username'],$_POST['password']);
+			echo(getResults($_POST['username'],$_POST['password']));
 			break;
 	}
 }
