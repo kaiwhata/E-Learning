@@ -5,7 +5,7 @@ questionList
 				'questionCtrl',
 				function questionCtrl($scope) {
 					$scope.questions = [];
-					$scope.isLoading = true;
+					$scope.isLoading;
 
 					// $scope.answer = false;
 					// $scope.answer1;
@@ -126,6 +126,8 @@ questionList
 					}
 
 					$scope.getQuestions = function() {
+						$scope.isLoading = true;
+						 $scope.$apply();
 
 						$
 								.ajax({
