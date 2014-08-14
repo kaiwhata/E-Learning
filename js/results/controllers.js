@@ -15,10 +15,10 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 			success : function(response) {
 				console.log(response);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
-					questionJSON = JSON
+					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
 					console.log(questionJSON);
-					result = questionJSON["quizname"]+" : "+questionJSON["score"];
+					var result = questionJSON["quizname"]+" : "+questionJSON["score"];
 					results.push(result);
 				}
 				$scope.$apply();
