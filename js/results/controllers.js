@@ -23,6 +23,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 				}
 				$scope.$apply();
 			}
+			//wtf mate
 
 		});
 	}
