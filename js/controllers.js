@@ -5,7 +5,7 @@ questionList
 				'questionCtrl',
 				function questionCtrl($scope) {
 					$scope.questions = [];
-					$scope.loaded = false;
+					$scope.isLoading = true;
 
 					// $scope.answer = false;
 					// $scope.answer1;
@@ -200,6 +200,7 @@ questionList
 											}
 										}
 										 $scope.$apply();
+										 $scope.isLoading = false;
 									}
 
 								});
