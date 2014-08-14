@@ -14,7 +14,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 			},
 			success : function(response) {
 				console.log(response);
-				for (var i = 0; i < JSON.parse(array).length; i++) {
+				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
 					console.log(questionJSON);
