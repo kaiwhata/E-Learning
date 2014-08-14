@@ -6,7 +6,7 @@
   </head>
   <body>
 	WELCOME ELF!!!!!
-	<div ng-controller = "adminCtrl">
+	<div ng-controller = "adminCtrl" ng-init = "getResults()">
 		<fieldset id={{
 			"result"+$index}} ng-repeat="result in results track by $index">
 			<p>{{result}}</p>
