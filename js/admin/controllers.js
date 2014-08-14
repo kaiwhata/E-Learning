@@ -9,12 +9,10 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type : 'post',
 			data : {
-				"funcName" : "getResults",
-				"username" : sessionStorage.getItem('username'),
-				"password" : sessionStorage.getItem('password')
+				"funcName" : "getAllResults"
 			},
 			success : function(response) {
-				console.log(response);
+				console.log("ioahfoihaw "+response);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
