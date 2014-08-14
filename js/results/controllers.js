@@ -11,7 +11,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 				"funcName" : "sendResults",
 				"username" : sessionStorage.getItem('username'),
 				"password" : sessionStorage.getItem('password'),
-				"quizname" : sessionStorage.getItem('quizname')
+				"quizname" : sessionStorage.getItem('quizname'),
 				"score" : 0.75
 			},
 			success : function(response) {
