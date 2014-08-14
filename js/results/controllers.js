@@ -18,12 +18,12 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
 					console.log(questionJSON);
-					var result = questionJSON["quizname"]+" : "+questionJSON["score"];
+					var score = questionJSON["score"]*100 + "%"
+					var result = questionJSON["quizname"]+" : "+ score;
 					$scope.results.push(result);
 				}
 				$scope.$apply();
 			}
-			//wtf mate
 
 		});
 	}
