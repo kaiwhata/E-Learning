@@ -90,7 +90,7 @@ questionList
 					}
 
 					$scope.getQuestions = function() {
-					$scope.answers = [];
+
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -170,7 +170,7 @@ questionList
 					}
 
 					$scope.getAnswers = function() {
-
+					$scope.answers = [];
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
