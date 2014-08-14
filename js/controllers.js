@@ -95,8 +95,8 @@ questionList
 								"funcName" : "sendResults",
 								"username" : "hawkinchri",
 								"password" : "dogs",
-								"quizname" : "Dummy Test",
-								"score " : 5
+								"quizname" : sessionStorage.getItem("quizname"),
+								"score " : per
 							},
 							success : function(response) {
 								console.log(response)
