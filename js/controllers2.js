@@ -170,9 +170,9 @@ questionList
 					}
 
 					$scope.getAnswers = function() {
-					//$scope.answers = [];
-						$
-								.ajax({
+
+						
+								$.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
 									data : {
@@ -184,17 +184,38 @@ questionList
 
 										var array = response;
 										var answers = [];
+										var j = 1;
 
 										var questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {
 											var questionJSON = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
 											console.log(questionJSON.canswer);
 											questionArray.push(questionJSON);
-											//var answer = questionJSON["canswer"];
+	
 											answers.push(questionJSON.canswer);
-											alert(answers);
+											
 											
 										}
+										for(var i=0;i<answers.length;i++){
+											answers[i] = "The answer for question " + j + " is "+ answers[i] + "   \n" ;
+											j++;
+
+										}
+
+											alert(answers + " Your score is: " + j);
+
+
+
+											answers.push(question.canswer);
+										}
+
+										for(var i=0;i<answers.length;i++){
+											answers[i] = "Question " +j+ " answer is " + answers[i] + "  \n";
+											j++;
+										}
+											 j--;
+					 						 alert(answers + "Your total score is: " +j);
+
 										 $scope.$apply();
 									}
 
