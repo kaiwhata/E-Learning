@@ -91,6 +91,22 @@
 					var question = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
 					console.log(question);
 					questionArray.push(question);
+<<<<<<< HEAD
+					console.log(question.canswer);
+					answers.push(question.canswer);
+
+				}
+
+				for(var i=0;i<answers.length;i++){
+					answers[i] = "The answer for question " + j + " is "+ answers[i] + "   \n" ;
+					j++;
+
+				}
+
+					alert(answers + " Your score is: " + j);
+
+
+=======
 					answers.push(question.canswer);
 				}
 
@@ -100,6 +116,7 @@
 				}
 					 j--;
 					 alert(answers + "Your total score is: " +j);
+>>>>>>> 0c13ca83047a28572d77ebf5159085380550363d
 
 
 			}

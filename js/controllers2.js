@@ -6,7 +6,7 @@ questionList
 				function questionCtrl($scope) {
 					$scope.questions = [];
 					$scope.loaded = false;
-					$scope.answers = [];
+
 					// $scope.answer = false;
 					// $scope.answer1;
 					// $scope.answer2;
@@ -90,7 +90,7 @@ questionList
 					}
 
 					$scope.getQuestions = function() {
-
+					$scope.answers = [];
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
