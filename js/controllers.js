@@ -144,5 +144,47 @@ questionList
 
 								});
 					}
+					$scope.getAnswers = function() {
+
+						
+								$.ajax({
+									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+									type : 'post',
+									data : {
+										"funcName" : "getAllQuestionsFromQuiz",
+										"quizname" : sessionStorage.getItem('quizname')
+									},
+									success : function(response) {
+										console.log("hi "+response);
+
+										var array = response;
+										var answers = [];
+										var j = 1;
+
+										var questionArray = [];
+										for (var i = 0; i < JSON.parse(array).length; i++) {
+											var questionJSON = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
+											console.log(questionJSON.canswer);
+											questionArray.push(questionJSON);
+	
+											answers.push(questionJSON.canswer);
+											
+											
+										}
+										for(var i=0;i<answers.length;i++){
+											answers[i] = "The answer for question " + j + " is "+ answers[i] + "   \n" ;
+											j++;
+
+										}
+ 											j--;
+
+											alert(answers + " Your score is: " + j);
+
+
+										 $scope.$apply();
+									}
+
+								});
+					}
 
 				});
