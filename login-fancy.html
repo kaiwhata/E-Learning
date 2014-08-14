@@ -60,7 +60,7 @@
 			//remember my deets
 				sessionStorage.setItem('username',login.username.value);
 				sessionStorage.setItem('password',login.password.value);
- 				window.location = "http://shrouded-earth-7234.herokuapp.com/loggedInPage.html"; 
+ 				window.location = "http://shrouded-earth-7234.herokuapp.com/quizTest.html";
 			}
 			else{
 			alert("Incorrect username or password");
@@ -88,7 +88,7 @@
 					alert("welcome Elf!");
 					sessionStorage.setItem('username',login.username.value);
 					sessionStorage.setItem('password',login.password.value);
-	 				window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html"; 
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html";
 				}
 				else{
 				alert("Incorrect username or password");
@@ -96,9 +96,9 @@
 				console.log(response);
 				console.log("username from session"+sessionStorage.getItem('username'));
 				console.log("password from session"+sessionStorage.getItem('password'));
-	
+
 			}
-	
+
 		});
 	}
 </script>
