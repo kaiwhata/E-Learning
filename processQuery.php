@@ -58,7 +58,7 @@ function sendResults($username,$password,$quizname,$score){
 
 	pg_query ( $dbconnection,"INSERT INTO result (userid,quizname, score) VALUES ($userid,'".$quizname."',$score)");
 
-	return $username.$password.$quizname.$score."   id:".$userid."    other thing:".$id;
+	return $username.$password.$quizname.$score."   id:".$userid[0]."    other thing:".$id;
 
 }
 
