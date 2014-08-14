@@ -93,9 +93,9 @@ questionList
 							type : 'post',
 							data : {
 								"funcName" : "sendResults",
-								"username" : "hawkinchri",
-								"password" : "dogs",
-								"quizname" : sessionStorage.getItem("quizname"),
+								"username" : sessionStorage.getItem('username'),
+								"password" : sessionStorage.getItem('password'),
+								"quizname" : sessionStorage.getItem('quizname'),
 								"score" : per
 							},
 							success : function(response) {
