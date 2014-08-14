@@ -170,7 +170,7 @@ questionList
 					}
 
 					$scope.getAnswers = function() {
-					$scope.answers = [];
+					//$scope.answers = [];
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -183,6 +183,7 @@ questionList
 										console.log(response);
 
 										var array = response;
+										var answers = [];
 
 										var questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {
@@ -190,8 +191,8 @@ questionList
 											console.log(questionJSON.canswer);
 											questionArray.push(questionJSON);
 											//var answer = questionJSON["canswer"];
-											//$scope.answers.push(answer);
-											//alert(answers);
+											answers.push(answer);
+											alert(answers);
 											
 										}
 										 $scope.$apply();
