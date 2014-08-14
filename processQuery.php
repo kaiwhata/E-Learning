@@ -74,8 +74,8 @@ function getAllResults(){
 	$dbconnection = pg_connect ( $connectionString );
 
 	$result = pg_query ( $dbconnection, "SELECT * FROM result" );
-
-	return json_encode ( pg_fetch_all ( $result));
+	return "aldksfoweaih";
+	//return json_encode ( pg_fetch_all ( $result));
 }
 
 function getAllQuestionsWithoutOptions() {
