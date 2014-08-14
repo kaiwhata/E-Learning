@@ -74,8 +74,7 @@ function getAllResults(){
 	$dbconnection = pg_connect ( $connectionString );
 
 	$result = pg_query ( $dbconnection, "SELECT * FROM result" );
-	return "aldksfoweaih";
-	//return json_encode ( pg_fetch_all ( $result));
+	return json_encode ( pg_fetch_all ( $result));
 }
 
 function getAllQuestionsWithoutOptions() {
@@ -103,6 +102,9 @@ if (isset ( $_POST ['funcName'] )) {
 			break;
 		case 'getResults' :
 			echo (getResults ( $_POST ['username'], $_POST ['password'] ));
+			break;
+		case 'getAllResults' :
+			echo (getAllResults());
 			break;
 	}
 }
