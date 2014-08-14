@@ -4,7 +4,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 	$scope.results = ["very good","not very good"];
 
 	$scope.sendResult = function() {
-		.ajax({
+		$.ajax({
 			url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type : 'post',
 			data : {
