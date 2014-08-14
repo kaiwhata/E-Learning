@@ -96,7 +96,7 @@ questionList
 								"username" : "hawkinchri",
 								"password" : "dogs",
 								"quizname" : sessionStorage.getItem("quizname"),
-								"score " : per
+								"score" : per
 							},
 							success : function(response) {
 								console.log(response)
