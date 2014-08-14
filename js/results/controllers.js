@@ -9,8 +9,8 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 			type : 'post',
 			data : {
 				"funcName" : "sendResults",
-				"username" : "hawkinchri",
-				"password" : "dogs",
+				"username" : sessionStorage.getItem('username'),
+				"password" : sessionStorage.getItem('password'),
 				"quizname" : sessionStorage.getItem('quizname')
 				"score " : 0.75
 			},
