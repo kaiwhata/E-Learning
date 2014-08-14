@@ -62,8 +62,8 @@ function getResults($username, $password) {
 
 	$result = pg_query ( $dbconnection, " select row_to_json(row) from (SELECT * FROM result WHERE userid=$userid) row" );
 
-	$result = pg_query ( $dbconnection, "select row_to_json(row)
-FROM (SELECT * FROM result WHERE userid=1) row;" );
+// 	$result = pg_query ( $dbconnection, "select row_to_json(row)
+// FROM (SELECT * FROM result WHERE userid=1) row;" );
 
 	return json_encode ( pg_fetch_all ( $result ) );
 }
