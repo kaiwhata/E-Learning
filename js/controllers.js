@@ -113,6 +113,7 @@ questionList
 
 							},
 							success : function(response){
+								console.log(response);
 
 							}
 
