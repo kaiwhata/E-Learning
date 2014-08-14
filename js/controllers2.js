@@ -71,8 +71,16 @@ questionList
 										break;
 									}
 								}
-								if (q.checkAnswer(chosenIndex))
+								if (q.checkAnswer(chosenIndex)){
 									score++;
+									alert("CORRECT!  the answer was "+q.answerText);
+
+
+
+								}else{
+
+									alert("INCORRECT!  the answer was "+q.answerText);
+								}
 							}
 
 							else if (q instanceof TextEntryQuestion
@@ -80,8 +88,13 @@ questionList
 									|| q instanceof NumberEntryQuestion) {
 								var answer = document.getElementById("a" + i).value;
 								console.log(answer);
-								if (q.checkAnswer(answer))
+								if (q.checkAnswer(answer)){
 									score++;
+									alert("CORRECT!  the answer was "+q.answerText);
+
+								}else{
+									alert("INCORRECT!  the answer was "+q.answerText);
+									}
 							}
 
 						}
