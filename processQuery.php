@@ -54,11 +54,11 @@ function sendResults($username,$password,$quizname,$score){
 	$dbconnection = pg_connect ( $connectionString );
 
 	$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username='$username'");
-	$userid = pg_fetch_row($id);
+	$userid = pg_fetch_row($id)[0];
 
 	pg_query ( $dbconnection,"INSERT INTO result (userid,quizname, score) VALUES ($userid,'".$quizname."',$score)");
 
-	return $username.$password.$quizname.$score."   id:".$userid[0]."    other thing:".$id;
+	return $username.$password.$quizname.$score."   id:".$userid."    other thing:".$id;
 
 }
 
