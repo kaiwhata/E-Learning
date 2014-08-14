@@ -191,7 +191,7 @@ questionList
 											questionArray.push(questionJSON);
 											var answer = questionJSON["canswer"];
 											$scope.answers.push(answer);
-											alert(answers);
+											//alert(answers);
 											
 										}
 										 $scope.$apply();
