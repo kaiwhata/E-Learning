@@ -187,10 +187,10 @@ questionList
 										var questionArray = [];
 										for (var i = 0; i < JSON.parse(array).length; i++) {
 											var questionJSON = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
-											console.log(questionJSON);
+											console.log(questionJSON.canswer);
 											questionArray.push(questionJSON);
-											var answer = questionJSON["canswer"];
-											$scope.answers.push(answer);
+											//var answer = questionJSON["canswer"];
+											//$scope.answers.push(answer);
 											//alert(answers);
 											
 										}
