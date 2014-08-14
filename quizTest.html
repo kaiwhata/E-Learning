@@ -9,9 +9,17 @@
 	<script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
   </head>
-  <body>
+	<body onload="load()">
+	<script>
+	function load(){
+		if(sessionStorage.getItem('username')==null){
+			alert("You're not logged in, redirecting to home");
+			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
+		}
+	}
+	</script>
 
-	<button id="logoutBtn"> LOGOUT </button>	
+	<button id="logoutBtn" onclick="logout()"> LOGOUT </button>	
 
 	<div id="main" ng-controller="quizCtrl" ng-show = "loaded" ng-init="getQuizes()">
 	
@@ -27,8 +35,11 @@
 	</div>
 
 <script>
-function loadQuizPage(thing){
-console.log("loading page" + thing);
+function logout(){
+	sessionStorage.removeItem("username");
+	sessionStorage.removeItem("password");
+	sessionStorage.clear();
+	window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
 }
 </script>
 
