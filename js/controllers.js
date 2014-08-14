@@ -86,6 +86,24 @@ questionList
 						}
 						var per = score / total;
 						console.log("MYSCORE: " + per);
+
+						//send to db
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "sendResults",
+								"username" : "hawkinchri",
+								"password" : "dogs",
+								"quizname" : "Dummy Test",
+								"score " : 5
+							},
+							success : function(response) {
+								console.log(response)
+								 $scope.$apply();
+							}
+
+						});
 					}
 
 					$scope.getQuestions = function() {
