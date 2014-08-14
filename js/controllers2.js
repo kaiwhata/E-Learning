@@ -207,7 +207,7 @@ questionList
 
 
 											answers.push(question.canswer);
-										}
+										
 
 										for(var i=0;i<answers.length;i++){
 											answers[i] = "Question " +j+ " answer is " + answers[i] + "  \n";
