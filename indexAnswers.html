@@ -9,7 +9,7 @@
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
 
 		<button>Back To Home Page</button>
-		<button ng-click="getAnswers()">Check Answers</button>
+		<button ng-click="checkAnswers()">Check Answers</button>
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">

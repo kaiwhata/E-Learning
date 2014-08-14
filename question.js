@@ -43,10 +43,10 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText) {
 	 */
 	this.checkAnswer = function(answer) {
 		if (this.answerIndex == answer) {
-			alert("Correct!");
+//			alert("Correct!");
 			return true;
 		} else {
-			alert("Wrong answer.");
+//			alert("Wrong answer.");
 			return false;
 
 		}
@@ -83,13 +83,13 @@ var NumberEntryQuestion = function(id, bodyText, answerNum) {
 	this.checkAnswer = function(answer) {
 		answer = parseAnswer(answer);
 		if (Number(answer) == NaN) {
-			alert("Only numbers allowed.");
+//			alert("Only numbers allowed.");
 			return false;
 		} else if (this.answerText == answer) {
-			alert("Correct!");
+//			alert("Correct!");
 			return true;
 		} else {
-			alert("Wrong answer.");
+//			alert("Wrong answer.");
 			return false;
 		}
 	};
@@ -129,14 +129,14 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance) 
 		console.log(answerNum);
 		console.log(Math.abs(answer-answerNum));
 		if (answer == NaN) {
-			alert("Only numbers allowed.");
+//			alert("Only numbers allowed.");
 			return false;
 		} else if (Math.abs(answer-answerNum) <= tolerance) {
-			alert("Correct!");
+//			alert("Correct!");
 			return true;
 		}
 		else {
-			alert("Wrong answer.");
+//			alert("Wrong answer.");
 			return false;
 		}
 
@@ -168,10 +168,10 @@ var TextEntryQuestion = function(id, bodyText, answersArray) {
 	this.checkAnswer = function(answer) {
 		answer = parseAnswer(answer);
 		if (answersArray.indexOf(answer) != -1) {
-			alert("Correct!");
+//			alert("Correct!");
 			return true;
 		} else {
-			alert("Wrong answer.");
+//			alert("Wrong answer.");
 			return false;
 		}
 	};
