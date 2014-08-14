@@ -82,7 +82,7 @@ if(isset($_POST['funcName'])){
 			echo(getAllQuestionsFromQuiz($_POST['quizname']));
 			break;
 		case 'sendResults':
-			echo(getAllQuestionsFromQuiz($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));
+			echo(sendResults($_POST['username'],$_POST['password'],$_POST['quizname'],$_POST['score']));
 			break;
 	}
 }
