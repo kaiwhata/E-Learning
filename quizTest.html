@@ -14,23 +14,25 @@
 	function load(){
 		if(sessionStorage.getItem('username')==null){
 			alert("You're not logged in, redirecting to home");
-			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
+			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
 	}
 	</script>
 
-	<button id="logoutBtn" onclick="logout()"> LOGOUT </button>	
+	<button id="logoutBtn" onclick="logout()"> LOGOUT </button>
 
 	<div id="main" ng-controller="quizCtrl" ng-show = "loaded" ng-init="getQuizes()">
-	
-	<fieldset id={{
+
+	<div id={{
 			"quiz"+$index}} ng-repeat="quiz in quizes track by $index">
 
 	<button id={{"quiz"+$index+"btn"}} ng-init="name=quiz" ng-click =selectQuiz(name)>
 	{{quiz}}
 	</button>
 
-	</fieldset>
+	</div>
+
+	<button id="resultsBtn" onclick="window.location=http://shrouded-earth-7234.herokuapp.com/results.html"> Results </button>
 
 	</div>
 
@@ -39,7 +41,7 @@ function logout(){
 	sessionStorage.removeItem("username");
 	sessionStorage.removeItem("password");
 	sessionStorage.clear();
-	window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
+	window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 }
 </script>
 
