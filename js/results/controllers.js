@@ -1,7 +1,7 @@
 'use strict';
 
 results.controller('resultsCtrl', function questionCtrl($scope) {
-	$scope.results = [ "very good", "not very good" ];
+	$scope.results = [];
 
 	$scope.getResults = function() {
 		$.ajax({
@@ -18,8 +18,8 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
 					console.log(questionJSON);
-					result = questionJSON["quizname"]+" : "+questionJSON["score"];
-					results.push(result);
+					var result = questionJSON["quizname"]+" : "+questionJSON["score"];
+					$scope.results.push(result);
 				}
 				$scope.$apply();
 			}
