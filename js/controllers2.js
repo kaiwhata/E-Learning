@@ -191,7 +191,7 @@ questionList
 											console.log(questionJSON.canswer);
 											questionArray.push(questionJSON);
 											//var answer = questionJSON["canswer"];
-											answers.push(answer);
+											answers.push(questionJSON.canswer);
 											alert(answers);
 											
 										}
