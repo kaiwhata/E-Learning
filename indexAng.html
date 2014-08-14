@@ -3,12 +3,13 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Quiz</title>
 </head>
+<h1>Quiz</h1>
 <body>
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
 
-		<button>Back To Home Page</button>
+		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Back To Home Page</button>
 		<button ng-click="checkAnswers()">Check Answers</button>
 
 		<fieldset id={{
@@ -52,6 +53,7 @@
 
 
 	</div>
+
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
