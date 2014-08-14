@@ -53,10 +53,10 @@ function sendResults($username,$password,$quizname,$score){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect ( $connectionString );
 
-	//$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username=".$username.";");
+	//$id = pg_query ( $dbconnection,"SELECT id FROM useraccount WHERE username='$username'");
 	pg_query ( $dbconnection,"INSERT INTO result (userid,quizname, score) VALUES (1,'".$quizname."',$score)");
 
-	return $score;
+	return $username.$password.$quizname.$score;
 
 }
 
