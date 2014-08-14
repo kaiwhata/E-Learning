@@ -13,15 +13,28 @@
 	<body onload="load()">
 	<script>
 	function load(){
-		if(sessionStorage.getItem('username')==null){
-		alert("You're not logged in, redirecting to home");
-		window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
-		}
+		//if(sessionStorage.getItem('username')==null){
+		//	alert("You're not logged in, redirecting to home");
+		//	window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html"; 
+		//}else{
+			// send query for quizes
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
+			type: 'post',
+			data: {"funcName":"getQuizes"},
+			success: function(response){
+				console.log(response);	
+				
+			}
+		});
 	}
 	</script>
 
 	Hi, thanks for logging in
 	<input type="button" id="logout" value="logout">
+
+	
+
 
 	<div id="main-one" ng-controller="questionCtrl">
 
@@ -64,6 +77,7 @@
 		</fieldset>
 
 		<button ng-click="checkAnswers()">Check Answers</button>
+
 
 
 	</div>

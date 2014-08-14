@@ -1,0 +1,24 @@
+<html ng-app="results">
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<button ng-click="getResults()">Get Results</button>
+	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()" >
+		<button>Back To Home Page</button>"/u/students/chungalex/shrouded-earth-7234/js/results/controllers.js"
+		<div id={{
+			"result"+$index}} ng-repeat="result in results track by $index">
+			hi {{result}}
+		</div>
+
+	</div>
+
+	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="question.js"></script>
+	<script type="text/javascript" src="js/results/app.js"></script>
+	<script type="text/javascript" src="js/results/controllers.js"></script>
+	<script type="text/javascript" src="js/results/services.js"></script>
+</body>

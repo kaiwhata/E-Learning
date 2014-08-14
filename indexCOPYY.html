@@ -6,11 +6,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
+	<div id="main-one" ng-controller="questionCtrl">
 
 		<button>Back To Home Page</button>
-		<button ng-click="checkAnswers()">Check Answers</button>
-
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
 
@@ -26,10 +24,10 @@
 				</div>
 				<div directive-two ng-switch-when="number">{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
-						<label>
+						<label>"/u/students/chungalex/shrouded-earth-7234/processQuery.php"
 							<input type="text" id={{"a"+$index}} name="fff">
 						</label>
-					</form>
+					</form>"/u/students/chungalex/shrouded-earth-7234/processQuery.php"
 				</div>
 				<div directive-three ng-switch-when="numTol">{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
@@ -49,6 +47,16 @@
 			</span>
 		</fieldset>
 
+		<button ng-click="checkAnswers()">Check Answers</button>
+		<button ng-click="getQuestions()">Get Questions</button>
+	        <input type="button" id="submit" value="Answers">
+		<script type="text/javascript">
+   		 document.getElementById("submit").onclick = displayAnswers;
+    		function displayAnswers() {
+ 				window.location = "file:///am/phoenix/home1/calangiren/heroku/shrouded-earth-7234/Answers"; 
+
+  		 }
+		</script>
 
 	</div>
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>

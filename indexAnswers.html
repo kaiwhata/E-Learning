@@ -6,10 +6,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getAnswers()">
 
 		<button>Back To Home Page</button>
-		<button ng-click="checkAnswers()">Check Answers</button>
+		<button ng-click="displayAnswers()">Answers</button>
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
@@ -55,7 +55,7 @@
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/controllers2.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
 </body>
 </html>

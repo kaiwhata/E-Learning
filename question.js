@@ -19,6 +19,10 @@ var Question = function(id, bodyText, answerText) {
 
 	// function to convert a question to JSON format (may be unnecessary))
 	this.toJSON;
+
+	//funcftion to conver from JSON format to question
+//	this.fromJSON;
+
 };
 
 /**
@@ -55,8 +59,10 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText) {
 		jobject["optionsText"] = optionsText;
 		jobject["answerIndex"] = answerIndex;
 		return jobject;
-	
+
 	}
+
+
 
 };
 
@@ -95,6 +101,11 @@ var NumberEntryQuestion = function(id, bodyText, answerNum) {
 		jobject["answerNum"] = answerNum;
 		return jobject;
 	};
+
+//	this.fromJSON = function(jobject){
+//		this.answer = jobject["canswer"];
+//		this.body = jobject["body"];
+//	}
 
 };
 

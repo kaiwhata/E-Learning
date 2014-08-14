@@ -6,6 +6,7 @@ questionList
 				function questionCtrl($scope) {
 					$scope.questions = [];
 					$scope.loaded = false;
+					$scope.answers = [];
 					// $scope.answer = false;
 					// $scope.answer1;
 					// $scope.answer2;
@@ -86,24 +87,6 @@ questionList
 						}
 						var per = score / total;
 						console.log("MYSCORE: " + per);
-
-						//send to db
-						$.ajax({
-							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
-							type : 'post',
-							data : {
-								"funcName" : "sendResults",
-								"username" : sessionStorage.getItem('username'),
-								"password" : sessionStorage.getItem('password'),
-								"quizname" : sessionStorage.getItem('quizname'),
-								"score" : per
-							},
-							success : function(response) {
-								console.log(response)
-								 $scope.$apply();
-							}
-
-						});
 					}
 
 					$scope.getQuestions = function() {
@@ -179,6 +162,37 @@ questionList
 														id, body, answerArray);
 												$scope.questions.push(question);
 											}
+										}
+										 $scope.$apply();
+									}
+
+								});
+					}
+
+					$scope.getAnswers = function() {
+
+						$
+								.ajax({
+									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+									type : 'post',
+									data : {
+										"funcName" : "getAllQuestionsFromQuiz",
+										"quizname" : sessionStorage.getItem('quizname')
+									},
+									success : function(response) {
+										console.log(response);
+
+										var array = response;
+
+										var questionArray = [];
+										for (var i = 0; i < JSON.parse(array).length; i++) {
+											var questionJSON = JSON.parse(JSON.parse(array)[i]["row_to_json"]);
+											console.log(questionJSON);
+											questionArray.push(questionJSON);
+											var answer = questionJSON["canswer"];
+											$scope.answers.push(answer);
+											//alert(answers);
+											
 										}
 										 $scope.$apply();
 									}
