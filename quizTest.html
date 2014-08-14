@@ -32,11 +32,15 @@
 
 	</div>
 
-	<button id="resultsBtn" onclick="window.location=http://shrouded-earth-7234.herokuapp.com/results.html"> Results </button>
+		<button onclick = "window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Home</button>
 
 	</div>
 
 <script>
+function gotoResults(){
+	window.location="http://shrouded-earth-7234.herokuapp.com/results.html";
+}
+
 function logout(){
 	sessionStorage.removeItem("username");
 	sessionStorage.removeItem("password");
