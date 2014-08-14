@@ -201,20 +201,10 @@ questionList
 											j++;
 
 										}
+ 											j--;
 
 											alert(answers + " Your score is: " + j);
 
-
-
-											answers.push(question.canswer);
-										
-
-										for(var i=0;i<answers.length;i++){
-											answers[i] = "Question " +j+ " answer is " + answers[i] + "  \n";
-											j++;
-										}
-											 j--;
-					 						 alert(answers + "Your total score is: " +j);
 
 										 $scope.$apply();
 									}
