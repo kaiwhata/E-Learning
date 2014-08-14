@@ -1,10 +1,24 @@
-<html>
+<html ng-app="admin">
   <head>
     <title></title>
     <meta content="">
     <style></style>
   </head>
   <body>
-WELCOME ELF!!!!!
+	WELCOME ELF!!!!!
+	<div ng-controller = "adminCtrl">
+		<fieldset id={{
+			"result"+$index}} ng-repeat="result in results track by $index">
+			<p>{{result}}</p>
+
+		</fieldset>
+	</div>
+
+	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="question.js"></script>
+	<script type="text/javascript" src="js/admin/app.js"></script>
+	<script type="text/javascript" src="js/admin/controllers.js"></script>
+	<script type="text/javascript" src="js/admin/services.js"></script>
 </body>
 </html>
