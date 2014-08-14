@@ -7,7 +7,7 @@
 </head>
 <h1>Quiz</h1>
 <body>
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" ng-hide='isLoading'>
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" show='loaded'>
 
 		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Back To Home Page</button>
 		<button ng-click="checkAnswers()">Check Answers</button>
