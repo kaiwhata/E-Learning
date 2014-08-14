@@ -18,9 +18,7 @@ function getAllQuestions(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
 
-	$result = pg_query($dbconnection,"select row_to_json(row)
-
-			from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row;");
+	$result = pg_query($dbconnection," select row_to_json(row) from (SELECT * FROM result WHERE userid=1) row")
 
 //	$str = "{";
 //	for($i = 0;$i<2;$i++){
