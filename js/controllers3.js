@@ -6,48 +6,6 @@ questionList
 				function questionCtrl($scope) {
 					$scope.questions = [];
 					$scope.loaded = false;
-
-					// $scope.answer = false;
-					// $scope.answer1;
-					// $scope.answer2;
-					// $scope.answer3;
-
-					// // Make dummy multiChoiceQuestions
-					// //
-					// var mcq = new MultiChoiceQuestion("1", "what is apples?",
-					// 1, [ "banana", "multiple apple", "pear" ]);
-					// var mcq1 = new MultiChoiceQuestion("2", "what is
-					// banana?",
-					// 0, [ "banana", "multiple apples", "pear" ]);
-					// var mcq2 = new MultiChoiceQuestion("3", "what is pear?",
-					// 2,
-					// [ "banana", "multiple apple", "pear" ]);
-					//
-					// $scope.questions.push(mcq);
-					// $scope.questions.push(mcq1);
-					// $scope.questions.push(mcq2);
-					//
-					// // Make Dummy Text Questions
-					// var teq1 = new TextEntryQuestion("4",
-					// "How do you greet people in French?", [ "salut",
-					// "bonjour" ])
-					// var teq2 = new TextEntryQuestion(
-					// "5",
-					// "Complete the sentnce: We have lots of _____ at the
-					// arcade",
-					// [ "games" ])
-					// //
-					// $scope.questions.push(teq1);
-					// $scope.questions.push(teq2);
-					//
-					// // Make Dummy Number Question
-					// var neq1 = new NumberEntryQuestion("6", "What is 10+10?",
-					// 20);
-					// var neq2 = new NumberEntryToleranceQuestion("7",
-					// "What is 1/3?", 0.333, 0.0015);
-					// $scope.questions.push(neq1);
-					// $scope.questions.push(neq2);
-
 					/**
 					 * Check all the answers of questions and alert the user if
 					 * right or wrong
@@ -71,16 +29,8 @@ questionList
 										break;
 									}
 								}
-								if (q.checkAnswer(chosenIndex)){
+								if (q.checkAnswer(chosenIndex))
 									score++;
-									alert("CORRECT!  the answer was "+q.answerText);
-
-
-
-								}else{
-
-									alert("INCORRECT!  the answer was "+q.answerText);
-								}
 							}
 
 							else if (q instanceof TextEntryQuestion
@@ -88,18 +38,31 @@ questionList
 									|| q instanceof NumberEntryQuestion) {
 								var answer = document.getElementById("a" + i).value;
 								console.log(answer);
-								if (q.checkAnswer(answer)){
+								if (q.checkAnswer(answer))
 									score++;
-									alert("CORRECT!  the answer was "+q.answerText);
-
-								}else{
-									alert("INCORRECT!  the answer was "+q.answerText);
-									}
 							}
 
 						}
 						var per = score / total;
 						console.log("MYSCORE: " + per);
+
+						//send to db
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "sendResults",
+								"username" : sessionStorage.getItem('username'),
+								"password" : sessionStorage.getItem('password'),
+								"quizname" : sessionStorage.getItem('quizname'),
+								"score" : per
+							},
+							success : function(response) {
+								console.log(response)
+								 $scope.$apply();
+							}
+
+						});
 					}
 
 					$scope.getQuestions = function() {
@@ -181,7 +144,6 @@ questionList
 
 								});
 					}
-
 					$scope.getAnswers = function() {
 
 						
