@@ -20,6 +20,9 @@
 	</script>
 
 	<button id="logoutBtn" onclick="logout()"> LOGOUT </button>
+	<br>
+	<br>
+	<u>Available Courses<\u>
 
 	<div id="main" ng-controller="quizCtrl" ng-show = "loaded" ng-init="getQuizes()">
 
@@ -29,10 +32,11 @@
 	<button id={{"quiz"+$index+"btn"}} ng-init="name=quiz" ng-click =selectQuiz(name)>
 	{{quiz}}
 	</button>
-
+	<br>
+	<br>
 	</div>
 
-		<button onclick = "window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Home</button>
+		<button onclick = "window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Results</button>
 
 	</div>
 
