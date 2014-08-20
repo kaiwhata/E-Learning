@@ -51,7 +51,7 @@
     document.getElementById("submit").onclick = confirm;
     function confirm() {
 	$.ajax({
-		url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
+		url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 		type: 'post',
 		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
 		success: function(response){
@@ -78,7 +78,7 @@
 	document.getElementById("submitAdmin").onclick = confirmAdmin;
 	    function confirmAdmin() {
 		$.ajax({
-			url:'http://shrouded-earth-7234.herokuapp.com/loginAdmin.php',
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type: 'post',
 			data: {"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
 			success: function(response){
