@@ -10,29 +10,7 @@ function checkPasswordAdmin($username, $password) {
 
 	return $row [0];
 }
-function getAllQuestions() {
-	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
-	$dbconnection = pg_connect ( $connectionString );
 
-	$result = pg_query ( $dbconnection, "select row_to_json(row)
-
-			from(select * from question LEFT OUTER JOIN possibleanswers ON (question.panswerid = possibleanswers.id))row" );
-
-	// $str = "{";
-	// for($i = 0;$i<2;$i++){
-	// $str.=json_encode(pg_fetch_row($result));
-	// if($i<1){
-	// $str.=",";
-	// }
-	// }
-
-	// $str.="}";
-
-	// return $str;
-	// $row = pg_fetch_row($result);
-	// return (pg_fetch_all($result));
-	return json_encode ( pg_fetch_all ( $result ) );
-}
 
 function getAllQuestionsFromQuiz($quizname) {
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
@@ -53,7 +31,7 @@ function sendResults($username, $password, $quizname, $score) {
 
 	pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score) VALUES ($userid,'" . $quizname . "',$score)" );
 
-	return $username . $password . $quizname . $score . "   id:" . $userid . "    other thing:" . $id;
+	return;
 }
 
 function getResults($username, $password) {
