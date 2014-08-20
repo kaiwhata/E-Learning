@@ -4,8 +4,10 @@
     <meta content="">
     <style></style>
   </head>
-  <body>
+  <body">
 	WELCOME ELF!!!!!
+	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
+	
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
 		<fieldset id={{
 			"result"+$index}} ng-repeat="result in results track by $index">
@@ -13,6 +15,33 @@
 
 		</fieldset>
 	</div>
+	
+	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
+	
+	  <table style="width:300px">
+<tr>
+  <td>Jill</td>
+  <td>Smith</td> 
+  <td>50</td>
+</tr>
+<tr>
+  <td>Eve</td>
+  <td>Jackson</td> 
+  <td>94</td>
+</tr>
+</table>
+	
+	</div>
+	
+	
+	<script>
+		function logout() {
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("password");
+			sessionStorage.clear();
+			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+		}
+	</script>
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
