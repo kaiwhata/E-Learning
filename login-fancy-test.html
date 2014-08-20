@@ -56,7 +56,8 @@
 		type: 'post',
 		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
 		success: function(response){
-			if(response==true){
+
+			if(response){
 			//remember my deets
 				sessionStorage.setItem('username',login.username.value);
 				sessionStorage.setItem('password',login.password.value);
