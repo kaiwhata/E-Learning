@@ -19,8 +19,8 @@ function getQuizes(){
 	$bigline = "";
 	
 	while($row = pg_fetch_array($result)){
-	$bigline .= "*";
-	$bigline .= $row['coursecode'] . ":" . $row['name'];
+		$bigline .= "*";
+		$bigline .= $row['coursecode'] . ":" . $row['name'];
 	
 	}
 
@@ -90,7 +90,7 @@ if (isset ( $_POST ['funcName'] )) {
 			echo (getAllQuestionsFromQuiz ( $_POST ['quizname'] ));
 			break;
 		case 'sendResults' :
-			echo (sendResults ( $_POST ['username'], $_POST ['password'], $_POST ['quizname'], $_POST ['score'] ));
+			echo (sendResults ( $_POST ['username'], $_POST ['password'], $_POST ['quizname'], $_POST 				['score'] ));
 			break;
 		case 'getResults' :
 			echo (getResults ( $_POST ['username'], $_POST ['password'] ));
@@ -100,8 +100,9 @@ if (isset ( $_POST ['funcName'] )) {
 			break;
 		case 'getAllResults':
 			echo(getAllResults());
+			break;
 		case 'getQuizzes':
-			echo(checkPassword($_POST['username'],$_POST['password']));
+			echo(getQuizes());
 			break;
 	}
 }
