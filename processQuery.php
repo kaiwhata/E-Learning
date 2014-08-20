@@ -47,30 +47,11 @@ function getResults($username, $password) {
 	return json_encode ( pg_fetch_all ( $result ) );
 }
 
-function getAllResults(){
-	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
-	$dbconnection = pg_connect ( $connectionString );
-
-	$result = pg_query ( $dbconnection, "SELECT * FROM result" );
-	return json_encode ( pg_fetch_all ( $result));
-}
-
-function getAllQuestionsWithoutOptions() {
-	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
-	$dbconnection = pg_connect ( $connectionString );
-	$result = pg_query ( $dbconnection, "SELECT * FROM question" );
-
-	$row = pg_fetch_row ( $result );
-	return json_encode ( array_values ( $row ) );
-}
 
 if (isset ( $_POST ['funcName'] )) {
 	switch ($_POST ['funcName']) {
 		case 'checkPasswordAdmin' :
 			echo (checkPasswordAdmin ( $_POST ['username'], $_POST ['password'] ));
-			break;
-		case 'getAllQuesitons' :
-			echo (getAllQuestions ());
 			break;
 		case 'getAllQuestionsFromQuiz' :
 			echo (getAllQuestionsFromQuiz ( $_POST ['quizname'] ));
@@ -80,9 +61,6 @@ if (isset ( $_POST ['funcName'] )) {
 			break;
 		case 'getResults' :
 			echo (getResults ( $_POST ['username'], $_POST ['password'] ));
-			break;
-		case 'getAllResults' :
-			echo (getAllResults());
 			break;
 	}
 }
