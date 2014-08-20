@@ -7,7 +7,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 	$scope.getQuizes = function() {
 
 	$.ajax({
-		url:'http://shrouded-earth-7234.herokuapp.com/elearningserver.php',
+		url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 		type: 'post',
 		data: {"funcName":"getQuizes"},
 			success: function(response){
