@@ -19,11 +19,17 @@ var Question = function(id, bodyText, answerText) {
 
 	// function to convert a question to JSON format (may be unnecessary))
 	this.toJSON;
+	
+
+	//the url of the image to display.  leave blank if you want no picture
+	this.imageURL;
+
 
 	//funcftion to conver from JSON format to question
 //	this.fromJSON;
 
 };
+
 
 /**
  * A multi choice question that lets users select from the provided choices

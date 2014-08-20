@@ -176,6 +176,11 @@ questionList
 												var question = new MultiChoiceQuestion(
 														id, body, answerIdx,
 														options)
+
+												if(questionJSON["imagename"]!=null){
+													question.imageURL =questionJSON["imagename"]; 
+												}
+
 												$scope.questions.push(question);
 											}
 											// NUMBER TYPE
@@ -186,6 +191,11 @@ questionList
 												var tol = questionJSON["tolerance"];
 												var question = new NumberEntryToleranceQuestion(
 														id, body, answer, tol);
+
+												if(questionJSON["imagename"]!=null){
+													question.imageURL =questionJSON["imagename"]; 
+												}
+
 												$scope.questions.push(question);
 											}
 											// TEXT TYPE
@@ -196,7 +206,15 @@ questionList
 												var answerArray = [ answer ];
 												var question = new TextEntryQuestion(
 														id, body, answerArray);
+
+												if(questionJSON["imagename"]!=null){
+													question.imageURL =questionJSON["imagename"]; 
+												}
+
+
 												$scope.questions.push(question);
+
+
 											}
 										}
 										$scope.loaded = true;
