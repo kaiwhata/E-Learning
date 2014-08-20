@@ -6,28 +6,28 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 	
 	$scope.getQuizes = function() {
 
-	$.ajax({
-		url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
-		type: 'post',
-		data: {"funcName":"getQuizes"},
-			success: function(response){
-				console.log("boo:"+response);	
-				var instanceArray = response.split("*");
-				
-				// loop this
-				for(var i=1;i<instanceArray.length;i++){
-					var instanceDeets = instanceArray[i].split(":");
-//					console.log("thing: "+instanceDeets[i]+" "+instanceDeets[i+1]);
-					$scope.quizes.push(instanceDeets[0]+":"+instanceDeets[1]);
-					// create button
-					$scope.loaded=true;
-					$scope.$apply();
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+			type: 'post',
+			data: {"funcName":"getQuizzes"},
+				success: function(response){
+					console.log("boo:"+response);	
+					var instanceArray = response.split("*");
 					
-				}//end for
-				
-			}//end success
-		});//end ajax
-	}//end getQuizesFunction
+					// loop this
+					for(var i=1;i<instanceArray.length;i++){
+						var instanceDeets = instanceArray[i].split(":");
+//						console.log("thing: "+instanceDeets[i]+" "+instanceDeets[i+1]);
+						$scope.quizes.push(instanceDeets[0]+":"+instanceDeets[1]);
+						// create button
+						$scope.loaded=true;
+						$scope.$apply();
+						
+					}//end for
+					
+				}//end success
+			});//end ajax
+		}//end getQuizesFunction
 
 
 	$scope.selectQuiz = function(quizString) {
