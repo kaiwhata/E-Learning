@@ -176,6 +176,11 @@ questionList
 												var question = new MultiChoiceQuestion(
 														id, body, answerIdx,
 														options)
+
+												if(questionJSON["imagename"]!=null){
+													question.imageURL =questionJSON["imagename"]; 
+												}
+
 												$scope.questions.push(question);
 											}
 											// NUMBER TYPE
@@ -186,6 +191,11 @@ questionList
 												var tol = questionJSON["tolerance"];
 												var question = new NumberEntryToleranceQuestion(
 														id, body, answer, tol);
+
+												if(questionJSON["imagename"]!=null){
+													question.imageURL =questionJSON["imagename"]; 
+												}
+
 												$scope.questions.push(question);
 											}
 											// TEXT TYPE
@@ -194,10 +204,21 @@ questionList
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
 												var answerArray = [ answer ];
+												var image=questionJSON["imagename"];
+												//if(questionJSON["imagename"]!=null){
+													//question.imageURL =questionJSON["imagename"]; 
+												//}
 												var question = new TextEntryQuestion(
-														id, body, answerArray);
+														id, body, answerArray, image);
+
+												
+
+
 												$scope.questions.push(question);
+
+
 											}
+											
 										}
 										$scope.loaded = true;
 										 $scope.$apply();
@@ -248,6 +269,7 @@ questionList
 
 								});
 					}
+
 
 					$scope.test = function(){
 						//test log in correct name
@@ -331,7 +353,6 @@ questionList
 						});
 
 					}
-
 
 
 				});
