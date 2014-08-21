@@ -57,7 +57,7 @@
 		data: {"funcName":"checkPassword","username":login.username.value,"password":login.password.value},
 		success: function(response){
 
-			if(response){
+			if(response.indexOf("true")!=-1){
 			//remember my deets
 				sessionStorage.setItem('username',login.username.value);
 				sessionStorage.setItem('password',login.password.value);
@@ -84,7 +84,7 @@
 			data: {"funcName":"checkPasswordAdmin","username":login.username.value,"password":login.password.value},
 			success: function(response){
 
-				if(response){
+				if(response.indexOf("true")!=-1){
 				//remember my deets
 					alert("welcome Elf!");
 					sessionStorage.setItem('username',login.username.value);
