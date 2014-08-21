@@ -60,6 +60,7 @@
 
 	<br>
 	<input type="button" id="submit" value="Submit">
+	<input type="button" id="home" value="Home">
 	<script type="text/javascript">
     document.getElementById("submit").onclick = confirm;
     function confirm() {
@@ -91,6 +92,11 @@
 		});
 
     }
+
+	document.getElementById("home").onclick = linkToHome;
+	   	function linkToHome() {
+	   		window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+	}
 </script>
 </form>
 </html>
