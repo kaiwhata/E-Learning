@@ -17,6 +17,14 @@
 	<script type="text/javascript" src="js/services.js"></script>
 <form novalidate ng-app name="login">
 
+	<label for="fname">First Name</label>
+	<input type="text" name="fname" ng-model="fname" ng-minlength="3" ng-maxlength="15" required />
+	<br />
+
+	<label for="lname">Last Name</label>
+	<input type="text" name="lname" ng-model="lname" ng-minlength="3" ng-maxlength="15" required />
+	<br />
+
   	<div class="error-message"
   		ng-show="login.username.$dirty && login.username.$error.required">
   		The username is required
@@ -58,7 +66,30 @@
     	console.log("username: "+ login.username.value);
     	console.log("email: "+ login.email.value);
     	console.log("password : "+ login.password.value);
-		    alert("Successful");
+    	console.log("fname: "+ login.fname.value);
+    	console.log("lname: "+ login.lname.value);
+		    //alert("Successful");
+		    //call PHP function
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
+			type: 'post',
+			data: {"funcName":"register","username":login.username.value,"email":login.email.value,"password":login.password.value,"fname":login.fname.value,"lname":login.lname.value},
+
+			success: function(response){
+				console.log(response);
+
+			if(response){
+				//register successful
+				console.log("success");
+			}
+			else{
+				//error in registrating, may be user already existing
+				//invalid username/email/password
+				console.log("error");
+			}
+			}
+		});
+
     }
 </script>
 </form>

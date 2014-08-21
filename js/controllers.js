@@ -249,4 +249,89 @@ questionList
 								});
 					}
 
+					$scope.test = function(){
+						//test log in correct name
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "checkPassword",
+								"username" : "hawkinchri",
+								"password" : "dogs"
+							},
+							success : function(response) {
+								console.log("hawkinchri+dogs"+response);
+								if(response.indexOf("true")!=-1){
+									alert("WORKING: checking  correct passwords work");
+								}else{
+									alert("BROKEN: checking correct passwords doesn't work");
+								}
+							}
+
+						});
+
+
+						//test log in incorrect name
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "checkPassword",
+								"username" : "hawkinchri",
+								"password" : "ffff"
+							},
+							success : function(response) {
+								console.log(response);
+								if(response.indexOf("false")!=-1){
+									alert("WORKING: checking incorrect passwords doesn't work");
+								}else{
+									alert("BROKEN: checking incorrect passwords work");
+								}
+							}
+
+						});
+
+						//test log in admin incorrect name
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "checkPasswordAdmin",
+								"username" : "elf",
+								"password" : "learning"
+							},
+							success : function(response) {
+								console.log(response);
+								if(response.indexOf("true")!=-1){
+									alert("WORKING: checking passwords works with admins");
+								}else{
+									alert("BROKEN: checking passwords with admin is broken");
+								}
+							}
+
+						});
+
+						$.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+							type : 'post',
+							data : {
+								"funcName" : "checkPasswordAdmin",
+								"username" : "elf",
+								"password" : "notlearning"
+							},
+							success : function(response) {
+								console.log(response);
+								if(response.indexOf("false")!=-1){
+									alert("WORKING: checking wrong passwords works for admin");
+								}else{
+									alert("BROKEN: checking wrong passwords doesn't work for admin");
+								}
+							}
+
+						});
+
+					}
+
+
+
 				});
