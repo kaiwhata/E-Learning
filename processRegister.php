@@ -7,7 +7,7 @@ function Register($username, $email, $password, $fname, $lname) {
 	$dbconnection = pg_connect($connectionString);
 	//Access table from SQL to insert
 	$result = pg_query($dbconnection,"INSERT INTO useraccount (fname,lname,emailaddress,username,password,isadmin) VALUES ('$fname', '$lname', '$email', '$username', '$password', false);");
-	return 'got to end of php function';
+	return $result;
 }
 
 if (isset ( $_POST ['funcName'] )) {
