@@ -18,7 +18,8 @@
 
 			<legend>Question {{question.id}}</legend>
 			<span ng-switch="question.questionType">
-				<div directive-one ng-switch-when="text">{{question.bodyText}}
+				<div directive-one ng-switch-when="text">{{question.bodyText+" "+question.imagename}}
+					
 					<form id={{"question"+$index+"form"}}>
 						<label>
 							<input type="text" id={{"a"+$index}} name="fff">
