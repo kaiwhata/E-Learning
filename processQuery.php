@@ -82,13 +82,13 @@ function getAllResults($fname,$lname,$quiz){
 	$quizname = "";
 	
 	if($fname!=null){
-	  $firstname = $fname
+	  $firstname = $fname;
 	}
 	if($lname!=null){
-	  $lastname = $lname
+	  $lastname = $lname;
 	}
 	if($quiz!=null){
-	  $quizname = $quiz
+	  $quizname = $quiz;
 	}
 	
 	if($fname==null){

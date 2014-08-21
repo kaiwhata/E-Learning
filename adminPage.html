@@ -17,7 +17,7 @@
 	  Quiz <input id="quizinput" type="text">
 	  <br>
 	  <br>
-	  <button id="submit">Query</button>
+	  <button id="submit" onclick="query()">Query</button>
 	</fieldset>
 	<br>
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
@@ -51,6 +51,10 @@
 	
 	
 	<script>
+		function query(){
+		
+		}
+		
 		function logout() {
 			sessionStorage.removeItem("username");
 			sessionStorage.removeItem("password");
