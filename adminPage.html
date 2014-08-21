@@ -5,12 +5,11 @@
     <style></style>
   </head>
   <body>
-	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
-	WELCOME ELF!!!!!
+	<div ng-controller = "adminCtrl" ng-init = "getAllResults()" ng-show="safeToShow">
 	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
-	<br>
-	<br>
-	<fieldset>
+	<h1>Results Query</h1>
+		<br>
+	
 	  First Name <input id="fnameinput" type="text">
 	  <br>
 	  Last Name <input id="lnameinput" type="text">
@@ -19,7 +18,8 @@
 	  <br>
 	  <br>
 	  <button id="submit" ng-click="getQueryResults()">Query</button>
-	</fieldset>
+	
+	<br>
 	<br>
 	<table style="width:90%" border="1">
 	    <tr>
@@ -41,7 +41,9 @@
 	    </tr>
 	    
 	   </table>
-	</div>	
+
+	
+
 	
 	<script>
 		
@@ -51,8 +53,12 @@
 			sessionStorage.clear();
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
-	</script>
 
+
+
+
+	</script>
+	</div>	
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
