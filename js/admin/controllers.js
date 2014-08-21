@@ -12,10 +12,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				"funcName" : "getAllResults"
 			},
 			success : function(response) {
-				console.log("response returned: "+response);
-				console.log(JSON.parse(response).length);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
-					//console.log(JSON.parse(response)[i]);
 					var questionJSON = JSON.parse(response)[i];
 					$scope.results.push(questionJSON);
 				}
