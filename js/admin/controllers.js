@@ -21,4 +21,22 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 
 		});
 	}
+	
+	$scope.getQueryResults = function(){
+			console.log("Starting query: ");
+			$.ajax({
+				url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+				type: 'post',
+				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value},
+				success: function(response){
+					console.log("Query executed: "+response);
+					$scope.results = [];
+					for (var i = 0; i < JSON.parse(response).length; i++) {
+					  var questionJSON = JSON.parse(response)[i];
+					  $scope.results.push(questionJSON);
+					}
+					 $scope.$apply();
+				}
+			});
+		}
 });
