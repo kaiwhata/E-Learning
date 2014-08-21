@@ -88,5 +88,35 @@ describe("Text Question", function() {
 	});
 });
 
+describe("TEST", function() {
+	var questionJSON;
+
+  beforeEach(function() {
+	for (var i = 0; i < JSON.parse(null).length; i++) {
+	questionJSON = JSON.parse(JSON.parse(null)[i]["row_to_json"]);
+	}
+  });
+
+	it("should be the right question format", function() {
+		//expect(textQuestion.questionType).toEqual("text");
+		//expect(textQuestion.questionType).not.toEqual("numTol");
+		//expect(textQuestion.questionType).not.toEqual("multi");
+	 });
+
+  	it("should know its correct answer", function() {
+		//expect(textQuestion.answerText).toEqual([ "feline", "cat", "hamster", "orange dog" ]);
+		//expect(textQuestion.answerText).not.toEqual("normal dog");
+	  });
+
+	it("should correctly check the answer from list of possible answers",function(){
+		//expect(textQuestion.checkAnswer("feline")).toBeTruthy();
+		//expect(textQuestion.checkAnswer("cat")).toBeTruthy();
+		//expect(textQuestion.checkAnswer("hamster")).toBeTruthy();
+		//expect(textQuestion.checkAnswer("orange dog")).toBeTruthy();
+		//expect(textQuestion.checkAnswer("dog")).toBeFalsy();
+		//expect(textQuestion.checkAnswer("tiger")).toBeFalsy();
+	});
+});
+
 
 
