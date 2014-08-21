@@ -4,7 +4,7 @@
     <meta content="">
     <style></style>
   </head>
-  <body onload = "confirmAdmin();">
+  <body>
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()" ng-show="safeToShow">
 	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
 	<h1>Results Query</h1>
@@ -54,29 +54,7 @@
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
 
-    function confirmAdmin() {
-		$.ajax({
-			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
-			type: 'post',
-			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password')},
-			success: function(response){
 
-				if(response.indexOf("true")!=-1){
-					alert("correct username or password");
-					safeToShow = true;
-				}
-				else{
-					alert("Incorrect username or password");
-	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
-				}
-				console.log(response);
-				console.log("username from session"+sessionStorage.getItem('username'));
-				console.log("password from session"+sessionStorage.getItem('password'));
-
-			}
-
-		});
-	}
 
 
 	</script>
