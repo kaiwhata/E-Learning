@@ -20,7 +20,7 @@
 			<span ng-switch="question.questionType">
 				<div directive-one ng-switch-when="text">{{question.bodyText}}
 				<script>
-					console.log("this is the url "+question.imageURL);
+					console.log("this is the url "+{{question.imageURL}});
 					</script>
 
 					<img src=question.imageURL alt="triangle">
