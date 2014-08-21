@@ -92,7 +92,7 @@ function getQueryResults($fname,$lname,$quiz){
 		"SELECT u.fname, u.lname, u.id, r.quizname, r.score, r.timetaken, r.date 
 		FROM result r 
 		inner join useraccount u on r.userid=u.id 		
-		where u.fname like 'Eman'
+		where u.fname like '$fname'
 		and u.lname like '$lname'
 		and r.quizname like '%$quiz%'
 		order by score desc");
@@ -121,7 +121,7 @@ if (isset ( $_POST ['funcName'] )) {
 			echo(getAllResults());
 			break;
 		case 'getQueryResults':
-			echo(getAllResults($_POST['fname'],$_POST['lname'],$_POST['quiz']));
+			echo(getQueryResults($_POST['fname'],$_POST['lname'],$_POST['quiz']));
 			break;	
 		case 'getQuizzes':
 			echo(getQuizes());
