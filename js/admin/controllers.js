@@ -5,6 +5,30 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	$scope.safeToShow = false;
 	$scope.getAllResults = function() {
 		console.log("hello");
+
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+			type: 'post',
+			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password')},
+			success: function(response){
+
+				if(response.indexOf("true")!=-1){
+					$scope.safeToShow = true;
+				}
+				else{
+					alert("Incorrect username or password");
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				}
+				console.log(response);
+				console.log("username from session"+sessionStorage.getItem('username'));
+				console.log("password from session"+sessionStorage.getItem('password'));
+
+			}
+
+		});
+	
+
+
 		$.ajax({
 			url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type : 'post',
@@ -39,4 +63,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				}
 			});
 		}
+
+
 });
