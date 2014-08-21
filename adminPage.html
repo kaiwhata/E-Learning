@@ -7,29 +7,34 @@
   <body>
 	WELCOME ELF!!!!!
 	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
-	
+	<br>
+	<br>
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
-		<fieldset id={{
-			"result"+$index}} ng-repeat="result in results track by $index">
-			<p>{{result}}</p>
-
-		</fieldset>
+	<table style="width:90%" border="1">
+	    <tr>
+	      <td><b>First Name</b></td>
+	      <td><b>Last Name</b></td> 
+	      <td><b>Quiz</b></td>
+	      <td><b>Score</b></td>
+	      <td><b>Time Taken</b></td>
+	      <td><b>Date Taken</b></td>
+	    </tr>
+	    
+	    <tr ng-repeat="result in results track by $index">
+	      <td>{{result.fname}}</td>
+	      <td>{{result.lname}}</td> 
+	      <td>{{result.quizname}}</td>
+	      <td>{{result.score}}</td>
+	      <td>{{result.timetaken}}</td>
+	      <td>{{result.date}}</td>
+	    </tr>
+	    
+	   </table>
 	</div>
 	
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
 	
-	  <table style="width:300px">
-	    <tr>
-	      <td>Jill</td>
-	      <td>Smith</td> 
-	      <td>50</td>
-	    </tr>
-	    <tr>
-	      <td>Eve</td>
-	      <td>Jackson</td> 
-	      <td>94</td>
-	    </tr>
-	    </table>
+	  
 	
 	</div>
 	
