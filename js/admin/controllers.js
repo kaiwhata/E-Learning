@@ -2,7 +2,7 @@
 
 admin.controller('adminCtrl', function adminCtrl($scope) {
 	$scope.results = [];
-
+	$scope.safeToShow = false;
 	$scope.getAllResults = function() {
 		console.log("hello");
 		$.ajax({

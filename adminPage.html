@@ -4,13 +4,12 @@
     <meta content="">
     <style></style>
   </head>
-  <body>
-	<div ng-controller = "adminCtrl" ng-init = "getAllResults()">
-	WELCOME ELF!!!!!
+  <body onload = "confirmAdmin();">
+	<div ng-controller = "adminCtrl" ng-init = "getAllResults()" ng-show="safeToShow">
 	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
-	<br>
-	<br>
-	<fieldset>
+	<h1>Results Query</h1>
+		<br>
+	
 	  First Name <input id="fnameinput" type="text">
 	  <br>
 	  Last Name <input id="lnameinput" type="text">
@@ -19,7 +18,8 @@
 	  <br>
 	  <br>
 	  <button id="submit" ng-click="getQueryResults()">Query</button>
-	</fieldset>
+	
+	<br>
 	<br>
 	<table style="width:90%" border="1">
 	    <tr>
@@ -41,7 +41,9 @@
 	    </tr>
 	    
 	   </table>
-	</div>	
+
+	
+
 	
 	<script>
 		
@@ -51,8 +53,34 @@
 			sessionStorage.clear();
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
-	</script>
 
+    function confirmAdmin() {
+		$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+			type: 'post',
+			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password')},
+			success: function(response){
+
+				if(response.indexOf("true")!=-1){
+
+					safeToShow = true;
+				}
+				else{
+					alert("Incorrect username or password");
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				}
+				console.log(response);
+				console.log("username from session"+sessionStorage.getItem('username'));
+				console.log("password from session"+sessionStorage.getItem('password'));
+
+			}
+
+		});
+	}
+
+
+	</script>
+	</div>	
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
