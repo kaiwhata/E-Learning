@@ -73,15 +73,35 @@ function checkPassword($username,$password){
 	return ($realPassword==$password) ? 'true' : 'false';
 }
 
-function getAllResults(){
+function getAllResults($fname,$lname,$quiz){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
-	$result = pg_query($dbconnection,
-		"SELECT u.fname, u.lname, u.id, r.quizname, r.score, r.timetaken, r.date 
-		FROM result r 
-		inner join useraccount u on r.userid=u.id 		
-		order by score desc");
-	return json_encode(pg_fetch_all($result));
+	
+	$firstname = "";
+	$lastname = "";
+	$quizname = "";
+	
+	if($fname!=null){
+	  $firstname = $fname
+	}
+	if($lname!=null){
+	  $lastname = $lname
+	}
+	if($quiz!=null){
+	  $quizname = $quiz
+	}
+	
+	if($fname==null){
+	  $result = pg_query($dbconnection,
+		  "SELECT u.fname, u.lname, u.id, r.quizname, r.score, r.timetaken, r.date 
+		  FROM result r 
+		  inner join useraccount u on r.userid=u.id 		
+		  where u.fname like '%$firstname%'
+		  and u.lname like '%$lastname%'
+		  and r.quizname like '%$quizname%'
+		  order by score desc");
+	  return json_encode(pg_fetch_all($result));
+	}
 }
 
 
