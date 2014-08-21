@@ -18,29 +18,45 @@
 
 			<legend>Question {{question.id}}</legend>
 			<span ng-switch="question.questionType">
-				<div directive-one ng-switch-when="text">{{question.bodyText}}
+
+				<div directive-one ng-switch-when="text">
+					<br>
 					<img src={{question.imageURL}} alt="triangle">
+					<br>
+					{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
 						<label>
 							<input type="text" id={{"a"+$index}} name="fff">
 						</label>
 					</form>
 				</div>
-				<div directive-two ng-switch-when="number">{{question.bodyText}}
+				<div directive-two ng-switch-when="number">
+					<br>
+					<img src={{question.imageURL}} alt="triangle">
+					<br>
+					{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
 						<label>
 							<input type="text" id={{"a"+$index}} name="fff">
 						</label>
 					</form>
 				</div>
-				<div directive-three ng-switch-when="numTol">{{question.bodyText}}
+				<div directive-three ng-switch-when="numTol">					
+					<br>
+					<img src={{question.imageURL}} alt="triangle">
+					<br>
+					{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
 						<label>
 							<input type="text" id={{"a"+$index}} name="fff">
 						</label>
 					</form>
 				</div>
-				<div directive-four ng-switch-when="multi">{{question.bodyText}}
+				<div directive-four ng-switch-when="multi">
+					<br>
+					<img src={{question.imageURL}} alt="triangle">
+					<br>
+					{{question.bodyText}}
 					<form id={{"question"+$index+"form"}}>
 						<label ng-repeat=" option in question.optionsText"> <input
 							type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
