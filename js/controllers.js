@@ -173,13 +173,11 @@ questionList
 												}
 
 												var options = [ p1, p2, p3, p4 ];
+												var image=questionJSON["imagename"];
 												var question = new MultiChoiceQuestion(
 														id, body, answerIdx,
-														options)
+														options, image)
 
-												if(questionJSON["imagename"]!=null){
-													question.imageURL =questionJSON["imagename"]; 
-												}
 
 												$scope.questions.push(question);
 											}
@@ -189,12 +187,9 @@ questionList
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
 												var tol = questionJSON["tolerance"];
+												var image=questionJSON["imagename"];
 												var question = new NumberEntryToleranceQuestion(
-														id, body, answer, tol);
-
-												if(questionJSON["imagename"]!=null){
-													question.imageURL =questionJSON["imagename"]; 
-												}
+														id, body, answer, tol, image);
 
 												$scope.questions.push(question);
 											}
@@ -205,9 +200,7 @@ questionList
 												var id = questionJSON["id"];
 												var answerArray = [ answer ];
 												var image=questionJSON["imagename"];
-												//if(questionJSON["imagename"]!=null){
-													//question.imageURL =questionJSON["imagename"]; 
-												//}
+
 												var question = new TextEntryQuestion(
 														id, body, answerArray, image);
 

@@ -64,6 +64,7 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 		jobject["bodyText"] = bodyText;
 		jobject["optionsText"] = optionsText;
 		jobject["answerIndex"] = answerIndex;
+		jobject["image"]=image;
 		return jobject;
 
 	}
@@ -105,6 +106,7 @@ var NumberEntryQuestion = function(id, bodyText, answerNum, image) {
 		jobject["id"] = id;
 		jobject["bodyText"] = bodyText;
 		jobject["answerNum"] = answerNum;
+		jobject["image"]=image;
 		return jobject;
 	};
 
@@ -153,6 +155,7 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, 
 		jobject["id"] = id;
 		jobject["bodyText"] = bodyText;
 		jobject["answerNum"] = answerNum;
+		jobject["image"]=image;
 		return jobject;
 	};
 
