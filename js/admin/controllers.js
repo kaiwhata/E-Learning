@@ -18,7 +18,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 					//console.log(JSON.parse(response)[i]);
 					var questionJSON = JSON.parse(response)[i];
 					//console.log("this is: "+questionJSON);
-					var result = questionJSON["userid"]+" : "+questionJSON["quizname"]+" : "+questionJSON["score"]+" : "+questionJSON["timetaken"]+" : "+questionJSON["date"];
+					var result = questionJSON["fname"]+" : "+questionJSON["lname"]+" : "+questionJSON["id"]+" : "+questionJSON["quizname"]+" : "+questionJSON["score"]+" : "+questionJSON["timetaken"]+" : "+questionJSON["date"];
 					console.log(result);
 					$scope.results.push(result);
 				}
