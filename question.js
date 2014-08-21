@@ -1,6 +1,6 @@
 
 
-var Question = function(id, bodyText, answerText) {
+var Question = function(id, bodyText, answerText, image) {
 	// the question's id
 	this.id = id;
 
@@ -22,7 +22,7 @@ var Question = function(id, bodyText, answerText) {
 	
 
 	//the url of the image to display.  leave blank if you want no picture
-	this.imageURL;
+	this.imageURL=image;
 
 
 	//funcftion to conver from JSON format to question
@@ -35,9 +35,9 @@ var Question = function(id, bodyText, answerText) {
  * A multi choice question that lets users select from the provided choices
  * (optionsText). The index of the correct option is provided too
  */
-var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText) {
+var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image) {
 	// call the super class constructor
-	Question.call(this, id, bodyText, optionsText[answerIndex]);
+	Question.call(this, id, bodyText, optionsText[answerIndex], image);
 
 	this.optionsText = optionsText;
 	this.answerIndex = answerIndex;
@@ -75,8 +75,8 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText) {
 /**
  * A question which asks the user for a number.
  */
-var NumberEntryQuestion = function(id, bodyText, answerNum) {
-	Question.call(this, id, bodyText, answerNum);
+var NumberEntryQuestion = function(id, bodyText, answerNum, image) {
+	Question.call(this, id, bodyText, answerNum, image);
 
 	this.questionType = "number";
 
@@ -118,8 +118,8 @@ var NumberEntryQuestion = function(id, bodyText, answerNum) {
 /**
  * Just like a Number Entry Question but with a tolerance set for it.
  */
-var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance) {
-	Question.call(this, id, bodyText, answerNum);
+var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, image) {
+	Question.call(this, id, bodyText, answerNum, image);
 
 	this.questionType = "numTol";
 
@@ -161,8 +161,8 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance) 
 /**
  * Text question where users must enter an answer in string form.
  */
-var TextEntryQuestion = function(id, bodyText, answersArray) {
-	Question.call(this, id, bodyText, answersArray);
+var TextEntryQuestion = function(id, bodyText, answersArray, image) {
+	Question.call(this, id, bodyText, answersArray, image);
 
 	this.questionType = "text";
 
@@ -187,6 +187,7 @@ var TextEntryQuestion = function(id, bodyText, answersArray) {
 		jobject["id"] = id;
 		jobject["bodyText"] = bodyText;
 		jobject["answersArray"] = answersArray;
+		jobject["image"]=image;
 		return jobject;
 	};
 };

@@ -204,18 +204,21 @@ questionList
 												var body = questionJSON["body"];
 												var id = questionJSON["id"];
 												var answerArray = [ answer ];
+												var image=questionJSON["imagename"];
+												//if(questionJSON["imagename"]!=null){
+													//question.imageURL =questionJSON["imagename"]; 
+												//}
 												var question = new TextEntryQuestion(
-														id, body, answerArray);
+														id, body, answerArray, image);
 
-												if(questionJSON["imagename"]!=null){
-													question.imageURL =questionJSON["imagename"]; 
-												}
+												
 
 
 												$scope.questions.push(question);
 
 
 											}
+											
 										}
 										$scope.loaded = true;
 										 $scope.$apply();
