@@ -8,9 +8,9 @@ function Register($username, $email, $password, $fname, $lname) {
 	//Access table from SQL to insert
 	$result = pg_query($dbconnection,"INSERT INTO useraccount (fname,lname,emailaddress,username,password,isadmin) VALUES ('$fname', '$lname', '$email', '$username', '$password', false);");
 	if (!$result) {
-	  return"An error occurred.\n";;
+	  return"fail";
 	}else{
-	  return"An error did not occurred.\n";;
+	  return"success";
 	}
 	$row = pg_fetch_all($result);
 	return $row;

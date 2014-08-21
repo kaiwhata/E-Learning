@@ -78,14 +78,14 @@
 			success: function(response){
 				console.log(response);
 
-			if(response){
-				//register successful
-				console.log("success");
+			if(response.indexOf("success")=-1){
+				alert("Could not register!");
 			}
 			else{
-				//error in registrating, may be user already existing
-				//invalid username/email/password
-				console.log("error");
+				alert("Registration Successful");
+				sessionStorage.setItem('username',login.username.value);
+				sessionStorage.setItem('password',login.password.value);
+ 				window.location = "http://shrouded-earth-7234.herokuapp.com/quizTest.html";
 			}
 			}
 		});
