@@ -92,7 +92,7 @@ function getQueryResults($fname,$lname,$quiz){
 		"SELECT u.fname, u.lname, u.id, r.quizname, r.score, r.timetaken, r.date 
 		FROM result r 
 		inner join useraccount u on r.userid=u.id 		
-		where u.fname like '$fname'
+		where u.fname like 'Eman'
 		and u.lname like '$lname'
 		and r.quizname like '%$quiz%'
 		order by score desc");
