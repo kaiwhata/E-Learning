@@ -55,74 +55,93 @@ questionList
 					$scope.checkAnswers = function() {
 						var score = 0;
 						var total = 0;
-						for (var i = 0; i < $scope.questions.length; i++) {
-							total++;
-							var q = $scope.questions[i];
+						var failed = false;
+						var problems =[];
+						var problemsMessage ="";
+						
+							for (var i = 0; i < $scope.questions.length; i++) {
+								try{
 
-							if (q instanceof MultiChoiceQuestion) {
-								var numOptions = q.optionsText.length;
-								var chosenIndex = -1;// should be -1
-								for (var j = 0; j < numOptions; j++) {
-									var checkBoxIdentifier = "q" + i + "a" + j;
-									var ticked = document
-											.getElementById(checkBoxIdentifier).checked;
-									if (ticked) {
-										chosenIndex = j;
-										break;
+									total++;
+									var q = $scope.questions[i];
+
+									if (q instanceof MultiChoiceQuestion) {
+										var numOptions = q.optionsText.length;
+										var chosenIndex = -1;// should be -1
+										for (var j = 0; j < numOptions; j++) {
+											var checkBoxIdentifier = "q" + i + "a" + j;
+											var ticked = document
+													.getElementById(checkBoxIdentifier).checked;
+											if (ticked) {
+												chosenIndex = j;
+												break;
+											}
+										}
+										
+										if (q.checkAnswer(chosenIndex)){
+											score++;
+											alert("CORRECT!  the answer was "+q.answerText);
+
+
+
+										}else{
+
+											alert("INCORRECT!  the answer was "+q.answerText);
+										}
 									}
-								}
-								if (q.checkAnswer(chosenIndex)){
-									score++;
-									alert("CORRECT!  the answer was "+q.answerText);
 
+									else if (q instanceof TextEntryQuestion
+											|| q instanceof NumberEntryToleranceQuestion
+											|| q instanceof NumberEntryQuestion) {
+										var answer = document.getElementById("a" + i).value;
+										console.log(answer);
+										if (q.checkAnswer(answer)){
+											score++;
+											alert("CORRECT!  the answer was "+q.answerText);
 
-
-								}else{
-
-									alert("INCORRECT!  the answer was "+q.answerText);
-								}
-							}
-
-							else if (q instanceof TextEntryQuestion
-									|| q instanceof NumberEntryToleranceQuestion
-									|| q instanceof NumberEntryQuestion) {
-								var answer = document.getElementById("a" + i).value;
-								console.log(answer);
-								if (q.checkAnswer(answer)){
-									score++;
-									alert("CORRECT!  the answer was "+q.answerText);
-
-								}else{
-									alert("INCORRECT!  the answer was "+q.answerText);
+										}else{
+											alert("INCORRECT!  the answer was "+q.answerText);
+											}
 									}
-							}
-
-						}
-						var per = score / total;
-
-						$
-						.ajax({
-							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
-							type : 'post',
-							data : {
-								"funcName" : "sendResults",
-								"username" : sessionStorage.getItem('username'),
-								"password" : sessionStorage.getItem('password'),
-								"quizname" : sessionStorage.getItem('quizname'),
-								"score" :per
-
-							},
-							success : function(response){
-								console.log("hey");
-
-								console.log(response);
+								}catch(err){
+										
+										failed = true;
+										//problems.push("Question"+i+" "+err.message+"\n");
+										problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
+								}
 
 							}
+							var per = score / total;
+							if(failed){
+								problemsMessage=problemsMessage+"\n"+"please try again";
+								alert(problemsMessage);
 
-						});
+								return;
+							}
+							$
+							.ajax({
+								url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+								type : 'post',
+								data : {
+									"funcName" : "sendResults",
+									"username" : sessionStorage.getItem('username'),
+									"password" : sessionStorage.getItem('password'),
+									"quizname" : sessionStorage.getItem('quizname'),
+									"score" :per
+
+								},
+								success : function(response){
+									console.log("hey");
+
+									console.log(response);
+
+								}
+
+							});
 
 
-						console.log("MYSCORE: " + per);
+							console.log("MYSCORE: " + per);
+						
 					}
 
 					$scope.getQuestions = function() {
