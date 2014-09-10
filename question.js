@@ -24,7 +24,13 @@ var Question = function(id, bodyText, answerText, image) {
 	//the url of the image to display.  leave blank if you want no picture
 	this.imageURL=image;
 
+	this.isNumeric =function(answer) {
+	     return (answer >=0 || answer < 0);
+	}
 
+	this.isEmpty=function(answer){
+		return answer=="";
+	}
 	//funcftion to conver from JSON format to question
 //	this.fromJSON;
 
@@ -48,6 +54,9 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 	 * Checks the answer against the supplied INDEX
 	 */
 	this.checkAnswer = function(answer) {
+		if(answer==-1){
+			throw new Error("Incorrect format: empty field"); 
+		}
 		if (this.answerIndex == answer) {
 //			alert("Correct!");
 			return true;
@@ -75,47 +84,52 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 
 /**
  * A question which asks the user for a number.
- */
-var NumberEntryQuestion = function(id, bodyText, answerNum, image) {
-	Question.call(this, id, bodyText, answerNum, image);
+//  */
+// var NumberEntryQuestion = function(id, bodyText, answerNum, image) {
+// 	Question.call(this, id, bodyText, answerNum, image);
 
-	this.questionType = "number";
+// 	this.questionType = "number";
 
-	this.answerText = Number(answerNum);
+// 	this.answerText = Number(answerNum);
+// 	function isNumeric(num) {
+// 	     return (num >=0 || num < 0);
+// 	}
+// 	/**
+// 	 * compares the supplied number with the correct answer. Currently has no
+// 	 * tolerance, answers must be exact
+// 	 */
+// 	this.checkAnswer = function(answer) {
+// 		if(!isNumeric(answer)){
+// 			throw "Incorrect format: not a number";
+// 		}
+// 		answer = parseAnswer(answer);
+// 		if (Number(answer) == NaN) {
+// //			alert("Only numbers allowed.");
+// 			return false;
+// 		} else if (this.answerText == answer) {
+// //			alert("Correct!");
+// 			return true;
+// 		} else {
+// //			alert("Wrong answer.");
+// 			return false;
+// 		}
+// 	};
 
-	/**
-	 * compares the supplied number with the correct answer. Currently has no
-	 * tolerance, answers must be exact
-	 */
-	this.checkAnswer = function(answer) {
-		answer = parseAnswer(answer);
-		if (Number(answer) == NaN) {
-//			alert("Only numbers allowed.");
-			return false;
-		} else if (this.answerText == answer) {
-//			alert("Correct!");
-			return true;
-		} else {
-//			alert("Wrong answer.");
-			return false;
-		}
-	};
+// 	this.toJSON = function() {
+// 		var jobject = {};
+// 		jobject["id"] = id;
+// 		jobject["bodyText"] = bodyText;
+// 		jobject["answerNum"] = answerNum;
+// 		jobject["image"]=image;
+// 		return jobject;
+// 	};
 
-	this.toJSON = function() {
-		var jobject = {};
-		jobject["id"] = id;
-		jobject["bodyText"] = bodyText;
-		jobject["answerNum"] = answerNum;
-		jobject["image"]=image;
-		return jobject;
-	};
+// //	this.fromJSON = function(jobject){
+// //		this.answer = jobject["canswer"];
+// //		this.body = jobject["body"];
+// //	}
 
-//	this.fromJSON = function(jobject){
-//		this.answer = jobject["canswer"];
-//		this.body = jobject["body"];
-//	}
-
-};
+// };
 
 /**
  * Just like a Number Entry Question but with a tolerance set for it.
@@ -127,8 +141,18 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, 
 
 	this.tolerance = tolerance;
 
+
 	this.checkAnswer = function(answer) {
 		answer = parseAnswer(answer);
+
+		if(this.isEmpty(answer)){
+			throw new Error("Incorrect format: empty field"); 
+		}
+
+		if(!this.isNumeric(answer)){
+			throw new Error("Incorrect format: not a number"); 
+		}
+
 		answer = parseFloat(answer);
 		answerNum = parseFloat(answerNum);
 		tolerance = parseFloat(tolerance);
@@ -171,11 +195,25 @@ var TextEntryQuestion = function(id, bodyText, answersArray, image) {
 
 	this.answersArray = answersArray;
 
+
 	/**
 	 * Checks the array of possible answers for the supplied text
 	 */
 	this.checkAnswer = function(answer) {
+
+
+
 		answer = parseAnswer(answer);
+
+		if(this.isEmpty(answer)){
+			throw new Error("Incorrect format: empty field"); 
+		}
+
+		if(this.isNumeric(answer)){
+			throw new Error("Incorrect format: not a string"); 
+		}
+
+
 		if (answersArray.indexOf(answer) != -1) {
 //			alert("Correct!");
 			return true;

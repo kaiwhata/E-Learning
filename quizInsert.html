@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Quiz Entry</title>
+</head>
+<h1>Quiz Entry</h1>
+<label for="quiz">Quiz Format Text</label>
+
+<form novalidate ng-app name="quizInsert">
+
+	<textarea id="something" name="quizFormat" ng-model="quizFormat" rows="50" cols="75" required> </textarea>
+	<br />
+
+<input type="button" id="submit" value="Submit">
+
+<script type="text/javascript">
+ document.getElementById("submit").onclick = submit;
+    function submit() {
+
+    	console.log("quiz file contents: "+ quizInsert.quizFormat.value);
+	//parse the imput that's copied from another file
+	//insert the data into the data into the database
+	var text = quizInsert.quizFormat.value;
+	var arrayText = text.split("\n");
+	console.log(arrayText[0]);
+	var QuizNameArray = arrayText[0].split(":");
+
+	var quizName = QuizNameArray[1];//quiz name, this will be used for creating quiz entry and question entries
+	console.log(quizName);
+
+	var QuizCodeArray = arrayText[1].split(":");
+	var quizCode = QuizCodeArray[1];//quiz code, this will be used for creating quiz entry and question entries
+	console.log(quizCode);
+
+	//time to start parsing the rest of the input
+
+	var currentIndex = 4;//the first element after <body> tag
+	var bodyText = "";
+	while(arrayText[currentIndex]!="<BodyEnd>"){
+		bodyText = bodyText + arrayText[currentIndex];
+		currentIndex = currentIndex + 1;
+	}
+	console.log(bodyText);
+	currentIndex = currentIndex + 1;
+
+	var possibleAnswersArray = arrayText[currentIndex].split(":");
+	var possibleAnswers = possibleAnswersArray[1];
+	console.log(possibleAnswers);
+
+
+	//we need to insert the possible answers row first, then search for the id
+	insertPossibleAnswers(possibleAnswersArray);
+
+	//TODO search for the id
+	var panswerid = "NULL";
+
+	currentIndex = currentIndex + 1;
+
+	var correctAnswerArray = arrayText[currentIndex].split(":");
+	var correctAnswer = correctAnswerArray[1];
+	console.log(correctAnswer);
+
+	currentIndex = currentIndex + 1;
+
+	var typeArray = arrayText[currentIndex].split(":");
+	var type = typeArray[1];
+	console.log(type);
+
+	currentIndex = currentIndex + 1;
+
+	var toleranceArray = arrayText[currentIndex].split(":");
+	var tolerance = toleranceArray[1];
+	console.log(tolerance);
+
+	currentIndex = currentIndex + 1;
+
+	var imageArray = arrayText[currentIndex].split(":");
+	var imageName = imageArray[1];
+	console.log(imageName);
+
+	//next deal with possible answers, currently at <BodyEnd>, increment to possibleAnswers: line
+	insert(bodyText,panswerid,correctAnswer,type,tolerance,quizName,imageName);
+
+    }
+
+    //use ajax function to insert into databsae
+    function insert(body, panswerid,canswer,type,tolerance,quizname, imagename){
+    	console.log("test function call");
+
+    	//call PHP function
+    	$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
+			type: 'post',
+			data: {"funcName":"InsertQuestion","quizname":quizname,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
+			success: function(response){
+				console.log(response);
+
+				if(response.indexOf("success")==-1){
+					alert("quiz not added");
+				}
+				else{
+					alert("quiz entered");
+				}
+				}
+
+		});
+    }
+
+
+    //insert the possible answers
+    function insertPossibleAnswers(possibleAnswersArray){
+    	//TODO, split array and insert into databse
+
+    }
+
+</script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+</form>
+</html>

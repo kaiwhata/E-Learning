@@ -3,8 +3,6 @@ describe("Multi Choice Question", function() {
 	var multiQuestion;
 
   beforeEach(function() {
-    player = new Player();
-    song = new Song();
 	multiQuestion = new MultiChoiceQuestion("NoID",
 			"How many people were in the Beatles", 3, [ "one",
 					"two","three","four"],"");
@@ -24,6 +22,10 @@ describe("Multi Choice Question", function() {
 	it("should correctly check the answer with indexes",function(){
 		expect(multiQuestion.checkAnswer(3)).toBeTruthy();
 		expect(multiQuestion.checkAnswer(2)).toBeFalsy();
+	});
+
+	it("should not accept empty answers",function(){
+  		expect( function(){ multiQuestion.checkAnswer(-1); } ).toThrow(new Error("Incorrect format: empty field"));
 	});
 });
 
@@ -46,6 +48,11 @@ describe("Number Question", function() {
 		expect(numberQuestion.answerText).toEqual(3.14159);
 		expect(numberQuestion.answerText).not.toEqual(3.5);
 	  });
+
+  	it("should not accept a non-number answer",function(){
+  		expect( function(){ numberQuestion.checkAnswer("three point one four"); } ).toThrow(new Error("Incorrect format: not a number"));
+  		expect( function(){ numberQuestion.checkAnswer("three point one five"); } ).toThrow(new Error("Incorrect format: not a number"));
+  	});
 
 	it("should correctly check the answer depending on the tolerance",function(){
 		expect(numberQuestion.checkAnswer("3.1")).toBeTruthy();
@@ -76,7 +83,17 @@ describe("Text Question", function() {
   	it("should know its correct answer", function() {
 		expect(textQuestion.answerText).toEqual([ "feline", "cat", "hamster", "orange dog" ]);
 		expect(textQuestion.answerText).not.toEqual("normal dog");
-	  });
+	});
+
+	it("should not accept non number answers",function(){
+  		expect( function(){ textQuestion.checkAnswer("3.14159"); } ).toThrow(new Error("Incorrect format: not a string"));
+	});
+
+	it("should not accept blank answers",function(){
+  		expect( function(){ textQuestion.checkAnswer(""); } ).toThrow(new Error("Incorrect format: empty field"));
+  		expect( function(){ textQuestion.checkAnswer("  "); } ).toThrow(new Error("Incorrect format: empty field"));
+	});
+
 
 	it("should correctly check the answer from list of possible answers",function(){
 		expect(textQuestion.checkAnswer("feline")).toBeTruthy();
@@ -88,35 +105,35 @@ describe("Text Question", function() {
 	});
 });
 
-describe("TEST", function() {
-	var questionJSON;
+// describe("TEST", function() {
+// 	var questionJSON;
 
-  beforeEach(function() {
-	for (var i = 0; i < JSON.parse(null).length; i++) {
-	questionJSON = JSON.parse(JSON.parse(null)[i]["row_to_json"]);
-	}
-  });
+//   beforeEach(function() {
+// 	// for (var i = 0; i < JSON.parse(null).length; i++) {
+// 	// questionJSON = JSON.parse(JSON.parse(null)[i]["row_to_json"]);
+// 	// }
+//   });
 
-	it("should be the right question format", function() {
-		//expect(textQuestion.questionType).toEqual("text");
-		//expect(textQuestion.questionType).not.toEqual("numTol");
-		//expect(textQuestion.questionType).not.toEqual("multi");
-	 });
+// 	it("should be the right question format", function() {
+// 		//expect(textQuestion.questionType).toEqual("text");
+// 		//expect(textQuestion.questionType).not.toEqual("numTol");
+// 		//expect(textQuestion.questionType).not.toEqual("multi");
+// 	 });
 
-  	it("should know its correct answer", function() {
-		//expect(textQuestion.answerText).toEqual([ "feline", "cat", "hamster", "orange dog" ]);
-		//expect(textQuestion.answerText).not.toEqual("normal dog");
-	  });
+//   	it("should know its correct answer", function() {
+// 		//expect(textQuestion.answerText).toEqual([ "feline", "cat", "hamster", "orange dog" ]);
+// 		//expect(textQuestion.answerText).not.toEqual("normal dog");
+// 	  });
 
-	it("should correctly check the answer from list of possible answers",function(){
-		//expect(textQuestion.checkAnswer("feline")).toBeTruthy();
-		//expect(textQuestion.checkAnswer("cat")).toBeTruthy();
-		//expect(textQuestion.checkAnswer("hamster")).toBeTruthy();
-		//expect(textQuestion.checkAnswer("orange dog")).toBeTruthy();
-		//expect(textQuestion.checkAnswer("dog")).toBeFalsy();
-		//expect(textQuestion.checkAnswer("tiger")).toBeFalsy();
-	});
-});
+// 	it("should correctly check the answer from list of possible answers",function(){
+// 		//expect(textQuestion.checkAnswer("feline")).toBeTruthy();
+// 		//expect(textQuestion.checkAnswer("cat")).toBeTruthy();
+// 		//expect(textQuestion.checkAnswer("hamster")).toBeTruthy();
+// 		//expect(textQuestion.checkAnswer("orange dog")).toBeTruthy();
+// 		//expect(textQuestion.checkAnswer("dog")).toBeFalsy();
+// 		//expect(textQuestion.checkAnswer("tiger")).toBeFalsy();
+// 	});
+// });
 
 
 
