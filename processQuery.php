@@ -48,7 +48,7 @@ from(SELECT * FROM quiz INNER JOIN question ON  (quiz.name=question.quizname) LE
 }
 
 
-function sendResults($username, $password, $quizname, $score) {
+function sendResults($username, $password, $quizname, $timetaken, $score) {
 	// get the user id
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect ( $connectionString );
@@ -56,7 +56,7 @@ function sendResults($username, $password, $quizname, $score) {
 	$id = pg_query ( $dbconnection, "SELECT id FROM useraccount WHERE username='$username'" );
 	$userid = pg_fetch_row ( $id )[0];
 
-	pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score) VALUES (100,'Dummy Test',2)");
+	pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES ($userid,$quizname,$score,$timetaken)");
 
 	return "inserted "+$username+" "+$password;
 }
@@ -116,7 +116,7 @@ if (isset ( $_POST ['funcName'] )) {
 			echo (getAllQuestionsFromQuiz ( $_POST ['quizname'] ));
 			break;
 		case 'sendResults' :
-			echo (sendResults ( $_POST ['username'], $_POST ['password'], $_POST ['quizname'], $_POST ['score'] ));
+			echo (sendResults ( $_POST ['username'], $_POST ['password'], $_POST ['quizname'], $_POST ['timetaken'], $_POST ['score'] ));
 			break;
 		case 'getResults' :
 			echo (getResults ( $_POST ['username'], $_POST ['password'] ));
