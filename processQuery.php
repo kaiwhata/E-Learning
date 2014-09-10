@@ -101,6 +101,7 @@ function getQueryResults($fname,$lname,$quiz,$coursecode){
 		where u.fname like '%$fname%'
 		and u.lname like '%$lname%'
 		and r.quizname like '%$quiz%'
+		and q.coursecode like '$coursecode'
 		order by score desc");
 	return json_encode(pg_fetch_all($result));
 }
