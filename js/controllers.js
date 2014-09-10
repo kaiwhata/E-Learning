@@ -67,8 +67,13 @@ questionList
 
 											alert("INCORRECT!  the answer was "+q.answerText);
 										}
-									}else if (q instanceof TextEntryQuestion
-											|| q instanceof NumberEntryToleranceQuestion) {
+									}
+
+
+
+									else if (q instanceof TextEntryQuestion
+											|| q instanceof NumberEntryToleranceQuestion
+											|| q instanceof NumberEntryQuestion) {
 										var answer = document.getElementById("a" + i).value;
 										console.log(answer);
 										if (q.checkAnswer(answer)){
@@ -80,21 +85,21 @@ questionList
 											}
 									}
 								}catch(err){
-												
-												failed = true;
-												//problems.push("Question"+i+" "+err.message+"\n");
-												problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
-										}
-						}
-						
-						var per = score / total;
-						if(failed){
-							problemsMessage=problemsMessage+"\n"+"please try again";
-							alert(problemsMessage);
+										
+										failed = true;
+										//problems.push("Question"+i+" "+err.message+"\n");
+										problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
+								}
+							}
+							var per = score / total;
+							if(failed){
+								problemsMessage=problemsMessage+"\n"+"please try again";
+								alert(problemsMessage);
+
 								return;
 							}
-							
-						$.ajax({
+							$
+							.ajax({
 								url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 								type : 'post',
 								data : {
