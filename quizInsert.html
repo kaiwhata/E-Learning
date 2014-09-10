@@ -33,6 +33,8 @@
 	var quizCode = QuizCodeArray[1];//quiz code, this will be used for creating quiz entry and question entries
 	console.log(quizCode);
 
+	insertQuiz(quizName,quizCode);//the database requires a quiz name before we can add questions
+
 	//time to start parsing the rest of the input
 
 	var currentIndex = 4;//the first element after <body> tag
@@ -92,7 +94,7 @@
     	$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 			type: 'post',
-			data: {"funcName":"InsertQuestion","quizname":quizname,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
+			data: {"funcName":"InsertQuestion","quizname":quizname,"body":body,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
 			success: function(response){
 				console.log(response);
 
@@ -112,6 +114,25 @@
     function insertPossibleAnswers(possibleAnswersArray){
     	//TODO, split array and insert into databse
 
+    }
+
+    function insertQuiz(quizName,courseCode){
+    	$.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
+			type: 'post',
+			data: {"funcName":"InsertQuestion","quizname":quizname,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
+			success: function(response){
+				console.log(response);
+
+				if(response.indexOf("success")==-1){
+					alert("quiz not added");
+				}
+				else{
+					alert("quiz entered");
+				}
+				}
+
+		});
     }
 
 </script>
