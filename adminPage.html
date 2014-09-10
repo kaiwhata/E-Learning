@@ -16,6 +16,7 @@
 	  <br>
 	  Quiz <input id="quizinput" type="text">
 	  <br>
+	  Course Code <input id="courseinput" type="text">
 	  <br>
 	  <button id="submit" ng-click="getQueryResults()">Query</button>
 	
@@ -26,6 +27,7 @@
 	      <td><b>First Name</b></td>
 	      <td><b>Last Name</b></td> 
 	      <td><b>Quiz</b></td>
+	      <td><b>Course Code</b></td>
 	      <td><b>Score</b></td>
 	      <td><b>Time Taken</b></td>
 	      <td><b>Date Taken</b></td>
@@ -35,6 +37,7 @@
 	      <td>{{result.fname}}</td>
 	      <td>{{result.lname}}</td> 
 	      <td>{{result.quizname}}</td>
+	      <td>{{result.coursecode}}</td>
 	      <td>{{result.score}}</td>
 	      <td>{{result.timetaken}}</td>
 	      <td>{{result.date}}</td>
