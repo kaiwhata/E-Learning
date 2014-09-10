@@ -48,7 +48,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	}
 	
 	$scope.getQueryResults = function(){
-			console.log("Starting query: ");
+			console.log("Starting query: "+courseinput.value);
 			$.ajax({
 				url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 				type: 'post',

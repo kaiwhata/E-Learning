@@ -89,7 +89,7 @@ function getAllResults(){
 	//inner join quiz q on r.quizname=q.name   , q.coursecode
 }
 
-function getQueryResults($fname,$lname,$quiz,$coursecode){
+function getQueryResults($fname,$lname,$quiz){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
 	
@@ -101,7 +101,6 @@ function getQueryResults($fname,$lname,$quiz,$coursecode){
 		where u.fname like '%$fname%'
 		and u.lname like '%$lname%'
 		and r.quizname like '%$quiz%'
-		and q.coursecode like '%$coursecode%'
 		order by score desc");
 	return json_encode(pg_fetch_all($result));
 }
