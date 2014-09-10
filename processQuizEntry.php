@@ -36,10 +36,10 @@ function InsertQuiz($name, $coursecode) {
 if (isset ( $_POST ['funcName'] )) {
 
 	switch ($_POST ['funcName']) {
-		case 'insertQuestion' :
+		case 'InsertQuestion' :
 			echo (InsertQuestion ( $_POST ['quizname'], $_POST ['body'],$_POST ['canswer'],$_POST ['type'],$_POST ['tolerance'],$_POST ['imagename']));
 			break;
-		case 'insertQuiz' :
+		case 'InsertQuiz' :
 			echo (InsertQuiz ( $_POST ['quizname'], $_POST ['coursecode']));
 			break;
 	}
