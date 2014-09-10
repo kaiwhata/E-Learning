@@ -36,10 +36,10 @@ if (isset ( $_POST ['funcName'] )) {
 
 	switch ($_POST ['funcName']) {
 		case 'insertQuestion' :
-			echo (InsertQuestion ( $_POST ['quizname'], $_POST ['body'], $_POST ['panswerid'],$_POST ['canswer'],$_POST ['type'],$_POST ['tolerance'],$_POST ['imagename']);
+			echo (InsertQuestion ( $_POST ['quizname'], $_POST ['body'], $_POST ['panswerid'],$_POST ['canswer'],$_POST ['type'],$_POST ['tolerance'],$_POST ['imagename']));
 			break;
 		case 'insertQuiz' :
-			echo (InsertQuiz ( $_POST ['quizname'], $_POST ['coursecode']);
+			echo (InsertQuiz ( $_POST ['quizname'], $_POST ['coursecode']));
 			break;
 	}
 }
