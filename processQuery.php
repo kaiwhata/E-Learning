@@ -80,9 +80,9 @@ function getAllResults(){
 	$dbconnection = pg_connect($connectionString);
 	$result = pg_query($dbconnection,
 		  "SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date 
-		  inner join quiz q on r.quizname=q.name
 		  FROM result r 
 		  inner join useraccount u on r.userid=u.id 
+		  inner join quiz q on r.quizname=q.name
 		  order by score desc");
 	return json_encode(pg_fetch_all($result));
 }
