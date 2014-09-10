@@ -36,7 +36,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				"funcName" : "getAllResults"
 			},
 			success : function(response) {
-			  console.log(response);
+				console.log("Get All Results: "+response);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON.parse(response)[i];
 					$scope.results.push(questionJSON);
