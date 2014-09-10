@@ -116,11 +116,11 @@
 
     }
 
-    function insertQuiz(quizName,courseCode){
+    function insertQuiz(quizname,coursecode){
     	$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 			type: 'post',
-			data: {"funcName":"InsertQuestion","quizname":quizName,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
+			data: {"funcName":"InsertQuiz","quizname":quizname,"coursecode":coursecode},
 			success: function(response){
 				console.log(response);
 
