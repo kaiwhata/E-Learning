@@ -112,9 +112,7 @@ questionList
 
 								},
 								success : function(response){
-									console.log("hey");
-
-									console.log(response);
+									console.log("Ran send results "+response);
 
 								}
 
