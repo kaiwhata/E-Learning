@@ -36,6 +36,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				"funcName" : "getAllResults"
 			},
 			success : function(response) {
+				console.log("Get All Results: "+response);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON.parse(response)[i];
 					$scope.results.push(questionJSON);
@@ -47,11 +48,12 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	}
 	
 	$scope.getQueryResults = function(){
-			console.log("Starting query: ");
+	  //, "coursecode": courseinput.value
+			console.log("Starting query: "+courseinput.value);
 			$.ajax({
 				url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 				type: 'post',
-				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value},
+				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value, "coursecode": courseinput.value},
 				success: function(response){
 					console.log("Query executed: "+response);
 					$scope.results = [];

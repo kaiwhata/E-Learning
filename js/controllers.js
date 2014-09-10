@@ -145,7 +145,8 @@ questionList
 					}
 
 					$scope.getQuestions = function() {
-
+						var _initial = new Date();
+						console.log("Date: "+_initial.getTime())
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
