@@ -101,7 +101,7 @@ function getQueryResults($fname,$lname,$quiz,$coursecode){
 		where u.fname like '%$fname%'
 		and u.lname like '%$lname%'
 		and r.quizname like '%$quiz%'
-		and q.coursecode = '%$coursecode%'
+		and q.coursecode like '%$coursecode%'
 		order by score desc");
 	return json_encode(pg_fetch_all($result));
 }
@@ -128,7 +128,7 @@ if (isset ( $_POST ['funcName'] )) {
 			echo(getAllResults());
 			break;
 		case 'getQueryResults':
-			echo(getQueryResults($_POST['fname'],$_POST['lname'],$_POST['quiz']));
+			echo(getQueryResults($_POST['fname'],$_POST['lname'],$_POST['quiz'], $_POST['coursecode']));
 			break;	
 		case 'getQuizzes':
 			echo(getQuizes());
