@@ -120,7 +120,7 @@
     	$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 			type: 'post',
-			data: {"funcName":"InsertQuestion","quizname":quizname,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
+			data: {"funcName":"InsertQuestion","quizname":quizName,"body":body,"panswerid":panswerid,"canswer":canswer,"type":type,"tolerance":tolerance,"imagename":imagename},
 			success: function(response){
 				console.log(response);
 
