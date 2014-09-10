@@ -107,8 +107,8 @@ questionList
 									"username" : sessionStorage.getItem('username'),
 									"password" : sessionStorage.getItem('password'),
 									"quizname" : sessionStorage.getItem('quizname'),
-									"score" :per,
 									"timetaken" : $scope.timetaken
+									"score" :per
 
 								},
 								success : function(response){
