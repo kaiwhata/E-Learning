@@ -51,7 +51,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			$.ajax({
 				url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 				type: 'post',
-				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value, "coursecode", courseinput.value},
+				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value, "coursecode": courseinput.value},
 				success: function(response){
 					console.log("Query executed: "+response);
 					$scope.results = [];
