@@ -67,28 +67,8 @@ questionList
 
 											alert("INCORRECT!  the answer was "+q.answerText);
 										}
-									}
-
-<<<<<<< HEAD
-						$
-						.ajax({
-							url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
-							type : 'post',
-							data : {
-								"funcName" : "sendResults",
-								"username" : sessionStorage.getItem('username'),
-								"password" : sessionStorage.getItem('password'),
-								"quizname" : sessionStorage.getItem('quizname'),
-								"timetaken" : $scope.timetaken,
-								"score" :per
-
-							},
-							success : function(response){
-								console.log("hey");
-=======
-									else if (q instanceof TextEntryQuestion
-											|| q instanceof NumberEntryToleranceQuestion
-											|| q instanceof NumberEntryQuestion) {
+									}else if (q instanceof TextEntryQuestion
+											|| q instanceof NumberEntryToleranceQuestion) {
 										var answer = document.getElementById("a" + i).value;
 										console.log(answer);
 										if (q.checkAnswer(answer)){
@@ -100,23 +80,21 @@ questionList
 											}
 									}
 								}catch(err){
-										
-										failed = true;
-										//problems.push("Question"+i+" "+err.message+"\n");
-										problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
-								}
->>>>>>> ab834774b66194253675b5398a65dadc99df1a87
-
-							}
-							var per = score / total;
-							if(failed){
-								problemsMessage=problemsMessage+"\n"+"please try again";
-								alert(problemsMessage);
-
+												
+												failed = true;
+												//problems.push("Question"+i+" "+err.message+"\n");
+												problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
+										}
+						}
+						
+						var per = score / total;
+						if(failed){
+							problemsMessage=problemsMessage+"\n"+"please try again";
+							alert(problemsMessage);
 								return;
 							}
-							$
-							.ajax({
+							
+						$.ajax({
 								url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 								type : 'post',
 								data : {
