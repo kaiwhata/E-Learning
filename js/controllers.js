@@ -107,7 +107,7 @@ questionList
 									"username" : sessionStorage.getItem('username'),
 									"password" : sessionStorage.getItem('password'),
 									"quizname" : sessionStorage.getItem('quizname'),
-									"timetaken" : $scope.timetaken
+									"timetaken" : $scope.timetaken,
 									"score" :per
 
 								},
