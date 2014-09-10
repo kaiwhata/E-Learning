@@ -89,7 +89,7 @@
     //use ajax function to insert into databsae
     function insert(body, panswerid,canswer,type,tolerance,quizname, imagename){
     	console.log("test function call");
-
+    	console.log("Values entered: " +body+" "+canswer+" "+type+" "+tolerance+" "+quizname);
     	//call PHP function
     	$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
