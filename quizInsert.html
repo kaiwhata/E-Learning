@@ -80,7 +80,7 @@
 	console.log(imageName);
 
 	//next deal with possible answers, currently at <BodyEnd>, increment to possibleAnswers: line
-	insert(bodyText,panwserid,correctAnswer,type,tolerance,quizName,imageName);
+	insert(bodyText,panswerid,correctAnswer,type,tolerance,quizName,imageName);
 
     }
 
@@ -88,6 +88,7 @@
     function insert(body, panswerid,canswer,type,tolerance,quizname, imagename){
     	console.log("test function call");
 
+    	//call PHP function
     	$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 			type: 'post',
@@ -114,5 +115,6 @@
     }
 
 </script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 </form>
 </html>
