@@ -26,11 +26,11 @@ questionList
 						
 						var seconds = 1000;
 						
-						diff = (diff / seconds);
+						diff = Math.round(diff / seconds);
 						
 						console.log("times: "+$scope._initial+" "+$scope._final+" "+diff);
 						
-						$scope.timetaken = diff+"s";
+						$scope.timetaken = diff;
 						
 						var score = 0;
 						var total = 0;
