@@ -21,8 +21,11 @@ function submit() {
 	var quizCode = QuizCodeArray[1];// quiz code, this will be used for creating
 	// quiz entry and question entries
 
-	insertQuiz(quizName, quizCode);// the database requires a quiz name before
-	// we can add questions
+	insertQuiz(quizName, quizCode,questionTexts);// the database requires a quiz name before
+
+}
+
+function submitQuestions(quizName,quizCode,questionTexts){
 
 	var questions=[];
 	for (var i = 1; i < questionTexts.length; i++) {
@@ -63,14 +66,11 @@ function submit() {
 			insertPossibleAnswers(q);
 			//TODO search for possible answer id
 			//q["Possible Answers"] =
-		}
+		}else{
 			// convert type
-
-
-
-
-		insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
+			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"]);
+		}
 
 	}
 }
@@ -110,19 +110,16 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 //Deal with the case of having possible answers,
 //We must insert the possible answers first, then search for the id
 function insertPossibleAnswers(possibleAnswerQuestion) {
-
-
 	// TODO
-
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
 
 
 	$.ajax({
-		url : 'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
+		url : 'http://shrouded-earth-7234.herokuapp.com/insertNewPossibleAnswers.php',
 		type : 'post',
 		data : {
-			"funcName" : "InsertPossibleAnswers",
+			"funcName" : "insertNewPossibleAnswers",
 			"p1" : panswerArray[0],
 			"p2" : panswerArray[1],
 			"p3" : panswerArray[2],
@@ -130,19 +127,16 @@ function insertPossibleAnswers(possibleAnswerQuestion) {
 		},
 		success : function(response) {
 			console.log(response);
-
-			if (response.indexOf("success") == -1) {
-				alert("multi question not added");
-			} else {
-				alert("multi question entered");
-			}
+			var panswerid = parseInt(response);
+			insert(q["body"], panswerid, q["Correct Answer"], type,
+					q["Tolerance"], quizName, q["Image Name"]);
 		}
 
 	});
 
 }
 
-function insertQuiz(quizname, coursecode) {
+function insertQuiz(quizname, coursecode,questionTexts) {
 	$.ajax({
 		url : 'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 		type : 'post',
@@ -153,6 +147,7 @@ function insertQuiz(quizname, coursecode) {
 		},
 		success : function(response) {
 			console.log(response);
+			submitQuestions(quizname,coursecode,questionTexts);
 
 			if (response.indexOf("success") == -1) {
 				alert("quiz not added");
