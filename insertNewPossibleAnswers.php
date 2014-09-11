@@ -14,7 +14,7 @@ function insertNewPossibleAnswers($p1, $p2,$p3,$p4) {
 if (isset ( $_POST ['funcName'] )) {
 	switch ($_POST ['funcName']) {
 		case 'insertNewPossibleAnswers' :
-			echo (checkPasswordAdmin ( $_POST ['p1'], $_POST ['p2'], $_POST ['p3'], $_POST ['p4'] ));
+			echo (insertNewPossibleAnswers ( $_POST ['p1'], $_POST ['p2'], $_POST ['p3'], $_POST ['p4'] ));
 			break;
 	}
 }
