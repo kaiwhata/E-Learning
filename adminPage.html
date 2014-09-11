@@ -54,7 +54,7 @@
 	      <td><b>Number of attempts</b></td> 
 	    </tr>
 	    
-	    <tr ng-repeat="quizavg in quizavgs track by $index">
+	    <tr ng-repeat="quizavg in quizavgs">
 	      <td>{{quizavg.quizname}}</td>
 	      <td>{{quizavg.coursecode}}</td> 
 	      <td>{{quizavg.average}}</td>
@@ -72,7 +72,7 @@
 	      <td><b>Number of attempts</b></td> 
 	    </tr>
 	    
-	    <tr ng-repeat="studentavg in studentavgs track by $index">
+	    <tr ng-repeat="studentavg in studentavgs">
 	      <td>{{studentavg.fname}}</td>
 	      <td>{{studentavg.lname}}</td> 
 	      <td>{{studentavg.email}}</td> 
