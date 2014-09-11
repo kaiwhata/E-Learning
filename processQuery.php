@@ -27,11 +27,11 @@ function getQuizes(){
 	$result = pg_query($dbconnection,"SELECT * FROM quiz;");
 //	$row = pg_fetch_all($result);
 	$bigline = "";
-	
+
 	while($row = pg_fetch_array($result)){
 		$bigline .= "*";
 		$bigline .= $row['coursecode'] . ":" . $row['name'];
-	
+
 	}
 
 	return $bigline;
@@ -56,8 +56,8 @@ function sendResults($username, $password, $quizname, $timetaken, $score) {
 	$id = pg_query ( $dbconnection, "SELECT id FROM useraccount WHERE username='$username'" );
 	$userid = pg_fetch_row ( $id )[0];
 
-	//pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES ($userid,$quizname,$score,$timetaken)");
-	$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES (111,'Dummy Test',1,'24')");
+	$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES ($userid,$quizname,$score,$timetaken)");
+// 	$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES (111,'Dummy Test',1,'24')");
 	return $result;
 }
 
@@ -79,23 +79,23 @@ function getAllResults(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
 	$result = pg_query($dbconnection,
-		  "SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date 
-		  FROM result r 
+		  "SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date
+		  FROM result r
 		  inner join useraccount u on r.userid=u.id
 		  inner join quiz q on r.quizname=q.name
 		  order by score desc");
 	return json_encode(pg_fetch_all($result));
-	
+
 	//inner join quiz q on r.quizname=q.name   , q.coursecode
 }
 
 function getQueryResults($fname,$lname,$quiz,$coursecode){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
-	
+
 	$result = pg_query($dbconnection,
-		"SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date 
-		FROM result r 
+		"SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date
+		FROM result r
 		inner join useraccount u on r.userid=u.id
 		inner join quiz q on r.quizname=q.name
 		where u.fname like '%$fname%'
@@ -129,7 +129,7 @@ if (isset ( $_POST ['funcName'] )) {
 			break;
 		case 'getQueryResults':
 			echo(getQueryResults($_POST['fname'],$_POST['lname'],$_POST['quiz'], $_POST['coursecode']));
-			break;	
+			break;
 		case 'getQuizzes':
 			echo(getQuizes());
 			break;
