@@ -3,6 +3,66 @@
 admin.controller('adminCtrl', function adminCtrl($scope) {
 	$scope.results = [];
 	$scope.safeToShow = false;
+	
+	$scope.quizavgs = [];
+	$scope.studentavgs = [];
+	
+	$scope.getQuizAverages = function(){
+	    console.log("Getting quiz averages");
+	    
+	    $.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/moreStats.php',
+			type: 'post',
+			data: {"funcName":"getQuizAverages"},
+			success: function(response){
+
+				if(response.indexOf("true")!=-1){
+					$scope.safeToShow = true;
+				}
+				else{
+					alert("Incorrect username or password");
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				}
+				console.log(response);
+				
+				for (var i = 0; i < JSON.parse(response).length; i++) {
+					var averageJSON = JSON.parse(response)[i];
+					$scope.quizavgs.push(averageJSON);
+				}
+			}
+
+		});
+	}
+	
+	$scope.getStudentAverages = function(){
+	    console.log("Getting student averages");
+	    
+	    $.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/moreStats.php',
+			type: 'post',
+			data: {"funcName":"getStudentAverages"},
+			success: function(response){
+
+				if(response.indexOf("true")!=-1){
+					$scope.safeToShow = true;
+				}
+				else{
+					alert("Incorrect username or password");
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				}
+				console.log(response);
+				
+				for (var i = 0; i < JSON.parse(response).length; i++) {
+					var averageJSON = JSON.parse(response)[i];
+					$scope.studentavgs.push(averageJSON);
+				}
+			}
+
+		});
+	}
+	
+	// fname lname email avg numtaken
+	
 	$scope.getAllResults = function() {
 		console.log("hello");
 
