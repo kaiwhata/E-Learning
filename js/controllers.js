@@ -139,8 +139,10 @@ questionList
 						console.log("Time is "+n);
 
 						// get start date
-						console.log("Date: "+d.getDate());
-						console.log(d.substring(4,15));
+						console.log("Date: "+d);
+						var str = d+""
+						
+						console.log(str.substring(4,15));
 						
 						
 						//$scope._initial = new Date();
