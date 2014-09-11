@@ -10,8 +10,6 @@ questionList
 					$scope._final;
 
 					$scope.timetaken;
-					
-					$scope.datetaken;
 
 					/**
 					 * Check all the answers of questions and alert the user if
@@ -33,7 +31,11 @@ questionList
 						console.log("times: "+$scope._initial+" "+$scope._final+" "+diff);
 
 						$scope.timetaken = diff;
+<<<<<<< HEAD
+						var time = $scope.timetaken;
+=======
 
+>>>>>>> 4d9fea7d33e371d5708509c734fc2544aeae03e3
 						var score = 0;
 						var total = 0;
 						var failed = false;
@@ -109,12 +111,18 @@ questionList
 								type : 'post',
 								data : {
 									"funcName" : "sendResults",
+<<<<<<< HEAD
+									"username" : sessionStorage.getItem('username'),
+									"password" : sessionStorage.getItem('password'),
+									"quizname" : sessionStorage.getItem('quizname'),
+									"timetaken" : time,
+=======
 									"username" : username,
 									"password" : password,
 									"quizname" : quizname,
 									"timetaken" : tt,
-									"score" :per,
-									"date" : $scope.datetaken
+>>>>>>> 4d9fea7d33e371d5708509c734fc2544aeae03e3
+									"score" :per
 
 								},
 								success : function(response){
@@ -133,20 +141,12 @@ questionList
 						console.log("Getting Date");
 
 						var d = new Date();
-						
-						// get start time
 						var n = d.getTime();
+
 						$scope._initial = n;
+
 						console.log("Time is "+n);
 
-						// get start date
-						console.log("Date: "+d);
-						var str = d+""
-						
-						console.log(str.substring(4,15));
-						
-						$scope.datetaken = str;
-						
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
 						//console.log("Initial Time: "+$scope._initial.getTime());
