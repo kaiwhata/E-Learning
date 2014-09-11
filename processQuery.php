@@ -55,8 +55,8 @@ function sendResults($username, $password, $quizname, $timetaken, $score, $date)
 
 	$id = pg_query ( $dbconnection, "SELECT id FROM useraccount WHERE username='$username'" );
 	$userid = pg_fetch_row ( $id )[0];
-
-	$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES ($userid,'$quizname',$score,$timetaken,'$date')");
+$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken,date) VALUES ($userid,'$quizname',$score,$timetaken,'$date')");
+	// $result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES ($userid,'$quizname',$score,$timetaken,'$date')");1
 // 	$result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score, timetaken) VALUES (111,'Dummy Test',1,'24')");
 	return $result;
 }
