@@ -28,8 +28,8 @@ function getAllResultsGroupedByStudentAndCourse(){
 	$dbconnection = pg_connect($connectionString);
 
 	
-	$result = pg_query($dbconnection,"SELECT fname,lname,emailaddress,coursecode,AVG(score) as average_score,COUNT(*) number_taken
- FROM useraccount LEFT JOIN result LEFT JOIN quiz ON quiz.name=result.quizname ON useraccount.id=result.userid GROUP BY useraccount.id,useraccount.fname,useraccount.lname,quiz.coursecode,useraccount.emailaddress ORDER BY AVG(score) desc;"
+	$result = pg_query($dbconnection," SELECT fname,lname,emailaddress,coursecode,AVG(score) as average_score,COUNT(*) number_taken
+ FROM useraccount LEFT JOIN result LEFT JOIN quiz ON quiz.name=result.quizname ON useraccount.id=result.userid GROUP BY useraccount.id,useraccount.fname,useraccount.lname,quiz.coursecode,useraccount.emailaddress ORDER BY coursecode,AVG(score) desc;"
 );
 	return json_encode(pg_fetch_all($result));
 }
