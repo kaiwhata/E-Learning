@@ -26,7 +26,7 @@
 	console.log(arrayText[0]);
 	var QuizNameArray = arrayText[0].split(":");
 
-	var quizName = QuizNameArray[1];//quiz name, this will be used for creating quiz entry and question entries
+	var quizName = QuizNameArray[1].trim();//quiz name, this will be used for creating quiz entry and question entries
 	console.log(quizName);
 
 	var QuizCodeArray = arrayText[1].split(":");
