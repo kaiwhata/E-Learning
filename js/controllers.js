@@ -98,16 +98,19 @@ questionList
 
 								return;
 							}
-							$
-							.ajax({
+							var username = sessionStorage.getItem('username').trim();
+							var password = sessionStorage.getItem('password').trim();
+							var quizname = sessionStorage.getItem('quizname').trim();
+							var tt = $scope.timetaken;
+							$.ajax({
 								url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 								type : 'post',
 								data : {
 									"funcName" : "sendResults",
-									"username" : sessionStorage.getItem('username').trim(),
-									"password" : sessionStorage.getItem('password').trim(),
-									"quizname" : sessionStorage.getItem('quizname').trim(),
-									"timetaken" : $scope.timetaken,
+									"username" : username,
+									"password" : password,
+									"quizname" : quizname,
+									"timetaken" : tt,
 									"score" :per
 
 								},
@@ -136,8 +139,7 @@ questionList
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
 						//console.log("Initial Time: "+$scope._initial.getTime());
-						$
-								.ajax({
+						$.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
 									data : {
