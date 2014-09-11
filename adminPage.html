@@ -7,9 +7,10 @@
   <body>
 	<div ng-controller = "adminCtrl" ng-init = "getAllResults()" ng-show="safeToShow">
 	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
+	<button id="toQuizInsertPage" onclick="toQuizInsertPage()">To Quiz Creator</button>
 	<h1>Results Query</h1>
 		<br>
-	
+
 	  First Name <input id="fnameinput" type="text">
 	  <br>
 	  Last Name <input id="lnameinput" type="text">
@@ -19,37 +20,76 @@
 	  Course Code <input id="courseinput" type="text">
 	  <br>
 	  <button id="submit" ng-click="getQueryResults()">Query</button>
-	
+
 	<br>
 	<br>
 	<table style="width:90%" border="1">
 	    <tr>
 	      <td><b>First Name</b></td>
-	      <td><b>Last Name</b></td> 
+	      <td><b>Last Name</b></td>
 	      <td><b>Quiz</b></td>
 	      <td><b>Course Code</b></td>
 	      <td><b>Score</b></td>
 	      <td><b>Time Taken</b></td>
 	      <td><b>Date Taken</b></td>
 	    </tr>
-	    
+
 	    <tr ng-repeat="result in results track by $index">
 	      <td>{{result.fname}}</td>
-	      <td>{{result.lname}}</td> 
+	      <td>{{result.lname}}</td>
 	      <td>{{result.quizname}}</td>
 	      <td>{{result.coursecode}}</td>
 	      <td>{{result.score}}</td>
 	      <td>{{result.timetaken}}</td>
 	      <td>{{result.datetaken}}</td>
 	    </tr>
-	    
+
 	   </table>
 
-	
+<<<<<<< HEAD
 
+
+
+=======
+	<br>
+	<table style="width:90%" border="1" ng-init="getQuizAverages()">
+	    <tr>
+	      <td><b>Quiz</b></td>
+	      <td><b>Course Code</b></td> 
+	      <td><b>Average Score</b></td> 
+	      <td><b>Number of attempts</b></td> 
+	    </tr>
+	    
+	    <tr ng-repeat="quizavg in quizavgs track by $index">
+	      <td>{{quizavg.quizname}}</td>
+	      <td>{{quizavg.coursecode}}</td> 
+	      <td>{{quizavg.average}}</td>
+	      <td>{{quizavg.no_taken}}</td>
+	    </tr>
+	   </table>
+
+	<br>
+	<table style="width:90%" border="1" ng-init="getStudentAverages()">
+	    <tr>
+	      <td><b>First Name</b></td>
+	      <td><b>Last Name</b></td> 
+	      <td><b>Email</b></td> 
+	      <td><b>Average Score</b></td> 
+	      <td><b>Number of attempts</b></td> 
+	    </tr>
+	    
+	    <tr ng-repeat="studentavg in studentavgs track by $index">
+	      <td>{{studentavg.fname}}</td>
+	      <td>{{studentavg.lname}}</td> 
+	      <td>{{studentavg.email}}</td> 
+	      <td>{{studentavg.averagescore}}</td>
+	      <td>{{studentavg.no_taken}}</td>
+	    </tr>
+	   </table>
 	
+>>>>>>> 01630f18bc7f30741ca29d6cf83724f18ad36df7
 	<script>
-		
+
 		function logout() {
 			sessionStorage.removeItem("username");
 			sessionStorage.removeItem("password");
@@ -57,11 +97,15 @@
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
 
+		function toQuizInsertPage() {
+			window.location = "http://shrouded-earth-7234.herokuapp.com/quizInsert.html";
+		}
+
 
 
 
 	</script>
-	</div>	
+	</div>
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
