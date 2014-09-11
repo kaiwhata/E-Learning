@@ -91,7 +91,8 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 			"canswer" : canswer,
 			"type" : type,
 			"tolerance" : tolerance,
-			"imagename" : imagename
+			"imagename" : imagename,
+			"panswerid" : panswerid
 		},
 		success : function(response) {
 			console.log(response);
