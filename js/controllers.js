@@ -10,6 +10,8 @@ questionList
 					$scope._final;
 
 					$scope.timetaken;
+					
+					$scope.datetaken;
 
 					/**
 					 * Check all the answers of questions and alert the user if
@@ -130,12 +132,15 @@ questionList
 						console.log("Getting Date");
 
 						var d = new Date();
+						
+						// get start time
 						var n = d.getTime();
-
 						$scope._initial = n;
-
 						console.log("Time is "+n);
 
+						// get start date
+						console.log("Date: "+d);
+						
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
 						//console.log("Initial Time: "+$scope._initial.getTime());
