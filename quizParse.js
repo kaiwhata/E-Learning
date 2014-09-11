@@ -63,7 +63,7 @@ function submitQuestions(quizName,quizCode,questionTexts){
 
 		//check if q is multi
 		if(q["Possible Answers"] != ""){
-			insertPossibleAnswers(q);
+			insertPossibleAnswers(q,quizName);
 			//TODO search for possible answer id
 			//q["Possible Answers"] =
 		}else{
@@ -91,7 +91,8 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 			"canswer" : canswer,
 			"type" : type,
 			"tolerance" : tolerance,
-			"imagename" : imagename
+			"imagename" : imagename,
+			"panswerid" : panswerid
 		},
 		success : function(response) {
 			console.log(response);
@@ -109,7 +110,7 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 
 //Deal with the case of having possible answers,
 //We must insert the possible answers first, then search for the id
-function insertPossibleAnswers(possibleAnswerQuestion) {
+function insertPossibleAnswers(possibleAnswerQuestion,quizName) {
 	// TODO
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
@@ -128,8 +129,10 @@ function insertPossibleAnswers(possibleAnswerQuestion) {
 		success : function(response) {
 			console.log(response);
 			var panswerid = parseInt(response);
-			insert(q["body"], panswerid, q["Correct Answer"], type,
-					q["Tolerance"], quizName, q["Image Name"]);
+			var type = parseInt(name2num[possibleAnswerQuestion["Type"]]);
+
+			insert(possibleAnswerQuestion["body"], panswerid, possibleAnswerQuestion["Correct Answer"], type,
+					possibleAnswerQuestion["Tolerance"], quizName, possibleAnswerQuestion["Image Name"]);
 		}
 
 	});

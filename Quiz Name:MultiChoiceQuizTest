@@ -1,12 +1,12 @@
-Quiz Name:MultiChoiceQuizTest
+Quiz Name:some multi choice quiz
 Course Code:SWEN302
 
 Question
 ---------
 <Body>
-What is 2+2?
+What is 9+9?
 <BodyEnd>
-Possible Answers:3,4,5,6
+Possible Answers:16,17,18,158
 Correct Answer:4
 Type:multi
 Tolerance:0
