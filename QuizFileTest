@@ -1,5 +1,5 @@
-Quiz Name:physics
-Course Code:PHYS121
+Quiz Name:Dummy Test
+Course Code:SWEN302
 <Question>
 <Body>
 What is 2+2?
@@ -8,6 +8,6 @@ Possible Answers:NULL
 Correct Answer:4
 Type:1
 Tolerance:0
-Image Name:""
+Image Name:NULL
 <QuestionEND>
 EOF
