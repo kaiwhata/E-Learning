@@ -12,8 +12,16 @@
 	<textarea id="something" name="quizFormat" ng-model="quizFormat"
 		rows="50" cols="75" required> </textarea>
 	<br /> <input type="button" id="submit" value="Submit">
+	<button id="back" onclick="backToAdminPage()">Back To Admin Page</button>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src ='quizParse.js'></script>
+	<script>
+
+		function backToAdminPage() {
+			window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html";
+		}
+
+	</script>
 
 </form>
 </html>
