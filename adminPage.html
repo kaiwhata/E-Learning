@@ -11,18 +11,21 @@
 	<h1>Results Query</h1>
 		<br>
 
-	  First Name <input id="fnameinput" type="text">
-	  <br>
-	  Last Name <input id="lnameinput" type="text">
-	  <br>
-	  Quiz <input id="quizinput" type="text">
-	  <br>
-	  Course Code <input id="courseinput" type="text">
-	  <br>
-	  <button id="submit" ng-click="getQueryResults()">Query</button>
+		
+	<div style="width:200px;height:100px;border:1px solid blue;">
+	First Name <input id="fnameinput" type="text">
+	<br>
+	Last Name <input id="lnameinput" type="text">
+	<br>
+	Quiz <input id="quizinput" type="text">
+	<br>
+	Course Code <input id="courseinput" type="text">
+	<br>
+	<button id="submit" ng-click="getQueryResults()">Query</button>
 
 	<br>
 	<br>
+	<h1>Results</h1>
 	<table style="width:90%" border="1">
 	    <tr>
 	      <td><b>First Name</b></td>
@@ -45,8 +48,11 @@
 	    </tr>
 
 	   </table>
-
+	</div>
+	
 	<br>
+	<div style="width:200px;height:100px;border:1px solid blue;">
+	<h1>Quiz Averages</h1>
 	<table style="width:90%" border="1" ng-init="getQuizAverages()">
 	    <tr>
 	      <td><b>Quiz</b></td>
@@ -62,8 +68,11 @@
 	      <td>{{quizavg.number_taken}}</td>
 	    </tr>
 	   </table>
-
+	</div>
+	
 	<br>
+	<div style="width:200px;height:100px;border:1px solid blue;">
+	<h1>Student Averages</h1>
 	<table style="width:90%" border="1" ng-init="getStudentAverages()">
 	    <tr>
 	      <td><b>First Name</b></td>
@@ -81,7 +90,7 @@
 	      <td>{{studentavg.number_taken}}</td>
 	    </tr>
 	   </table>
-	
+	</div>
 	<script>
 
 		function logout() {
