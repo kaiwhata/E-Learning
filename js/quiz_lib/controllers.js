@@ -3,7 +3,7 @@
 quizList.controller('quizCtrl',function quizCtrl($scope) {
 	$scope.quizes = [];
 	$scope.loaded = false;
-	
+
 	$scope.getQuizes = function() {
 
 		$.ajax({
@@ -11,9 +11,9 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 			type: 'post',
 			data: {"funcName":"getQuizzes"},
 				success: function(response){
-					console.log("boo:"+response);	
+					console.log("boo:"+response);
 					var instanceArray = response.split("*");
-					
+
 					// loop this
 					for(var i=1;i<instanceArray.length;i++){
 						var instanceDeets = instanceArray[i].split(":");
@@ -22,9 +22,9 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 						// create button
 						$scope.loaded=true;
 						$scope.$apply();
-						
+
 					}//end for
-					
+
 				}//end success
 			});//end ajax
 		}//end getQuizesFunction
@@ -36,7 +36,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		var code = sp[0];
 		var quizname = sp[1];
 		sessionStorage.setItem("quizname",quizname);
-		window.location = "http://shrouded-earth-7234.herokuapp.com/indexAng.html"; 
+		window.location = "http://shrouded-earth-7234.herokuapp.com/indexAng.html";
 	}//end func
 
 
