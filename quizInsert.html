@@ -16,7 +16,12 @@
 
 <script type="text/javascript">
  document.getElementById("submit").onclick = submit;
-    function submit() {
+var name2num = {multi:0,
+		number:1,
+		text:2
+}
+var questions =[];
+   function submit() {
 
     	console.log("quiz file contents: "+ quizInsert.quizFormat.value);
 	//parse the imput that's copied from another file
@@ -66,8 +71,9 @@
 	currentIndex = currentIndex + 1;
 
 	var typeArray = arrayText[currentIndex].split(":");
-	var type = typeArray[1];
-	console.log(type);
+	var typeName = typeArray[1];
+
+	var type =name2num[typeName];
 
 	currentIndex = currentIndex + 1;
 
@@ -134,6 +140,7 @@
 
 		});
     }
+
 
 </script>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
