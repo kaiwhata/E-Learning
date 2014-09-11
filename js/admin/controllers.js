@@ -17,7 +17,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			success: function(response){
 
 				
-				console.log(response);
+				console.log("Get Quiz Averages: "+response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var averageJSON = JSON.parse(response)[i];
@@ -38,7 +38,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			success: function(response){
 
 				
-				console.log(response);
+				console.log("Get Student Averages: "+response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var averageJSON = JSON.parse(response)[i];

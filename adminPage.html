@@ -46,11 +46,6 @@
 
 	   </table>
 
-<<<<<<< HEAD
-
-
-
-=======
 	<br>
 	<table style="width:90%" border="1" ng-init="getQuizAverages()">
 	    <tr>
@@ -60,11 +55,11 @@
 	      <td><b>Number of attempts</b></td> 
 	    </tr>
 	    
-	    <tr ng-repeat="quizavg in quizavgs track by $index">
+	    <tr ng-repeat="quizavg in quizavgs">
 	      <td>{{quizavg.quizname}}</td>
 	      <td>{{quizavg.coursecode}}</td> 
-	      <td>{{quizavg.average}}</td>
-	      <td>{{quizavg.no_taken}}</td>
+	      <td>{{quizavg.average_score}}</td>
+	      <td>{{quizavg.number_taken}}</td>
 	    </tr>
 	   </table>
 
@@ -78,16 +73,15 @@
 	      <td><b>Number of attempts</b></td> 
 	    </tr>
 	    
-	    <tr ng-repeat="studentavg in studentavgs track by $index">
+	    <tr ng-repeat="studentavg in studentavgs">
 	      <td>{{studentavg.fname}}</td>
 	      <td>{{studentavg.lname}}</td> 
-	      <td>{{studentavg.email}}</td> 
-	      <td>{{studentavg.averagescore}}</td>
-	      <td>{{studentavg.no_taken}}</td>
+	      <td>{{studentavg.emailaddress}}</td> 
+	      <td>{{studentavg.average_score}}</td>
+	      <td>{{studentavg.number_taken}}</td>
 	    </tr>
 	   </table>
 	
->>>>>>> 01630f18bc7f30741ca29d6cf83724f18ad36df7
 	<script>
 
 		function logout() {
