@@ -21,7 +21,6 @@ function InsertQuiz($name, $coursecode) {
 	$dbconnection = pg_connect($connectionString);
 	//Insert Quiz values into DB
 	$result = pg_query($dbconnection,"INSERT INTO quiz (name, coursecode) VALUES ('$name', '$coursecode');");
-	SELE
 	if (!$result) {
 		return"fail";
 	}else{
