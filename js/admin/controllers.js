@@ -16,13 +16,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			data: {"funcName":"getQuizAverages"},
 			success: function(response){
 
-				if(response.indexOf("true")!=-1){
-					$scope.safeToShow = true;
-				}
-				else{
-					alert("Incorrect username or password");
-	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
-				}
+				
 				console.log(response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
@@ -43,13 +37,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			data: {"funcName":"getStudentAverages"},
 			success: function(response){
 
-				if(response.indexOf("true")!=-1){
-					$scope.safeToShow = true;
-				}
-				else{
-					alert("Incorrect username or password");
-	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
-				}
+				
 				console.log(response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
