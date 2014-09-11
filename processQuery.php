@@ -94,7 +94,7 @@ function getQueryResults($fname,$lname,$quiz,$coursecode){
 	$dbconnection = pg_connect($connectionString);
 
 	$result = pg_query($dbconnection,
-		"SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.date
+		"SELECT u.fname, u.lname, u.id, r.quizname, q.coursecode, r.score, r.timetaken, r.datetaken
 		FROM result r
 		inner join useraccount u on r.userid=u.id
 		inner join quiz q on r.quizname=q.name
