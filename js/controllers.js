@@ -104,6 +104,7 @@ questionList
 							var password = sessionStorage.getItem('password').trim();
 							var quizname = sessionStorage.getItem('quizname').trim();
 							var tt = $scope.timetaken;
+							var date = $scope.datetaken
 							$.ajax({
 								url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 								type : 'post',
@@ -145,7 +146,7 @@ questionList
 						
 						console.log(str.substring(4,15));
 						
-						$scope.datetaken = str;
+						$scope.datetaken = str.substring(4,15);
 						
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
