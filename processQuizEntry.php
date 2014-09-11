@@ -5,7 +5,6 @@ function InsertQuestion($quizname, $body, $canswer, $type,$tolerance,$imagename)
 	$dbconnection = pg_connect($connectionString);
 	//Insert Quiz values into DB
 	$result = pg_query($dbconnection,"INSERT INTO question (body,canswer,type,tolerance,quizname,imagename) VALUES ('$body', '$canswer', '$type', '$tolerance', '$quizname', '$imagename');");
-	console.log("Values entered: " +$body+" "+$canswer+" "+$type);
 	if (!$result) {
 	  return"fail";
 	}else{
