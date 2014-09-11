@@ -113,7 +113,8 @@ questionList
 									"password" : password,
 									"quizname" : quizname,
 									"timetaken" : tt,
-									"score" :per
+									"score" :per,
+									"date" : $scope.datetaken
 
 								},
 								success : function(response){
@@ -144,6 +145,7 @@ questionList
 						
 						console.log(str.substring(4,15));
 						
+						$scope.datetaken = str;
 						
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
