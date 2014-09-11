@@ -17,8 +17,6 @@ function InsertQuestion($quizname, $body, $canswer, $type,$tolerance,$imagename)
 
 function InsertQuiz($name, $coursecode) {
 
-	return "test";
-
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
 	//Insert Quiz values into DB
@@ -28,8 +26,7 @@ function InsertQuiz($name, $coursecode) {
 	}else{
 		return"success";
 	}
-	$row = pg_fetch_all($result);
-	return $row;
+
 }
 
 if (isset ( $_POST ['funcName'] )) {

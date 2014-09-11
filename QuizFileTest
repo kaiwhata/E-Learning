@@ -4,10 +4,10 @@ Course Code:SWEN302
 <Body>
 What is 2+2?
 <BodyEnd>
-Possible Answers:NULL
+Possible Answers:
 Correct Answer:4
 Type:1
 Tolerance:0
-Image Name:NULL
+Image Name:
 <QuestionEND>
 EOF
