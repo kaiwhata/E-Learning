@@ -5,12 +5,12 @@ questionList
 				'questionCtrl',
 				function questionCtrl($scope) {
 					$scope.questions = [];
-					
+
 					$scope._initial;
 					$scope._final;
-					
+
 					$scope.timetaken;
-					
+
 					/**
 					 * Check all the answers of questions and alert the user if
 					 * right or wrong
@@ -18,26 +18,26 @@ questionList
 					$scope.checkAnswers = function() {
 						var d = new Date();
 						var n = d.getTime();
-						
+
 						$scope._final = n;
-						
+
 						// minus the final by inital
 						var diff = $scope._final - $scope._initial;
-						
+
 						var seconds = 1000;
-						
+
 						diff = Math.round(diff / seconds);
-						
+
 						console.log("times: "+$scope._initial+" "+$scope._final+" "+diff);
-						
+
 						$scope.timetaken = diff;
-						
+
 						var score = 0;
 						var total = 0;
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
-						
+
 							for (var i = 0; i < $scope.questions.length; i++) {
 								try{
 
@@ -56,7 +56,7 @@ questionList
 												break;
 											}
 										}
-										
+
 										if (q.checkAnswer(chosenIndex)){
 											score++;
 											alert("CORRECT!  the answer was "+q.answerText);
@@ -85,7 +85,7 @@ questionList
 											}
 									}
 								}catch(err){
-										
+
 										failed = true;
 										//problems.push("Question"+i+" "+err.message+"\n");
 										problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
@@ -104,9 +104,9 @@ questionList
 								type : 'post',
 								data : {
 									"funcName" : "sendResults",
-									"username" : sessionStorage.getItem('username'),
-									"password" : sessionStorage.getItem('password'),
-									"quizname" : sessionStorage.getItem('quizname'),
+									"username" : sessionStorage.getItem('username').trim(),
+									"password" : sessionStorage.getItem('password').trim(),
+									"quizname" : sessionStorage.getItem('quizname').trim(),
 									"timetaken" : $scope.timetaken,
 									"score" :per
 
@@ -120,19 +120,19 @@ questionList
 
 
 							console.log("MYSCORE: " + per);
-						
+
 					}
 
 					$scope.getQuestions = function() {
 						console.log("Getting Date");
-						
+
 						var d = new Date();
 						var n = d.getTime();
-						
+
 						$scope._initial = n;
-						
+
 						console.log("Time is "+n);
-						
+
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
 						//console.log("Initial Time: "+$scope._initial.getTime());
@@ -142,7 +142,7 @@ questionList
 									type : 'post',
 									data : {
 										"funcName" : "getAllQuestionsFromQuiz",
-										"quizname" : sessionStorage.getItem('quizname')
+										"quizname" : sessionStorage.getItem('quizname').trim()
 									},
 									success : function(response) {
 										console.log(response)
@@ -213,14 +213,14 @@ questionList
 												var question = new TextEntryQuestion(
 														id, body, answerArray, image);
 
-												
+
 
 
 												$scope.questions.push(question);
 
 
 											}
-											
+
 										}
 										$scope.loaded = true;
 										 $scope.$apply();
@@ -237,7 +237,7 @@ questionList
 									type : 'post',
 									data : {
 										"funcName" : "getAllQuestionsFromQuiz",
-										"quizname" : sessionStorage.getItem('quizname')
+										"quizname" : sessionStorage.getItem('quizname').trim()
 									},
 									success : function(response) {
 										console.log("hi "+response);
