@@ -31,7 +31,11 @@ questionList
 						console.log("times: "+$scope._initial+" "+$scope._final+" "+diff);
 
 						$scope.timetaken = diff;
+<<<<<<< HEAD
+						var time = $scope.timetaken;
+=======
 
+>>>>>>> 4d9fea7d33e371d5708509c734fc2544aeae03e3
 						var score = 0;
 						var total = 0;
 						var failed = false;
@@ -107,10 +111,17 @@ questionList
 								type : 'post',
 								data : {
 									"funcName" : "sendResults",
+<<<<<<< HEAD
+									"username" : sessionStorage.getItem('username'),
+									"password" : sessionStorage.getItem('password'),
+									"quizname" : sessionStorage.getItem('quizname'),
+									"timetaken" : time,
+=======
 									"username" : username,
 									"password" : password,
 									"quizname" : quizname,
 									"timetaken" : tt,
+>>>>>>> 4d9fea7d33e371d5708509c734fc2544aeae03e3
 									"score" :per
 
 								},

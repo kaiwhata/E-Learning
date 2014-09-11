@@ -9,7 +9,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 		$.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type: 'post',
-			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password')},
+			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password').trim()},
 			success: function(response){
 
 				if(response.indexOf("true")!=-1){
@@ -20,13 +20,13 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 				}
 				console.log(response);
-				console.log("username from session"+sessionStorage.getItem('username'));
-				console.log("password from session"+sessionStorage.getItem('password'));
+				console.log("username from session"+sessionStorage.getItem('username').trim());
+				console.log("password from session"+sessionStorage.getItem('password').trim());
 
 			}
 
 		});
-	
+
 
 
 		$.ajax({
@@ -46,7 +46,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 
 		});
 	}
-	
+
 	$scope.getQueryResults = function(){
 	  //, "coursecode": courseinput.value
 			console.log("Starting query: "+courseinput.value);

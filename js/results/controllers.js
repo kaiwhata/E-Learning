@@ -9,8 +9,8 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 			type : 'post',
 			data : {
 				"funcName" : "getResults",
-				"username" : sessionStorage.getItem('username'),
-				"password" : sessionStorage.getItem('password')
+				"username" : sessionStorage.getItem('username').trim(),
+				"password" : sessionStorage.getItem('password').trim()
 			},
 			success : function(response) {
 				console.log(response);
