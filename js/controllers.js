@@ -31,7 +31,7 @@ questionList
 						console.log("times: "+$scope._initial+" "+$scope._final+" "+diff);
 						
 						$scope.timetaken = diff;
-						
+						var time = $scope.timetaken;
 						var score = 0;
 						var total = 0;
 						var failed = false;
@@ -107,7 +107,7 @@ questionList
 									"username" : sessionStorage.getItem('username'),
 									"password" : sessionStorage.getItem('password'),
 									"quizname" : sessionStorage.getItem('quizname'),
-									"timetaken" : $scope.timetaken,
+									"timetaken" : time,
 									"score" :per
 
 								},
