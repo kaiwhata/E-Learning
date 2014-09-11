@@ -1,11 +1,11 @@
-document.getElementById("submit").onclick = submit2;
+document.getElementById("submit").onclick = submit;
 var name2num = {
 	multi : 0,
 	number : 1,
 	text : 2
 }
 
-function submit2() {
+function submit() {
 
 	var questionTexts = quizInsert.quizFormat.value.split("Question");
 
