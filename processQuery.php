@@ -20,7 +20,6 @@ function checkPassword($username,$password){
 	return ($realPassword==$password) ? 'true' : 'false';
 }
 
-
 function getQuizes(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
@@ -37,8 +36,6 @@ function getQuizes(){
 	return $bigline;
 }
 
-
-
 function getAllQuestionsFromQuiz($quizname) {
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect ( $connectionString );
@@ -47,10 +44,9 @@ from(SELECT * FROM quiz INNER JOIN question ON  (quiz.name=question.quizname) LE
 	return json_encode ( pg_fetch_all ( $result ) );
 }
 
-
 function sendResults($username, $password, $quizname, $timetaken, $score, $date) {
 	// get the user id
-	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect ( $connectionString );
 
 	$id = pg_query ( $dbconnection, "SELECT id FROM useraccount WHERE username='$username'" );
@@ -62,7 +58,7 @@ $result = pg_query ( $dbconnection, "INSERT INTO result (userid,quizname, score,
 }
 
 function getResults($username, $password) {
-	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v 			user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
+	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect ( $connectionString );
 
 	// get the users id number
@@ -73,7 +69,6 @@ function getResults($username, $password) {
 
 	return json_encode ( pg_fetch_all ( $result ) );
 }
-
 
 function getAllResults(){
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
@@ -105,7 +100,6 @@ function getQueryResults($fname,$lname,$quiz,$coursecode){
 		order by score desc");
 	return json_encode(pg_fetch_all($result));
 }
-
 
 if (isset ( $_POST ['funcName'] )) {
 	switch ($_POST ['funcName']) {
