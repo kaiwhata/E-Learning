@@ -3,7 +3,7 @@
 $thumb_square_size      = 200; //Thumbnails will be cropped to 200x200 pixels
 $max_image_size         = 500; //Maximum image size (height and width)
 $thumb_prefix           = "thumb_"; //Normal thumb Prefix
-$destination_folder     = '/'; //upload directory ends with / (slash)
+$destination_folder     = '//researchImageUpload/ImageUploading/form-master/'; //upload directory ends with / (slash)
 $jpeg_quality           = 90; //jpeg quality
 ##########################################
 
