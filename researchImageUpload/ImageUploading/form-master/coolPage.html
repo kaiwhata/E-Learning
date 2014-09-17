@@ -6,32 +6,27 @@
 </head>
 <body>
 
-	<script type="text/javascript" src="jquery.form.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			var options = {
-				target : '#output', // target element(s) to be updated with server response
-				beforeSubmit : beforeSubmit, // pre-submit callback
-				resetForm : true
-			// reset the form after successful submit
-			};
+ 
+<form action="saveimage.php" enctype="multipart/form-data" method="post">
 
-			$('#MyUploadForm').submit(function() {
-				$(this).ajaxSubmit(options); //Ajax Submit form
-				// return false to prevent standard browser submit and page navigation
-				return false;
-			});
-		});
-	</script>
+<table style="border-collapse: collapse; font: 12px Tahoma;" border="1" cellspacing="5" cellpadding="5">
+<tbody><tr>
+<td>
+<input name="uploadedimage" type="file">
+</td>
 
-	<form action="processupload.php" method="post"
-		enctype="multipart/form-data" id="MyUploadForm">
-		<input name="image_file" id="imageInput" type="file" /> <input
-			type="submit" id="submit-btn" value="Upload" /> <img
-			src="images/ajax-loader.gif" id="loading-img" style="display: none;"
-			alt="Please Wait" />
-	</form>
-	<div id="output"></div>
+</tr>
+
+<tr>
+<td>
+<input name="Upload Now" type="submit" value="Upload Image">
+</td>
+</tr>
+
+
+</tbody></table>
+
+</form>
 
 </body>
 </html>
