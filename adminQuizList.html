@@ -20,22 +20,13 @@
 		}
 	</script>
 
+	
+
+
 	<button id="Back" onclick="window.location='adminPage.html'">Back</button>
 	<br>
 
 	<div ng-init="getQuizzes()">
-	<h1>Available Courses</h1>
-	<table style="width:30%">
-
-	    <tr ng-repeat="quiz in quizzes track by $index">
-	      <td>{{quiz.courseCode}}    </td>
-	      <td>{{quiz.name}}</td>
-	      <td><a href="javascript:alert('blach')">Edit</a></td>
-	      <td><a href="javascript:deleteQuiz()">Delete</a></td>
-	    </tr>
-
-	   </table>
-	</div>
 
 	<script>
 		function gotoResults() {
@@ -48,7 +39,37 @@
 			sessionStorage.clear();
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
+
+		function deleteQuiz(quizName){
+			$.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
+				type : 'post',
+				data : {
+					"quizName" : quizName
+				},
+				success : function(response) {
+					$scope.$apply();
+				}
+
+			});
+			
+		}
 	</script>
+
+	<h1>Available Courses</h1>
+	<table style="width:30%">
+
+	    <tr ng-repeat="quiz in quizzes track by $index">
+	      <td>{{quiz.courseCode}}    </td>
+	      <td>{{quiz.name}}</td>
+	      <td><a href="javascript:alert('blach')">Edit</a></td>
+	      <td><button ng-click="deleteQuiz(quiz.name);">Delete</button></td>
+	      <!-- <td><a onclick="deleteQuiz({{quiz.name}});">Delete</a></td> -->
+	      <!-- <td><a href="javascript:deleteQuiz({{quiz.name}});">Delete</a></td> -->
+	    </tr>
+
+	   </table>
+	</div>
 
 
 

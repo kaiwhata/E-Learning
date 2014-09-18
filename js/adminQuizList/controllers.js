@@ -41,8 +41,8 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 	}//end func
 
 
-	$scope.deleteQuiz = function(quizIndex) {
-		var quizName = quizzes[quizIndex].name;
+	$scope.deleteQuiz = function(quizName) {
+		alert(quizName+"being delted");
 		$.ajax({
 			url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
 			type : 'post',
@@ -60,7 +60,7 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 				// 	var result = questionJSON["quizname"]+" : "+ score;
 				// 	$scope.results.push(result);
 				// }
-				// $scope.$apply();
+				$scope.$apply();
 			}
 
 		});
