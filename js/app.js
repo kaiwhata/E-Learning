@@ -13,8 +13,12 @@ questionList.directive("mathjaxBind", function() {
                 $element.html("");
                 $element.append(texScript);
                 MathJax.Hub.Queue(["Reprocess", MathJax.Hub, $element[0]]);
+console.log("ggtehrtgregrerwgrfwfwf");
             });
         }]
     };
 });
+function MyCtrl($scope, $element) {
+    $scope.expression = "\\frac{5}{4} \\div \\frac{1}{6}";
+}
 
