@@ -19,6 +19,7 @@
     <link href="theme.css" rel="stylesheet">
 
   <style type="text/css" id="holderjs-style"></style></head>
+
 <title>Register Page</title>
 </head>
 <div class="jumbotron">
@@ -114,12 +115,15 @@ margin-top:-25px;
     	if(!login.email.value){
     		alert("please enter a email");
     		return;
+	}
     	if(!login.password.value){
     		alert("please enter a password");
     		return;
+	}
     	if(!login.fname.value){
     		alert("please enter a first name");
     		return;
+	}
     	if(!login.lname.value){
     		alert("please enter a last name");
     		return;
@@ -147,8 +151,6 @@ margin-top:-25px;
 		});
 
     }
-
-
 
 	document.getElementById("home").onclick = linkToHome;
 	   	function linkToHome() {
