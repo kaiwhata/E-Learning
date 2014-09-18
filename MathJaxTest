@@ -36,14 +36,13 @@ $sin(x) + \pi$
 	function test() {
 		//console.log("input text: " + document.getElementById("something").value);
 
-		console.log("Initial text is: " + document.getElementById("output").innerHTML);
-
-		var outputText = "\\(";
-		outputText = outputText + document.getElementById("something").value;
-		outputText = outputText + "\\)"
-		//var outputText = "\(sin(x) + \pi\)";
-		console.log("output text is: " + outputText);
-		document.getElementById("output").innerHTML = outputText;
+		//console.log("Initial text is: " + document.getElementById("output").innerHTML);
+		//console.log("output text is: " + outputText);
+		//var outputText = "\\(";
+		//outputText = outputText + document.getElementById("something").value;
+		//outputText = outputText + "\\)"
+		//document.getElementById("output").innerHTML = outputText;
+		document.getElementById("output").innerHTML = document.getElementById("something").value;
 
 		MathJax.Hub.Typeset();
 
