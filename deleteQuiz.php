@@ -7,5 +7,6 @@ $dbconnection = pg_connect($connectionString);
 $clearResultsQuery = "delete from result where quizname = '$quizName';delete from quiz where name = '$quizName';";
 
 $result = pg_query($dbconnection,$clearResultsQuery);
-echo pg_fetch_row($result);
+// echo pg_fetch_row($result);
+echo $quizName;
 ?>
