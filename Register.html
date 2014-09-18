@@ -2,12 +2,47 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+  <style type="text/css" id="holderjs-style"></style></head>
 <title>Register Page</title>
 </head>
+<div class="jumbotron">
+<div class=col-md-5>
+<img src="images/vicLogo.jpg" style="width: 150px; height: 150px;">
+</div>
+<div class="col-md-7">
 <h1>Register</h1>
 <style>
 .error-message {
   color: red;
+}
+.jumbotron{
+padding-left:900px;
+padding-bottom:300px;
+margin-top:250px
+}
+.col-md-5{
+margin-left:-200px;
+margin-top:50px;
+}
+.col-md-7{
+margin-left:-200px;
+margin-top:-25px;
 }
 </style>
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
@@ -36,14 +71,14 @@
 		ng-show="login.username.$error.maxlength">
 		The username should not be more than 15 symbols
 	</div>
-	<label for="username">User</label>
+	<label for="username">Username</label>
 	<input type="text" name="username" ng-model="username" ng-minlength="3" ng-maxlength="15" required />
 	<br />
 
 	<div class="error-message"
 		ng-show="login.email.$invalid">The email is not valid
 	</div>
-	<label for="email">Email</label>
+	<label for="email">Email Add</label>
 	<input type="email" name="email" ng-model="email" />
 	<br />
 
@@ -59,8 +94,8 @@
 	ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
 
 	<br>
-	<input type="button" id="submit" value="Submit">
-	<input type="button" id="home" value="Home">
+	<input type="button" class="btn btn-success" id="submit" value="Submit">
+	<input type="button" class="btn btn-success" id="home" value="Back to Log In">
 	<script type="text/javascript">
     document.getElementById("submit").onclick = confirm;
 
@@ -121,4 +156,14 @@
 	}
 </script>
 </form>
+   <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</div>
+</div>
 </html>
