@@ -9,5 +9,5 @@ $clearResultsQuery = "SELECT coursecode FROM quiz WHERE name = '$quizName';";
 
 $result = pg_query($dbconnection,$clearResultsQuery);
 // echo $result;
-echo pg_fetch_row($result);
+echo pg_fetch_row($result)[0];
 ?>
