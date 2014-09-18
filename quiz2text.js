@@ -4,7 +4,6 @@ function readQuestion() {
 	var questions = [];
 	//ajax call to get questions
 	console.log("Getting Date");
-	var text = "Quiz Name:" + quizname;
 	var courseCode;
 	//$scope._initial = new Date();
 	//$scope._initial = $scope._initial.getTime());
@@ -109,6 +108,7 @@ function readQuestion() {
 						courseCode = response;
 
 
+
 					}
 				);
 
@@ -117,6 +117,48 @@ function readQuestion() {
 
 		});
 
+
+	var text = "Quiz Name:" + quizname+"\n";
+	text+="Course Code:"+courseCode+"\n";
+	text+="\n";
+	for(int i=0;i<questions.length;i++){
+		//get appropriate panswers text
+		var possibleAnswersText = "";
+		if(quesiton.type==0){
+			possibleAnswersText+="Possible Answers:"+quesiton.p1+","+question.p2+","+question.p3+","+question.p4;
+		}else{
+			possibleAnswersText+="Possible Answers:";
+		}
+
+		//get appropritate type text
+		var typeText ="";
+		if(question.type==0){
+			typeText = "multi";
+		}else if(question.type==1){
+			typeText = "number";
+		}else if (question.type==2){
+			typeText = "text"
+		}
+
+		//get appropriate tolerance text
+		var toleranceText = "0";
+		if(question.type==1){
+			toleranceText=question.tolerance;
+		}
+		var question = questions[i];
+		text+="Question"+"\n";
+		text+="---------"+"\n";
+		text+="<Body>"+"\n";
+		text+=question.body+"\n";
+		text+="<BodyEnd>"+"\n";
+		text+=possibleAnswersText+"\n";
+		text+="Correct Answer:"+question.canswer+"\n";
+		text+="Type:"+typeText+"\n";
+		text+="Tolerance:"+toleranceText+"\n";
+		text+="Image Name:"+question.imagename+"\n"
+	}
+	
+	alert(text);
 
 }
 
