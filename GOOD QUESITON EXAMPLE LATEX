@@ -1,0 +1,14 @@
+Quiz Name:some latex example
+Course Code:SWEN302
+
+Question
+---------
+<Body>
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+<BodyEnd>
+Possible Answers:16,17,18,158
+Correct Answer:4
+Type:multi
+Tolerance:0
+Image Name:

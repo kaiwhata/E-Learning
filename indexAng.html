@@ -24,7 +24,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 		<!--<img src="http://philiptaaffe.info/wp-content/uploads/2013/04/Rose-Triangle-2008.png" alt="triangle"> -->
 
 		<fieldset id={{
-			"question"+$index}} ng-repeat="question in questions track by $index">
+			"question"+$index}} ng-repeat="question in questions track by $index" ng-load="javascript:Mathjax.Hub.Typeset()">
 
 			<legend>Question {{question.id}}</legend>
 			<span ng-switch="question.questionType">
