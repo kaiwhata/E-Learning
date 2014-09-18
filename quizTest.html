@@ -46,8 +46,8 @@
 			}
 		}
 	</script>
-
-	<button id="logoutBtn" class="btn btn-sm btn-success" onclick="logout()">Logout</button>
+	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-sm btn-link">Results</button>
+	<button id="logoutBtn" class="btn btn-sm btn-link" onclick="logout()">Logout</button>
 	<br>
 	<br>
       <div class="page-header">
@@ -63,10 +63,7 @@
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
-		<br> <br>
-		<button
-			onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Results</button>
-
+		<br> <br> <br>
 	</div>
 
 	<script>
