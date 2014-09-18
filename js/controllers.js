@@ -147,6 +147,11 @@ questionList
 						console.log(str.substring(4,15));
 						
 						$scope.datetaken = str.substring(4,15);
+
+						var thing = sessionStorage.getItem('quizname');
+						if(thing != null){
+							thing = thing.trim();
+						}
 						
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
@@ -156,7 +161,7 @@ questionList
 									type : 'post',
 									data : {
 										"funcName" : "getAllQuestionsFromQuiz",
-										"quizname" : sessionStorage.getItem('quizname').trim()
+										"quizname" : thing
 									},
 									success : function(response) {
 										console.log(response)

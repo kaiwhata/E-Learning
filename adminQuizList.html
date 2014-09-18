@@ -1,0 +1,76 @@
+<html ng-app="adminQuizList">
+<head>
+<title></title>
+<meta content="">
+<style></style>
+<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/adminQuizList/app.js"></script>
+<script type="text/javascript" src="js/adminQuizList/controllers.js"></script>
+<script type="text/javascript" src="js/adminQuizList/services.js"></script>
+</head>
+<body onload="load()" ng-controller="adminQuizCtrl">
+	<script>
+	<!--SHOULD BE LEGIT LOGGED IN AS ADMIN-->
+		function load() {
+			if (sessionStorage.getItem('username') == null) {
+				alert("You're not logged in, redirecting to home");
+				//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			}
+		}
+	</script>
+
+	
+
+
+	<button id="Back" onclick="window.location='adminPage.html'">Back</button>
+	<br>
+
+	<div ng-init="getQuizzes()">
+
+	<script>
+		function gotoResults() {
+			window.location = "http://shrouded-earth-7234.herokuapp.com/results.html";
+		}
+
+		function logout() {
+			sessionStorage.removeItem("username");
+			sessionStorage.removeItem("password");
+			sessionStorage.clear();
+			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+		}
+
+		function deleteQuiz(){
+			var quizName = "bumbumbum";
+			$.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
+				type : 'post',
+				data : {
+					"quizName" : quizName
+				},
+				success : function(response) {
+					alert(response);
+				}
+
+			});
+			
+		}
+	</script>
+
+	<h1>Available Courses</h1>
+	<table style="width:30%">
+
+	    <tr ng-repeat="quiz in quizzes track by $index">
+	      <td>{{quiz.courseCode}}    </td>
+	      <td>{{quiz.name}}</td>
+	      <td><a href="javascript:alert('blach')">Edit</a></td>
+	      <td><a href="javascript:deleteQuiz()">Delete</a></td>
+	    </tr>
+
+	   </table>
+	</div>
+
+
+
+</body>
+</html>

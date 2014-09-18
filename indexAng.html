@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html ng-app="questionList">
 <head>
-
 <meta charset="UTF-8">
 <title>Quiz</title>
+
+<script type="text/x-mathjax-config">
+ 	 	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+	</script>
+	<script type="text/javascript"
+  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+
 </head>
 <h1>Quiz</h1>
-<body>
+<body onload = "javascript:MathJax.Hub.Typeset();">
+<a href="javascript:MathJax.Hub.Typeset();">do the thing</a>
+
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" >
 
 		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Back To Home Page</button>
@@ -73,11 +85,21 @@
 
 	</div>
 
+
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
+	
+
+
+	<script type="text/x-mathjax-config"">
+		function load(){
+			console.log("trying to fix LaTeX");
+			
+		}
+	</script>
 </body>
 </html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</body>
+
+<body>
+$sin(x) + \pi$
+</body>
+
+<label for="quiz">LaTeX code to LaTeX</label>
+
+<form novalidate ng-app name="quizInsert">
+
+	<textarea id="something" name="quizFormat" rows="5" cols="75" required> </textarea>
+</form>
+
+<button id="test" onclick="test()">Test</button>
+
+<label>Output</label>
+
+
+<script>
+	function test() {
+		//console.log("input text: " + document.getElementById("something").value);
+
+		//console.log("Initial text is: " + document.getElementById("output").innerHTML);
+		//console.log("output text is: " + outputText);
+		//var outputText = "\\(";
+		//outputText = outputText + document.getElementById("something").value;
+		//outputText = outputText + "\\)"
+		//document.getElementById("output").innerHTML = outputText;
+		document.getElementById("output").innerHTML = document.getElementById("something").value;
+
+		MathJax.Hub.Typeset();
+
+	}		
+</script>
+
+<div id="output" type="math/tex; mode=display">
+\(sin(x)\)
+</div>
+
+
+
+
+</html>
