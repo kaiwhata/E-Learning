@@ -139,6 +139,8 @@ function readQuestion() {
 						}
 						
 						console.log(text);
+						document.getElementById("something").value = text;
+
 						// alert(text);
 						
 
