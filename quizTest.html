@@ -1,6 +1,23 @@
+<!DOCTYPE html>
 <html ng-app="quizList">
 <head>
-<title></title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+  <style type="text/css" id="holderjs-style"></style>
+<title>Courses</title>
 <meta content="">
 <style></style>
 <script type="text/javascript" src="js/libraries/angular/angular.js"></script>
@@ -9,6 +26,8 @@
 <script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
 </head>
+<div class="jumbotron">
+<div class="col-md-5">
 <body onload="load()">
 	<script>
 		function load() {
@@ -29,7 +48,7 @@
 
 		<div id={{ "quiz"+$index}} ng-repeat="quiz in quizes track by $index">
 
-			<button id={{ "quiz"+$index+"btn"}} ng-init="name=quiz"
+			<button id={{ "quiz"+$index+"btn"}} class="btn btn-sm btn-info" ng-init="name=quiz"
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
@@ -55,4 +74,14 @@
 
 
 </body>
+</div>
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</div>
 </html>
