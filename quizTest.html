@@ -21,8 +21,8 @@
 <meta content="">
 <style>
 .jumbotron{
-	padding-top:50px;
-	padding-bottom:650px;
+	padding-top:25px;
+	padding-bottom:725px;
 	margin-top:100px;
 }
 .col-md-5{
@@ -46,11 +46,13 @@
 			}
 		}
 	</script>
-
-	<button id="logoutBtn" class="btn btn-sm btn-success" onclick="logout()">Logout</button>
+	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-sm btn-link">Results</button>
+	<button id="logoutBtn" class="btn btn-sm btn-link" onclick="logout()">Logout</button>
 	<br>
 	<br>
+      <div class="page-header">
 	<h1>Available Courses</h1>
+      </div>
 
 	<div id="main" ng-controller="quizCtrl" ng-show="loaded"
 		ng-init="getQuizes()">
@@ -61,10 +63,7 @@
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
-		<br> <br>
-		<button
-			onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Results</button>
-
+		<br> <br> <br>
 	</div>
 
 	<script>
