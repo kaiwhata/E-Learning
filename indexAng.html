@@ -11,7 +11,7 @@
 <title>Quiz</title>
 </head>
 <h1>Quiz</h1>
-<body>
+<body onload = "displayLaTeX()">
 <a href="javascript:MathJax.Hub.Typeset();">do the thing</a>
 
 When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
@@ -90,5 +90,11 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
+	<script type="text/x-mathjax-config">
+		function displayLaTeX(){
+			console.log("trying to fix LaTeX");
+			Mathjax.Hub.Typeset();
+		}
+	</script>
 </body>
 </html>
