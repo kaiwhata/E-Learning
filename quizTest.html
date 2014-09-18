@@ -19,7 +19,20 @@
   <style type="text/css" id="holderjs-style"></style>
 <title>Courses</title>
 <meta content="">
-<style></style>
+<style>
+.jumbotron{
+	padding-top:25px;
+	padding-bottom:725px;
+	margin-top:100px;
+}
+.col-md-5{
+	margin-left:800px;
+}
+.page-header{
+	margin-top:-30px;
+	margin-bottom:-15px;
+}
+</style>
 <script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/quiz_lib/app.js"></script>
@@ -37,11 +50,13 @@
 			}
 		}
 	</script>
-
-	<button id="logoutBtn" onclick="logout()">LOGOUT</button>
+	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-lg btn-link">Results</button>
+	<button id="logoutBtn" class="btn btn-lg btn-link" onclick="logout()">Logout</button>
 	<br>
 	<br>
-	<u>Available Courses</u>
+      <div class="page-header">
+	<h1>Available Courses</h1>
+      </div>
 
 	<div id="main" ng-controller="quizCtrl" ng-show="loaded"
 		ng-init="getQuizes()">
@@ -52,10 +67,7 @@
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
-		<br> <br>
-		<button
-			onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'">Results</button>
-
+		<br> <br> <br>
 	</div>
 
 	<script>
