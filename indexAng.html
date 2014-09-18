@@ -13,13 +13,14 @@
 
 </head>
 <h1>Quiz</h1>
-<body onload = "javascript:MathJax.Hub.Typeset();">
+<body>
 <a href="javascript:MathJax.Hub.Typeset();">do the thing</a>
 
 When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" >
+		<span mathjax-bind="expression"></span>
 
 		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Back To Home Page</button>
 

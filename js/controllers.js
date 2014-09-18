@@ -242,7 +242,8 @@ questionList
 
 										}
 										$scope.loaded = true;
-										 $scope.$apply();
+										$scope.$apply();
+								
 									}
 
 								});
