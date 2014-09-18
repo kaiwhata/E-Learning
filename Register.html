@@ -63,12 +63,32 @@
 	<input type="button" id="home" value="Home">
 	<script type="text/javascript">
     document.getElementById("submit").onclick = confirm;
+
     function confirm() {
     	console.log("username: "+ login.username.value);
     	console.log("email: "+ login.email.value);
     	console.log("password : "+ login.password.value);
     	console.log("fname: "+ login.fname.value);
     	console.log("lname: "+ login.lname.value);
+
+    	//if any fields are blank get outa here
+    	if(!login.username.value){
+    		alert("please enter a username");
+    		return;
+    	}
+    	if(!login.email.value){
+    		alert("please enter a email");
+    		return;
+    	if(!login.password.value){
+    		alert("please enter a password");
+    		return;
+    	if(!login.fname.value){
+    		alert("please enter a first name");
+    		return;
+    	if(!login.lname.value){
+    		alert("please enter a last name");
+    		return;
+    	}
 		    //alert("Successful");
 		    //call PHP function
 		$.ajax({
@@ -92,6 +112,8 @@
 		});
 
     }
+
+
 
 	document.getElementById("home").onclick = linkToHome;
 	   	function linkToHome() {
