@@ -68,6 +68,7 @@ function submitQuestions(quizName,quizCode,questionTexts){
 			//q["Possible Answers"] =
 		}else{
 			// convert type
+			q["Possible Answers"] = "";
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"]);
 		}
@@ -75,7 +76,7 @@ function submitQuestions(quizName,quizCode,questionTexts){
 	}
 }
 
-// use ajax function to insert into databsae
+// use ajax function to insert into databsae - question
 function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) {
 	console.log("test function call");
 	console.log("Values entered: " + body + " " + canswer + " " + type + " "
@@ -112,6 +113,7 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 //We must insert the possible answers first, then search for the id
 function insertPossibleAnswers(possibleAnswerQuestion,quizName) {
 	// TODO
+	console.log("calling insertPossibleAnswers");
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
 
