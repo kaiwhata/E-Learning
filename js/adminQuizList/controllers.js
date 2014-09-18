@@ -43,16 +43,19 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 
 	$scope.deleteQuiz = function(quizName) {
 		
-		//remove from quizzes the delteed thing
-		var markedForDeath = -1;
-		for(int i=0;i<$scope.quizzes.length;i++){
-			var quizJobject = quizzes[i];
-			if(quizJobject.indexOf(quizName)!=-1){
-				int markedForDeath = i;
-			}
-		}
+		// remove from quizzes the delteed thing
+		var newArray = []
+		for(var i=0;i<$scope.quizzes.length;i++){
+			var quizJobject = $scope.quizzes[i];
 
-		$scope.quizzes.splice(markedForDeath,1);
+				if(quizJobject.name==quizName){
+
+				}else{
+					newArray.push(quizJobject);
+				}
+		}
+		$scope.quizzes = newArray;
+		$scope.$apply();
 		//remove it from the db
 		$.ajax({
 			url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
@@ -61,10 +64,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 				"quizName" : quizName
 			},
 			success : function(response) {
-	
-
-
-				
 				$scope.$apply();
 			}
 
