@@ -94,71 +94,66 @@ function readQuestion() {
 
 				}
 				loaded = true;
-				$apply();
 		
 				$.ajax({
-					url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+					url : 'http://shrouded-earth-7234.herokuapp.com/getCourseCodeOfQuiz.php',
 					type : 'post',
 					data : {
-						"funcName" : "getCourseCodeOfQuiz.php",
-						"quizname" : quizname
+						"quizName" : quizname
 					},
 					success : function(response) {
 						alert("course code is "+response);
-						courseCode = response;
+						courseCode = response.trim();
 
+						var text = "Quiz Name:" + quizname+"\n";
+						text+="Course Code:"+courseCode+"\n";
+						text+="\n";
+						for(var i=0;i<questions.length;i++){
+							var question = questions[i];
 
+							//get appropriate panswers text
+							var possibleAnswersText = "";
+							if(question.questionType=="multi"){
+								possibleAnswersText+="Possible Answers:"+question.optionsText[0]+","+question.optionsText[1]+","+question.optionsText[2]+","+question.optionsText[3];
+							}else{
+								possibleAnswersText+="Possible Answers:";
+							}
+
+							//get appropritate type text
+
+							//get appropriate tolerance text
+							var toleranceText = "0";
+							if(question.questionType.indexOf("number")!=-1){
+								toleranceText=question.tolerance;
+							}
+							text+="Question"+"\n";
+							text+="---------"+"\n";
+							text+="<Body>"+"\n";
+							text+=question.bodyText+"\n";
+							text+="<BodyEnd>"+"\n";
+							text+=possibleAnswersText+"\n";
+							text+="Correct Answer:"+question.answerText+"\n";
+							text+="Type:"+question.questionType+"\n";
+							text+="Tolerance:"+toleranceText+"\n";
+							text+="Image Name:"+question.imageURL+"\n"
+						}
+						
+						console.log(text);
+						document.getElementById("something").value = text;
+
+						// alert(text);
+						
 
 					}
-				);
+				
 
 
 			}
 
-		});
+		);}
+	});
 
 
-	var text = "Quiz Name:" + quizname+"\n";
-	text+="Course Code:"+courseCode+"\n";
-	text+="\n";
-	for(int i=0;i<questions.length;i++){
-		//get appropriate panswers text
-		var possibleAnswersText = "";
-		if(quesiton.type==0){
-			possibleAnswersText+="Possible Answers:"+quesiton.p1+","+question.p2+","+question.p3+","+question.p4;
-		}else{
-			possibleAnswersText+="Possible Answers:";
-		}
-
-		//get appropritate type text
-		var typeText ="";
-		if(question.type==0){
-			typeText = "multi";
-		}else if(question.type==1){
-			typeText = "number";
-		}else if (question.type==2){
-			typeText = "text"
-		}
-
-		//get appropriate tolerance text
-		var toleranceText = "0";
-		if(question.type==1){
-			toleranceText=question.tolerance;
-		}
-		var question = questions[i];
-		text+="Question"+"\n";
-		text+="---------"+"\n";
-		text+="<Body>"+"\n";
-		text+=question.body+"\n";
-		text+="<BodyEnd>"+"\n";
-		text+=possibleAnswersText+"\n";
-		text+="Correct Answer:"+question.canswer+"\n";
-		text+="Type:"+typeText+"\n";
-		text+="Tolerance:"+toleranceText+"\n";
-		text+="Image Name:"+question.imagename+"\n"
-	}
-	
-	alert(text);
 	
 
 }

@@ -25,8 +25,14 @@
 	padding-bottom:725px;
 	margin-top:100px;
 }
+.col-md-4{
+}
 .col-md-5{
 	margin-left:800px;
+}
+.page-header{
+	margin-top:-30px;
+	margin-bottom:-15px;
 }
 </style>
 <script type="text/javascript" src="js/libraries/angular/angular.js"></script>
@@ -46,8 +52,9 @@
 			}
 		}
 	</script>
-	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-sm btn-link">Results</button>
-	<button id="logoutBtn" class="btn btn-sm btn-link" onclick="logout()">Logout</button>
+	
+	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-link">Results</button>
+	<button id="logoutBtn" class="btn btn-link" onclick="logout()">Logout</button>
 	<br>
 	<br>
       <div class="page-header">
@@ -59,7 +66,7 @@
 
 		<div id={{ "quiz"+$index}} ng-repeat="quiz in quizes track by $index">
 
-			<button id={{ "quiz"+$index+"btn"}} class="btn btn-sm btn-info" ng-init="name=quiz"
+			<button id={{ "quiz"+$index+"btn"}} class="btn btn-sm btn-warning" ng-init="name=quiz"
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
