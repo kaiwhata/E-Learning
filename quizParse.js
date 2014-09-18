@@ -68,7 +68,7 @@ function submitQuestions(quizName,quizCode,questionTexts){
 			//q["Possible Answers"] =
 		}else{
 			// convert type
-			q["Possible Answers"] = "";
+			q["Possible Answers"] = -1;
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"]);
 		}
