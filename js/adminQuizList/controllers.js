@@ -41,28 +41,28 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 	}//end func
 
 
-	// $scope.deleteQuiz = function(quizIndex) {
-	// 	var quizName = quizzes[quizIndex].name;
-	// 	$.ajax({
-	// 		url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
-	// 		type : 'post',
-	// 		data : {
-	// 			"quizName" : quizName
-	// 		},
-	// 		success : function(response) {
-	// 			alert(response);
-	// 			// console.log(response);
-	// 			// for (var i = 0; i < JSON.parse(response).length; i++) {
-	// 			// 	var questionJSON = JSON
-	// 			// 			.parse(JSON.parse(response)[i]["row_to_json"]);
-	// 			// 	console.log(questionJSON);
-	// 			// 	var score = questionJSON["score"]*100 + "%"
-	// 			// 	var result = questionJSON["quizname"]+" : "+ score;
-	// 			// 	$scope.results.push(result);
-	// 			// }
-	// 			// $scope.$apply();
-	// 		}
+	$scope.deleteQuiz = function(quizName) {
+		alert(quizName+"being delted");
+		$.ajax({
+			url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
+			type : 'post',
+			data : {
+				"quizName" : quizName
+			},
+			success : function(response) {
+				alert(response);
+				// console.log(response);
+				// for (var i = 0; i < JSON.parse(response).length; i++) {
+				// 	var questionJSON = JSON
+				// 			.parse(JSON.parse(response)[i]["row_to_json"]);
+				// 	console.log(questionJSON);
+				// 	var score = questionJSON["score"]*100 + "%"
+				// 	var result = questionJSON["quizname"]+" : "+ score;
+				// 	$scope.results.push(result);
+				// }
+				$scope.$apply();
+			}
 
-	// 	});
-	// }
+		});
+	}
 });//end controller

@@ -40,8 +40,7 @@
 			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 		}
 
-		function deleteQuiz(){
-			var quizName = "funfunfun";
+		function deleteQuiz(quizName){
 			$.ajax({
 				url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
 				type : 'post',
@@ -49,7 +48,7 @@
 					"quizName" : quizName
 				},
 				success : function(response) {
-					alert(response);
+					$scope.$apply();
 				}
 
 			});
@@ -64,7 +63,9 @@
 	      <td>{{quiz.courseCode}}    </td>
 	      <td>{{quiz.name}}</td>
 	      <td><a href="javascript:alert('blach')">Edit</a></td>
-	      <td><a href="javascript:deleteQuiz()">Delete</a></td>
+	      <td><button ng-click="deleteQuiz(quiz.name);">Delete</button></td>
+	      <!-- <td><a onclick="deleteQuiz({{quiz.name}});">Delete</a></td> -->
+	      <!-- <td><a href="javascript:deleteQuiz({{quiz.name}});">Delete</a></td> -->
 	    </tr>
 
 	   </table>
