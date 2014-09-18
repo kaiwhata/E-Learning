@@ -6,8 +6,14 @@
   </head>
   <h1>Quiz Editor</h1>
   <body>
+	<script type="text/javascript" src="question.js"></script>
+  	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+  	<script type="text/javascript" src="q2t.js"></script>
   	
   	<textarea id="something" name="quizFormat" ng-model="quizFormat"
 		rows="50" cols="75" required> </textarea>
+
+	<button id="submit" onclick="readQuestion()">Load</button>
+
   </body>
 </html>
