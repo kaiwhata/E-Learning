@@ -62,6 +62,12 @@ function submitQuestions(quizName,quizCode,questionTexts){
 		var type = parseInt(name2num[q["Type"]]);
 
 		//check if q is multi
+		//q["Correct Answer"] needs ot be formatted into lower case for text entry questions
+		var originalText = q["Correct Answer"];
+		originalText = originalText.toLowerCase();
+		originalText = originalText.trim();
+		q["Correct Answer"] = originalText;
+		
 		if(q["Possible Answers"] != ""){
 			insertPossibleAnswers(q,quizName);
 			//TODO search for possible answer id

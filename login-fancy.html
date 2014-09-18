@@ -59,7 +59,7 @@ margin-top:-32px;
   		ng-show="login.username.$dirty && login.username.$error.required">
   		The username is required
   	</div>
-	<!--
+
 	<div class="error-message" ng-show="login.username.$error.minlength">
 		The username should be more than 2 symbols
 	</div>
@@ -67,26 +67,28 @@ margin-top:-32px;
 		ng-show="login.username.$error.maxlength">
 		The username should not be more than 15 symbols
 	</div>
+
 	<label for="username">Username</label>
 	<input type="text" name="username" ng-model="username" ng-minlength="3" ng-maxlength="15" required />
 	<br />
-	-->
+	
 
 	<div class="error-message"
 		ng-show="login.password.$dirty && login.password.$error.required">
 		The password is required
 	</div>
 
-	<!--
+
 	<div class="error-message" ng-show="login.password.$error.pattern">
 		The password should containing at least 8 characters, 1 number, 1 upper and 1 lowercase
 	</div>
+
 	<label for="password">Password</label>
 	<input type="password" name="password" ng-model="password" required
 	ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
 
 	<br>
-	-->
+	
 
 	<input type="button"  class="btn btn-success" id="submit" value="login">
 	<input type = "button" class="btn btn-success" id="submitAdmin" value = "login admin">
