@@ -21,8 +21,8 @@
 <meta content="">
 <style>
 .jumbotron{
-	padding-top:50px;
-	padding-bottom:650px;
+	padding-top:25px;
+	padding-bottom:725px;
 	margin-top:100px;
 }
 .col-md-5{
@@ -50,7 +50,9 @@
 	<button id="logoutBtn" class="btn btn-sm btn-success" onclick="logout()">Logout</button>
 	<br>
 	<br>
+      <div class="page-header">
 	<h1>Available Courses</h1>
+      </div>
 
 	<div id="main" ng-controller="quizCtrl" ng-show="loaded"
 		ng-init="getQuizes()">
