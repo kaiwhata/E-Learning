@@ -16,7 +16,6 @@ function readQuestion() {
 				"quizname" : quizname
 			},
 			success : function(response) {
-				console.log(response)
 
 				var array = response;
 
@@ -102,7 +101,6 @@ function readQuestion() {
 						"quizName" : quizname
 					},
 					success : function(response) {
-						alert("course code is "+response);
 						courseCode = response.trim();
 
 						var text = "Quiz Name:" + quizname+"\n";
@@ -126,6 +124,11 @@ function readQuestion() {
 							if(question.questionType.indexOf("number")!=-1){
 								toleranceText=question.tolerance;
 							}
+
+							var imageText = "";
+							if(!question.imageURL){
+								imageText = imageURL;
+							}
 							text+="Question"+"\n";
 							text+="---------"+"\n";
 							text+="<Body>"+"\n";
@@ -138,7 +141,6 @@ function readQuestion() {
 							text+="Image Name:"+question.imageURL+"\n"
 						}
 						
-						console.log(text);
 						document.getElementById("something").value = text;
 
 						// alert(text);
