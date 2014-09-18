@@ -96,11 +96,10 @@ function readQuestion() {
 				loaded = true;
 		
 				$.ajax({
-					url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+					url : 'http://shrouded-earth-7234.herokuapp.com/getCourseCodeOfQuiz.php',
 					type : 'post',
 					data : {
-						"funcName" : "getCourseCodeOfQuiz.php",
-						"quizname" : quizname
+						"quizName" : quizname
 					},
 					success : function(response) {
 						alert("course code is "+response);
