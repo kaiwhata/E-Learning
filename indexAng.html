@@ -19,8 +19,8 @@
 When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" onload="javascript:MathJax.Hub.Typeset();">
-		<span mathjax-bind="expression"></span>
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
+
 
 		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Back To Home Page</button>
 
@@ -82,7 +82,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 		</fieldset>
 		<button ng-click="checkAnswers()">Check Answers</button>
-
+				<span mathjax-bind="expression"></span>
 
 	</div>
 
@@ -96,11 +96,12 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 	
 
 
-	<script type="text/x-mathjax-config"">
-		function load(){
-			console.log("trying to fix LaTeX");
-			
-		}
+	<script type="text/javascript"">
+		setInterval(function(){
+		MathJax.Hub.Typeset();
+`		}, 500);
 	</script>
+
+
 </body>
 </html>
