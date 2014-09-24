@@ -93,7 +93,7 @@ function readQuestion() {
 
 				}
 				loaded = true;
-		
+
 				$.ajax({
 					url : 'http://shrouded-earth-7234.herokuapp.com/getCourseCodeOfQuiz.php',
 					type : 'post',
@@ -126,9 +126,10 @@ function readQuestion() {
 							}
 
 							var imageText = "";
-							if(!question.imageURL){
-								imageText = imageURL;
+							if(question.imageURL){
+								imageText = question.imageURL;
 							}
+
 							text+="Question"+"\n";
 							text+="---------"+"\n";
 							text+="<Body>"+"\n";
@@ -140,14 +141,14 @@ function readQuestion() {
 							text+="Tolerance:"+toleranceText+"\n";
 							text+="Image Name:"+question.imageURL+"\n"
 						}
-						
+
 						document.getElementById("something").value = text;
 
 						// alert(text);
-						
+
 
 					}
-				
+
 
 
 			}
@@ -156,7 +157,7 @@ function readQuestion() {
 	});
 
 
-	
+
 
 }
 

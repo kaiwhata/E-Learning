@@ -6,8 +6,8 @@ var name2num = {
 }
 
 function submit() {
-	var questionTexts = document.getElementById("something").value.split("Question");
-//	var questionTexts = quizInsert.quizFormat.value.split("Question");
+
+	var questionTexts = quizInsert.quizFormat.value.split("Question");
 
 	var headerText = questionTexts[0]
 	var headerLines = headerText.split("\n");
@@ -22,7 +22,7 @@ function submit() {
 	// quiz entry and question entries
 
 	insertQuiz(quizName, quizCode, questionTexts);// the database requires a
-	// quiz name before
+													// quiz name before
 
 }
 
@@ -53,8 +53,7 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 				question[lineArray[0].trim()] = lineArray[1].trim();
 				if (lineArray[0].indexOf("Image Name") != -1) {
 					if (lineArray.length > 2) {
-						question[lineArray[0].trim()] = lineArray[1].trim()
-								+ ":" + (lineArray[2].trim());
+						question[lineArray[0].trim()] = lineArray[1].trim()+":"+(lineArray[2].trim());
 					}
 				}
 
@@ -168,14 +167,13 @@ function insertQuiz(quizname, coursecode, questionTexts) {
 		},
 		success : function(response) {
 			console.log(response);
+			submitQuestions(quizname, coursecode, questionTexts);
+
 			if (response.indexOf("success") == -1) {
-				alert("quiz updated");
-				 submitQuestions(quizname, coursecode, questionTexts);
+				alert("quiz not added");
 			} else {
 				alert("quiz entered");
-				submitQuestions(quizname, coursecode, questionTexts);
 			}
-
 		}
 
 	});
