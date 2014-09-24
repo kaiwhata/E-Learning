@@ -61,7 +61,7 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 			url : 'http://shrouded-earth-7234.herokuapp.com/deleteQuiz.php',
 			type : 'post',
 			data : {
-				"quizName" : quizName
+				"quizName" : quizName.trim()
 			},
 			success : function(response) {
 				alert(response);
