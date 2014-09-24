@@ -163,8 +163,8 @@ function insertQuiz(quizname, coursecode, questionTexts) {
 		type : 'post',
 		data : {
 			"funcName" : "InsertQuiz",
-			"quizname" : quizname,
-			"coursecode" : coursecode
+			"quizname" : quizname.trim(),
+			"coursecode" : coursecode.trim()
 		},
 		success : function(response) {
 			console.log(response);
