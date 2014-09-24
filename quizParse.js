@@ -21,27 +21,27 @@ function submit() {
 	var quizCode = QuizCodeArray[1];// quiz code, this will be used for creating
 	// quiz entry and question entries
 
-	insertQuiz(quizName, quizCode,questionTexts);// the database requires a quiz name before
+	insertQuiz(quizName, quizCode, questionTexts);// the database requires a
+													// quiz name before
 
 }
 
-function submitQuestions(quizName,quizCode,questionTexts){
+function submitQuestions(quizName, quizCode, questionTexts) {
 
-	var questions=[];
+	var questions = [];
 	for (var i = 1; i < questionTexts.length; i++) {
-		var question={};
+		var question = {};
 		var questionLines = questionTexts[i].split("\n");
 
 		var currentIndex = 2;// the first element after <body> tag
 		var bodyText = "";
-		while (questionLines[++currentIndex].indexOf("<BodyEnd>")==-1) {
+		while (questionLines[++currentIndex].indexOf("<BodyEnd>") == -1) {
 			bodyText = bodyText + questionLines[currentIndex];
 		}
 
-
 		question["body"] = bodyText;
 
-		//skip past body end
+		// skip past body end
 		currentIndex++;
 		while (currentIndex < questionLines.length) {
 			var line = questionLines[currentIndex];
@@ -49,7 +49,14 @@ function submitQuestions(quizName,quizCode,questionTexts){
 			if (lineArray.length < 2) {
 				question[lineArray[0].trim()] = "";
 			} else {
+				// if it's an image combine the first and second part
 				question[lineArray[0].trim()] = lineArray[1].trim();
+				if (lineArray[0].indexOf("Image Name") != -1) {
+					if (lineArray.length > 2) {
+						question[lineArray[0].trim()] = lineArray[1].trim()+":"+(lineArray[2].trim());
+					}
+				}
+
 			}
 			currentIndex++;
 		}
@@ -57,22 +64,23 @@ function submitQuestions(quizName,quizCode,questionTexts){
 		questions.push(question);
 	}
 
-	for(var k =0;k<questions.length;k++){
+	for (var k = 0; k < questions.length; k++) {
 		var q = questions[k];
 		var type = parseInt(name2num[q["Type"]]);
 
-		//check if q is multi
-		//q["Correct Answer"] needs ot be formatted into lower case for text entry questions
+		// check if q is multi
+		// q["Correct Answer"] needs ot be formatted into lower case for text
+		// entry questions
 		var originalText = q["Correct Answer"];
 		originalText = originalText.toLowerCase();
 		originalText = originalText.trim();
 		q["Correct Answer"] = originalText;
-		
-		if(q["Possible Answers"] != ""){
-			insertPossibleAnswers(q,quizName);
-			//TODO search for possible answer id
-			//q["Possible Answers"] =
-		}else{
+
+		if (q["Possible Answers"] != "") {
+			insertPossibleAnswers(q, quizName);
+			// TODO search for possible answer id
+			// q["Possible Answers"] =
+		} else {
 			// convert type
 			q["Possible Answers"] = -1;
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
@@ -114,40 +122,41 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 	});
 }
 
-
-//Deal with the case of having possible answers,
-//We must insert the possible answers first, then search for the id
-function insertPossibleAnswers(possibleAnswerQuestion,quizName) {
+// Deal with the case of having possible answers,
+// We must insert the possible answers first, then search for the id
+function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 	// TODO
 	console.log("calling insertPossibleAnswers");
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
 
+	$
+			.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/insertNewPossibleAnswers.php',
+				type : 'post',
+				data : {
+					"funcName" : "insertNewPossibleAnswers",
+					"p1" : panswerArray[0],
+					"p2" : panswerArray[1],
+					"p3" : panswerArray[2],
+					"p4" : panswerArray[3],
+				},
+				success : function(response) {
+					console.log(response);
+					var panswerid = parseInt(response);
+					var type = parseInt(name2num[possibleAnswerQuestion["Type"]]);
 
-	$.ajax({
-		url : 'http://shrouded-earth-7234.herokuapp.com/insertNewPossibleAnswers.php',
-		type : 'post',
-		data : {
-			"funcName" : "insertNewPossibleAnswers",
-			"p1" : panswerArray[0],
-			"p2" : panswerArray[1],
-			"p3" : panswerArray[2],
-			"p4" : panswerArray[3],
-		},
-		success : function(response) {
-			console.log(response);
-			var panswerid = parseInt(response);
-			var type = parseInt(name2num[possibleAnswerQuestion["Type"]]);
+					insert(possibleAnswerQuestion["body"], panswerid,
+							possibleAnswerQuestion["Correct Answer"], type,
+							possibleAnswerQuestion["Tolerance"], quizName,
+							possibleAnswerQuestion["Image Name"]);
+				}
 
-			insert(possibleAnswerQuestion["body"], panswerid, possibleAnswerQuestion["Correct Answer"], type,
-					possibleAnswerQuestion["Tolerance"], quizName, possibleAnswerQuestion["Image Name"]);
-		}
-
-	});
+			});
 
 }
 
-function insertQuiz(quizname, coursecode,questionTexts) {
+function insertQuiz(quizname, coursecode, questionTexts) {
 	$.ajax({
 		url : 'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
 		type : 'post',
@@ -158,7 +167,7 @@ function insertQuiz(quizname, coursecode,questionTexts) {
 		},
 		success : function(response) {
 			console.log(response);
-			submitQuestions(quizname,coursecode,questionTexts);
+			submitQuestions(quizname, coursecode, questionTexts);
 
 			if (response.indexOf("success") == -1) {
 				alert("quiz not added");
