@@ -66,7 +66,7 @@
 
 		<div id={{ "quiz"+$index}} ng-repeat="quiz in quizes track by $index">
 
-			<button id={{ "quiz"+$index+"btn"}} class="btn btn-sm btn-warning" ng-init="name=quiz"
+			<button id={{ "quiz"+$index+"btn"}} class="btn btn-sm btn-warning" width="200" ng-init="name=quiz"
 				ng-click=selectQuiz(name)>{{quiz}}</button>
 
 		</div>
