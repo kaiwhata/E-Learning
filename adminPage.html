@@ -53,13 +53,12 @@
 	</div>
 
 
-	<h1>Results</h1>
-
-     
-      
-
-
-	<table style="width:100%" border="1" class="table table-bordered">
+ <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Results</h3>
+            </div>
+            <div class="panel-body">
+              <table style="width:100%" border="1" class="table table-bordered">
 	    <tr>
 	      <th><b>First Name</b></th>
 	      <th><b>Last Name</b></th>
@@ -81,12 +80,19 @@
 	    </tr>
 
 	   </table>
+            </div>
+          </div>	
 	</div>
 	
 	<br>
 	<div style="border:1px solid gray;">
-	<h1>Quiz Averages</h1>
-	<table style="width:100%" border="1" ng-init="getQuizAverages()" class="table table-bordered">
+
+	<div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Quiz Averages</h3>
+            </div>
+            <div class="panel-body">
+              <table style="width:100%" border="1" ng-init="getQuizAverages()" class="table table-bordered">
 	    <tr>
 	      <td><b>Quiz</b></td>
 	      <td><b>Course Code</b></td> 
@@ -101,12 +107,19 @@
 	      <td>{{quizavg.number_taken}}</td>
 	    </tr>
 	   </table>
+            </div>
+          </div>
 	</div>
 	
 	<br>
 	<div style="border:1px solid gray;">
-	<h1>Student Averages</h1>
-	<table style="width:100%" border="1" ng-init="getStudentAverages()" class="table table-bordered">
+
+	<div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Student Averages</h3>
+            </div>
+            <div class="panel-body">
+              	<table style="width:100%" border="1" ng-init="getStudentAverages()" class="table table-bordered">
 	    <tr>
 	      <td><b>First Name</b></td>
 	      <td><b>Last Name</b></td> 
@@ -123,6 +136,10 @@
 	      <td>{{studentavg.number_taken}}</td>
 	    </tr>
 	   </table>
+            </div>
+          </div>
+
+
 	</div>
 	<script>
 
