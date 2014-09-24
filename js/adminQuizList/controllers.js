@@ -64,7 +64,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 				"quizName" : quizName.trim()
 			},
 			success : function(response) {
-				alert(response);
 				$scope.$apply();
 			}
 
