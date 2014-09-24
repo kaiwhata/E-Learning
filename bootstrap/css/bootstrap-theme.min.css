@@ -44,7 +44,7 @@
 
 .btn-default:active,.btn-default.active {
 	background-color: #e0e0e0;
-	border-color: #dbdbdb
+	border-color: #000000;
 }
 
 .btn-default:disabled,.btn-default[disabled] {
