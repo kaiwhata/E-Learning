@@ -90,7 +90,8 @@ questionList
 
 										failed = true;
 										//problems.push("Question"+i+" "+err.message+"\n");
-										problemsMessage=problemsMessage+"Question"+i+" "+err.message+"\n";
+										var displayIndex=i+1;
+										problemsMessage=problemsMessage+"Question"+displayIndex+" "+err.message+"\n";
 								}
 							}
 							var per = score / total;

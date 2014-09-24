@@ -24,7 +24,7 @@
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
 
-			<legend>Question {{question.id}}</legend>
+			<legend>Question {{$index+1}}</legend>
 			<span ng-switch="question.questionType">
 
 				<div directive-one ng-switch-when="text">
