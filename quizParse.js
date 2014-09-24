@@ -50,12 +50,13 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 				question[lineArray[0].trim()] = "";
 			} else {
 				// if it's an image combine the first and second part
+				question[lineArray[0].trim()] = lineArray[1].trim();
 				if (lineArray[0].indexOf("Image Name") != -1) {
 					if (lineArray.length > 2) {
 						question[lineArray[0].trim()] = lineArray[1].trim()+":"+(lineArray[2].trim());
 					}
 				}
-				question[lineArray[0].trim()] = lineArray[1].trim();
+
 			}
 			currentIndex++;
 		}
