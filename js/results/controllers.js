@@ -2,6 +2,7 @@
 
 results.controller('resultsCtrl', function questionCtrl($scope) {
 	$scope.results = [];
+	$scope.scores = [];
 
 	$scope.getResults = function() {
 		$.ajax({
@@ -21,6 +22,7 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 					var score = questionJSON["score"]*100 + "%"
 					var result = questionJSON["quizname"]+" : "+ score;
 					$scope.results.push(result);
+					$scope.scores.push(score);
 				}
 				$scope.$apply();
 			}
