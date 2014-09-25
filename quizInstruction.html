@@ -30,10 +30,16 @@ div.pos_right{
     left: 1000px;
     top: -750px;
 }
+button.back {
+    position: relative;
+    left: 200px;
+}
 
 
 
 </style>
+
+<button id="back" onclick="backToAdminPage()" class = "back">Back To Admin Page</button>
 
   <body>
 
@@ -111,4 +117,12 @@ Image Name:
 </div>
 
 </body>
+
+
+<script>
+		function backToAdminPage() {
+			window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html";
+		}
+</script>
+
 </html>
