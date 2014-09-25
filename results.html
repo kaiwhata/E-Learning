@@ -25,11 +25,34 @@
 <body onload="load()">
 	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()">
 		<button	onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
-		<fieldset id={{ "result"+$index}} ng-repeat="result in results track by $index">
-			<label style="margin-left:80px; text-align:left;">Quiz Name:{{result.quizname}}  Score:{{result.score}}  Time Taken:{{result.timetaken}}  Date Taken:{{result.datetaken}}</label>
-			<div class="progress" style="width:500px; margin-left:100px">
-		        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{result.score}}%"></div>
-		      </div>
+		<fieldset id={{ "result"+$index}}>
+		<table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Quiz Name</th>
+                <th>Score</th>
+                <th>Time Taken</th>
+                <th>Date Taken</th>
+                <th>Progress</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="result in results track by $index">
+                <td>{{result.quizname}}</td>
+                <td>{{result.score}}</td>
+                <td>{{result.timetaken}}</td>
+                <td>{{result.datetaken}}</td>
+                <td>
+		   			<div class="progress" style="width:500px; margin-left:100px">
+				        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{result.score}}%"></div>
+			      	</div>
+
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
 		</fieldset>
 
 	</div>
