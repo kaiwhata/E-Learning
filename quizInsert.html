@@ -13,71 +13,136 @@
 
 <title>Quiz Entry</title>
 </head>
-<h1>Quiz Entry</h1>
-<label for="quiz">Quiz Format Text</label>
 
-<table style="width:100%">
+<button id="back" onclick="backToAdminPage()" class="btn btn-lg btn-link">Back To Admin Page</button>
+<h1 style="margin-left:5%">Quiz Entry</h1>
+
+<table class="table table-bordered" style="margin-left:5%;width:90%">
+	<thead>
+		<th>Text</th>
+		<th>Number</th>
+		<th>Image</th>
+		<th>Multiple Choice</th>
+		<th>Latex</th>
+	</thead>
+
 	<tbody>
 		<tr>
 			<td>
-				<form novalidate ng-app name="quizInsert">
-
-	<textarea id="something" name="quizFormat" ng-model="quizFormat"
-		rows="50" cols="75" required> </textarea>
-	<br /> <input type="button" id="submit" value="Submit">
-	<script type="text/javascript" src="question.js"></script>
-	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src ='quizParse.js'></script>
-</form>
- 
+				<p>
+					Quiz Name:TextTestv1<br>
+					Course Code:SWEN302<br>
+					<br>
+					Question<br>
+					---------<br>
+					<Body><br>
+					What is the course code for this course?<br>
+					<BodyEnd><br>
+					Possible Answers:<br>
+					Correct Answer:SWEN302<br>
+					Type:text<br>
+					Tolerance:0<br>
+					Image Name:<br>
+				</p>
 			</td>
-
-			<!--tseting-->
-
 			<td>
-				<div class="navbar navbar-default" style="margin-top: -520px; margin-left: 35%; margin-right: 5%;">
-			        <div class="container">
-			          <div class="navbar-header">
-			            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-			              <span class="sr-only">Toggle navigation</span>
-			              <span class="icon-bar"></span>
-			              <span class="icon-bar"></span>
-			              <span class="icon-bar"></span>
-			            </button>
-			            <a class="navbar-brand" href="#">Project name</a>
-			          </div>
-			          <div class="navbar-collapse collapse">
-			            <ul class="nav navbar-nav">
-			              <li class="active"><a href="#">Home</a></li>
-			              <li><a href="#about">About</a></li>
-			              <li><a href="#contact">Contact</a></li>
-			              <li class="dropdown">
-			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-			                <ul class="dropdown-menu" role="menu">
-			                  <li><a href="#">Action</a></li>
-			                  <li><a href="#">Another action</a></li>
-			                  <li><a href="#">Something else here</a></li>
-			                  <li class="divider"></li>
-			                  <li class="dropdown-header">Nav header</li>
-			                  <li><a href="#">Separated link</a></li>
-			                  <li><a href="#">One more separated link</a></li>
-			                </ul>
-			              </li>
-			            </ul>
-			          </div><!--/.nav-collapse -->
-			        </div>
-			      </div>
+				<p>
+					Quiz Name:TextTestv1<br>
+					Course Code:SWEN302<br>
+					<br>
+					Question<br>
+					---------<br>
+					<Body><br>
+					What is the course code for this course?<br>
+					<BodyEnd><br>
+					Possible Answers:<br>
+					Correct Answer:SWEN302<br>
+					Type:text<br>
+					Tolerance:0<br>
+					Image Name:<br>
+				</p>
 			</td>
-		</tr>
+			<td>
+				<p>
+					Quiz Name:TextTestv1<br>
+					Course Code:SWEN302<br>
+					<br>
+					Question<br>
+					---------<br>
+					<Body><br>
+					What is the course code for this course?<br>
+					<BodyEnd><br>
+					Possible Answers:<br>
+					Correct Answer:SWEN302<br>
+					Type:text<br>
+					Tolerance:0<br>
+					Image Name:<br>
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv1<br>
+					Course Code:SWEN302<br>
+					<br>
+					Question<br>
+					---------<br>
+					<Body><br>
+					What is the course code for this course?<br>
+					<BodyEnd><br>
+					Possible Answers:<br>
+					Correct Answer:SWEN302<br>
+					Type:text<br>
+					Tolerance:0<br>
+					Image Name:<br>
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv1<br>
+					Course Code:SWEN302<br>
+					<br>
+					Question<br>
+					---------<br>
+					<Body><br>
+					What is the course code for this course?<br>
+					<BodyEnd><br>
+					Possible Answers:<br>
+					Correct Answer:SWEN302<br>
+					Type:text<br>
+					Tolerance:0<br>
+					Image Name:<br>
+				</p>
+			</td>
+		</tr>	
 	</tbody>
+
+
 </table>
 
+<div class="panel panel-info" style="margin-left:25%; width:50%">
+            <div class="panel-heading">
+              <h3 class="panel-title">Enter quiz below</h3>
+            </div>
+            <div class="panel-body">
+              <form novalidate ng-app name="quizInsert" style="width:100%;">
+
+					<textarea id="something" name="quizFormat" ng-model="quizFormat"
+						 required style="width:100%; max-width:100%; height:340px"> </textarea>
+					<br /> 
+					<script type="text/javascript" src="question.js"></script>
+					<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+					<script type="text/javascript" src ='quizParse.js'></script>
+				</form>
+            </div>
+</div>
 
 
-
- <input type="text" value="Submit" id = "whatever">
-<button id="back" onclick="backToAdminPage()">Back To Admin Page</button>
-      
+<div style="margin-left:25%; width:50%"><input style="margin-left: 30%;" type="text" value="Browse for image" id = "whatever"> <button class="btn btn-sm btn-default">Browse</button></div>
+<br>
+<div style="margin-left:25%; width:50%"><input style="margin-left: 30%;" class="btn btn-sm btn-success" type="button" id="submit" value="Submit"></div>      
+<br>
+<br>
+<br>
 
 <script>
 		function backToAdminPage() {
