@@ -21,10 +21,13 @@
     <meta content="">
 <title>Insert title here</title>
 </head>
-<h1>Your Results</h1>
+
+<button	class="btn btn-lg btn-link" onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
+
+<h1 style="margin-left:10%">Your Results</h1>
 <body onload="load()">
 	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()">
-		<button	onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
+		
 		<fieldset id={{ "result"+$index}}>
 		<table class="table table-striped" style="margin-left:10%; width:80%" >
             <thead>
