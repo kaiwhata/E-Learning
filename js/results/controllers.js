@@ -17,6 +17,8 @@ results.controller('resultsCtrl', function questionCtrl($scope) {
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON
 							.parse(JSON.parse(response)[i]["row_to_json"]);
+					
+					questionJSON["score"] = questionJSON["score"]*100;
 					$scope.results.push(questionJSON);
 				}
 				$scope.$apply();
