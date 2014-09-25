@@ -2,7 +2,22 @@
 <html ng-app="questionList">
 <head>
 <meta charset="UTF-8">
-<title>Quiz</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
+  <style type="text/css" id="holderjs-style"></style></head>
 
 <script type="text/x-mathjax-config">
  	 	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
@@ -12,74 +27,117 @@
 	</script>
 
 </head>
-<h1>Quiz</h1>
+
+
 <body>
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()">
+	<div class="jumbotron" align:0 auto>
 
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" style="width:95%;margin-left:2.5%">
+		<div style="margin-top:-90px ;margin-left:-2%" >
+<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
+	</div>
+	<div style="margin-top:-150px">
+<h1>Quiz</h1>
+<div>
+<br>
+<br>
 
-		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'" class="btn btn-sm btn-success">Back To Home Page</button>
+<style>
+.error-message {
+  color: red;
+}
+.jumbotron{
+/*padding-left:900px;*/
+margin-bottom:200px;
+margin-top:200px
+}
+
+</style>
+		<!-- <div style="margin-left:0 auto ;width:90%; margin-top:-75px">
+<div class="col-md-4" style="text-align:left">
+
+<br>
+</div>
+</div> -->
+	
+	<br>
 
 		<!--<img src="http://philiptaaffe.info/wp-content/uploads/2013/04/Rose-Triangle-2008.png" alt="triangle"> -->
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
+			<div>
+				<legend style ="line-height=5px">Question {{$index+1}}</legend>
+				<span ng-switch="question.questionType">
+					<div style="margin-left:50px">
+					<div directive-one ng-switch-when="text" style="margin-left=50px">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-two ng-switch-when="number">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-three ng-switch-when="numTol">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-four ng-switch-when="multi">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>
+						<br>
+						<form id={{"question"+$index+"form"} }>
+							<label ng-repeat=" option in question.optionsText"> 
+								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
+								{{option}}
 
-			<legend>Question {{$index+1}}</legend>
-			<span ng-switch="question.questionType">
+							</label>
+						</form>
+					</div>
+					<div>
+				</span>
 
-				<div directive-one ng-switch-when="text">
-					<br>
-					<img src={{question.imageURL}} >
-					<br>
-					{{question.bodyText}}
-					<form id={{"question"+$index+"form"}}>
-						<label>
-							<input type="text" id={{"a"+$index}} name="fff">
-						</label>
-					</form>
-				</div>
-				<div directive-two ng-switch-when="number">
-					<br>
-					<img src={{question.imageURL}} >
-					<br>
-					{{question.bodyText}}
-					<form id={{"question"+$index+"form"}}>
-						<label>
-							<input type="text" id={{"a"+$index}} name="fff">
-						</label>
-					</form>
-				</div>
-				<div directive-three ng-switch-when="numTol">
-					<br>
-					<img src={{question.imageURL}} >
-					<br>
-					{{question.bodyText}}
-					<form id={{"question"+$index+"form"}}>
-						<label>
-							<input type="text" id={{"a"+$index}} name="fff">
-						</label>
-					</form>
-				</div>
-				<div directive-four ng-switch-when="multi">
-					<br>
-					<img src={{question.imageURL}} >
-					<br>
-					{{question.bodyText}}
-					<form id={{"question"+$index+"form"}}>
-						<label ng-repeat=" option in question.optionsText"> <input
-							type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
-							{{option}}
-						</label>
-					</form>
-				</div>
-			</span>
-
-
+		</div>
 		</fieldset>
-		<button ng-click="checkAnswers()">Check Answers</button>
+		<br>
+
+		<div style="text-align:center">
+		<button ng-click="checkAnswers()" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
+	</div>
 				<span mathjax-bind="expression"></span>
 
+
 	</div>
+</div>
 
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
@@ -97,4 +155,12 @@
 
 
 </body>
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 </html>
