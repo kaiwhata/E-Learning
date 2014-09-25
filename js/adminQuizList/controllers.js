@@ -40,6 +40,10 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 		window.location = "http://shrouded-earth-7234.herokuapp.com/indexAng.html";
 	}//end func
 
+	$scope.editQuiz = function(quizName){
+		sessionStorage.setItem("quizname",quizName);
+		window.location = "http://shrouded-earth-7234.herokuapp.com/quizEditor.html";
+	}
 
 	$scope.deleteQuiz = function(quizName) {
 
