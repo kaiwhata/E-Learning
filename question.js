@@ -45,6 +45,9 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 	// call the super class constructor
 	Question.call(this, id, bodyText, optionsText[answerIndex], image);
 
+	for(var i=0;i<optionsText;i++){
+		optionsText[i] = optionsText[i].trim();
+	}
 	this.optionsText = optionsText;
 	this.answerIndex = answerIndex;
 
