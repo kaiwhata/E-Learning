@@ -8,6 +8,15 @@
 <script type="text/javascript" src="js/adminQuizList/app.js"></script>
 <script type="text/javascript" src="js/adminQuizList/controllers.js"></script>
 <script type="text/javascript" src="js/adminQuizList/services.js"></script>
+
+	<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
 </head>
 <body onload="load()" ng-controller="adminQuizCtrl">
 	<script>
@@ -23,7 +32,7 @@
 	
 
 
-	<button id="Back" onclick="window.location='adminPage.html'">Back</button>
+	<button id="Back" onclick="window.location='adminPage.html'" class="btn btn-link">Back</button>
 	<br>
 
 	<div ng-init="getQuizzes()">
@@ -56,14 +65,23 @@
 		}
 	</script>
 
-	<h1>Available Courses</h1>
-	<table style="width:30%">
 
+
+	<h1 style="margin-left:200px;">Available Courses</h1>
+	<table style="width:80%; border:1px solid gray;" align="center" class="table table-striped">
+		<tr>
+			<thead>
+				<th>Course Code</th>
+				<th>Quiz Name</th>
+				<th></th>
+				<th></th>
+			</thead>
+		</tr>
 	    <tr ng-repeat="quiz in quizzes track by $index">
 	      <td>{{quiz.courseCode}}    </td>
 	      <td>{{quiz.name}}</td>
-	      <td><a href="javascript:alert('blach')">Edit</a></td>
-	      <td><button ng-click="deleteQuiz(quiz.name);">Delete</button></td>
+	      <td><button ng-click="javascript:alert('blach')" class="btn btn-sm btn-info">Edit</a></td>
+	      <td><button ng-click="deleteQuiz(quiz.name);" class="btn btn-sm btn-warning">Delete</button></td>
 	      <!-- <td><a onclick="deleteQuiz({{quiz.name}});">Delete</a></td> -->
 	      <!-- <td><a href="javascript:deleteQuiz({{quiz.name}});">Delete</a></td> -->
 	    </tr>
@@ -74,4 +92,12 @@
 
 
 </body>
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 </html>

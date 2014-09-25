@@ -2,12 +2,25 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+	<!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
+
 <title>Quiz Entry</title>
 </head>
 <h1>Quiz Entry</h1>
 <label for="quiz">Quiz Format Text</label>
 
-<form novalidate ng-app name="quizInsert">
+<table style="width:100%">
+	<tbody>
+		<tr>
+			<td>
+				<form novalidate ng-app name="quizInsert">
 
 	<textarea id="something" name="quizFormat" ng-model="quizFormat"
 		rows="50" cols="75" required> </textarea>
@@ -17,12 +30,66 @@
 	<script type="text/javascript" src ='quizParse.js'></script>
 </form>
  
+			</td>
+
+			<td>
+				<div class="navbar navbar-default" style="margin-top: -520px; margin-left: 35%; margin-right: 5%;">
+			        <div class="container">
+			          <div class="navbar-header">
+			            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+			              <span class="sr-only">Toggle navigation</span>
+			              <span class="icon-bar"></span>
+			              <span class="icon-bar"></span>
+			              <span class="icon-bar"></span>
+			            </button>
+			            <a class="navbar-brand" href="#">Project name</a>
+			          </div>
+			          <div class="navbar-collapse collapse">
+			            <ul class="nav navbar-nav">
+			              <li class="active"><a href="#">Home</a></li>
+			              <li><a href="#about">About</a></li>
+			              <li><a href="#contact">Contact</a></li>
+			              <li class="dropdown">
+			                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+			                <ul class="dropdown-menu" role="menu">
+			                  <li><a href="#">Action</a></li>
+			                  <li><a href="#">Another action</a></li>
+			                  <li><a href="#">Something else here</a></li>
+			                  <li class="divider"></li>
+			                  <li class="dropdown-header">Nav header</li>
+			                  <li><a href="#">Separated link</a></li>
+			                  <li><a href="#">One more separated link</a></li>
+			                </ul>
+			              </li>
+			            </ul>
+			          </div><!--/.nav-collapse -->
+			        </div>
+			      </div>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+
+
  <input type="text" value="Submit" id = "whatever">
 <button id="back" onclick="backToAdminPage()">Back To Admin Page</button>
+
+      
 
 <script>
 		function backToAdminPage() {
 			window.location = "http://shrouded-earth-7234.herokuapp.com/adminPage.html";
 		}
 </script>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 </html>
