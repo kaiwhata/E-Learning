@@ -25,10 +25,11 @@
 <body onload="load()">
 	<div id="main-one" ng-controller=resultsCtrl ng-init="getResults()">
 		<button	onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'">Home</button>
-		<fieldset id={{ "result"+$index}} ng-repeat="score in scores track by $index">
+		<fieldset id={{ "result"+$index}} ng-repeat="result in results track by $index">
 			<legend>title</legend>
-			<div class="progress" style="width:500px">
-		        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{score}}"><span class="sr-only">100% Complete</span></div>
+			{{result.result}}
+			<div class="progress" style="width:500px; margin-left:100px">
+		        <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{result.score}}"><span class="sr-only">100% Complete</span></div>
 		      </div>
 		</fieldset>
 
