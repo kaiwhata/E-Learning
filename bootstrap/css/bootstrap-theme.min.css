@@ -91,7 +91,7 @@
 	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 	background-repeat: repeat-x;
 	border-color: #3e8f3e
-	width: 100;
+	width: 100px;
 }
 
 .btn-success:hover,.btn-success:focus {
