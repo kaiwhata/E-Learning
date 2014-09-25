@@ -26,6 +26,8 @@
 	margin-top:100px;
 }
 .col-md-4{
+	width:50%;
+	padding-left:700px;
 }
 .col-md-5{
 	margin-left:800px;
@@ -41,6 +43,10 @@
 <script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
 </head>
+<div class="col-md-4">
+<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-link">Results</button>
+<button id="logoutBtn" class="btn btn-link" onclick="logout()">Logout</button>
+</div>
 <div class="jumbotron">
 <div class="col-md-5">
 <body onload="load()">
@@ -48,13 +54,12 @@
 		function load() {
 			if (sessionStorage.getItem('username') == null) {
 				alert("You're not logged in, redirecting to home");
-				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				// window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 			}
 		}
 	</script>
 	
-	<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/results.html'" class="btn btn-link">Results</button>
-	<button id="logoutBtn" class="btn btn-link" onclick="logout()">Logout</button>
+	
 	<br>
 	<br>
       <div class="page-header">
