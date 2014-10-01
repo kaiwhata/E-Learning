@@ -342,12 +342,16 @@ questionList
 										if (q.checkAnswer(chosenIndex)){
 											score++;
 											output=output+q.answerText;
+								console.log("output"+output);
+							document.getElementById("answerText").innerHTML =output;
 											alert("CORRECT!  the answer was "+q.answerText);
 
 
 
 										}else{
-
+											output=output+q.answerText;
+								console.log("output"+output);
+							document.getElementById("answerText").innerHTML =output;
 											alert("INCORRECT!  the answer was "+q.answerText);
 										}
 									}
