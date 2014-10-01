@@ -318,7 +318,7 @@ questionList
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
-						var output="Marking Answered Questions:";
+						var output="Marking Answered/Formatted Correctly Questions:";
 
 							for (var i = 0; i < $scope.questions.length; i++) {
 								try{
@@ -393,7 +393,8 @@ questionList
 							var per = score / total;
 							if(failed){
 								problemsMessage=problemsMessage+"\n"+"please try again";
-								alert(problemsMessage);
+								//alert(problemsMessage);
+								document.getElementById("answerText").innerHTML = problemsMessage;
 
 								return;
 							}
