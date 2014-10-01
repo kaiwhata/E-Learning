@@ -396,6 +396,7 @@ questionList
 								problemsMessage=problemsMessage+"\n"+"please try again";
 								//alert(problemsMessage);
 								document.getElementById("errorText").innerHTML = problemsMessage;
+								document.getElementById("answerText").innerHTML = "";
 
 								return;
 							}else{
@@ -429,7 +430,7 @@ questionList
 
 							console.log("MYSCORE: " + per);
 							console.log("output"+output);
-							document.getElementById("answerText").innerHTML =output;
+							
 
 					}
 
