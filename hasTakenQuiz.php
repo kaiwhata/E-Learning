@@ -14,4 +14,4 @@
 	$row = pg_fetch_row ( $result );
 	$numFound = $row [0];
 
-	echo $numFound;
+	return $numFound;
