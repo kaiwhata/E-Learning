@@ -343,7 +343,7 @@ questionList
 										if (q.checkAnswer(chosenIndex)){
 											score++;
 											output = output + "<br>";
-											output = outut + "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
+											output = output + "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("CORRECT!  the answer was "+q.answerText);
