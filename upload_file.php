@@ -24,6 +24,7 @@ if ((($_FILES["file"]["type"] == "image/gif")
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
+      echo "<img src='/tmp/php5lch52'>";
     }
   }
 } else {
