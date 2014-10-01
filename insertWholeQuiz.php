@@ -37,17 +37,15 @@ function InsertQuiz($name, $coursecode) {
 }
 
 
-if (isset ( $_POST ['funcName'] )) {
 
-	switch ($_POST ['funcName']) {
-		case 'InsertQuestion' :
-			echo (InsertQuestion ( $_POST ['quizname'], $_POST ['body'],$_POST ['canswer'],$_POST ['type'],$_POST ['tolerance'],$_POST ['imagename'],$_POST['panswerid']));
-			break;
-		case 'InsertQuiz' :
-			echo (InsertQuiz ( $_POST ['quizname'], $_POST ['coursecode']));
-			break;
-	}
-}
+$quizname = $_POST ['quizname'];
+$coursecode = $_POST ['quizname']
+$questions = json_decode$_POST ['questions'];
+
+InsertQuiz(quizname);
+InsertQuestion(questions);
+
+
 ?>
 
 
