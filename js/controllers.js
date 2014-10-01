@@ -293,7 +293,7 @@ questionList
 								});
 					}
 
-/**
+					/**
 					 * And displays on the page
 					 */
 					$scope.checkAnswers2 = function() {
@@ -341,18 +341,17 @@ questionList
 
 										if (q.checkAnswer(chosenIndex)){
 											score++;
-											output=output+q.answerText;
-								console.log("output"+output);
-							document.getElementById("answerText").innerHTML =output;
-											alert("CORRECT!  the answer was "+q.answerText);
+
+											output="CORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											document.getElementById("answerText").innerHTML =output;
+											//alert("CORRECT!  the answer was "+q.answerText);
 
 
 
 										}else{
-											output=output+q.answerText;
-								console.log("output"+output);
-							document.getElementById("answerText").innerHTML =output;
-											alert("INCORRECT!  the answer was "+q.answerText);
+											output="INCORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											document.getElementById("answerText").innerHTML =output;
+											//alert("INCORRECT!  the answer was "+q.answerText);
 										}
 									}
 
@@ -365,10 +364,14 @@ questionList
 										console.log(answer);
 										if (q.checkAnswer(answer)){
 											score++;
-											alert("CORRECT!  the answer was "+q.answerText);
+											output="CORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											document.getElementById("answerText").innerHTML =output;
+											//alert("CORRECT!  the answer was "+q.answerText);
 
 										}else{
-											alert("INCORRECT!  the answer was "+q.answerText);
+											output="INCORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											document.getElementById("answerText").innerHTML =output;
+											//alert("INCORRECT!  the answer was "+q.answerText);
 											}
 									}
 								}catch(err){
