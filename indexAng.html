@@ -27,29 +27,57 @@
 	</script>
 
 </head>
-<div class="jumbotron" align:0 auto>
-<h1>Quiz</h1>
-</div>
+
+
 <body>
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" style="width:90%;margin-left:100px">
+	<div class="jumbotron" align:0 auto>
 
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" style="width:95%;margin-left:2.5%">
+		<div style="margin-top:-90px ;margin-left:-2%" >
+<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
+	</div>
+	<div style="margin-top:-150px">
+<h1>Quiz</h1>
+<div>
+<br>
+<br>
 
-		<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'" class="btn btn-sm btn-success">Back To Home Page</button>
+<style>
+.error-message {
+  color: red;
+}
+.jumbotron{
+/*padding-left:900px;*/
+margin-bottom:200px;
+margin-top:200px
+}
+
+</style>
+		<!-- <div style="margin-left:0 auto ;width:90%; margin-top:-75px">
+<div class="col-md-4" style="text-align:left">
+
+<br>
+</div>
+</div> -->
+	
+	<br>
 
 		<!--<img src="http://philiptaaffe.info/wp-content/uploads/2013/04/Rose-Triangle-2008.png" alt="triangle"> -->
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
 			<div>
-				<legend>Question {{$index+1}}</legend>
+				<legend style ="line-height=5px">Question {{$index+1}}</legend>
 				<span ng-switch="question.questionType">
 					<div style="margin-left:50px">
 					<div directive-one ng-switch-when="text" style="margin-left=50px">
 						<br>
 						<img src={{question.imageURL}} >
 						<br>
+						
+						<p style="font-size:125%">
 						{{question.bodyText}}
-						<form id={{"question"+$index+"form"}}>
+						</p>						<form id={{"question"+$index+"form"}}>
 							<label>
 								<input type="text" id={{"a"+$index}} name="fff">
 							</label>
@@ -59,8 +87,9 @@
 						<br>
 						<img src={{question.imageURL}} >
 						<br>
+						<p style="font-size:125%">
 						{{question.bodyText}}
-						<form id={{"question"+$index+"form"}}>
+						</p>						<form id={{"question"+$index+"form"}}>
 							<label>
 								<input type="text" id={{"a"+$index}} name="fff">
 							</label>
@@ -70,8 +99,9 @@
 						<br>
 						<img src={{question.imageURL}} >
 						<br>
+						<p style="font-size:125%">
 						{{question.bodyText}}
-						<form id={{"question"+$index+"form"}}>
+						</p>						<form id={{"question"+$index+"form"}}>
 							<label>
 								<input type="text" id={{"a"+$index}} name="fff">
 							</label>
@@ -81,11 +111,15 @@
 						<br>
 						<img src={{question.imageURL}} >
 						<br>
+						<p style="font-size:125%">
 						{{question.bodyText}}
-						<form id={{"question"+$index+"form"}}>
-							<label ng-repeat=" option in question.optionsText"> <input
-								type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
-								{{option}}
+						</p>
+						<br>
+						<form id={{"question"+$index+"form"} }>
+							<label ng-repeat=" option in question.optionsText"> 
+								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
+								<p style="font-size:120%">{{option}}</p>
+
 							</label>
 						</form>
 					</div>
@@ -94,10 +128,16 @@
 
 		</div>
 		</fieldset>
-		<button ng-click="checkAnswers()">Check Answers</button>
+		<br>
+
+		<div style="text-align:center">
+		<button ng-click="checkAnswers()" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
+	</div>
 				<span mathjax-bind="expression"></span>
 
+
 	</div>
+</div>
 
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
