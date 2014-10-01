@@ -19,7 +19,7 @@ var Question = function(id, bodyText, answerText, image) {
 
 	// function to convert a question to JSON format (may be unnecessary))
 	this.toJSON;
-	
+
 
 	//the url of the image to display.  leave blank if you want no picture
 	this.imageURL=image;
@@ -58,7 +58,7 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 	 */
 	this.checkAnswer = function(answer) {
 		if(answer==-1){
-			throw new Error("Incorrect format: empty field"); 
+			throw new Error("Incorrect format: empty field");
 		}
 		if (this.answerIndex == answer) {
 //			alert("Correct!");
@@ -149,11 +149,11 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, 
 		answer = parseAnswer(answer);
 
 		if(this.isEmpty(answer)){
-			throw new Error("Incorrect format: empty field"); 
+			throw new Error("Incorrect format: empty field");
 		}
 
 		if(!this.isNumeric(answer)){
-			throw new Error("Incorrect format: not a number"); 
+			throw new Error("Incorrect format: not a number");
 		}
 
 		answer = parseFloat(answer);
@@ -209,11 +209,11 @@ var TextEntryQuestion = function(id, bodyText, answersArray, image) {
 		answer = parseAnswer(answer);
 
 		if(this.isEmpty(answer)){
-			throw new Error("Incorrect format: empty field"); 
+			throw new Error("Incorrect format: empty field");
 		}
 
 		if(this.isNumeric(answer)){
-			throw new Error("Incorrect format: not a string"); 
+			throw new Error("Incorrect format: not a string");
 		}
 
 
