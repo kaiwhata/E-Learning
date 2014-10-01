@@ -318,7 +318,7 @@ questionList
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
-						var output="hello";
+						var output="Marking Answered/Formatted Correctly Questions:";
 
 							for (var i = 0; i < $scope.questions.length; i++) {
 								try{
@@ -342,7 +342,7 @@ questionList
 										if (q.checkAnswer(chosenIndex)){
 											score++;
 											output = output + "<br>";
-											output="CORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											output = outut + "CORRECT! Answer for question " + i+1 + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("CORRECT!  the answer was "+q.answerText);
@@ -351,7 +351,7 @@ questionList
 
 										}else{
 											output = output + "<br>";
-											output="INCORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											output = output + "INCORRECT! Answer for question " + i+1 + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("INCORRECT!  the answer was "+q.answerText);
@@ -368,15 +368,15 @@ questionList
 										if (q.checkAnswer(answer)){
 											score++;
 											output = output + "<br>";
-											output="CORRECT! Answer for question " + i + " is:" + output+q.answerText;
+											output = output +"CORRECT! Answer for question " + i+1 + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("CORRECT!  the answer was "+q.answerText);
 
 										}else{
 											output = output + "<br>";
-											output="INCORRECT! Answer for question " + i + " is:" + output+q.answerText;
-											output = output + "<br>";
+											output = output + "INCORRECT! Answer for question " + i+1 + " is:" + q.answerText;
+											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											
 											//alert("INCORRECT!  the answer was "+q.answerText);
@@ -393,7 +393,8 @@ questionList
 							var per = score / total;
 							if(failed){
 								problemsMessage=problemsMessage+"\n"+"please try again";
-								alert(problemsMessage);
+								//alert(problemsMessage);
+								document.getElementById("errorText").innerHTML = problemsMessage;
 
 								return;
 							}
