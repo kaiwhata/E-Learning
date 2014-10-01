@@ -39,6 +39,7 @@ questionList
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
+						var output="";
 
 							for (var i = 0; i < $scope.questions.length; i++) {
 								try{
@@ -49,7 +50,7 @@ questionList
 									if (q instanceof MultiChoiceQuestion) {
 										var numOptions = q.optionsText.length;
 										var chosenIndex = -1;// should be -1
-										for (var j = 0; j < numOptions; j++) {
+									for (var j = 0; j < numOptions; j++) {
 											var checkBoxIdentifier = "q" + i + "a" + j;
 											var ticked = document
 													.getElementById(checkBoxIdentifier).checked;
@@ -61,6 +62,7 @@ questionList
 
 										if (q.checkAnswer(chosenIndex)){
 											score++;
+											output=output+q.answerText;
 											alert("CORRECT!  the answer was "+q.answerText);
 
 
@@ -128,6 +130,7 @@ questionList
 
 
 							console.log("MYSCORE: " + per);
+							document.getElementById("answerText").innerHTML =output;
 
 					}
 
