@@ -1,6 +1,6 @@
 function readQuestion() {
 	var quizname = sessionStorage.getItem("quizname");
-
+	if (quizname == null) return;
 	var questions = [];
 	// ajax call to get questions
 	console.log("Getting Date");

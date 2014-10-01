@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 
+<meta charset="UTF-8">
+<body onload="readQuestion();">
 <!-- Bootstrap core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap theme -->
@@ -17,6 +18,7 @@
 <button id="back" onclick="backToAdminPage()"
 	class="btn btn-lg btn-link">Back To Admin Page</button>
 <h1 style="margin-left: 5%">Quiz Entry</h1>
+
 
 <table class="table table-bordered" style="margin-left: 5%; width: 90%">
 	<thead>
@@ -147,7 +149,6 @@
 <br>
 <br>
 <br>
-
 <script>
 	function backToAdminPage() {
 		window.location = "./adminPage.html";
@@ -156,6 +157,8 @@
 <script type="text/javascript" src="question.js"></script>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src='quizParse.js'></script>
+<script type="text/javascript" src="q2t.js"></script>
+
 <!-- Bootstrap core JavaScript
     ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
@@ -165,4 +168,8 @@
 <script src="bootstrap/js/docs.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+</body>
+
+
 </html>
