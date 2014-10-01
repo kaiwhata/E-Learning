@@ -66,7 +66,11 @@
 			</div> -->
 			<form novalidate ng-app name="login">
 
-
+				<div class="error-message"
+					ng-show="login.username.$dirty && login.username.$error.required">
+					The username is required
+				</div>
+			
 				<label for="username">Username</label> <input type="text"
 					name="username" ng-model="username" ng-minlength="3"
 					ng-maxlength="15" required /> <br />
@@ -85,6 +89,18 @@
 				<script type="text/javascript">
 					document.getElementById("submit").onclick = confirm;
 					function confirm() {
+					if(login.username.value==""){
+						      alert("Please enter username");
+						      return;
+						}
+						
+						if(login.password.value==""){
+						      alert("Please enter password");
+						      return;
+						}
+						
+						
+					
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -121,6 +137,15 @@
 
 					document.getElementById("submitAdmin").onclick = confirmAdmin;
 					function confirmAdmin() {
+						if(login.username.value==""){
+						      alert("Please enter username");
+						      return;
+						}
+						
+						if(login.password.value==""){
+						      alert("Please enter password");
+						      return;
+						}
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',

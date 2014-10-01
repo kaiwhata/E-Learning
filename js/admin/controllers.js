@@ -55,12 +55,12 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 		console.log("hello");
 		if(!sessionStorage.getItem("password")){
 			alert("no password");
-	 		// window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+	 		//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 	 		return;
 
 		}else if (!sessionStorage.getItem("username")){
 			alert("no username");
-	 		// window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+	 		//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 	 		return;
 		}
 		$.ajax({
@@ -74,7 +74,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				}
 				else{
 					alert("Incorrect username or password");
-	 				// window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 	 				return;
 				}
 				console.log(response);
