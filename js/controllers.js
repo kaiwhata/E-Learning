@@ -398,6 +398,8 @@ questionList
 								document.getElementById("errorText").innerHTML = problemsMessage;
 
 								return;
+							}else{
+								document.getElementById("errorText").innerHTML = "";
 							}
 							var username = sessionStorage.getItem('username').trim();
 							var password = sessionStorage.getItem('password').trim();
