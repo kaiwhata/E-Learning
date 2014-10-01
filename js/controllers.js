@@ -318,7 +318,7 @@ questionList
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
-						var output="Marking Answered/Formatted Correctly Questions:";
+						var output="Results:";
 						var one = 1;
 
 							for (var i = 0; i < $scope.questions.length; i++) {
