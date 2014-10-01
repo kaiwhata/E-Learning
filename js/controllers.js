@@ -401,6 +401,7 @@ questionList
 								return;
 							}else{
 								document.getElementById("errorText").innerHTML = "";
+								document.getElementById("checkButton").disabled = true;
 							}
 							var username = sessionStorage.getItem('username').trim();
 							var password = sessionStorage.getItem('password').trim();
