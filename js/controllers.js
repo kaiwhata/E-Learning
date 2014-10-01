@@ -394,7 +394,7 @@ questionList
 							if(failed){
 								problemsMessage=problemsMessage+"\n"+"please try again";
 								//alert(problemsMessage);
-								document.getElementById("answerText").innerHTML = problemsMessage;
+								document.getElementById("errorText").innerHTML = problemsMessage;
 
 								return;
 							}
