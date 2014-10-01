@@ -24,7 +24,7 @@
 		function load() {
 			if (sessionStorage.getItem('username') == null) {
 				alert("You're not logged in, redirecting to home");
-				//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+				window.location = "./login-fancy.html";
 			}
 			//oh my god update
 		}
@@ -40,14 +40,14 @@
 
 	<script>
 		function gotoResults() {
-			window.location = "http://shrouded-earth-7234.herokuapp.com/results.html";
+			window.location = "./results.html";
 		}
 
 		function logout() {
 			sessionStorage.removeItem("username");
 			sessionStorage.removeItem("password");
 			sessionStorage.clear();
-			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			window.location = "./login-fancy.html";
 		}
 
 

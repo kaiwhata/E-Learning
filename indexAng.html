@@ -34,7 +34,7 @@
 
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" style="width:95%;margin-left:2.5%">
 		<div style="margin-top:-90px ;margin-left:-2%" >
-<button onclick="window.location = 'http://shrouded-earth-7234.herokuapp.com/quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
+<button onclick="window.location = './quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
 	</div>
 	<div style="margin-top:-150px">
 <h1>Quiz</h1>
@@ -47,22 +47,14 @@
   color: red;
 }
 .jumbotron{
-/*padding-left:900px;*/
 margin-bottom:200px;
 margin-top:200px
 }
 
 </style>
-		<!-- <div style="margin-left:0 auto ;width:90%; margin-top:-75px">
-<div class="col-md-4" style="text-align:left">
 
-<br>
-</div>
-</div> -->
-	
+
 	<br>
-
-		<!--<img src="http://philiptaaffe.info/wp-content/uploads/2013/04/Rose-Triangle-2008.png" alt="triangle"> -->
 
 		<fieldset id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
@@ -74,7 +66,7 @@ margin-top:200px
 						<br>
 						<img src={{question.imageURL}} >
 						<br>
-						
+
 						<p style="font-size:125%">
 						{{question.bodyText}}
 						</p>						<form id={{"question"+$index+"form"}}>
@@ -114,13 +106,12 @@ margin-top:200px
 						<p style="font-size:125%">
 						{{question.bodyText}}
 						</p>
-						<br>
-						<form id={{"question"+$index+"form"} }>
-							<label ng-repeat=" option in question.optionsText"> 
-								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
-								<p style="font-size:120%">{{option}}</p>
-
-							</label>
+						<form id={{"question"+$index+"form"} } style="text-align:left">
+							<div ng-repeat=" option in question.optionsText">
+							<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff" style = "width:50px">{{option}}
+							<br>
+							</div>
+							<br>
 						</form>
 					</div>
 					<div>
@@ -131,14 +122,19 @@ margin-top:200px
 		<br>
 
 		<div style="text-align:center">
-		<button ng-click="checkAnswers()" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
+		
+		<p id="answerText"></p>
+		<p id="errorText" style="color:red"></p>
+		<button ng-click="checkAnswers2()" id="checkButton" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
+
+		
 	</div>
 				<span mathjax-bind="expression"></span>
 
 
 	</div>
 </div>
-
+		
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
@@ -146,7 +142,7 @@ margin-top:200px
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>
-
+	
 
 
 	<script type="text/javascript"">
@@ -155,6 +151,7 @@ margin-top:200px
 
 
 </body>
+
  <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

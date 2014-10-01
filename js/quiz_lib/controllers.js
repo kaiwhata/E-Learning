@@ -36,7 +36,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		var code = sp[0];
 		var quizname = sp[1];
 		sessionStorage.setItem("quizname",quizname);
-		window.location = "http://shrouded-earth-7234.herokuapp.com/indexAng.html";
+		window.location = "./indexAng.html";
 	}//end func
 
 
