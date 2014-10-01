@@ -318,7 +318,8 @@ questionList
 						var failed = false;
 						var problems =[];
 						var problemsMessage ="";
-						var output="Marking Answered/Formatted Correctly Questions:";
+						var output="Results:";
+						var one = 1;
 
 							for (var i = 0; i < $scope.questions.length; i++) {
 								try{
@@ -342,7 +343,7 @@ questionList
 										if (q.checkAnswer(chosenIndex)){
 											score++;
 											output = output + "<br>";
-											output = outut + "CORRECT! Answer for question " + i+1 + " is:" + q.answerText;
+											output = output + "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("CORRECT!  the answer was "+q.answerText);
@@ -351,7 +352,7 @@ questionList
 
 										}else{
 											output = output + "<br>";
-											output = output + "INCORRECT! Answer for question " + i+1 + " is:" + q.answerText;
+											output = output + "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("INCORRECT!  the answer was "+q.answerText);
@@ -368,14 +369,14 @@ questionList
 										if (q.checkAnswer(answer)){
 											score++;
 											output = output + "<br>";
-											output = output +"CORRECT! Answer for question " + i+1 + " is:" + q.answerText;
+											output = output +"CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											//alert("CORRECT!  the answer was "+q.answerText);
 
 										}else{
 											output = output + "<br>";
-											output = output + "INCORRECT! Answer for question " + i+1 + " is:" + q.answerText;
+											output = output + "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
 											
@@ -387,7 +388,7 @@ questionList
 										failed = true;
 										//problems.push("Question"+i+" "+err.message+"\n");
 										var displayIndex=i+1;
-										problemsMessage=problemsMessage+"Question"+displayIndex+" "+err.message+"\n";
+										problemsMessage= "<br>" + problemsMessage+"Question"+displayIndex+" "+err.message+"\n" + "</br>";
 								}
 							}
 							var per = score / total;
@@ -395,8 +396,12 @@ questionList
 								problemsMessage=problemsMessage+"\n"+"please try again";
 								//alert(problemsMessage);
 								document.getElementById("errorText").innerHTML = problemsMessage;
+								document.getElementById("answerText").innerHTML = "";
 
 								return;
+							}else{
+								document.getElementById("errorText").innerHTML = "";
+								document.getElementById("checkButton").disabled = true;
 							}
 							var username = sessionStorage.getItem('username').trim();
 							var password = sessionStorage.getItem('password').trim();
@@ -426,7 +431,7 @@ questionList
 
 							console.log("MYSCORE: " + per);
 							console.log("output"+output);
-							document.getElementById("answerText").innerHTML =output;
+							
 
 					}
 
