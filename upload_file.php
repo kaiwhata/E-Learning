@@ -17,14 +17,15 @@ if ((($_FILES["file"]["type"] == "image/gif")
     echo "Upload: " . $_FILES["file"]["name"] . "<br>";
     echo "Type: " . $_FILES["file"]["type"] . "<br>";
     echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>";
-    echo "Temp file: " . $_FILES["file"]["tmp_name"] . "<br>";
+    $name = $_FILES["file"]["tmp_name"];
+    echo "Temp file: " .$name. "<br>";
     if (file_exists("upload/" . $_FILES["file"]["name"])) {
       echo $_FILES["file"]["name"] . " already exists. ";
     } else {
       move_uploaded_file($_FILES["file"]["tmp_name"],
       "upload/" . $_FILES["file"]["name"]);
       echo "Stored in: " . "upload/" . $_FILES["file"]["name"];
-      echo "<img src='/tmp/php5lch52'>";
+      echo "<img src='$name'>";
     }
   }
 } else {
