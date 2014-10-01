@@ -29,25 +29,25 @@
 	<h1>Results Query</h1>
 		<br>
 
-		
+
 	<div style="border:1px solid gray;">
 		<div class="jumbotron">
 			<div>
 				<label>First Name</label> <input id="fnameinput" type="text">
 			</div>
-			
+
 			<div>
 			<label>Last Name</label> <input id="lnameinput" type="text">
 			</div>
-			
+
 			<div>
 				<label>Quiz</label> <input id="quizinput" type="text" >
 			</div>
-			
+
 			<div>
 				<label>Course Code</label> <input id="courseinput" type="text">
 			</div>
-			
+
 			<button id="submit" ng-click="getQueryResults()" class="btn btn-sm btn-success" style="margin-left:175px">Query</button>
 
 	</div>
@@ -81,9 +81,9 @@
 
 	   </table>
             </div>
-          </div>	
+          </div>
 	</div>
-	
+
 	<br>
 	<div style="border:1px solid gray;">
 
@@ -95,14 +95,14 @@
               <table style="width:100%" border="1" ng-init="getQuizAverages()" class="table table-bordered">
 	    <tr>
 	      <td><b>Quiz</b></td>
-	      <td><b>Course Code</b></td> 
-	      <td><b>Average Score</b></td> 
-	      <td><b>Number of attempts</b></td> 
+	      <td><b>Course Code</b></td>
+	      <td><b>Average Score</b></td>
+	      <td><b>Number of attempts</b></td>
 	    </tr>
-	    
+
 	    <tr ng-repeat="quizavg in quizavgs">
 	      <td>{{quizavg.quizname}}</td>
-	      <td>{{quizavg.coursecode}}</td> 
+	      <td>{{quizavg.coursecode}}</td>
 	      <td>{{quizavg.average_score}}</td>
 	      <td>{{quizavg.number_taken}}</td>
 	    </tr>
@@ -110,7 +110,7 @@
             </div>
           </div>
 	</div>
-	
+
 	<br>
 	<div style="border:1px solid gray;">
 
@@ -122,16 +122,16 @@
               	<table style="width:100%" border="1" ng-init="getStudentAverages()" class="table table-bordered">
 	    <tr>
 	      <td><b>First Name</b></td>
-	      <td><b>Last Name</b></td> 
-	      <td><b>Email</b></td> 
-	      <td><b>Average Score</b></td> 
-	      <td><b>Number of attempts</b></td> 
+	      <td><b>Last Name</b></td>
+	      <td><b>Email</b></td>
+	      <td><b>Average Score</b></td>
+	      <td><b>Number of attempts</b></td>
 	    </tr>
-	    
+
 	    <tr ng-repeat="studentavg in studentavgs">
 	      <td>{{studentavg.fname}}</td>
-	      <td>{{studentavg.lname}}</td> 
-	      <td>{{studentavg.emailaddress}}</td> 
+	      <td>{{studentavg.lname}}</td>
+	      <td>{{studentavg.emailaddress}}</td>
 	      <td>{{studentavg.average_score}}</td>
 	      <td>{{studentavg.number_taken}}</td>
 	    </tr>
@@ -147,11 +147,11 @@
 			sessionStorage.removeItem("username");
 			sessionStorage.removeItem("password");
 			sessionStorage.clear();
-			window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			window.location = "./login-fancy.html";
 		}
 
 		function toQuizInsertPage() {
-			window.location = "http://shrouded-earth-7234.herokuapp.com/quizInsert.html";
+			window.location = "./quizInsert.html";
 		}
 
 
