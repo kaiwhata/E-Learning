@@ -51,7 +51,7 @@
 
 
 
-		<div >
+		<div>
 
 			<h1>Log In</h1>
 
@@ -61,28 +61,32 @@
 			<script type="text/javascript" src="js/controllers.js"></script>
 			<script type="text/javascript" src="js/services.js"></script>
 
-<!-- 			<div>
+			<!-- 			<div>
 				<img src="images/vicLogo.jpg">
 			</div> -->
-			<form novalidate ng-app name="login">
+			<form novalidate ng-app name="login" ui-keypress="alert('hey')">
 
 
 				<label for="username">Username</label> <input type="text"
 					name="username" ng-model="username" ng-minlength="3"
-					ng-maxlength="15" required /> <br />
-
-
-				<label for="password">Password</label> <input type="password"
-					name="password" ng-model="password" required
+					ng-maxlength="15" required /> <br /> <label for="password">Password</label>
+				<input type="password" name="password" id = "passwordInput" ng-model="password" required
 					ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
 
-				<br> <br> <input type="button" class="btn btn-success"
-					style="width: 100px" id="submit" value="login"> <input
-					type="button" class="btn btn-success" style="width: 100px"
-					id="submitAdmin" value="login admin"> <input type="button"
-					class="btn btn-default" style="width: 100px" id="register"
-					value="register">
+				<br>
+				<br>
+				<input type="button" class="btn btn-success" style="width: 100px" id="submit" value="login">
+				<input type="button" class="btn btn-success" style="width: 100px"id="submitAdmin" value="login admin">
+				<input type="button" class="btn btn-default" style="width: 100px" id="register"	value="register">
 				<script type="text/javascript">
+					var xTriggered = 0;
+					$("#passwordInput").keydown(
+							function(event) {
+								if (event.which == 13) {
+									confirm();
+								}
+							});
+
 					document.getElementById("submit").onclick = confirm;
 					function confirm() {
 						$
