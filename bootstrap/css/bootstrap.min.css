@@ -45,6 +45,12 @@
                 background-color:#007ee9;
             }
 
+
+
+
+
+
+
           #menu ul li:hover > ul {
 
                 left: 200px;
@@ -68,9 +74,9 @@
 
                 top: 0;
 
-                left: -200px;
+                left: -500px;
 
-                min-width: 200px;
+                min-width: 500px;
 
                 z-index: -1;
 
