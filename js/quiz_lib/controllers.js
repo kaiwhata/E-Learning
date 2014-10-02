@@ -3,12 +3,42 @@
 quizList.controller('quizCtrl',function quizCtrl($scope) {
 	$scope.quizes = [];
 	$scope.courses = [];
+
+	$scope.map_courseCode = [];
+	$scope.map_quiz = [];	
+
+	$scope.chrisMap = {};
+
+	$scope.qui = [];
+
 	$scope.loaded = false;
 
 	$scope.getStuff = function(){
 		
 		$scope.getCourses();
-		$scope.getQuizes();
+
+	
+	}
+
+	$scope.callBack = function(){
+	// figure out how many courses there are
+		var numCourses = $scope.courses.length;
+
+
+	console.log($scope.quizes);
+		// for each quiz
+		for(var i=0; i<$scope.quizes.length;i++){
+			var code = $scope.quizes[i].split(":")[0];
+			var name = $scope.quizes[i].split(":")[1];
+			
+			if($scope.chrisMap[code]==null){
+				$scope.chrisMap[code]=[];
+			}
+
+			$scope.chrisMap[code].push(name);
+		}
+		console.log($scope.chrisMap);
+		$scope.$apply();
 	}
 
 	$scope.getCourses = function(){
@@ -25,6 +55,8 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 				
 				$scope.loaded=true;
 				$scope.$apply();
+				$scope.getQuizes();
+
 			}
 		})
 	}
@@ -51,7 +83,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 						
 
 					}//end for
-
+					$scope.callBack();
 				}//end success
 			});//end ajax
 		}//end getQuizesFunction
