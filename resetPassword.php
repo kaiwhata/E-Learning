@@ -12,6 +12,8 @@ $result = pg_query ( $dbconnection, $sql );
 $row = pg_fetch_row ( $result );
 $done = $row [0];
 
+
+
 echo $done;
 return;
 ?>
