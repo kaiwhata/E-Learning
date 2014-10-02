@@ -3,162 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="icon" href="../../favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
 
-<!-- Bootstrap core CSS -->
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<!-- Bootstrap theme -->
-<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
-<!-- Custom styles for this template -->
-<link href="theme.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="theme.css" rel="stylesheet">
 
-<style type="text/css" id="holderjs-style"></style>
-</head>
+  <style type="text/css" id="holderjs-style"></style></head>
 
 <script type="text/x-mathjax-config">
  	 	MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 	</script>
-<script type="text/javascript"
-	src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	<script type="text/javascript"
+  		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
 
-</script>
+	<script type="text/javascript">
+		function checkTaken(){
+			var username = sessionStorage.getItem("username");
+			var quizname = sessionStorage.getItem("quizname");
+
+
+			$
+			.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
+				type : 'post',
+				data : {
+					"name" : username,
+					"quizname" : quizname
+				},
+				success : function(response) {
+					if(Number(response)==1){
+						document.getElementById("checkButton").disabled = true;
+					}
+				}
+
+			});
+		}
+
+	</script>
 
 </head>
 
-
-<body>
+<body onload = "checkTaken()">
 	<div class="jumbotron" align:0 auto>
 
-		<div id="main-one" ng-controller="questionCtrl"
-			ng-init="getQuestions()" style="width: 95%; margin-left: 2.5%">
-			<div style="margin-top: -90px; margin-left: -2%">
-				<button onclick="window.location = './quizTest.html'"
-					class="btn btn-lg btn-link">Back To Home Page</button>
-			</div>
-			<div style="margin-top: -150px">
-				<h1>Quiz</h1>
-				<div>
-					<br> <br>
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" ng-init="init()" style="width:95%;margin-left:2.5%">
+		<div style="margin-top:-90px ;margin-left:-2%" >
+<button onclick="window.location = './quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
+	</div>
+	<div style="margin-top:-150px">
+<h1>Quiz</h1>
+<div>
+<br>
+<br>
 
-					<style>
+<style>
 .error-message {
-	color: red;
+  color: red;
+}
+.jumbotron{
+margin-bottom:200px;
+margin-top:200px
 }
 
-.jumbotron {
-	margin-bottom: 200px;
-	margin-top: 200px
-}
 </style>
 
 
-					<br>
+	<br>
 
-					<fieldset id={{
-						"question"+$index}} ng-repeat="question in questions track by $index">
-						<div>
-							<legend style="">Question {{$index+1}}</legend>
-							<span ng-switch="question.questionType">
-								<div style="margin-left: 50px">
-									<div directive-one ng-switch-when="text" style="">
-										<br> <img src={{question.imageURL}}> <br>
+		<fieldset id={{
+			"question"+$index}} ng-repeat="question in questions track by $index">
+			<div>
+				<legend style ="line-height=5px">Question {{$index+1}}</legend>
+				<span ng-switch="question.questionType">
+					<div style="margin-left:50px">
+					<div directive-one ng-switch-when="text" style="margin-left=50px">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
 
-										<p style="font-size: 125%">{{question.bodyText}}</p>
-										<form id={{"question"+$index+"form"}}>
-											<label> <input type="text" id={{
-												"a"+$index}} name="fff">
-											</label>
-										</form>
-									</div>
-									<div directive-two ng-switch-when="number">
-										<br> <img src={{question.imageURL}}> <br>
-										<p style="font-size: 125%">{{question.bodyText}}</p>
-										<form id={{"question"+$index+"form"}}>
-											<label> <input type="text" id={{
-												"a"+$index}} name="fff">
-											</label>
-										</form>
-									</div>
-									<div directive-three ng-switch-when="numTol">
-										<br> <img src={{question.imageURL}}> <br>
-										<p style="font-size: 125%">{{question.bodyText}}</p>
-										<form id={{"question"+$index+"form"}}>
-											<label> <input type="text" id={{
-												"a"+$index}} name="fff">
-											</label>
-										</form>
-									</div>
-									<div directive-four ng-switch-when="multi">
-										<br> <img src={{question.imageURL}}> <br>
-										<p style="font-size: 125%">{{question.bodyText}}</p>
-										<br>
-										<form id={{
-											"question"+$index+"form"} } style="text-align: left">
-											<div ng-repeat=" option in question.optionsText">
-												<input type="radio" id={{
-													"q"+$parent.$index+"a"+$index}} name="fff"
-													style="width: 50px">{{option}} <br>
-											</div>
-											<br>
-										</form>
-									</div>
-									<div>
-							</span>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-two ng-switch-when="number">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-three ng-switch-when="numTol">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>						<form id={{"question"+$index+"form"}}>
+							<label>
+								<input type="text" id={{"a"+$index}} name="fff">
+							</label>
+						</form>
+					</div>
+					<div directive-four ng-switch-when="multi">
+						<br>
+						<img src={{question.imageURL}} >
+						<br>
+						<p style="font-size:125%">
+						{{question.bodyText}}
+						</p>
+						<br>
+						<form id={{"question"+$index+"form"} } style="text-align:left">
+							<label ng-repeat=" option in question.optionsText">
+								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
+								<p style="font-size:120%">{{option}}</p>
 
-						</div>
-					</fieldset>
-					<br>
-
-					<div style="text-align: center">
-
-						<p id="answerText"></p>
-						<p id="errorText" style="color: red"></p>
-						<button ng-click="checkAnswers2()" class="btn btn-lg btn-success"
-							style="margin-bottom: -200px">Check Answers</button>
-
-
-						<div style="text-align: center">
-
-							<p id="answerText"></p>
-							<p id="errorText" style="color: red"></p>
-							<button ng-click="checkAnswers2()" id="checkButton"
-								class="btn btn-lg btn-success" style="margin-bottom: -200px">Check
-								Answers</button>
-
-						</div>
-						<span mathjax-bind="expression"></span>
-
+							</label>
+						</form>
 
 					</div>
-				</div>
-				<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
-				<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-				<script type="text/javascript" src="question.js"></script>
-				<script type="text/javascript" src="js/app.js"></script>
-				<script type="text/javascript" src="js/controllers.js"></script>
-				<script type="text/javascript" src="js/services.js"></script>
+					<div>
+				</span>
+
+		</div>
+		</fieldset>
+		<br>
+
+		<div style="text-align:center">
+
+		<p id="answerText"></p>
+		<p id="errorText" style="color: red"></p>
+		<button ng-click="checkAnswers2()" id="checkButton" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
+
+
+	</div>
+				<span mathjax-bind="expression"></span>
+
+
+	</div>
+</div>
+
+
+	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="question.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
 
 
 
-				<script type="text/javascript"">
-					setInterval(function() {
-						MathJax.Hub.Typeset()
-					}, 100);
-				</script>
+
+	<script type="text/javascript"">
+		setInterval(function(){MathJax.Hub.Typeset()}, 100);
+	</script>
+
+
 </body>
 
-<!-- Bootstrap core JavaScript
+ <!-- Bootstrap core JavaScript
     ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="bootsrap/js/bootstrap.min.js"></script>
-<script src="bootstrap/js/docs.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="bootsrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 </html>
+
