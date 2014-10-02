@@ -12,8 +12,39 @@ questionList
 					$scope.timetaken;
 
 					$scope.datetaken;
+					$scope.modelAnswer = "Test this is model answer";
 
 					$scope.hasTakenQuiz = true;
+
+					$scope.showThing = true;
+
+					$scope.checkIfTaken = function(){
+						var username = sessionStorage.getItem("username");
+						var quizname = sessionStorage.getItem("quizname");
+
+
+						$
+						.ajax({
+							url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
+							type : 'post',
+							data : {
+								"name" : username,
+								"quizname" : quizname
+							},
+							success : function(response) {
+								console.log(response);
+								if(Number(response)==1){
+									$scope.showThing = true;
+								}else{
+									$scope.showThing = false;
+								}
+
+								//alert(response);
+							}
+
+						});
+					}
+
 					/**
 					 * Check all the answers of questions and alert the user if
 					 * right or wrong
