@@ -140,20 +140,20 @@
 
 			<script>
 		function seeIfAlreadyTaken(){
-			alert("hey hey hey");
-			$.ajax({
-				url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
-				type : 'post',
-				data : {
-					"quizname" : sessionStorage.getItem("quizname").trim(),
-					"name" : sessionStorage.getItem("username").trim(),
-				},
-				success : function(response){
-					alert(response);
-
-				}
-
-			});
+			//alert("hey hey hey");
+			//$.ajax({
+			//	url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
+			//	type : 'post',
+			//	data : {
+			//		"quizname" : sessionStorage.getItem("quizname").trim(),
+			//		"name" : sessionStorage.getItem("username").trim(),
+			//	},
+			//	success : function(response){
+			//		alert(response);
+			//		console.log(response);
+			//	}
+//
+			//});
 		}
 	</script>
 
