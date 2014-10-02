@@ -74,7 +74,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				}
 				else{
 					alert("Incorrect username or password");
-	 				window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+	 				window.location = "./login-fancy.html";
 	 				return;
 				}
 				console.log(response);
