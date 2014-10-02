@@ -41,8 +41,9 @@
 					"quizname" : quizname
 				},
 				success : function(response) {
-					console.log(response);
-					alert(response);
+					if(Number(response)==1){
+						document.getElementById("checkButton").disabled = true;
+					}
 				}
 
 			});
