@@ -294,6 +294,10 @@ questionList
 					}
 
 
+					$scope.init= function() {
+						alert("test test test");
+					}
+
 					/**
 					 * And displays on the page
 					 */
