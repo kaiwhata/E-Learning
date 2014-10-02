@@ -39,5 +39,9 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		window.location = "./indexAng.html";
 	}//end func
 
+	$scope.checkTaken = function() {
+		alert("checking if you've already taken the quiz");
+	}
+
 
 });//end controller
