@@ -293,10 +293,6 @@ questionList
 								});
 					}
 
-					$scope.checkTaken = function() {
-						alert("checking if you've already taken the quiz");
-					}
-
 
 					/**
 					 * And displays on the page

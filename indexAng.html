@@ -137,15 +137,8 @@ margin-top:200px
 </div>
 		
 
-<body onload="load()">
-			<script>
-				function load() {
-					
-					checkTaken();
-					alert("test");
-				}
-			</script>
-</body>
+<div id="check" ng-controller="quizCtrl" ng-init="checkTaken()"></div>
+				
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
