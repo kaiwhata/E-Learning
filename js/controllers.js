@@ -295,6 +295,7 @@ questionList
 
 
 					$scope.init= function() {
+						console.log("asas");
 						alert("test test test");
 					}
 

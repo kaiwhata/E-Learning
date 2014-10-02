@@ -26,9 +26,33 @@
   		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 
+	<script type="text/javascript">
+		function checkTaken(){
+			var username = sessionStorage.getItem("username");
+			var quizname = sessionStorage.getItem("quizname");
+			
+
+			$
+			.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
+				type : 'post',
+				data : {
+					"name" : username,
+					"quizname" : quizname
+				},
+				success : function(response) {
+					console.log(response);
+					alert(response);
+				}
+
+			});
+		}
+
+	</script>
+
 </head>
 
-<body>
+<body onload = "checkTaken()">
 	<div class="jumbotron" align:0 auto>
 
 	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" ng-init="init()" style="width:95%;margin-left:2.5%">
