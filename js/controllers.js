@@ -13,6 +13,7 @@ questionList
 
 					$scope.datetaken;
 
+					$scope.hasTakenQuiz = true;
 					/**
 					 * Check all the answers of questions and alert the user if
 					 * right or wrong
@@ -154,9 +155,6 @@ questionList
 							thing = thing.trim();
 						}
 
-						//$scope._initial = new Date();
-						//$scope._initial = $scope._initial.getTime());
-						//console.log("Initial Time: "+$scope._initial.getTime());
 						$.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 									type : 'post',
@@ -294,10 +292,6 @@ questionList
 					}
 
 
-					$scope.init= function() {
-						console.log("asas");
-						alert("test test test");
-					}
 
 					/**
 					 * And displays on the page

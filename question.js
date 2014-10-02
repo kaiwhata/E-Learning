@@ -10,7 +10,9 @@ var Question = function(id, bodyText, answerText, image) {
 	// a text representation of the answer. used for debugging. do not compare
 	// with supplied answer for testing user input
 	this.answerText = answerText;
-
+	
+	this.modelAnswer = "this is a model answer.  PLEASE FIX ME";
+	
 	// the type of question . eg multi, numebr, text
 	this.questionType;
 
@@ -20,7 +22,7 @@ var Question = function(id, bodyText, answerText, image) {
 	// function to convert a question to JSON format (may be unnecessary))
 	this.toJSON;
 
-
+  
 	//the url of the image to display.  leave blank if you want no picture
 	this.imageURL=image;
 
