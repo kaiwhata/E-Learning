@@ -85,10 +85,10 @@ margin-top:200px
 
 	<br>
 
-		<fieldset id={{
+		<fieldset ng-init="checkTaken()" id={{
 			"question"+$index}} ng-repeat="question in questions track by $index">
 			<div>
-				<p ng-init="checkIfTaken()" ng-show="showThing">{{question.modelAnswer}}</p>
+				<p ng-show="showThing">{{question.modelAnswer}}</p>
 				<legend style ="line-height=5px">Question {{$index+1}}</legend>
 				<span ng-switch="question.questionType">
 					<div style="margin-left:50px">

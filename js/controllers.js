@@ -35,8 +35,10 @@ questionList
 								console.log(response);
 								if(Number(response)==1){
 									$scope.showThing = true;
+									document.getElementById("checkButton").disabled = true;
 								}else{
 									$scope.showThing = false;
+									document.getElementById("checkButton").disabled = false;
 								}
 
 								//alert(response);
