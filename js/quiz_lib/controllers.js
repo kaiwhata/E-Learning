@@ -91,10 +91,10 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 	$scope.selectQuiz = function(quizString) {
 		console.log("quizString is "+quizString);
-		var sp = quizString.split(":");
-		var code = sp[0];
-		var quizname = sp[1];
-		sessionStorage.setItem("quizname",quizname);
+		// var sp = quizString.split(":");
+		// var code = sp[0];
+		// var quizname = sp[1];
+		sessionStorage.setItem("quizname",quizString);
 		window.location = "./indexAng.html";
 	}//end func
 
