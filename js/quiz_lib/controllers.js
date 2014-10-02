@@ -69,5 +69,9 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		window.location = "./indexAng.html";
 	}//end func
 
+	$scope.init = function () {
+	console.log("test test");
+	alert("test");
+	};
 
 });//end controller
