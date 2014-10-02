@@ -10,7 +10,7 @@ questionList
 					$scope._final;
 
 					$scope.timetaken;
-					
+
 					$scope.datetaken;
 
 					/**
@@ -135,7 +135,7 @@ questionList
 						console.log("Getting Date");
 
 						var d = new Date();
-						
+
 						// get start time
 						var n = d.getTime();
 						$scope._initial = n;
@@ -144,16 +144,16 @@ questionList
 						// get start date
 						console.log("Date: "+d);
 						var str = d+""
-						
+
 						console.log(str.substring(4,15));
-						
+
 						$scope.datetaken = str.substring(4,15);
 
 						var thing = sessionStorage.getItem('quizname');
 						if(thing != null){
 							thing = thing.trim();
 						}
-						
+
 						//$scope._initial = new Date();
 						//$scope._initial = $scope._initial.getTime());
 						//console.log("Initial Time: "+$scope._initial.getTime());
@@ -244,7 +244,7 @@ questionList
 										}
 										$scope.loaded = true;
 										$scope.$apply();
-								
+
 									}
 
 								});
@@ -379,7 +379,7 @@ questionList
 											output = output + "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
 											output = output + "</br>";
 											document.getElementById("answerText").innerHTML =output;
-											
+
 											//alert("INCORRECT!  the answer was "+q.answerText);
 											}
 									}
@@ -431,7 +431,7 @@ questionList
 
 							console.log("MYSCORE: " + per);
 							console.log("output"+output);
-							
+
 
 					}
 
