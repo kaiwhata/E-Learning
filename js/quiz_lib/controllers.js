@@ -40,6 +40,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 	}//end func
 
 	$scope.checkTaken = function() {
+		console.log("checkTaken function being called");
 		alert("checking if you've already taken the quiz");
 	}
 
