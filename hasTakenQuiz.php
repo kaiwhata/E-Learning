@@ -6,18 +6,20 @@
 	$name = $_POST ['name'];
 	$quizname = $_POST ['quizname'];
 
+
+
 	//find the users id
-	$result = pg_query ( $dbconnection, "select id from useraccount where fname = '$name'" );
+	$result = pg_query ( $dbconnection, "select id from useraccount where username = '$name'" );
 	$row = pg_fetch_row ( $result );
 	$id = $row [0];
-
+	
 	//use that id to try and find if there is a result
 	$result = pg_query ( $dbconnection,"select count(*) from result where userid=$id AND quizname = '$quizname'");
-
+	
 	$row = pg_fetch_row ( $result );
 
 	$numFound = $row [0];
-
-	return $numFound;
+	
+	echo $numFound;
 
 	?>

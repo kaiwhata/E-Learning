@@ -26,12 +26,36 @@
   		src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 	</script>
 
+	<script type="text/javascript">
+		function checkTaken(){
+			var username = sessionStorage.getItem("username");
+			var quizname = sessionStorage.getItem("quizname");
+			
+
+			$
+			.ajax({
+				url : 'http://shrouded-earth-7234.herokuapp.com/hasTakenQuiz.php',
+				type : 'post',
+				data : {
+					"name" : username,
+					"quizname" : quizname
+				},
+				success : function(response) {
+					console.log(response);
+					alert(response);
+				}
+
+			});
+		}
+
+	</script>
+
 </head>
 
-<body>
+<body onload = "checkTaken()">
 	<div class="jumbotron" align:0 auto>
 
-	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" style="width:95%;margin-left:2.5%">
+	<div id="main-one" ng-controller="questionCtrl" ng-init="getQuestions()" ng-init="init()" style="width:95%;margin-left:2.5%">
 		<div style="margin-top:-90px ;margin-left:-2%" >
 <button onclick="window.location = './quizTest.html'" class="btn btn-lg btn-link">Back To Home Page</button>
 	</div>
@@ -134,9 +158,6 @@ margin-top:200px
 
 	</div>
 </div>
-		
-
-<div id="check" data-ng-controller="quizCtrl" data-ng-init="init()"></div>
 				
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
@@ -145,8 +166,6 @@ margin-top:200px
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
 	<script type="text/javascript" src="js/services.js"></script>	
-	<script type="text/javascript" src="js/quiz_lib/app.js"></script>
-	<script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
 
 
 
