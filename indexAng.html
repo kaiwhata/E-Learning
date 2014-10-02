@@ -41,12 +41,9 @@
 					"quizname" : quizname
 				},
 				success : function(response) {
-					console.log(response);
 					if(Number(response)==1){
 						document.getElementById("checkButton").disabled = true;
 					}
-
-					//alert(response);
 				}
 
 			});
@@ -136,8 +133,10 @@ margin-top:200px
 						<br>
 						<form id={{"question"+$index+"form"} } style="text-align:left">
 							<label ng-repeat=" option in question.optionsText">
-								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff">
-								<p style="font-size:120%">{{option}}</p>
+								<input type="radio" id={{"q"+$parent.$index+"a"+$index}} name="fff" style="width:30px">
+
+								{{option}}
+
 
 							</label>
 						</form>
