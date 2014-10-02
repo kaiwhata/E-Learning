@@ -6,24 +6,25 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 	$scope.loaded = false;
 
 	$scope.getStuff = function(){
-		getCourses();
-		getQuizes();
-
-		// 
-		for(var i=0;i<quizes.length;i++){
-			
-		}
+		
+		$scope.getCourses();
+		$scope.getQuizes();
 	}
 
 	$scope.getCourses = function(){
+		
 		$.ajax({
-			url:'http://shrouded-earth-7234.herokuapp.com/GetAllCourses.php',
+			url:'http://shrouded-earth-7234.herokuapp.com/getAllCourses.php',
 			type: 'post',
 			success: function(response){
-				console.log(response);
-				$scope.courses.push(response);
+				console.log("Hi "+response);
+				for(var i=0;i<JSON.parse(response).length;i++){
+					console.log("a;lkhfoiwaehfoia: "+JSON.parse(JSON.parse(response)[i]["row_to_json"]));
+					$scope.courses.push(JSON.parse(JSON.parse(response)[i]["row_to_json"]));	
+				}
+				
 				$scope.loaded=true;
-				$scope.apply();
+				$scope.$apply();
 			}
 		})
 	}
@@ -37,10 +38,6 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 				success: function(response){
 					console.log("boo:"+response);
 					
-
-
-
-
 					
 					var instanceArray = response.split("*");
 					// loop this
