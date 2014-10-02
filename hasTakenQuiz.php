@@ -9,7 +9,7 @@
 	echo $name;
 
 	//find the users id
-	$result = pg_query ( $dbconnection, "select id from useraccount where fname = '$name'" );
+	$result = pg_query ( $dbconnection, "select id from useraccount where username = '$name'" );
 	$row = pg_fetch_row ( $result );
 	$id = $row [0];
 
