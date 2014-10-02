@@ -30,7 +30,7 @@
 		function checkTaken(){
 			var username = sessionStorage.getItem("username");
 			var quizname = sessionStorage.getItem("quizname");
-			
+
 
 			$
 			.ajax({
@@ -41,9 +41,12 @@
 					"quizname" : quizname
 				},
 				success : function(response) {
+					console.log(response);
 					if(Number(response)==1){
 						document.getElementById("checkButton").disabled = true;
 					}
+
+					//alert(response);
 				}
 
 			});
@@ -147,26 +150,26 @@ margin-top:200px
 		<br>
 
 		<div style="text-align:center">
-		
+
 		<p id="answerText"></p>
 		<p id="errorText" style="color: red"></p>
 		<button ng-click="checkAnswers2()" id="checkButton" class = "btn btn-lg btn-success" style="margin-bottom:-200px">Check Answers</button>
 
-		
+
 	</div>
 				<span mathjax-bind="expression"></span>
 
 
 	</div>
 </div>
-				
+
 
 	<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="question.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/controllers.js"></script>
-	<script type="text/javascript" src="js/services.js"></script>	
+	<script type="text/javascript" src="js/services.js"></script>
 
 
 
