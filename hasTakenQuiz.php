@@ -13,7 +13,10 @@
 
 	//use that id to try and find if there is a result
 	$result = pg_query ( $dbconnection,"select count(*) from result where userid=1 AND quizname = '$quizname'");
+
 	$row = pg_fetch_row ( $result );
+
+	return $row;
 	$numFound = $row [0];
 
 	return $numFound;
