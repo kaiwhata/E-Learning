@@ -42,6 +42,7 @@
 <script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
 <script type="text/javascript" src="js/services.js"></script>
 </head>
+
 <div style="margin: 0 auto; width: 90%">
 	<div class="col-md-4" style="text-align: left">
 
@@ -68,13 +69,37 @@
 
 			<br>
 			<br>
-			<div style="width: 30%; margin: 0 auto;">
+			<div style="width:42%; margin: 0 auto;">
 				<div class="page-header" style="margin-top: -150px">
 					<h1>Available Courses</h1>
 				</div>
 				<br> <br> <br>
 
+				<nav id="menu" style="width:100%">
 
+			        <ul class="parent-menu" ng-controller="quizCtrl" ng-init="getStuff()">
+
+			        	<li ng-repeat="course in courses track by $index"><a href="#">{{course.coursecode}}</a>
+
+			                <ul>
+
+			                    <li ng-repeat="quiz in quizes track by $index">
+			                    	<button id={{ "quiz"+$index+"btn"}} class="btn btn btn-link" ng-init="name=quiz" ng-click=selectQuiz(name)>{{quiz}}</button>
+			                    </li>
+
+			                </ul>
+
+			            </li>
+
+			            
+
+			        </ul>
+
+			    </nav>
+
+			    <!-- hello -->
+
+				<!--
 				<div id="main" ng-controller="quizCtrl" ng-show="loaded"
 					ng-init="getQuizes()">
 					<div>
@@ -89,6 +114,7 @@
 						<br> <br> <br>
 					</div>
 				</div>
+			-->
 
 				<script>
 					function gotoResults() {
