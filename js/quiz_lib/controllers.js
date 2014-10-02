@@ -11,7 +11,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 		// 
 		for(var i=0;i<quizes.length;i++){
-			if quizes[i].courseCode == 
+			
 		}
 	}
 
