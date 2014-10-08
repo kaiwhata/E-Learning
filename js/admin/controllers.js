@@ -68,6 +68,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				console.log(response);
 				console.log("username from session"+sessionStorage.getItem('username').trim());
 				console.log("password from session"+sessionStorage.getItem('password').trim());
+			}
 		});
 	}
 	
