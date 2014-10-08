@@ -18,7 +18,10 @@ echo $_POST["coursecodes"];
 echo ($_POST["coursecodes"][0]);
 echo ($_POST["coursecodes"][1]);
 
-add()
+foreach ($_POST["coursecodes"] as &$value) {
+	echo $value;
+
+}
 // echo $array[0];
 // echo $array[1];
 
