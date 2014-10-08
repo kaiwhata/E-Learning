@@ -56,7 +56,9 @@ function readQuestion() {
 							var image = questionJSON["imagename"];
 							var question = new MultiChoiceQuestion(id, body,
 									answerIdx, options, image)
-
+							
+							question.modelanswer = questionJSON["modelanswer"];
+							
 							questions.push(question);
 						}
 						// NUMBER TYPE
@@ -68,7 +70,9 @@ function readQuestion() {
 							var image = questionJSON["imagename"];
 							var question = new NumberEntryToleranceQuestion(id,
 									body, answer, tol, image);
-
+							
+							question.modelanswer = questionJSON["modelanswer"];
+							
 							questions.push(question);
 						}
 						// TEXT TYPE
@@ -81,7 +85,9 @@ function readQuestion() {
 
 							var question = new TextEntryQuestion(id, body,
 									answerArray, image);
-
+							
+							question.modelanswer = questionJSON["modelanswer"];
+							
 							questions.push(question);
 
 						}
@@ -141,6 +147,9 @@ function readQuestion() {
 										text += "<Body>" + "\n";
 										text += question.bodyText + "\n";
 										text += "<BodyEnd>" + "\n";
+										text += "<ModelAnswer>" + "\n";
+										text += question.modelanswer + "\n";
+										text += "<ModelAnswerEnd>" + "\n";
 										text += possibleAnswersText + "\n";
 										text += "Correct Answer:"
 												+ question.answerText + "\n";

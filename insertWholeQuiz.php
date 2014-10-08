@@ -1,13 +1,13 @@
 <?php header('Access-Control-Allow-Origin: *');
 
-function InsertQuestion($quizname, $body, $canswer, $type,$tolerance,$imagename,$panswerid) {
+function InsertQuestion($quizname, $body, $canswer, $type,$tolerance,$imagename,$panswerid,$modelanswer) {
 	$connectionString = "host=ec2-54-225-101-64.compute-1.amazonaws.com port=5432 dbname=d1nigmib60rp1v user=jykiewmddlbjft password=kRqkD183znoOpPNTlDq6f_Xs29";
 	$dbconnection = pg_connect($connectionString);
 	//Insert Question values into DB
 	if($panswerid == -1){
-		$result = pg_query($dbconnection,"INSERT INTO question (body,canswer,type,tolerance,quizname,imagename,panswerid) VALUES ('$body', '$canswer', '$type', '$tolerance','$quizname','$imagename',NULL);");
+		$result = pg_query($dbconnection,"INSERT INTO question (body,canswer,type,tolerance,quizname,imagename,panswerid,modelanswer) VALUES ('$body', '$canswer', '$type', '$tolerance','$quizname','$imagename',NULL,'$modelanswer');");
 	}else{
-		$result = pg_query($dbconnection,"INSERT INTO question (body,canswer,type,tolerance,quizname,imagename,panswerid) VALUES ('$body', '$canswer', '$type', '$tolerance', '$quizname', '$imagename','$panswerid');");
+		$result = pg_query($dbconnection,"INSERT INTO question (body,canswer,type,tolerance,quizname,imagename,panswerid,modelanswer) VALUES ('$body', '$canswer', '$type', '$tolerance', '$quizname', '$imagename','$panswerid','$modelanswer');");
 	}
 	if (!$result) {
 	  return"fail";
@@ -43,7 +43,10 @@ $coursecode = $_POST ['quizname']
 $questions = json_decode$_POST ['questions'];
 
 InsertQuiz(quizname);
-InsertQuestion(questions);
+for($i =1;$i<count($questions);$i++){
+	InsertQuestion(questions);	
+}
+
 
 
 ?>

@@ -38,9 +38,14 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 		while (questionLines[++currentIndex].indexOf("<BodyEnd>") == -1) {
 			bodyText = bodyText + questionLines[currentIndex];
 		}
-
 		question["body"] = bodyText;
 
+		var modelAnswerText = "";
+
+		while (questionLines[++currentIndex].indexOf("<ModelAnswerEnd>") == -1) {
+			modelAnswerText = modelAnswerText + questionLines[currentIndex];
+		}	
+		question["modelanswer"] = modelAnswerText;
 		// skip past body end
 		currentIndex++;
 		while (currentIndex < questionLines.length) {
@@ -85,14 +90,14 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 			// convert type
 			q["Possible Answers"] = -1;
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
-					q["Tolerance"], quizName, q["Image Name"]);
+					q["Tolerance"], quizName, q["Image Name"], q["modelanswer"]);
 		}
 
 	}
 }
 
 // use ajax function to insert into databsae - question
-function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) {
+function insert(body, panswerid, canswer, type, tolerance, quizname, imagename,modelanswer) {
 	console.log("test function call");
 	console.log("Values entered: " + body + " " + canswer + " " + type + " "
 			+ tolerance + " " + quizname);
@@ -108,7 +113,8 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 			"type" : type,
 			"tolerance" : tolerance,
 			"imagename" : imagename,
-			"panswerid" : panswerid
+			"panswerid" : panswerid,
+			"modelanswer" : modelanswer
 		},
 		success : function(response) {
 			console.log(response);
