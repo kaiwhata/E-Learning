@@ -48,6 +48,27 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 
 		});
 	}
+
+	$scope.verifyAdmin = function(){
+	    console.log("Check if admin is logged in");
+	 	 $.ajax({
+			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+			type: 'post',
+			data: {"funcName":"checkPasswordAdmin","username":sessionStorage.getItem('username'),"password":sessionStorage.getItem('password').trim()},
+			success: function(response){
+
+				if(response.indexOf("true")!=-1){
+					$scope.safeToShow = true;
+				}
+				else{
+					alert("Incorrect username or password");
+	 				window.location = "./login-fancy.html";
+	 				return;
+				}
+				console.log(response);
+				console.log("username from session"+sessionStorage.getItem('username').trim());
+				console.log("password from session"+sessionStorage.getItem('password').trim());
+	}
 	
 	// fname lname email avg numtaken
 	

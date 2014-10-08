@@ -17,6 +17,8 @@
 <button id="back" onclick="backToAdminPage()"
 	class="btn btn-lg btn-link">Back To Admin Page</button>
 <h1 style="margin-left: 5%">Quiz Entry</h1>
+<div ng-controller = "adminCtrl" ng-init = "verifyAdmin()" ></div>
+
 
 <table class="table table-bordered" style="margin-left: 5%; width: 90%">
 	<thead>
@@ -168,6 +170,9 @@
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src='quizParse.js'></script>
 <script type="text/javascript" src="q2t.js"></script>
+<script type="text/javascript" src="js/admin/app.js"></script>
+<script type="text/javascript" src="js/admin/controllers.js"></script>
+<script type="text/javascript" src="js/admin/services.js"></script>
 
 
 <!-- Bootstrap core JavaScript
