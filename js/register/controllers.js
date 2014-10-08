@@ -6,6 +6,7 @@ register
 				function registerCtrl($scope) {
 
 					$scope.allCourses = [];
+					$scope.coursesAdded =0;
 
 					$scope.shout = function(){
 						alert("HELLO!!!!");
@@ -102,37 +103,45 @@ register
 							    //alert("Successful");
 							    //call PHP function
 
+							
+
 
 							$.ajax({
-								url:'http://shrouded-earth-7234.herokuapp.com/attachCourses.php',
+								url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
 								type: 'post',
-								data: {'coursecodes':getAllSelectedCourses()},
+								data: {"funcName":"register","username":login.username.value,"email":login.email.value,"password":login.password.value,"fname":login.fname.value,"lname":login.lname.value},
+
 								success: function(response){
 									console.log(response);
+
+								if(response.indexOf("success")==-1){
+									alert("Could not register!");
+								}
+								else{
+									alert("Registration Successful");
+									sessionStorage.setItem('username',login.username.value);
+									sessionStorage.setItem('password',login.password.value);
+					 				// window.location = "./quizTest.html";
+
+							 		var courses = getAllSelectedCourses();
+									for(var i = 0;i<courses.length;i++){
+										$.ajax({
+											url:'http://shrouded-earth-7234.herokuapp.com/attachCourses.php',
+											type: 'post',
+											data: {'coursecode',courses[i].coursecode,'username',login.username},
+											success: function(response){
+												console.log(response);
+												if($scope.coursesAdded++==courses.length){
+													alert("all added");
+												}
+											}
+										});
+									}
+		
+		
+								}
 								}
 							});
-
-
-
-							// $.ajax({
-							// 	url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
-							// 	type: 'post',
-							// 	data: {"funcName":"register","username":login.username.value,"email":login.email.value,"password":login.password.value,"fname":login.fname.value,"lname":login.lname.value},
-
-							// 	success: function(response){
-							// 		console.log(response);
-
-							// 	if(response.indexOf("success")==-1){
-							// 		alert("Could not register!");
-							// 	}
-							// 	else{
-							// 		alert("Registration Successful");
-							// 		sessionStorage.setItem('username',login.username.value);
-							// 		sessionStorage.setItem('password',login.password.value);
-					 	// 			window.location = "./quizTest.html";
-							// 	}
-							// 	}
-							// });
 
 					    
 
