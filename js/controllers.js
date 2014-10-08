@@ -476,8 +476,7 @@ questionList
 							console.log("output"+output);
 
 							$scope.showThing = true;
-							$scope.apply();
-
+							$scope.$apply();
 
 					}
 
