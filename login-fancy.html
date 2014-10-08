@@ -29,7 +29,7 @@
 }
 
 .jumbotron{
-			padding-right:800px; 
+			padding-right:800px;
 			padding-left: 30%;
 			padding-bottom:100px;
 			margin-top:250px
@@ -91,38 +91,44 @@
 					</tbody>
 				</table>
 
-				
-			
 
 
-				<br> 
+
+
+				<br>
 				<div style="margin-left:155px; width:500px">
-					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submit" value="login"> 
-					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submitAdmin" value="login admin"> 
+					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submit" value="login">
+					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submitAdmin" value="login admin">
 					<input type="button" class="btn btn-xs btn-default" style="width: 100px" id="register"	value="register">
 				</div>
 				<script type="text/javascript">
 					document.getElementById("submit").onclick = confirm;
-					
-											$("#passwordInput").keydown(function(event) {
+
+					$("#passwordInput").keydown(function(event) {
 							if (event.which == 13) {
 								confirm();
 							}
 						});
-						
+
+					$(document).keypress(function(e) {
+						if(e.which == 13) {
+							confirm();
+						}
+					});
+
 					function confirm() {
 					if(login.username.value==""){
 						      alert("Please enter username");
 						      return;
 						}
-						
+
 						if(login.password.value==""){
 						      alert("Please enter password");
 						      return;
 						}
-						
-						
-					
+
+
+
 						$
 								.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -163,7 +169,7 @@
 						      alert("Please enter username");
 						      return;
 						}
-						
+
 						if(login.password.value==""){
 						      alert("Please enter password");
 						      return;
@@ -209,7 +215,7 @@
 			<script src="bootstrap/js/docs.min.js"></script>
 			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 			<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
-		
+
 
 
 </div>
