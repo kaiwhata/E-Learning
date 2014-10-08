@@ -14,11 +14,11 @@ header ( 'Access-Control-Allow-Origin: *' );
 
 // $array = array("foo", "bar", "hello", "world");
 
-// echo $_POST["coursecodes"];
+echo $_POST["coursecodes"];
 // echo $array[0];
 // echo $array[1];
 
-echo "fuck";
+// echo "fuck";
 ?>
 
 
