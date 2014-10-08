@@ -133,9 +133,21 @@ register
 												console.log(response);
 												if(++$scope.coursesAdded==courses.length){
 													alert("all courses added");
+
+													$.ajax({
+														url:'http://shrouded-earth-7234.herokuapp.com/getStudentsCourses.php',
+														type: 'post',
+														data: {'username':login.username.value},
+														success: function(response){
+															console.log(response);
+																alert("done done");
+															}
+														});
+
 												}
-											}
-										});
+											
+										}
+									});
 									}
 		
 		
