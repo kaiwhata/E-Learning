@@ -15,6 +15,8 @@ header ( 'Access-Control-Allow-Origin: *' );
 // $array = array("foo", "bar", "hello", "world");
 
 echo $_POST["coursecodes"];
+echo $_POST["coursecodes"][0];
+echo $_POST["coursecodes"][1];
 // echo $array[0];
 // echo $array[1];
 

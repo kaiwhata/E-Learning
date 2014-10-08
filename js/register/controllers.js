@@ -98,7 +98,7 @@ register
 					    		return;
 					    	}
 
-					    	console.log(getAllSelectedCourses())
+					    	console.log(getAllSelectedCourses());
 							    //alert("Successful");
 							    //call PHP function
 
@@ -106,7 +106,7 @@ register
 							$.ajax({
 								url:'http://shrouded-earth-7234.herokuapp.com/attachCourses.php',
 								type: 'post',
-								data: {'coursecodes':getAllSelectedCourses(),
+								data: {'coursecodes':getAllSelectedCourses()},
 								success: function(response){
 									console.log(response);
 								}
