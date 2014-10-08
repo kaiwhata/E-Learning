@@ -128,11 +128,11 @@ register
 										$.ajax({
 											url:'http://shrouded-earth-7234.herokuapp.com/attachCourses.php',
 											type: 'post',
-											data: {'coursecode',courses[i].coursecode,'username',login.username},
+											data: {'coursecode':courses[i].coursecode,'username':login.username.value},
 											success: function(response){
 												console.log(response);
-												if($scope.coursesAdded++==courses.length){
-													alert("all added");
+												if(++$scope.coursesAdded==courses.length){
+													alert("all courses added");
 												}
 											}
 										});
