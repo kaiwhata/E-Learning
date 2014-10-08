@@ -106,8 +106,9 @@ register
 							$.ajax({
 								url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
 								type: 'post',
-								data: {'coursecode':getAllSelectedCourses()},
+								data: {'coursecodes':'blah'},
 								success: function(response){
+									console.log(response);
 								}
 							});
 
