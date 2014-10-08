@@ -16,7 +16,7 @@ questionList
 
 					$scope.hasTakenQuiz = true;
 
-					$scope.showThing = true;
+					$scope.showThing = false;
 
 					$scope.checkIfTaken = function(){
 						var username = sessionStorage.getItem("username");
@@ -36,9 +36,12 @@ questionList
 								if(Number(response)==1){
 									$scope.showThing = true;
 									document.getElementById("checkButton").disabled = true;
+									$scope.$apply();
+
 								}else{
 									$scope.showThing = false;
 									document.getElementById("checkButton").disabled = false;
+									$scope.$apply();
 								}
 
 								//alert(response);
@@ -238,6 +241,7 @@ questionList
 														id, body, answerIdx,
 														options, image)
 
+												question.modelAnswer = questionJSON["modelanswer"];
 
 												$scope.questions.push(question);
 											}
@@ -248,9 +252,13 @@ questionList
 												var id = questionJSON["id"];
 												var tol = questionJSON["tolerance"];
 												var image=questionJSON["imagename"];
+												
 												var question = new NumberEntryToleranceQuestion(
 														id, body, answer, tol, image);
+												
+												question.modelAnswer = questionJSON["modelanswer"];
 
+												
 												$scope.questions.push(question);
 											}
 											// TEXT TYPE
@@ -265,7 +273,7 @@ questionList
 														id, body, answerArray, image);
 
 
-
+												question.modelAnswer = questionJSON["modelanswer"];
 
 												$scope.questions.push(question);
 
@@ -375,20 +383,20 @@ questionList
 
 										if (q.checkAnswer(chosenIndex)){
 											score++;
-											output = output + "<br>";
-											output = output + "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
-											output = output + "</br>";
-											document.getElementById("answerText").innerHTML =output;
-											//alert("CORRECT!  the answer was "+q.answerText);
-
+											var result = "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
+											document.getElementById("result"+i).innerHTML =result;
+											document.getElementById("result"+i).style.color = "green";
+											document.getElementById("resultsBox"+i).style.opacity = 0;
+											$("#resultsBox"+i).animate({opacity:"1"},1000)
 
 
 										}else{
-											output = output + "<br>";
-											output = output + "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
-											output = output + "</br>";
-											document.getElementById("answerText").innerHTML =output;
-											//alert("INCORRECT!  the answer was "+q.answerText);
+
+											var result = "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
+											document.getElementById("result"+i).innerHTML =result;
+											document.getElementById("result"+i).style.color = "red";
+											document.getElementById("resultsBox"+i).style.opacity = 0;
+											$("#resultsBox"+i).animate({opacity:"1"},1000)
 										}
 									}
 
@@ -401,19 +409,20 @@ questionList
 										console.log(answer);
 										if (q.checkAnswer(answer)){
 											score++;
-											output = output + "<br>";
-											output = output +"CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
-											output = output + "</br>";
-											document.getElementById("answerText").innerHTML =output;
-											//alert("CORRECT!  the answer was "+q.answerText);
+											var result = "CORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
+											document.getElementById("result"+i).innerHTML =result;
+											document.getElementById("result"+i).style.color = "green";
+											document.getElementById("resultsBox"+i).style.opacity = 0;
+											$("#resultsBox"+i).animate({opacity:"1"},1000)
 
 										}else{
-											output = output + "<br>";
-											output = output + "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
-											output = output + "</br>";
-											document.getElementById("answerText").innerHTML =output;
 
-											//alert("INCORRECT!  the answer was "+q.answerText);
+
+											var result = "INCORRECT! Answer for question " + (i+one) + " is:" + q.answerText;
+											document.getElementById("result"+i).innerHTML =result;
+											document.getElementById("result"+i).style.color = "red";
+											document.getElementById("resultsBox"+i).style.opacity = 0;
+											$("#resultsBox"+i).animate({opacity:"1"},1000+i*500)
 											}
 									}
 								}catch(err){
@@ -435,6 +444,7 @@ questionList
 							}else{
 								document.getElementById("errorText").innerHTML = "";
 								document.getElementById("checkButton").disabled = true;
+								document.getElementById("checkButton").innerHTML = "Submitted";
 							}
 							var username = sessionStorage.getItem('username').trim();
 							var password = sessionStorage.getItem('password').trim();
@@ -465,10 +475,16 @@ questionList
 							console.log("MYSCORE: " + per);
 							console.log("output"+output);
 
+							$scope.showThing = true;
+							$scope.apply();
+
 
 					}
 
-
+					$scope.init = function(){
+						$scope.checkIfTaken();
+						$scope.getQuestions();
+					}
 
 					$scope.test = function(){
 						//test log in correct name
