@@ -19,7 +19,7 @@ echo ($_POST["coursecodes"][0]);
 echo ($_POST["coursecodes"][1]);
 
 foreach ($_POST["coursecodes"] as &$value) {
-	echo $value;
+	echo $value[0];
 
 }
 // echo $array[0];
