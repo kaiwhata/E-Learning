@@ -54,13 +54,13 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	$scope.getAllResults = function() {
 		console.log("hello");
 		if(!sessionStorage.getItem("password")){
-			alert("no password");
-	 		//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			alert("not logged in as admin");
+	 		window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 	 		return;
 
 		}else if (!sessionStorage.getItem("username")){
-			alert("no username");
-	 		//window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
+			alert("not logeed in as admin");
+	 		window.location = "http://shrouded-earth-7234.herokuapp.com/login-fancy.html";
 	 		return;
 		}
 		$.ajax({

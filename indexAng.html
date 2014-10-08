@@ -183,6 +183,17 @@ margin-top:200px
 
 
 </body>
+<script>
+	window.onLoad = load()
+	function load() {
+
+		if (sessionStorage.getItem('username') == null) {
+
+		alert("You're not logged in, redirecting to home");
+		window.location = "./login-fancy.html";
+		}
+	}
+</script>
 
  <!-- Bootstrap core JavaScript
     ================================================== -->
