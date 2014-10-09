@@ -91,7 +91,19 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 
 					}//end for
-					$scope.callBack();
+
+					$.ajax({
+						url:'http://shrouded-earth-7234.herokuapp.com/getStudentsCourses.php',
+						type: 'post',
+						data: {'username':sessionStorage.getItem("username")},
+						success: function(response){
+
+							console.log(response);
+							alert("done done");
+							$scope.callBack();
+						}
+					});
+					
 				}//end success
 			});//end ajax
 		}//end getQuizesFunction
