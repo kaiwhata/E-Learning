@@ -19,7 +19,7 @@ function readQuestion() {
 				success : function(response) {
 
 					var array = response;
-
+					console.log("array repsonse is: " + array);
 					var questionArray = [];
 					for (var i = 0; i < JSON.parse(array).length; i++) {
 						var questionJSON = JSON
@@ -116,6 +116,9 @@ function readQuestion() {
 									text += "Course Code:" + courseCode + "\n";
 									console.log("Text: "+text);
 									text += "\n";
+									
+									console.log("Length of lah: "+questions.length);
+									
 									for (var i = 0; i < questions.length; i++) {
 										var question = questions[i];
 
