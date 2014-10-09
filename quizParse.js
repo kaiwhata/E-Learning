@@ -6,6 +6,7 @@ var name2num = {
 }
 
 function submit() {
+	console.log("Went here");
 	var questionTexts = document.getElementById("something").value.split("Question");
 //	var questionTexts = quizInsert.quizFormat.value.split("Question");
 
@@ -89,6 +90,9 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 		} else {
 			// convert type
 			q["Possible Answers"] = -1;
+			
+			console.log("Hey Eman: "+q["body"]+" "+ q["Possible Answers"]+" "+ q["Correct Answer"]+" "+ type+" "+ q["Tolerance"]+" "+ quizName+" "+ q["Image Name"]+" "+ q["modelanswer"]);
+			
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"], q["modelanswer"]);
 		}

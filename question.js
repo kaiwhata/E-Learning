@@ -142,7 +142,7 @@ var MultiChoiceQuestion = function(id, bodyText, answerIndex, optionsText, image
 var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, image) {
 	Question.call(this, id, bodyText, answerNum, image);
 
-	this.questionType = "numTol";
+	this.questionType = "number";
 
 	this.tolerance = tolerance;
 
