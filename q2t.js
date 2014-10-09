@@ -1,5 +1,5 @@
 function readQuestion() {
-	var quizname = sessionStorage.getItem("quizname");
+	var quizname = sessionStorage.getItem("quizname").trim();
 	if (quizname == null) return;
 	var questions = [];
 	// ajax call to get questions
@@ -8,6 +8,7 @@ function readQuestion() {
 	// $scope._initial = new Date();
 	// $scope._initial = $scope._initial.getTime());
 	// console.log("Initial Time: "+$scope._initial.getTime());
+	console.log("quizname is : " + quizname);
 	$
 			.ajax({
 				url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
