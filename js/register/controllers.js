@@ -63,6 +63,14 @@ register
 					return selectedCourses;
 				}
 
+				$scope.logout = function(){
+						   		sessionStorage.removeItem("username");
+						   		sessionStorage.removeItem("password");
+						   		window.location = "./login-fancy.html";
+
+
+				}
+
 				
 
 
