@@ -32,6 +32,15 @@
 
 <title>Register Page</title>
 </head>
+
+
+
+
+		<button id="logoutBtn" class="btn btn-lg btn-link" onclick="logout()" style="top-margin:100px">Logout</button>
+		<button onclick="window.location = './results.html'"
+			class="btn btn-lg btn-link">Results</button>
+
+
 <div class="jumbotron" onload = "alert('dssdfsd');">
 
 
@@ -137,7 +146,7 @@
 						<br>
 						<div style="margin-left:155px; width:500px">
 							<input type="button" class="btn btn-success" style="width:100px" id="submit" value="Register" ng-click="clickedSubmit()">
-							<input type="button" class="btn btn-success" style="width:150px" id="home" value="Back to Log In">
+							<input type="button" class="btn btn-default" style="width:150px" id="home" value="Back to Log In" ng-click="logout();">
 						</div>
 						<script type="text/javascript">
 
