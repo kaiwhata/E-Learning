@@ -23,7 +23,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 						// create button
 						$scope.loaded=true;
 						$scope.$apply();
-
 					}//end for
 
 				}//end success
