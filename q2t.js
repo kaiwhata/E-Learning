@@ -59,6 +59,8 @@ function readQuestion() {
 							
 							question.modelanswer = questionJSON["modelanswer"];
 							
+							console.log("Multi: "+question.questionType);
+							
 							questions.push(question);
 						}
 						// NUMBER TYPE
@@ -72,6 +74,8 @@ function readQuestion() {
 									body, answer, tol, image);
 							
 							question.modelanswer = questionJSON["modelanswer"];
+							
+							console.log("Number: "+question.questionType);
 							
 							questions.push(question);
 						}
@@ -87,6 +91,8 @@ function readQuestion() {
 									answerArray, image);
 							
 							question.modelanswer = questionJSON["modelanswer"];
+							
+							console.log("Text: "+question.questionType);
 							
 							questions.push(question);
 
@@ -104,9 +110,11 @@ function readQuestion() {
 								},
 								success : function(response) {
 									courseCode = response.trim();
-
+									console.log("php response is: " + response);
 									var text = "Quiz Name:" + quizname + "\n";
+									console.log("Text: "+text);
 									text += "Course Code:" + courseCode + "\n";
+									console.log("Text: "+text);
 									text += "\n";
 									for (var i = 0; i < questions.length; i++) {
 										var question = questions[i];
@@ -130,6 +138,7 @@ function readQuestion() {
 
 										// get appropriate tolerance text
 										var toleranceText = "0";
+										
 										if (question.questionType
 												.indexOf("number") != -1) {
 											toleranceText = question.tolerance;
@@ -160,7 +169,7 @@ function readQuestion() {
 										text += "Image Name:" + imageText
 												+ "\n"
 									}
-
+									console.log("Text: "+text);
 									document.getElementById("something").value = text;
 								}
 							});
