@@ -39,7 +39,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 			success: function(response){
 
 				if(response.indexOf("true")!=-1){
-					alert("it is true");
 					$scope.safeToShow = true;
 				}
 				else{
