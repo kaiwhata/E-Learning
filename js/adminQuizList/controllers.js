@@ -42,7 +42,7 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 				}
 				else{
 					alert("Incorrect username or password");
-	 				window.location = "./login-fancy.html";
+	 				window.location = "./login.html";
 	 				return;
 				}
 				console.log(response);

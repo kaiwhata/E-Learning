@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+
+<!-- Bootstrap core CSS -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="theme.css" rel="stylesheet">
+
+<style type="text/css" id="holderjs-style"></style>
+</head>
+
+
+<title>Log In Page</title>
+</head>
+<style>
+.error-message {
+	color: red;
+}
+
+.jumbotron{
+			padding-right:800px;
+			padding-left: 30%;
+			padding-bottom:100px;
+			margin-top:250px
+			}
+</style>
+
+
+<div class="jumbotron">
+
+
+
+
+			<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+			<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+			<script type="text/javascript" src="js/app.js"></script>
+			<script type="text/javascript" src="js/controllers.js"></script>
+			<script type="text/javascript" src="js/services.js"></script>
+
+			<!-- 	<div>
+				<img src="http://www.best-masters.com/photo_ecole/737-p.jpg">
+			</div> -->
+			<form novalidate ng-app name="login">
+				<h1 style="margin-left:172px; width:500px">Log In</h1>
+				<br>
+
+				<table style="width:800px;text-align:left;">
+					<tbody>
+
+
+						<tr>
+							<td>
+								<label for="username">Username</label>
+								<input type="text" name="username" ng-model="username" ng-minlength="3" ng-maxlength="15" required></input>
+								<br />
+							</td>
+							<td>
+								<div class="error-message"
+									ng-show="login.username.$dirty && login.username.$error.required">
+									Username is required
+								</div>
+							</td>
+						</tr>
+
+
+
+						<tr>
+							<td>
+								<label for="password">Password</label>
+								<input type="password" name="password" ng-model="password" required
+								ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
+							</td>
+							<td style="width: 315px">
+								<div class="error-message"
+									ng-show="login.password.$dirty && login.password.$error.required">
+									Password is required
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+
+
+
+
+				<br>
+				<div style="margin-left:155px; width:500px">
+					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submit" value="Student Login">
+					<input type="button" class="btn btn-xs btn-success" style="width: 100px" id="submitAdmin" value="Admin Login">
+					<input type="button" class="btn btn-xs btn-default" style="width: 100px" id="register"	value="Register">
+				</div>
+				<script type="text/javascript">
+					document.getElementById("submit").onclick = confirm;
+
+					$("#passwordInput").keydown(function(event) {
+							if (event.which == 13) {
+								confirm();
+							}
+						});
+
+					$(document).keypress(function(e) {
+						if(e.which == 13) {
+							confirm();
+						}
+					});
+
+					function confirm() {
+					if(login.username.value==""){
+						      alert("Please enter username");
+						      return;
+						}
+
+						if(login.password.value==""){
+						      alert("Please enter password");
+						      return;
+						}
+
+
+
+						$
+								.ajax({
+									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+									type : 'post',
+									data : {
+										"funcName" : "checkPassword",
+										"username" : login.username.value,
+										"password" : login.password.value
+									},
+									success : function(response) {
+
+										if (response.indexOf("true") != -1) {
+											//remember my deets
+											sessionStorage.setItem('username',
+													login.username.value);
+											sessionStorage.setItem('password',
+													login.password.value);
+											window.location = "./quizTest.html";
+										} else {
+											alert("Incorrect username or password");
+										}
+										console.log(response);
+										console.log("username from session"
+												+ sessionStorage
+														.getItem('username'));
+										console.log("password from session"
+												+ sessionStorage
+														.getItem('password'));
+
+									}
+
+								});
+					}
+
+					document.getElementById("submitAdmin").onclick = confirmAdmin;
+					function confirmAdmin() {
+						if(login.username.value==""){
+						      alert("Please enter username");
+						      return;
+						}
+
+						if(login.password.value==""){
+						      alert("Please enter password");
+						      return;
+						}
+						$
+								.ajax({
+									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
+									type : 'post',
+									data : {
+										"funcName" : "checkPasswordAdmin",
+										"username" : login.username.value,
+										"password" : login.password.value
+									},
+									success : function(response) {
+
+										if (response.indexOf("true") != -1) {
+											//remember my deets
+											sessionStorage.setItem('username',
+													login.username.value);
+											sessionStorage.setItem('password',
+													login.password.value);
+											window.location = "./adminPage.html";
+										} else {
+											alert("Incorrect username or password");
+
+										}
+
+									}
+									});
+						}
+
+						document.getElementById("register").onclick = linkToRegistration;
+						function linkToRegistration() {
+							window.location = "./Register.html";
+						}
+					</script>
+				</form>
+			<!-- Bootstrap core JavaScript
+			<!-- Placed at the end of the document so the pages load faster -->
+			<script
+				src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script src="bootsrap/js/bootstrap.min.js"></script>
+			<script src="bootstrap/js/docs.min.js"></script>
+			<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+			<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
+</div>
+</html>
