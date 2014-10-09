@@ -127,7 +127,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		console.log(index);
 
 		// figure out code using index
-		$scope.selectedCourse = $scope.courses[index].coursecode;
+		$scope.selectedCourse = Object.keys($scope.chrisMap)[index];
 		console.log("Code is: "+$scope.selectedCourse);
 
 		// populate quizzes array
