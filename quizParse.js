@@ -160,7 +160,7 @@ function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 					insert(possibleAnswerQuestion["body"], panswerid,
 							possibleAnswerQuestion["Correct Answer"], type,
 							possibleAnswerQuestion["Tolerance"], quizName,
-							possibleAnswerQuestion["Image Name"]);
+							possibleAnswerQuestion["Image Name"],possibleAnswerQuestion["modelanswer"]);
 				}
 
 			});
