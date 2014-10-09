@@ -48,20 +48,19 @@
 
 
 		<button id="logoutBtn" class="btn btn-lg btn-link" onclick="logout()">Logout</button>
-		<button
-			onclick="window.location = './results.html'"
+		<button onclick="window.location = './results.html'"
 			class="btn btn-lg btn-link">Results</button>
 	</div>
 </div>
 <br>
 <div class="jumbotron">
 	<div class="col-md-5" style="width: 100%; text-align: center;">
-		<body onload="load()">
+		<body onload="load()" ng-controller="quizCtrl">
 			<script>
 				function load() {
 					if (sessionStorage.getItem('username') == null) {
 						alert("You're not logged in, redirecting to home");
-						 window.location = "./login-fancy.html";
+						window.location = "./login-fancy.html";
 					}
 				}
 			</script>
@@ -69,13 +68,55 @@
 
 			<br>
 			<br>
-			<div style="width:42%; margin: 0 auto;">
-				<div class="page-header" style="margin-top: -150px">
-					<h1>Available Courses</h1>
-				</div>
-				<br> <br> <br>
 
-				<nav id="menu" style="width:100%">
+			<div class="page-header" style="margin-top: -150px">
+				<h1>Available Courses</h1>
+			</div>
+
+
+
+				<table style="width: 30%; float: left">
+
+					<tr>
+
+						<td style="width: 30%">
+
+							<div class="col-sm-4" ng-init="getStuff()"
+								style="margin-top: 0px; width: 100%; height: 100%">
+								<div class="list-group" style="width: 100%; height: 100%">
+									<a href="#" class="list-group-item active"> Course </a> <a
+										ng-repeat="(courseName,quizNames) in chrisMap track by $index"
+										ng-click="clickCourse($index)" href="#"
+										class="list-group-item">{{courseName}}</a>
+								</div>
+							</div>
+
+						</td>
+
+					</tr>
+				</table>
+				<table style="width: 70%; float: left">
+					<tr>
+						<td style="width: 70%">
+
+							<div id="quizListGUI" class="col-sm-4"
+								ng-init="initialiseQuizzes()" style="width: 100%; height: 100%">
+								<div class="list-group" style="width: 100%; height: 100%">
+									<a href="#" class="list-group-item active"> Quiz </a> <a
+										ng-repeat="quiz in quizzes track by $index"
+										ng-click="selectQuiz(quiz)" href="#" class="list-group-item">{{quiz}}</a>
+								</div>
+							</div>
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+			<!--
+			<nav id="menu" style="width:800px; height:200px; margin-left:30%; float:center">
 
 			        <ul class="parent-menu" ng-controller="quizCtrl" ng-init="getStuff()">
 
@@ -90,13 +131,20 @@
 
 			            </li>
 
-			            
+
 
 			        </ul>
 
 			    </nav>
+			    -->
 
-			    <!-- hello -->
+			<div style="width: 42%; margin: 0 auto;">
+
+				<br> <br> <br>
+
+
+
+				<!-- hello -->
 
 				<!--
 				<div id="main" ng-controller="quizCtrl" ng-show="loaded"
@@ -113,7 +161,8 @@
 						<br> <br> <br>
 					</div>
 				</div>
-			-->
+				-->
+
 
 				<script>
 					function gotoResults() {
