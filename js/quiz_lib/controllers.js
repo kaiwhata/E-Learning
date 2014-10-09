@@ -39,8 +39,8 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 			console.log("chris says: "+code);
 
-			if($scope.chrisMap[code]==null){
-				$scope.chrisMap[code]=[];
+			if($scope.chrisMap[code.trim()]==null){
+				continue;
 			}
 
 			$scope.chrisMap[code].push(name);
@@ -98,8 +98,13 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 						data: {'username':sessionStorage.getItem("username")},
 						success: function(response){
 
-							console.log(response);
-							alert("done done");
+							
+							var jsonArray = JSON.parse(response);
+							for(var i=0;i<jsonArray.length;i++){
+								var jobject = jsonArray[i];
+								$scope.chrisMap[jobject.code.trim()]=[];
+							}
+							
 							$scope.callBack();
 						}
 					});
