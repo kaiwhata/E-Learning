@@ -15,7 +15,6 @@ header ( 'Access-Control-Allow-Origin: *' );
 
 
 	$result = pg_query ( $dbconnection, "SELECT code FROM coursestaken WHERE id = $userid");
-	echo"frrrrp";
 	echo (json_encode (pg_fetch_all ( $result ) ));
 
 
