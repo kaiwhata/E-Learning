@@ -48,6 +48,8 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 
 		});
 	}
+
+	
 	
 	// fname lname email avg numtaken
 	

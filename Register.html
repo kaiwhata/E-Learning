@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app = "register">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +15,6 @@
     <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="theme.css" rel="stylesheet">
 
   <style type="text/css" id="holderjs-style"></style></head>
 
@@ -33,16 +32,16 @@
 
 <title>Register Page</title>
 </head>
-<div class="jumbotron">
+<div class="jumbotron" onload = "alert('dssdfsd');">
 
 
 
 		<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-		<script type="text/javascript" src="js/app.js"></script>
-		<script type="text/javascript" src="js/controllers.js"></script>
-		<script type="text/javascript" src="js/services.js"></script>
-					<form novalidate ng-app name="login" autocomplete="off">
+		<script type="text/javascript" src="js/register/app.js"></script>
+		<script type="text/javascript" src="js/register/controllers.js"></script>
+		<script type="text/javascript" src="js/register/services.js"></script>
+					<form novalidate name="login" ng-controller="registerCtrl" autocomplete="off" ng-init="generateCourseBoxes();">
 					<h1 style="margin-left:170px">Register</h1>
 						<table style="width:800px;text-align:left;">
 							<tbody>
@@ -111,6 +110,20 @@
 										</div>
 									</td>
 								</tr>
+								<tr>
+									<td>
+										<label for="Courses">Courses</label>
+
+									<div id = "coursesdiv">				
+										<div ng-repeat ="course in allCourses track by $index">
+											<input type="checkbox" id="toggle" value="off" ng-model="course.selected" style="width:30px;margin-left:180px"/> {{course.coursecode}}
+											<br>
+										</div>
+									</div>
+									
+									<td style="width: 315px">
+									</td>
+								</tr>
 							</tbody>
 						</table>
 
@@ -123,78 +136,20 @@
 
 						<br>
 						<div style="margin-left:155px; width:500px">
-							<input type="button" class="btn btn-success" style="width:100px" id="submit" value="Register">
+							<input type="button" class="btn btn-success" style="width:100px" id="submit" value="Register" ng-click="clickedSubmit()">
 							<input type="button" class="btn btn-success" style="width:150px" id="home" value="Back to Log In">
 						</div>
 						<script type="text/javascript">
-					    document.getElementById("submit").onclick = confirm;
 
-					    function confirm() {
-					    	console.log("username: "+ login.username.value);
-					    	console.log("email: "+ login.email.value);
-					    	console.log("password : "+ login.password.value);
-					    	console.log("fname: "+ login.fname.value);
-					    	console.log("lname: "+ login.lname.value);
-
-					    	//if any fields are blank get outa here
-					    	if(!login.username.value){
-					    		alert("please enter a username");
-					    		return;
-					    	}
-					    	if(!login.email.value){
-					    		alert("please enter a email");
-					    		return;
-						}
-					    	if(!login.password.value){
-					    		alert("please enter a password");
-					    		return;
-						}
-					    	if(!login.fname.value){
-					    		alert("please enter a first name");
-					    		return;
-						}
-					    	if(!login.lname.value){
-					    		alert("please enter a last name");
-					    		return;
-					    	}
-							    //alert("Successful");
-							    //call PHP function
-							$.ajax({
-								url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
-								type: 'post',
-								data: {"funcName":"register","username":login.username.value,"email":login.email.value,"password":login.password.value,"fname":login.fname.value,"lname":login.lname.value},
-
-								success: function(response){
-									console.log(response);
-
-								if(response.indexOf("success")==-1){
-									alert("Could not register!");
-								}
-								else{
-									alert("Registration Successful");
-									sessionStorage.setItem('username',login.username.value);
-									sessionStorage.setItem('password',login.password.value);
-					 				window.location = "./quizTest.html";
-								}
-								}
-							});
-
-					    }
-
-						document.getElementById("home").onclick = linkToHome;
-						   	function linkToHome() {
-						   		window.location = "./login-fancy.html";
-						}
 					</script>
 					</form>
    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		    <script src="bootsrap/js/bootstrap.min.js"></script>
-		    <script src="bootstrap/js/docs.min.js"></script>
+
 		    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		    <script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+
 
 </div>
 </html>

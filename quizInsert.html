@@ -18,6 +18,9 @@
 	class="btn btn-lg btn-link">Back To Admin Page</button>
 <h1 style="margin-left: 5%">Quiz Entry</h1>
 
+<div ng-controller = "adminQuizCtrl" ng-init = "verifyAdmin()" >
+
+
 <table class="table table-bordered" style="margin-left: 5%; width: 90%">
 	<thead>
 		<th>Text</th>
@@ -34,15 +37,22 @@
 					Quiz Name:TextTestv1<br> Course Code:SWEN302<br> <br>
 					Question<br> ---------<br>
 					<Body>
+						&lt;Body&gt;
 						<br> What is the course code for this course?
-						<br>
+						<br>&lt;BodyEnd&gt;
 						<BodyEnd>
-						<br>
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
 						Possible Answers:<br>
 						Correct Answer:SWEN302<br>
 						Type:text<br>
 						Tolerance:0<br>
-						Image Name:<br>
+						Image Name:<br>	
+						<br>
+						<br>
+						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+				</p>
 				</p>
 			</td>
 			<td>
@@ -50,15 +60,22 @@
 					Quiz Name:TextTestv2<br> Course Code:SWEN302<br> <br>
 					Question<br> ---------<br>
 					<Body>
+						&lt;Body&gt;
 						<br> 2+2=?
-						<br>
-						<BodyEnd>
-						<br>
+						<br>&lt;BodyEnd&gt;						
+
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>						<br>
 						Possible Answers:<br>
 						Correct Answer:4<br>
 						Type:text<br>
 						Tolerance:0<br>
 						Image Name:<br>
+						<br>
+						<br>
+						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+				</p>
 				</p>
 			</td>
 			<td>
@@ -66,18 +83,20 @@
 					Quiz Name:TextTestv3<br> Course Code:SWEN302<br> <br>
 					Question<br> ---------<br>
 					<Body>
+						&lt;Body&gt;
 						<br> What is the course code for this course?
-						<br>
-						<BodyEnd>
-						<br>
+						<br>&lt;BodyEnd&gt;						
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
 						Possible Answers:<br>
 						Correct Answer:SWEN302<br>
 						Type:text<br>
 						Tolerance:0<br>
 						Image Name:<br>
-
-						Note that you need to use the<br>
-						browse dialog below to upload an image.<br>
+						<br>
+						<br>
+						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
 				</p>
 			</td>
 			<td>
@@ -85,15 +104,26 @@
 					Quiz Name:TextTestv4<br> Course Code:SWEN302<br> <br>
 					Question<br> ---------<br>
 					<Body>
+						&lt;Body&gt;
 						<br> What is 9+9?
-						<br>
-						<BodyEnd>
-						<br>
+						<br>&lt;BodyEnd&gt;
+
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+												<br>
 						Possible Answers:16,17,18,158<br>
-						Correct Answer:4<br>
+						Correct Answer:18<br>
 						Type:multi<br>
 						Tolerance:0<br>
-						Image Name:<br>
+						Image Name:<br>	
+						<br>
+						<br>
+
+						<p style="color:red">
+							Note:make sure url for images are on the same line as Image Name<br>				
+							Correct Answer is the actual correct answer, not the index of the answer<br>
+						</p>	
 				</p>
 			</td>
 			<td>
@@ -101,15 +131,21 @@
 					Quiz Name:TextTestv5<br> Course Code:SWEN302<br> <br>
 					Question<br> ---------<br>
 					<Body>
+						&lt;Body&gt;
 						<br> What is \(sin^2(x) + cos^2(x)\)+1?
-						<br>
-						<BodyEnd>
-						<br>
+						<br>&lt;BodyEnd&gt;
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
 						Possible Answers:<br>
 						Correct Answer:1<br>
 						Type:number<br>
 						Tolerance:0<br>
-						Image Name:<br>"/u/students/chungalex/shrouded-earth-7234/quizEditor.html"
+						Image Name:http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flower_poster_2.jpg/330px-Flower_poster_2.jpg
+						<br>
+						<br>
+						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+						
 				</p>
 			</td>
 		</tr>
@@ -163,11 +199,18 @@
 		window.location = "./adminPage.html";
 	}
 </script>
+
+</div>
 </body>
+<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 <script type="text/javascript" src="question.js"></script>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src='quizParse.js'></script>
 <script type="text/javascript" src="q2t.js"></script>
+<script type="text/javascript" src="js/admin/app.js"></script>
+<script type="text/javascript" src="js/admin/controllers.js"></script>
+<script type="text/javascript" src="js/adminQuizList/controllers.js"></script>
+<script type="text/javascript" src="js/admin/services.js"></script>
 
 
 <!-- Bootstrap core JavaScript
