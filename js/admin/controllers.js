@@ -63,6 +63,7 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 		}else if (!sessionStorage.getItem("username")){
 			alert("not logeed in as admin");
 	 		window.location = "./login.html";
+
 	 		return;
 		}
 		$.ajax({
