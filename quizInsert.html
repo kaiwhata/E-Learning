@@ -14,11 +14,12 @@
 
 <title>Quiz Entry</title>
 </head>
+<div ng-controller = "adminQuizCtrl" ng-init = "verifyAdmin()" >
 <button id="back" onclick="backToAdminPage()"
 	class="btn btn-lg btn-link">Back To Admin Page</button>
 <h1 style="margin-left: 5%">Quiz Entry</h1>
 
-<div ng-controller = "adminQuizCtrl" ng-init = "verifyAdmin()" >
+
 
 
 <table class="table table-bordered" style="margin-left: 5%; width: 90%">
@@ -49,10 +50,6 @@
 						Type:text<br>
 						Tolerance:0<br>
 						Image Name:<br>	
-						<br>
-						<br>
-						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
-				</p>
 				</p>
 			</td>
 			<td>
@@ -66,15 +63,13 @@
 
 						<br>&lt;ModelAnswer&gt;
 						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
-						<br>&lt;ModelAnswerEnd&gt;<br>						<br>
+						<br>&lt;ModelAnswerEnd&gt;<br>
 						Possible Answers:<br>
 						Correct Answer:4<br>
-						Type:text<br>
+						Type:number<br>
 						Tolerance:0<br>
 						Image Name:<br>
-						<br>
-						<br>
-						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+									
 				</p>
 				</p>
 			</td>
@@ -93,10 +88,12 @@
 						Correct Answer:SWEN302<br>
 						Type:text<br>
 						Tolerance:0<br>
-						Image Name:<br>
+						Image Name:/images/vicLogo.jpg<br>
 						<br>
 						<br>
 						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+				</p>
+
 				</p>
 			</td>
 			<td>
@@ -111,7 +108,6 @@
 						<br>&lt;ModelAnswer&gt;
 						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
 						<br>&lt;ModelAnswerEnd&gt;<br>
-												<br>
 						Possible Answers:16,17,18,158<br>
 						Correct Answer:18<br>
 						Type:multi<br>
@@ -121,8 +117,7 @@
 						<br>
 
 						<p style="color:red">
-							Note:make sure url for images are on the same line as Image Name<br>				
-							Correct Answer is the actual correct answer, not the index of the answer<br>
+							Note:Correct Answer is the actual correct answer, not the index of the answer<br>
 						</p>	
 				</p>
 			</td>
@@ -141,10 +136,8 @@
 						Correct Answer:1<br>
 						Type:number<br>
 						Tolerance:0<br>
-						Image Name:http://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flower_poster_2.jpg/330px-Flower_poster_2.jpg
-						<br>
-						<br>
-						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+						Image Name:
+		
 						
 				</p>
 			</td>
@@ -171,12 +164,13 @@
 
 
 
-
+<!--
 <div style="margin-left: 25%; width: 50%">
 	<input style="margin-left: 30%;" type="text" value="Browse for image"
 		id="whatever">
 	<button class="btn btn-sm btn-default">Browse</button>
 </div>
+-->
 <br>
 <div style="margin-left: 25%; width: 50%">
 	<input style="margin-left: 30%;" class="btn btn-sm btn-success"
@@ -199,19 +193,16 @@
 		window.location = "./adminPage.html";
 	}
 </script>
-
 </div>
+
 </body>
+
 <script type="text/javascript" src="js/libraries/angular/angular.js"></script>
 <script type="text/javascript" src="question.js"></script>
 <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src='quizParse.js'></script>
 <script type="text/javascript" src="q2t.js"></script>
-<script type="text/javascript" src="js/admin/app.js"></script>
-<script type="text/javascript" src="js/admin/controllers.js"></script>
 <script type="text/javascript" src="js/adminQuizList/controllers.js"></script>
-<script type="text/javascript" src="js/admin/services.js"></script>
-
 
 <!-- Bootstrap core JavaScript
     ================================================== -->

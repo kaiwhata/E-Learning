@@ -1,5 +1,5 @@
 function readQuestion() {
-	var quizname = sessionStorage.getItem("quizname");
+	var quizname = sessionStorage.getItem("quizname").trim();
 	if (quizname == null) return;
 	var questions = [];
 	// ajax call to get questions
@@ -8,6 +8,7 @@ function readQuestion() {
 	// $scope._initial = new Date();
 	// $scope._initial = $scope._initial.getTime());
 	// console.log("Initial Time: "+$scope._initial.getTime());
+	console.log("quizname is : " + quizname);
 	$
 			.ajax({
 				url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -19,7 +20,7 @@ function readQuestion() {
 				success : function(response) {
 
 					var array = response;
-
+					console.log("array repsonse is: " + array);
 					var questionArray = [];
 					for (var i = 0; i < JSON.parse(array).length; i++) {
 						var questionJSON = JSON
@@ -59,6 +60,8 @@ function readQuestion() {
 							
 							question.modelanswer = questionJSON["modelanswer"];
 							
+							console.log("Multi: "+question.questionType);
+							
 							questions.push(question);
 						}
 						// NUMBER TYPE
@@ -72,6 +75,8 @@ function readQuestion() {
 									body, answer, tol, image);
 							
 							question.modelanswer = questionJSON["modelanswer"];
+							
+							console.log("Number: "+question.questionType);
 							
 							questions.push(question);
 						}
@@ -87,6 +92,8 @@ function readQuestion() {
 									answerArray, image);
 							
 							question.modelanswer = questionJSON["modelanswer"];
+							
+							console.log("Text: "+question.questionType);
 							
 							questions.push(question);
 
@@ -104,10 +111,15 @@ function readQuestion() {
 								},
 								success : function(response) {
 									courseCode = response.trim();
-
+									console.log("php response is: " + response);
 									var text = "Quiz Name:" + quizname + "\n";
+									console.log("Text: "+text);
 									text += "Course Code:" + courseCode + "\n";
+									console.log("Text: "+text);
 									text += "\n";
+									
+									console.log("Length of lah: "+questions.length);
+									
 									for (var i = 0; i < questions.length; i++) {
 										var question = questions[i];
 
@@ -130,6 +142,7 @@ function readQuestion() {
 
 										// get appropriate tolerance text
 										var toleranceText = "0";
+										
 										if (question.questionType
 												.indexOf("number") != -1) {
 											toleranceText = question.tolerance;
@@ -160,7 +173,7 @@ function readQuestion() {
 										text += "Image Name:" + imageText
 												+ "\n"
 									}
-
+									console.log("Text: "+text);
 									document.getElementById("something").value = text;
 								}
 							});

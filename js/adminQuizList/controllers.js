@@ -23,7 +23,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 						// create button
 						$scope.loaded=true;
 						$scope.$apply();
-
 					}//end for
 
 				}//end success
@@ -39,7 +38,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 			success: function(response){
 
 				if(response.indexOf("true")!=-1){
-					alert("it is true");
 					$scope.safeToShow = true;
 				}
 				else{

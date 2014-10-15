@@ -63,6 +63,14 @@ register
 					return selectedCourses;
 				}
 
+				$scope.logout = function(){
+						   		sessionStorage.removeItem("username");
+						   		sessionStorage.removeItem("password");
+						   		window.location = "./login-fancy.html";
+
+
+				}
+
 				
 
 
@@ -118,10 +126,9 @@ register
 									alert("Could not register!");
 								}
 								else{
-									alert("Registration Successful");
+									
 									sessionStorage.setItem('username',login.username.value);
 									sessionStorage.setItem('password',login.password.value);
-					 				// window.location = "./quizTest.html";
 
 							 		var courses = getAllSelectedCourses();
 									for(var i = 0;i<courses.length;i++){
@@ -132,15 +139,17 @@ register
 											success: function(response){
 												console.log(response);
 												if(++$scope.coursesAdded==courses.length){
-													alert("all courses added");
+													
 
 													$.ajax({
 														url:'http://shrouded-earth-7234.herokuapp.com/getStudentsCourses.php',
 														type: 'post',
 														data: {'username':login.username.value},
 														success: function(response){
+															alert("Registration Successful");
 															console.log(response);
-																alert("done done");
+					 										window.location = "./quizTest.html";
+
 															}
 														});
 

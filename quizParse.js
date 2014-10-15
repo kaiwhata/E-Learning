@@ -6,6 +6,7 @@ var name2num = {
 }
 
 function submit() {
+	console.log("Went here");
 	var questionTexts = document.getElementById("something").value.split("Question");
 //	var questionTexts = quizInsert.quizFormat.value.split("Question");
 
@@ -36,14 +37,14 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 		var currentIndex = 2;// the first element after <body> tag
 		var bodyText = "";
 		while (questionLines[++currentIndex].indexOf("<BodyEnd>") == -1) {
-			bodyText = bodyText + questionLines[currentIndex];
+			bodyText = bodyText + questionLines[currentIndex]+"\n";
 		}
 		question["body"] = bodyText;
 
 		var modelAnswerText = "";
-
+		currentIndex++;
 		while (questionLines[++currentIndex].indexOf("<ModelAnswerEnd>") == -1) {
-			modelAnswerText = modelAnswerText + questionLines[currentIndex];
+			modelAnswerText = modelAnswerText + questionLines[currentIndex]+"\n";
 		}	
 		question["modelanswer"] = modelAnswerText;
 		// skip past body end
@@ -89,6 +90,9 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 		} else {
 			// convert type
 			q["Possible Answers"] = -1;
+			
+			console.log("Hey Eman: "+q["body"]+" "+ q["Possible Answers"]+" "+ q["Correct Answer"]+" "+ type+" "+ q["Tolerance"]+" "+ quizName+" "+ q["Image Name"]+" "+ q["modelanswer"]);
+			
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"], q["modelanswer"]);
 		}
@@ -156,7 +160,7 @@ function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 					insert(possibleAnswerQuestion["body"], panswerid,
 							possibleAnswerQuestion["Correct Answer"], type,
 							possibleAnswerQuestion["Tolerance"], quizName,
-							possibleAnswerQuestion["Image Name"]);
+							possibleAnswerQuestion["Image Name"],possibleAnswerQuestion["modelanswer"]);
 				}
 
 			});

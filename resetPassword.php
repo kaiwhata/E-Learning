@@ -13,8 +13,13 @@ $row = pg_fetch_row ( $result );
 $done = $row [0];
 
 
+$checkSql = "SELECT password FROM useraccount WHERE username = '$username'";
+$result = pg_query ( $dbconnection, $checkSql );
+$row = pg_fetch_row ( $result );
+$done = $row [0];
 
 echo $done;
+
 return;
 ?>
 

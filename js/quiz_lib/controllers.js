@@ -39,8 +39,8 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 			console.log("chris says: "+code);
 
-			if($scope.chrisMap[code]==null){
-				$scope.chrisMap[code]=[];
+			if($scope.chrisMap[code.trim()]==null){
+				continue;
 			}
 
 			$scope.chrisMap[code].push(name);
@@ -91,7 +91,24 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 
 					}//end for
-					$scope.callBack();
+
+					$.ajax({
+						url:'http://shrouded-earth-7234.herokuapp.com/getStudentsCourses.php',
+						type: 'post',
+						data: {'username':sessionStorage.getItem("username")},
+						success: function(response){
+
+							
+							var jsonArray = JSON.parse(response);
+							for(var i=0;i<jsonArray.length;i++){
+								var jobject = jsonArray[i];
+								$scope.chrisMap[jobject.code.trim()]=[];
+							}
+							
+							$scope.callBack();
+						}
+					});
+					
 				}//end success
 			});//end ajax
 		}//end getQuizesFunction
@@ -110,7 +127,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		console.log(index);
 
 		// figure out code using index
-		$scope.selectedCourse = $scope.courses[index].coursecode;
+		$scope.selectedCourse = Object.keys($scope.chrisMap)[index];
 		console.log("Code is: "+$scope.selectedCourse);
 
 		// populate quizzes array
