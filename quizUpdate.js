@@ -92,9 +92,7 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 
 // use ajax function to insert into databsae - question
 function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) {
-	console.log("test function call");
-	console.log("Values entered: " + body + " " + canswer + " " + type + " "
-			+ tolerance + " " + quizname);
+
 	// call PHP function
 	$.ajax({
 		url : 'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
@@ -110,7 +108,6 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 			"panswerid" : panswerid
 		},
 		success : function(response) {
-			console.log(response);
 
 			if (response.indexOf("success") == -1) {
 				alert("question not added");
@@ -125,8 +122,6 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename) 
 // Deal with the case of having possible answers,
 // We must insert the possible answers first, then search for the id
 function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
-	// TODO
-	console.log("calling insertPossibleAnswers");
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
 
@@ -142,7 +137,6 @@ function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 					"p4" : panswerArray[3],
 				},
 				success : function(response) {
-					console.log(response);
 					var panswerid = parseInt(response);
 					var type = parseInt(name2num[possibleAnswerQuestion["Type"]]);
 
@@ -166,7 +160,6 @@ function insertQuiz(quizname, coursecode, questionTexts) {
 			"coursecode" : coursecode
 		},
 		success : function(response) {
-			console.log(response);
 			submitQuestions(quizname, coursecode, questionTexts);
 
 			if (response.indexOf("success") == -1) {

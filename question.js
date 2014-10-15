@@ -162,9 +162,6 @@ var NumberEntryToleranceQuestion = function(id, bodyText, answerNum, tolerance, 
 		answerNum = parseFloat(answerNum);
 		tolerance = parseFloat(tolerance);
 
-		console.log(answer);
-		console.log(answerNum);
-		console.log(Math.abs(answer-answerNum));
 		if (answer == NaN) {
 //			alert("Only numbers allowed.");
 			return false;
@@ -274,18 +271,12 @@ function dummyQuestions() {
  *Output: parsed string
  */
 function parseAnswer(userAnswer){
-	console.log("parse start");
 
-	//var userInput = $('#button').val();
-	//console.log(userInput);
 	var maniText = userAnswer;
 	maniText = maniText.toLowerCase();
 	maniText = maniText.trim();
 
 	var finalInput = maniText;
-
-	console.log(finalInput);
-	console.log("parse end");
 
 	return finalInput;
 };

@@ -6,24 +6,19 @@ var name2num = {
 }
 
 function submit() {
-	console.log("Went here");
 	var questionTexts = document.getElementById("something").value.split("Question");
-//	var questionTexts = quizInsert.quizFormat.value.split("Question");
 
 	var headerText = questionTexts[0]
 	var headerLines = headerText.split("\n");
 
 	var QuizNameArray = headerLines[0].split(":");
-	var quizName = QuizNameArray[1].trim();// quiz name, this will be used for
-	// creating quiz entry and question
-	// entries
+	var quizName = QuizNameArray[1].trim();
+
 
 	var QuizCodeArray = headerLines[1].split(":");
-	var quizCode = QuizCodeArray[1];// quiz code, this will be used for creating
-	// quiz entry and question entries
+	var quizCode = QuizCodeArray[1];
 
-	insertQuiz(quizName, quizCode, questionTexts);// the database requires a
-	// quiz name before
+	insertQuiz(quizName, quizCode, questionTexts);
 
 }
 
@@ -91,7 +86,6 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 			// convert type
 			q["Possible Answers"] = -1;
 			
-			console.log("Hey Eman: "+q["body"]+" "+ q["Possible Answers"]+" "+ q["Correct Answer"]+" "+ type+" "+ q["Tolerance"]+" "+ quizName+" "+ q["Image Name"]+" "+ q["modelanswer"]);
 			
 			insert(q["body"], q["Possible Answers"], q["Correct Answer"], type,
 					q["Tolerance"], quizName, q["Image Name"], q["modelanswer"]);
@@ -102,9 +96,7 @@ function submitQuestions(quizName, quizCode, questionTexts) {
 
 // use ajax function to insert into databsae - question
 function insert(body, panswerid, canswer, type, tolerance, quizname, imagename,modelanswer) {
-	console.log("test function call");
-	console.log("Values entered: " + body + " " + canswer + " " + type + " "
-			+ tolerance + " " + quizname);
+
 	// call PHP function
 	$.ajax({
 		url : 'http://shrouded-earth-7234.herokuapp.com/processQuizEntry.php',
@@ -121,7 +113,6 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename,m
 			"modelanswer" : modelanswer
 		},
 		success : function(response) {
-			console.log(response);
 
 			if (response.indexOf("success") == -1) {
 				alert("question not added");
@@ -137,7 +128,6 @@ function insert(body, panswerid, canswer, type, tolerance, quizname, imagename,m
 // We must insert the possible answers first, then search for the id
 function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 	// TODO
-	console.log("calling insertPossibleAnswers");
 	var panswerLine = possibleAnswerQuestion["Possible Answers"];
 	var panswerArray = panswerLine.split(",");
 
@@ -153,7 +143,6 @@ function insertPossibleAnswers(possibleAnswerQuestion, quizName) {
 					"p4" : panswerArray[3],
 				},
 				success : function(response) {
-					console.log(response);
 					var panswerid = parseInt(response);
 					var type = parseInt(name2num[possibleAnswerQuestion["Type"]]);
 
@@ -177,7 +166,6 @@ function insertQuiz(quizname, coursecode, questionTexts) {
 			"coursecode" : coursecode.trim()
 		},
 		success : function(response) {
-			console.log(response);
 			if (response.indexOf("success") == -1) {
 				alert("quiz updated");
 				 submitQuestions(quizname, coursecode, questionTexts);
