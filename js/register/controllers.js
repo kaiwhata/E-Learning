@@ -68,7 +68,6 @@ register
 						   		sessionStorage.removeItem("password");
 						   		window.location = "./login.html";
 
-
 				}
 
 				
