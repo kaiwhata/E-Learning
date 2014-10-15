@@ -39,7 +39,7 @@ register
 							
 							// for(var i =0; i<courses.length;i++){
 							// 	$("#coursesdiv").append('<input type="checkbox" id="toggle" value="off" style="width:30px;margin-left:180px"/>'+courses[i].coursecode+'<br>');
-
+//comment
 
 
 							// }
