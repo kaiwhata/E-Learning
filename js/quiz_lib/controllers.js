@@ -114,8 +114,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		// var quizname = sp[1];
 		quizString = quizString.trim();
 		sessionStorage.setItem("quizname",quizString);
-		//window.location = "./quiz.html";
-		window.location = "http://shrouded-earth-7234.herokuapp.com/quiz.html";
+		window.location = "./quiz.html";
 	}//end func
 
 	$scope.clickCourse = function(index){
