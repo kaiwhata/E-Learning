@@ -121,7 +121,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		// var quizname = sp[1];
 		quizString = quizString.trim();
 		sessionStorage.setItem("quizname",quizString);
-		window.location = "./indexAng.html";
+		window.location = "./quiz.html";
 	}//end func
 
 	$scope.clickCourse = function(index){
