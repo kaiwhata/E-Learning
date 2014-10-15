@@ -57,12 +57,13 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 		console.log("hello");
 		if(!sessionStorage.getItem("password")){
 			alert("not logged in as admin");
-	 		window.location = "http://shrouded-earth-7234.herokuapp.com/login.html";
+	 		window.location = "./login.html";
 	 		return;
 
 		}else if (!sessionStorage.getItem("username")){
 			alert("not logeed in as admin");
-	 		window.location = "http://shrouded-earth-7234.herokuapp.com/login.html";
+	 		window.location = "./login.html";
+
 	 		return;
 		}
 		$.ajax({
