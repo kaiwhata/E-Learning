@@ -20,7 +20,7 @@ questionList
 
 					$scope.checkIfTaken = function(){
 						var username = sessionStorage.getItem("username");
-						var quizname = sessionStorage.getItem("quizname");
+						var quizname = sessionStorage.getItem("quizname").trim();
 
 
 						$
