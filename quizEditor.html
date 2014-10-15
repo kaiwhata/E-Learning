@@ -1,17 +1,219 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Quiz Editor</title>
-<meta charset="UTF-8">
-<style></style>
-</head>
-<h1>Quiz Editor</h1>
-<body onload="readQuestion()">
 
-	<textarea id="something" name="quizFormat" rows="50" cols="75" required> </textarea>
-	<input type="button" id="submit" value="Submit">
-	<script type="text/javascript" src="question.js"></script>
-	<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="q2t.js"></script>
-	<script type="text/javascript" src='quizParse.js'></script>
+<meta charset="UTF-8">
+<body onload="readQuestion();">
+<!-- Bootstrap core CSS -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="theme.css" rel="stylesheet">
+
+<title>Quiz Entry</title>
+</head>
+<div ng-controller = "adminQuizCtrl" ng-init = "verifyAdmin()" >
+<button id="back" onclick="backToAdminPage()"
+	class="btn btn-lg btn-link">Back To Admin Page</button>
+<h1 style="margin-left: 5%">Quiz Entry</h1>
+
+
+
+
+<table class="table table-bordered" style="margin-left: 5%; width: 90%">
+	<thead>
+		<th>Text</th>
+		<th>Number</th>
+		<th>Image</th>
+		<th>Multiple Choice</th>
+		<th>Latex</th>
+	</thead>
+
+	<tbody>
+		<tr>
+			<td>
+				<p>
+					Quiz Name:TextTestv1<br> Course Code:SWEN302<br> <br>
+					Question<br> ---------<br>
+					<Body>
+						&lt;Body&gt;
+						<br> What is the course code for this course?
+						<br>&lt;BodyEnd&gt;
+						<BodyEnd>
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+						Possible Answers:<br>
+						Correct Answer:SWEN302<br>
+						Type:text<br>
+						Tolerance:0<br>
+						Image Name:<br>	
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv2<br> Course Code:SWEN302<br> <br>
+					Question<br> ---------<br>
+					<Body>
+						&lt;Body&gt;
+						<br> 2+2=?
+						<br>&lt;BodyEnd&gt;						
+
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+						Possible Answers:<br>
+						Correct Answer:4<br>
+						Type:number<br>
+						Tolerance:0<br>
+						Image Name:<br>
+									
+				</p>
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv3<br> Course Code:SWEN302<br> <br>
+					Question<br> ---------<br>
+					<Body>
+						&lt;Body&gt;
+						<br> What is the course code for this course?
+						<br>&lt;BodyEnd&gt;						
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+						Possible Answers:<br>
+						Correct Answer:SWEN302<br>
+						Type:text<br>
+						Tolerance:0<br>
+						Image Name:/images/vicLogo.jpg<br>
+						<br>
+						<br>
+						<p style="color:red">Note:make sure url for images are on the same line as Image Name</p><br>				
+				</p>
+
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv4<br> Course Code:SWEN302<br> <br>
+					Question<br> ---------<br>
+					<Body>
+						&lt;Body&gt;
+						<br> What is 9+9?
+						<br>&lt;BodyEnd&gt;
+
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+						Possible Answers:16,17,18,158<br>
+						Correct Answer:18<br>
+						Type:multi<br>
+						Tolerance:0<br>
+						Image Name:<br>	
+						<br>
+						<br>
+
+						<p style="color:red">
+							Note:Correct Answer is the actual correct answer, not the index of the answer<br>
+						</p>	
+				</p>
+			</td>
+			<td>
+				<p>
+					Quiz Name:TextTestv5<br> Course Code:SWEN302<br> <br>
+					Question<br> ---------<br>
+					<Body>
+						&lt;Body&gt;
+						<br> What is \(sin^2(x) + cos^2(x)\)+1?
+						<br>&lt;BodyEnd&gt;
+						<br>&lt;ModelAnswer&gt;
+						<br>The answer is somethign because of reasons. <br> Here is where you should put the model answer
+						<br>&lt;ModelAnswerEnd&gt;<br>
+						Possible Answers:<br>
+						Correct Answer:1<br>
+						Type:number<br>
+						Tolerance:0<br>
+						Image Name:
+		
+						
+				</p>
+			</td>
+		</tr>
+	</tbody>
+
+
+</table>
+
+<div class="panel panel-info" style="margin-left: 25%; width: 50%">
+	<div class="panel-heading">
+		<h3 class="panel-title">Enter quiz below</h3>
+	</div>
+	<div class="panel-body">
+		<form novalidate name="quizInsert" style="width: 100%;">
+
+			<textarea id="something" name="quizFormat" ng-model="quizFormat"
+				required style="width: 100%; max-width: 100%; height: 340px"> </textarea>
+			<br />
+
+		</form>
+	</div>
+</div>
+
+
+
+<!--
+<div style="margin-left: 25%; width: 50%">
+	<input style="margin-left: 30%;" type="text" value="Browse for image"
+		id="whatever">
+	<button class="btn btn-sm btn-default">Browse</button>
+</div>
+-->
+<br>
+<div style="margin-left: 25%; width: 50%">
+	<input style="margin-left: 30%;" class="btn btn-sm btn-success"
+		type="button" id="submit" value="submit">
+</div>
+<br>
+<br>
+<br>
+<script>
+	window.onLoad = load()
+	function load() {
+
+		if (sessionStorage.getItem('username') == null) {
+
+		alert("You're not logged in, redirecting to home");
+		window.location = "./login.html";
+		}
+	}
+	function backToAdminPage() {
+		window.location = "./adminPage.html";
+	}
+</script>
+</div>
+
 </body>
+
+<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+<script type="text/javascript" src="question.js"></script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src='quizParse.js'></script>
+<script type="text/javascript" src="q2t.js"></script>
+<script type="text/javascript" src="js/adminQuizList/controllers.js"></script>
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="bootsrap/js/bootstrap.min.js"></script>
+<script src="bootstrap/js/docs.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+
+
+
 </html>

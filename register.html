@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html ng-app = "register">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+
+  <style type="text/css" id="holderjs-style"></style></head>
+
+  <style>
+			.error-message {
+			  color: red;
+			}
+			.jumbotron{
+			padding-right:800px;
+			padding-left: 30%;
+			padding-bottom:100px;
+			margin-top:250px
+			}
+  </style>
+
+<title>Register Page</title>
+</head>
+
+
+<div class="jumbotron" onload = "alert('dssdfsd');">
+
+
+
+		<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+		<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="js/register/app.js"></script>
+		<script type="text/javascript" src="js/register/controllers.js"></script>
+		<script type="text/javascript" src="js/register/services.js"></script>
+					<form novalidate name="login" ng-controller="registerCtrl" autocomplete="off" ng-init="generateCourseBoxes();">
+					<h1 style="margin-left:170px">Register</h1>
+						<table style="width:800px;text-align:left;">
+							<tbody>
+								<tr>
+									<td>
+										<label for="fname">First Name</label>
+										<input type="text" name="fname" ng-model="fname" ng-minlength="3" ng-maxlength="15" required />
+										<br />
+									</td>
+									<td>
+										<!--Blank-->
+
+
+
+									</td>
+								</tr>
+
+								<tr>
+									<td>
+										<label for="lname">Last Name</label>
+										<input type="text" name="lname" ng-model="lname" ng-minlength="3" ng-maxlength="15" required />
+										<br />
+									</td>
+									<td>
+										<!--Blank-->
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="username">Username</label>
+										<input type="text" name="username" ng-model="username" ng-minlength="3" ng-maxlength="15" required></input>
+										<br />
+									</td>
+									<td>
+										<div class="error-message" ng-show="login.username.$error.minlength">
+											The username should be 3-15 characters
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="email">Email Address</label>
+										<input type="email" name="email" ng-model="email" />
+										<br />
+									</td>
+									<td>
+										<div class="error-message"
+											ng-show="login.email.$invalid">The email is not valid
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="password">Password</label>
+										<input type="password" name="password" ng-model="password" required
+										ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/" />
+									</td>
+									<td style="width: 315px">
+										<div class="error-message"
+											ng-show="login.password.$dirty && login.password.$error.required">
+											The password is required
+										</div>
+
+										<div class="error-message" ng-show="login.password.$error.pattern">
+											The password should containing at least 8 <br>characters, 1 number, 1 upper and 1 lowercase
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label for="Courses">Courses</label>
+
+									<div id = "coursesdiv">				
+										<div ng-repeat ="course in allCourses track by $index">
+											<input type="checkbox" id="toggle" value="off" ng-model="course.selected" style="width:30px;margin-left:180px"/> {{course.coursecode}}
+											<br>
+										</div>
+									</div>
+									
+									<td style="width: 315px">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+
+
+
+
+
+
+
+						<br>
+						<div style="margin-left:155px; width:500px">
+							<input type="button" class="btn btn-success" style="width:100px" id="submit" value="Register" ng-click="clickedSubmit()">
+							<input type="button" class="btn btn-default" style="width:150px" id="home" value="Back to Log In" ng-click="logout()">
+						</div>
+						<script type="text/javascript">
+
+					</script>
+					</form>
+   <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+		    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+
+
+
+</div>
+</html>

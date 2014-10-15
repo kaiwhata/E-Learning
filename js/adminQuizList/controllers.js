@@ -64,7 +64,7 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 
 	$scope.editQuiz = function(quizName){
 		sessionStorage.setItem("quizname",quizName);
-		window.location = "./quizInsert.html";
+		window.location = "./quizEditor.html";
 	}
 
 	$scope.deleteQuiz = function(quizName) {
