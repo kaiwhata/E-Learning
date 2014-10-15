@@ -8,9 +8,7 @@ register
 					$scope.allCourses = [];
 					$scope.coursesAdded =0;
 
-					$scope.shout = function(){
-						alert("HELLO!!!!");
-					}
+
 					$scope.generateCourseBoxes = function(){
 						$.ajax({
 						url:'http://shrouded-earth-7234.herokuapp.com/getAllCourses.php',
@@ -18,7 +16,6 @@ register
 						success: function(response){
 							var courses = []
 							for(var i=0;i<JSON.parse(response).length;i++){
-								console.log("a;lkhfoiwaehfoia: "+JSON.parse(JSON.parse(response)[i]["row_to_json"]));
 								var course = (JSON.parse(JSON.parse(response)[i]["row_to_json"]));	
 								
 								var alreadyThere = false;
@@ -37,17 +34,8 @@ register
 								}
 							}
 							
-							// for(var i =0; i<courses.length;i++){
-							// 	$("#coursesdiv").append('<input type="checkbox" id="toggle" value="off" style="width:30px;margin-left:180px"/>'+courses[i].coursecode+'<br>');
-//comment
 
-
-							// }
-
-
-							// $scope.loaded=true;
 							$scope.$apply();
-							// $scope.getQuizes();
 
 						}
 					});
@@ -78,12 +66,6 @@ register
 
 					document.getElementById("submit").onclick = confirm;
 
-					    	console.log("username: "+ login.username.value);
-					    	console.log("email: "+ login.email.value);
-					    	console.log("password : "+ login.password.value);
-					    	console.log("fname: "+ login.fname.value);
-					    	console.log("lname: "+ login.lname.value);
-
 					    	//if any fields are blank get outa here
 					    	if(!login.username.value){
 					    		alert("please enter a username");
@@ -106,20 +88,12 @@ register
 					    		return;
 					    	}
 
-					    	console.log(getAllSelectedCourses());
-							    //alert("Successful");
-							    //call PHP function
-
-							
-
-
 							$.ajax({
 								url:'http://shrouded-earth-7234.herokuapp.com/processRegister.php',
 								type: 'post',
 								data: {"funcName":"register","username":login.username.value,"email":login.email.value,"password":login.password.value,"fname":login.fname.value,"lname":login.lname.value},
 
 								success: function(response){
-									console.log(response);
 
 								if(response.indexOf("success")==-1){
 									alert("Could not register!");
@@ -136,7 +110,6 @@ register
 											type: 'post',
 											data: {'coursecode':courses[i].coursecode,'username':login.username.value},
 											success: function(response){
-												console.log(response);
 												if(++$scope.coursesAdded==courses.length){
 													
 
@@ -146,30 +119,17 @@ register
 														data: {'username':login.username.value},
 														success: function(response){
 															alert("Registration Successful");
-															console.log(response);
 					 										window.location = "./quizTest.html";
 
 															}
 														});
-
 												}
-											
 										}
 									});
 									}
-		
-		
 								}
 								}
 							});
-
-					    
-
-						// document.getElementById("home").onclick = linkToHome;
-						//    	function linkToHome() {
-						//    		window.location = "./login.html";
-						// }
-
 				}
 
-				});
+			});

@@ -11,16 +11,13 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 			type: 'post',
 			data: {"funcName":"getQuizzes"},
 				success: function(response){
-					console.log("boo:"+response);
 					var instanceArray = response.split("*");
 
 					// loop this
 					for(var i=1;i<instanceArray.length;i++){
 						var instanceDeets = instanceArray[i].split(":");
-//						console.log("thing: "+instanceDeets[i]+" "+instanceDeets[i+1]);
 						var quizJobject = {name:instanceDeets[1],courseCode:instanceDeets[0]};
 						$scope.quizzes.push(quizJobject);
-						// create button
 						$scope.loaded=true;
 						$scope.$apply();
 					}//end for
@@ -30,7 +27,6 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 		}//end getQuizesFunction
 
 	$scope.verifyAdmin = function(){
-	    console.log("Check if admin is logged in");
 	 	 $.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 			type: 'post',
@@ -45,16 +41,13 @@ quizList.controller('adminQuizCtrl',function quizCtrl($scope) {
 	 				window.location = "./login.html";
 	 				return;
 				}
-				console.log(response);
-				console.log("username from session"+sessionStorage.getItem('username').trim());
-				console.log("password from session"+sessionStorage.getItem('password').trim());
+
 			}
 		});
 	}
 
 
 	$scope.selectQuiz = function(quizString) {
-		console.log("quizString is "+quizString);
 		var sp = quizString.split(":");
 		var code = sp[0];
 		var quizname = sp[1];

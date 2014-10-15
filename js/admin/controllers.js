@@ -8,7 +8,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	$scope.studentavgs = [];
 	
 	$scope.getQuizAverages = function(){
-	    console.log("Getting quiz averages");
 	    
 	    $.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/moreStats.php',
@@ -17,7 +16,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 			success: function(response){
 
 				
-				console.log("Get Quiz Averages: "+response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var averageJSON = JSON.parse(response)[i];
@@ -29,16 +27,12 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	}
 	
 	$scope.getStudentAverages = function(){
-	    console.log("Getting student averages");
 	    
 	    $.ajax({
 			url:'http://shrouded-earth-7234.herokuapp.com/moreStats.php',
 			type: 'post',
 			data: {"funcName":"getStudentAverages"},
 			success: function(response){
-
-				
-				console.log("Get Student Averages: "+response);
 				
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var averageJSON = JSON.parse(response)[i];
@@ -54,7 +48,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	// fname lname email avg numtaken
 	
 	$scope.getAllResults = function() {
-		console.log("hello");
 		if(!sessionStorage.getItem("password")){
 			alert("not logged in as admin");
 	 		window.location = "./login.html";
@@ -80,9 +73,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 	 				window.location = "./login.html";
 	 				return;
 				}
-				console.log(response);
-				console.log("username from session"+sessionStorage.getItem('username').trim());
-				console.log("password from session"+sessionStorage.getItem('password').trim());
 
 						$.ajax({
 			url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
@@ -91,7 +81,6 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 				"funcName" : "getAllResults"
 			},
 			success : function(response) {
-				console.log("Get All Results: "+response);
 				for (var i = 0; i < JSON.parse(response).length; i++) {
 					var questionJSON = JSON.parse(response)[i];
 					$scope.results.push(questionJSON);
@@ -112,13 +101,11 @@ admin.controller('adminCtrl', function adminCtrl($scope) {
 
 	$scope.getQueryResults = function(){
 	  //, "coursecode": courseinput.value
-			console.log("Starting query: "+courseinput.value);
 			$.ajax({
 				url:'http://shrouded-earth-7234.herokuapp.com/processQuery.php',
 				type: 'post',
 				data: {"funcName":"getQueryResults","fname": fnameinput.value,"lname": lnameinput.value, "quiz": quizinput.value, "coursecode": courseinput.value},
 				success: function(response){
-					console.log("Query executed: "+response);
 					$scope.results = [];
 					for (var i = 0; i < JSON.parse(response).length; i++) {
 					  var questionJSON = JSON.parse(response)[i];
