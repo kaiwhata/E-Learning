@@ -120,7 +120,7 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		// var code = sp[0];
 		// var quizname = sp[1];
 		sessionStorage.setItem("quizname",quizString);
-		window.location = "./indexAng.html";
+		window.location = "./quiz.html";
 	}//end func
 
 	$scope.clickCourse = function(index){
