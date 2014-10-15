@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html ng-app="quizList">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Alex Chung" >
+<link rel="icon" href="../../favicon.ico">
+
+<!-- Bootstrap core CSS -->
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap theme -->
+<link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="theme.css" rel="stylesheet">
+
+<style type="text/css" id="holderjs-style"></style>
+<title>Courses</title>
+<meta content="">
+<style>
+.jumbotron {
+	padding-top: 25px;
+	padding-bottom: 300px;
+	margin-top: 100px;
+}
+
+.col-md-4 {
+	width: 300px;
+	padding-top: 80px;
+}
+
+.page-header {
+	margin-top: -30px;
+	margin-bottom: -15px;
+}
+</style>
+<script type="text/javascript" src="js/libraries/angular/angular.js"></script>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/quiz_lib/app.js"></script>
+<script type="text/javascript" src="js/quiz_lib/controllers.js"></script>
+<script type="text/javascript" src="js/services.js"></script>
+
+</head>
+
+<div style="margin: 0 auto; width: 90%">
+	
+	<div class="col-md-4" style="text-align: left">
+
+
+		<button id="logoutBtn" class="btn btn-lg btn-link" onclick="logout()">Logout</button>
+		<button onclick="window.location = './results.html'"
+			class="btn btn-lg btn-link">Results</button>
+	</div>
+</div>
+<br>
+<div class="jumbotron">
+	<div class="col-md-5" style="width: 100%; text-align: center;">
+		<body onload="load()" ng-controller="quizCtrl">
+			<script>
+				function load() {
+					if (sessionStorage.getItem('username') == null) {
+						alert("You're not logged in, redirecting to home");
+						window.location = "./login.html";
+					}
+				}
+			</script>
+
+
+			<br>
+			<br>
+
+			<div class="page-header" style="margin-top: -150px;width:700px;margin-left:auto;margin-right:auto">
+				<h1>Available Courses</h1>
+			</div>
+
+
+
+				<table style="width: 30%; float: left">
+
+					<tr>
+
+						<td style="width: 30%">
+
+							<div class="col-sm-4" ng-init="getStuff()"
+								style="margin-top: 0px; width: 100%; height: 100%">
+								<div class="list-group" style="width: 100%; height: 100%">
+									<a class="list-group-item active"> Course </a> <a
+										ng-repeat="(courseName,quizNames) in chrisMap track by $index"
+										ng-click="clickCourse($index)" href="#"
+										class="list-group-item">{{courseName}}</a>
+								</div>
+							</div>
+
+						</td>
+
+					</tr>
+				</table>
+				<table style="width: 70%; float: left">
+					<tr>
+						<td style="width: 70%">
+
+							<div id="quizListGUI" class="col-sm-4"
+								ng-init="initialiseQuizzes()" style="width: 100%; height: 100%">
+								<div class="list-group" style="width: 100%; height: 100%">
+									<a class="list-group-item active" value = > Quizzes </a> <a
+										ng-repeat="quiz in quizzes track by $index"
+										ng-click="selectQuiz(quiz)" href="#" class="list-group-item">{{quiz}}</a>
+								</div>
+							</div>
+
+						</td>
+
+					</tr>
+
+				</table>
+
+
+			<!--
+			<nav id="menu" style="width:800px; height:200px; margin-left:30%; float:center">
+
+			        <ul class="parent-menu" ng-controller="quizCtrl" ng-init="getStuff()">
+
+			        	<li ng-repeat="(courseName,quizNames) in chrisMap track by $index"><a href="#">{{courseName}}</a>
+			                <ul>
+
+			                    <li ng-repeat="quizName in quizNames track by $index">
+			                    	<button id={{ "quiz"+$index+"btn"}} class="btn btn btn-link" ng-init="name=quiz" ng-click=selectQuiz(quizName)>{{quizName}}</button>
+			                    </li>
+
+			                </ul>
+
+			            </li>
+
+
+
+			        </ul>
+
+			    </nav>
+			    -->
+
+			<div style="width: 42%; margin: 0 auto;">
+
+				<br> <br> <br>
+
+
+
+				<!-- hello -->
+
+				<!--
+				<div id="main" ng-controller="quizCtrl" ng-show="loaded"
+					ng-init="getQuizes()">
+					<div>
+						<div id={{
+							"quiz"+$index}} ng-repeat="quiz in quizes track by $index"
+							style="text-align: left">
+
+							<button id={{ "quiz"+$index+"btn"}} class="btn btn-lg btn-link"
+								ng-init="name=quiz" ng-click=selectQuiz(name)>{{quiz}}</button>
+
+						</div>
+						<br> <br> <br>
+					</div>
+				</div>
+				-->
+
+
+				<script>
+					function gotoResults() {
+						window.location = "./results.html";
+					}
+
+					function logout() {
+						sessionStorage.removeItem("username");
+						sessionStorage.removeItem("password");
+						sessionStorage.clear();
+						window.location = "./login.html";
+					}
+				</script>
+		</body>
+	</div>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="bootsrap/js/bootstrap.min.js"></script>
+	<script src="bootstrap/js/docs.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="bootstrap/js/ie10-viewport-bug-workaround.js"></script>
+</div>
+</html>

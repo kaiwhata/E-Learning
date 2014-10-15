@@ -109,7 +109,10 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 
 
 	$scope.selectQuiz = function(quizString) {
-
+		// var sp = quizString.split(":");
+		// var code = sp[0];
+		// var quizname = sp[1];
+		quizString = quizString.trim();
 		sessionStorage.setItem("quizname",quizString);
 		window.location = "./quiz.html";
 	}//end func
