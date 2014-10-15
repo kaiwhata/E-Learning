@@ -66,7 +66,7 @@ register
 				$scope.logout = function(){
 						   		sessionStorage.removeItem("username");
 						   		sessionStorage.removeItem("password");
-						   		window.location = "./login-fancy.html";
+						   		window.location = "./login.html";
 
 
 				}
@@ -168,7 +168,7 @@ register
 
 						// document.getElementById("home").onclick = linkToHome;
 						//    	function linkToHome() {
-						//    		window.location = "./login-fancy.html";
+						//    		window.location = "./login.html";
 						// }
 
 				}
