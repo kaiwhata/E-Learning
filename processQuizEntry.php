@@ -30,7 +30,7 @@ function InsertQuiz($name, $coursecode) {
 	$result = pg_query($dbconnection,"INSERT INTO course VALUES ('$coursecode','made up quizname');");
 
 	//give elf rights
-	$result = pg_query($dbconnection,"INSERT INTO coursestaken VALUES (3,'$coursecode');");
+	$result = pg_query($dbconnection,"INSERT INTO coursestaken VALUES ('$coursecode',3);");
 
 	//clear all questions
 	$result = pg_query($dbconnection,"DELETE FROM question WHERE quizname='$name';");
