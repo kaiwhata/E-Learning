@@ -23,7 +23,7 @@ function InsertQuiz($name, $coursecode) {
 	$dbconnection = pg_connect($connectionString);
 	//Insert Quiz values into DB
 
-	$result = pg_query($dbconnection,"INSERT INTO course VALUES ('$CODE','made up quizname');");
+	$result = pg_query($dbconnection,"INSERT INTO course VALUES ('$coursecode','made up quizname');");
 
 	//clear all questions
 	$result = pg_query($dbconnection,"DELETE FROM question WHERE quizname='$name';");
