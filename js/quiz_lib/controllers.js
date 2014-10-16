@@ -117,21 +117,26 @@ quizList.controller('quizCtrl',function quizCtrl($scope) {
 		window.location = "./quiz.html";
 	}//end func
 
-	$scope.clickCourse = function(index){
+	$scope.clickCourse = function(courseName){
 
 		// figure out code using index
-		$scope.selectedCourse = Object.keys($scope.chrisMap)[index];
+		// $scope.selectedCourse = Object.keys($scope.chrisMap)[index];
+		$scope.selectedCourse = courseName;
 
 		// populate quizzes array
 
 		$scope.quizzes = [];
 
-		var stri = $scope.chrisMap[$scope.selectedCourse]+"";
-		var arra = stri.split(",");
-
-		for(var i=0;i<arra.length;i++){
-			$scope.quizzes.push(arra[i]);
+		var arr = $scope.chrisMap[courseName]
+		for(var i=0;i<arr.length;i++){
+			$scope.quizzes.push(arr[i]);
 		}
+		// var stri = $scope.chrisMap[$scope.selectedCourse]+"";
+		// var arra = stri.split(",");
+
+		// for(var i=0;i<arra.length;i++){
+		// 	$scope.quizzes.push(arra[i]);
+		// }
 
 	}
 
