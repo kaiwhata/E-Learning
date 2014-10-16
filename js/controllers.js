@@ -67,6 +67,7 @@ questionList
 						if(thing != null){
 							thing = thing.trim();
 						}
+						console.log("trimmed 'thing' is: " + thing);
 
 						$.ajax({
 									url : 'http://shrouded-earth-7234.herokuapp.com/processQuery.php',

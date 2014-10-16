@@ -102,7 +102,7 @@
 
 								<div directive-one ng-switch-when="text">
 									<br>
-									<img src={{question.imageURL}}> <br>
+									<img ng-if="question.imageURL" src={{question.imageURL}}> <br>
 									<br>
 
 									<p style="font-size: 125%">{{question.bodyText}}</p>
@@ -113,8 +113,8 @@
 								</div>
 								<div directive-three ng-switch-when="number">
 									<br> 
-	
-									<img src={{question.imageURL}} style="width:75%;margin-left: auto;margin-right: auto;"> 
+
+									<img ng-if="question.imageURL" src={{question.imageURL}} style="width:75%;margin-left: auto;margin-right: auto;"> 
 									<br>
 									<p style="font-size: 125%">{{question.bodyText}}</p>
 									<form id={{"question"+$index+"form"}}>
@@ -124,12 +124,8 @@
 								</div>
 								<div directive-four ng-switch-when="multi">
 									<br>
-									<div ng-if="!question.imageURL">
-										{{question.imageURL}}
-										hey hey heyh heh hey
-									</div>
 
-									<img src={{question.imageURL}}> <br>
+									<img ng-if="question.imageURL" src={{question.imageURL}}> <br>
 									<br>
 									<p style="font-size: 125%">{{question.bodyText}}</p>
 									<br>
@@ -188,7 +184,7 @@
 			<script type="text/javascript">
 				setInterval(function() {
 					MathJax.Hub.Typeset()
-					console.log("text");
+					//console.log("text");
 				}, 2000);
 			</script>
 </body>
